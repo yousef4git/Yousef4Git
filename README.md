@@ -88,20 +88,6 @@ SDA Agentic AI Bootcamp — 7 weeks · selective admission · 2026
     ↳ Real projects with UK & Canadian startups
 ```
 
----
-
-## GitHub Stats
-
-<div align="center">
-
-<img height="170em" src="https://github-readme-stats.vercel.app/api?username=Yousef4Git&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true&hide_border=true"/>
-<img height="170em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Yousef4Git&layout=compact&langs_count=8&theme=tokyonight&hide_border=true"/>
-
-</div>
-
-<div align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=Yousef4Git&theme=tokyonight&hide_border=true" alt="GitHub Streak" />
-</div>
 
 ---
 
@@ -116,7 +102,7 @@ SDA Agentic AI Bootcamp — 7 weeks · selective admission · 2026
 | 📊 | Education Scholarship — Data Science & ML | KAUST Academy | Nov 2025 |
 | 🐍 | Data Collection & Processing with Python | University of Michigan | Dec 2025 |
 | 📖 | Introduction to Data Science | University of Michigan | Nov 2025 |
-| 📈 | McKinsey Forward Program | McKinsey & Company | In Progress |
+| 📈 | McKinsey Forward Program | McKinsey & Company | jun 2025 |
 
 ---
 
