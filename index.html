@@ -698,7 +698,7 @@
       font-family: var(--serif);
       font-size: clamp(22px, 2.1vw, 30px);
       line-height: 1.5;
-      max-width: 860px;
+      max-width: 1160px;
       color: var(--ink);
       letter-spacing: -.005em
     }
@@ -779,10 +779,12 @@
       inset: 0;
       border-radius: 14px;
       background: radial-gradient(600px 300px at var(--mx, 50%) var(--my, 30%), rgba(201, 169, 110, .10), transparent 60%);
-      opacity: 0;
+      opacity: .35;
       transition: opacity .5s;
       pointer-events: none
     }
+
+    .card[data-href] { cursor: pointer }
 
     .card:hover {
       transform: translateY(-6px);
@@ -2099,8 +2101,8 @@
 
       <p class="range-p rv d2" data-key="proof.range" data-html="1">
         Operations leadership at national scale <span class="arrow">→</span> <em>Apple AI</em> <span class="latin"
-          style="color:var(--muted);font-family:var(--mono);font-size:.55em;letter-spacing:.2em">(1 OF 66 from more than
-          400k applicants worldwide)</span> <span class="arrow">→</span> KAUST · SDAIA <span class="arrow">→</span>
+          style="color:var(--muted);font-family:var(--mono);font-size:.55em;letter-spacing:.2em;white-space:nowrap">(1 OF 66 from 400k+ applicants worldwide)</span> <span class="arrow">→</span> KAUST <span class="arrow">→</span> SDAIA <span
+          class="arrow">→</span>
         Agentic AI systems <span class="arrow">→</span> founder. <em>The range is deliberate.</em>
       </p>
     </section>
@@ -2120,7 +2122,7 @@
       <div class="ventures">
 
         <!-- GHRS -->
-        <article class="card tilt rv" data-tilt>
+        <article class="card tilt rv" data-tilt data-href="https://ghrs.sa">
           <div class="top"><span class="no">/ 01</span><span data-key="card.ghrs.kicker">Business Dev</span></div>
           <div class="rusokh-mark">
             <div class="icon" style="background:transparent;box-shadow:none;border-radius:10px">
@@ -2136,7 +2138,7 @@
             <h3 class="latin">GHRS</h3>
             <div class="arname" dir="rtl">غرس للتنمية والحلول التقنية</div>
           </div>
-          <div class="badge"><span class="dot"></span><span data-key="badge.live">Live</span></div>
+          <div class="badge"><span class="dot"></span><span data-key="card.ghrs.badge">Live · Onboarding entrepreneurs</span></div>
           <p class="oneliner" data-key="card.ghrs.line">Business development and technical solutions for Saudi
             businesses — digital transformation with local context.</p>
           <div class="spacer"></div>
@@ -2147,8 +2149,8 @@
         </article>
 
         <!-- Rusokh -->
-        <article class="card hero-card tilt rv d1" data-tilt>
-          <div class="top"><span class="no">/ 02 · <span data-key="card.rusokh.feature">feature</span></span><span
+        <article class="card hero-card tilt rv d1" data-tilt data-href="https://rusokh.com">
+          <div class="top"><span class="no">/ 02</span><span
               data-key="card.rusokh.kicker">EdTech · SaaS</span></div>
           <div class="rusokh-mark">
             <div class="icon">
@@ -2175,7 +2177,7 @@
         </article>
 
         <!-- Replyli -->
-        <article class="card tilt rv d2" data-tilt>
+        <article class="card tilt rv d2" data-tilt data-href="https://replyli.com">
           <div class="top"><span class="no">/ 03</span><span data-key="card.replyli.kicker">CRM · AI</span></div>
           <div class="rusokh-mark">
             <div class="icon" style="background:transparent;box-shadow:none;border-radius:10px">
@@ -2494,7 +2496,7 @@
         <div class="tl-item">
           <div class="tl-date" data-key="cred.apple.date">2025</div>
           <div class="tl-title" data-key="cred.apple.title" data-html="1">Apple AI Program<span class="sub">Apple
-              Developer Academy · Tuwaiq · 1 of 66 selected · Built Trayath</span></div>
+              Developer Academy · Tuwaiq · 1 OF 66 from 400k+ applicants worldwide · Built Trayath</span></div>
           <div class="tl-badge" data-key="badge.completed">Completed</div>
         </div>
         <div class="tl-item">
@@ -2517,6 +2519,14 @@
         <a class="link" href="mailto:yousefalshuwayi@gmail.com">
           <span class="lbl" data-key="link.email">/ Email</span>
           <span class="val latin">yousefalshuwayi@gmail.com</span>
+        </a>
+        <a class="link" href="tel:+966506007446">
+          <span class="lbl" data-key="link.phone">/ Phone</span>
+          <span class="val latin">0506007446</span>
+        </a>
+        <a class="link" href="https://wa.me/+966506007446" target="_blank" rel="noopener">
+          <span class="lbl" data-key="link.whatsapp">/ WhatsApp</span>
+          <span class="val latin">+966 50 600 7446</span>
         </a>
         <a class="link" href="https://linkedin.com/in/yousefalshuwayi" target="_blank" rel="noopener">
           <span class="lbl" data-key="link.linkedin">/ LinkedIn</span>
@@ -2672,6 +2682,14 @@
       card.addEventListener('mouseleave', () => { card.style.transform = ''; });
     });
 
+    /* ---------- Whole-card click → data-href ---------- */
+    document.querySelectorAll('.card[data-href]').forEach(card => {
+      card.addEventListener('click', e => {
+        if (e.target.closest('a, button')) return;
+        window.open(card.dataset.href, '_blank', 'noopener');
+      });
+    });
+
     /* ---------- Anchor nav smooth ---------- */
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', e => {
@@ -2705,13 +2723,14 @@
         'proof.s2.cap': 'Cross-functional team management across operations',
         'proof.s3.unit': 'Students taught · 4.9/5',
         'proof.s3.cap': 'Workshops, bootcamps, and 1-to-1 mentorship in CS',
-        'proof.range': 'Operations leadership at national scale <span class="arrow">→</span> <em>Apple AI</em> <span class="latin" style="color:var(--muted);font-family:var(--mono);font-size:.55em;letter-spacing:.2em">(1 OF 66)</span> <span class="arrow">→</span> KAUST · SDAIA <span class="arrow">→</span> Agentic AI systems <span class="arrow">→</span> founder. <em>The range is deliberate.</em>',
+        'proof.range': 'Operations leadership at national scale <span class="arrow">→</span> <em>Apple AI</em> <span class="latin" style="color:var(--muted);font-family:var(--mono);font-size:.55em;letter-spacing:.2em;white-space:nowrap">(1 OF 66 from 400k+ applicants worldwide)</span> <span class="arrow">→</span> KAUST <span class="arrow">→</span> SDAIA <span class="arrow">→</span> Agentic AI systems <span class="arrow">→</span> founder. <em>The range is deliberate.</em>',
 
         'ventures.eyebrow': '02 / Ventures',
         'ventures.title': 'Three <em>companies.</em><br />One operator.',
         'ventures.right': 'Founded, built, and shipped<br />between 2025 – 2026.<br /><span style="color:var(--gold)">/ three live, all maintained.</span>',
 
         'card.ghrs.kicker': 'Business Dev',
+        'card.ghrs.badge': 'Live · Onboarding entrepreneurs',
         'card.ghrs.line': 'Business development and technical solutions for Saudi businesses — digital transformation with local context.',
         'card.ghrs.meta1': 'Founded 2025', 'card.ghrs.meta2': 'Riyadh, KSA', 'cta.visit_ghrs': 'Visit ghrs.sa',
 
@@ -2790,14 +2809,14 @@
         'cred.michigan_ds.date': 'Nov 2025',
         'cred.michigan_ds.title': 'Introduction to Data Science<span class="sub">University of Michigan</span>',
         'cred.apple.date': '2025',
-        'cred.apple.title': 'Apple AI Program<span class="sub">Apple Developer Academy · Tuwaiq · 1 of 66 selected · Built Trayath</span>',
+        'cred.apple.title': 'Apple AI Program<span class="sub">Apple Developer Academy · Tuwaiq · 1 OF 66 from 400k+ applicants worldwide  · Built Trayath</span>',
         'cred.mckinsey.date': '2025',
         'cred.mckinsey.title': 'McKinsey Forward Program<span class="sub">McKinsey &amp; Company</span>',
 
         'connect.eyebrow': ' 07 / Connect',
         'connect.title': 'Let’s <em>build.</em>',
         'connect.sub': '<span class="d"></span>Riyadh<span class="d"></span>Saudi Arabia<span class="d"></span>Open to collaboration<span class="d"></span>',
-        'link.email': '/ Email', 'link.linkedin': '/ LinkedIn', 'link.github': '/ GitHub', 'link.portfolio': '/ Portfolio',
+        'link.email': '/ Email', 'link.phone': '/ Phone', 'link.whatsapp': '/ WhatsApp', 'link.linkedin': '/ LinkedIn', 'link.github': '/ GitHub', 'link.portfolio': '/ Portfolio',
 
         'footer.line1': '© 2026 <span class="gold">Yousef Alshuwayi</span> · <a href="https://ghrs.sa" target="_blank" rel="noopener">GHRS</a> · <a href="https://rusokh.com" target="_blank" rel="noopener">Rusokh</a> · <a href="https://replyli.com" target="_blank" rel="noopener">Replyli</a>',
         'footer.line2': 'يوسف الشويعي — <span class="gold">الرياض</span>',
@@ -2820,19 +2839,20 @@
         'proof.s2.cap': 'إدارة فرق متعددة الاختصاصات عبر العمليات',
         'proof.s3.unit': 'طالب · 4.9/5',
         'proof.s3.cap': 'ورش، بوتكامبات، وإرشاد فردي في علوم الحاسب',
-        'proof.range': 'قيادة عمليات على نطاق وطني <span class="arrow">→</span> <em>Apple AI</em> <span class="latin" style="color:var(--muted);font-family:var(--mono);font-size:.55em;letter-spacing:.2em">(1 OF 66)</span> <span class="arrow">→</span> KAUST · SDAIA <span class="arrow">→</span> أنظمة وكلاء ذكاء اصطناعي <span class="arrow">→</span> مؤسس. <em>هذا التنوّع مقصود.</em>',
+        'proof.range': 'قيادة عمليات على نطاق وطني <span class="arrow">→</span> <bdi><em>Apple AI</em> <span class="latin" style="color:var(--muted);font-family:var(--mono);font-size:.55em;letter-spacing:.2em;white-space:nowrap">(1 OF 66 from 400k+ applicants worldwide)</span></bdi> <span class="arrow">→</span> <bdi>KAUST</bdi> <span class="arrow">→</span> <bdi>SDAIA</bdi> <span class="arrow">→</span> أنظمة وكلاء ذكاء اصطناعي <span class="arrow">→</span> مؤسس. <em>هذا التنوّع مقصود.</em>',
 
         'ventures.eyebrow': '02 / المشاريع',
         'ventures.title': 'ثلاث <em>شركات.</em><br />مشغّل واحد.',
         'ventures.right': 'تأسست وبُنيت وأُطلقت<br />بين 2025 – 2026.<br /><span style="color:var(--gold)">/ ثلاث قائمة، جميعها قيد التشغيل.</span>',
 
         'card.ghrs.kicker': 'تطوير أعمال',
+        'card.ghrs.badge': 'قائم · نستقبل رواد الأعمال',
         'card.ghrs.line': 'تطوير أعمال وحلول تقنية للشركات السعودية — تحوّل رقمي بسياق محلي.',
         'card.ghrs.meta1': 'تأسست 2025', 'card.ghrs.meta2': 'الرياض، السعودية', 'cta.visit_ghrs': 'زُر ghrs.sa',
 
         'card.rusokh.feature': 'مميّز', 'card.rusokh.kicker': 'تعليم · SaaS',
         'card.rusokh.h3': 'منصّة كورسات.',
-        'card.rusokh.badge': 'قائم · يستقبل المحاضرين',
+        'card.rusokh.badge': 'قائم · نستقبل الشارحين',
         'card.rusokh.line': 'منصّة تعلّم عربيّة بمستوى جامعي. بُنيت بشكل فردي خلال ثلاثة أسابيع. تعمل في الإنتاج، ويُسجَّل المحاضرون اليوم.',
         'card.rusokh.meta1': 'تأسست 2026', 'card.rusokh.meta2': 'بُنيت فردياً · 3 أسابيع', 'cta.visit_rusokh': 'زُر rusokh.com',
 
@@ -2912,7 +2932,7 @@
         'connect.eyebrow': ' 07 / تواصل',
         'connect.title': 'لِنَبنِ <em>معاً.</em>',
         'connect.sub': '<span class="d"></span>الرياض<span class="d"></span>المملكة العربية السعودية<span class="d"></span>منفتح على التعاون<span class="d"></span>',
-        'link.email': '/ البريد', 'link.linkedin': '/ LinkedIn', 'link.github': '/ GitHub', 'link.portfolio': '/ الموقع',
+        'link.email': '/ البريد', 'link.phone': '/ الجوّال', 'link.whatsapp': '/ واتساب', 'link.linkedin': '/ LinkedIn', 'link.github': '/ GitHub', 'link.portfolio': '/ الموقع',
 
         'footer.line1': '© 2026 <span class="gold">يوسف الشويعي</span> · <a href="https://ghrs.sa" target="_blank" rel="noopener">GHRS</a> · <a href="https://rusokh.com" target="_blank" rel="noopener">رسوخ</a> · <a href="https://replyli.com" target="_blank" rel="noopener">Replyli</a>',
         'footer.line2': 'Yousef Alshuwayi — <span class="gold">Riyadh</span>',
