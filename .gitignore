@@ -1,0 +1,25 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment / secrets — NEVER commit (OPENAI_API_KEY, GROQ_API_KEY, HF_TOKEN)
+.env
+.env.*
+!.env.example
+
+# Python (theChatBot/)
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+*.egg-info/
+.env
+# Logs & editor
+*.log
+.vscode/
+.idea/
+
+# Chatbot source — deployed to its Hugging Face Space, not to Vercel.
+# Kept out of the repo (contains personal CV files: linkedin.pdf, photos).
+theChatBot/
