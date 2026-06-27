@@ -17,7 +17,7 @@
 
 ## About Me
 
-I'm a Saudi founder and AI engineer who built a **production Arabic-first SaaS platform solo in 3 weeks** — then kept shipping.
+I'm a Saudi founder and AI engineer who built a **production A SaaS platform solo in 3 weeks**  then kept shipping.
 
 Before writing a single line of product code, I was managing **1,500 employees across two shifts** for the Riyadh Metro launch, keeping service running for 30 million visitors. Then came the career shift: Computer Science, an Apple AI scholarship (1 of 66 selected), KAUST, SDAIA — and finally building the things I was studying.
 
