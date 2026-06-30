@@ -1,0 +1,12 @@
+{
+  "key": "it_planning_coordinator",
+  "file": "IT-Planning-Coordinator",
+  "title": { "en": "IT Planning and Project Coordinator" },
+  "summary": { "en": "IT planning and project coordinator with a computer science background. I plan and coordinate delivery across teams. I prepared 1,500 staff across 45 stations for the Riyadh Metro launch in one month, coordinated between operating companies and the Royal Commission, and now plan and deliver technical projects for clients." },
+  "sectionOrder": ["summary","skills","experience","education","certs","languages"],
+  "tags": ["it-planning","pm","ops","it"],
+  "leadBullets": ["metro_scale","metro_coord","ghrs"],
+  "experienceOrder": ["yax","consultant","tutor","allure"],
+  "skillOrder": ["ways","programming","cloud","web","data","ai"],
+  "keywords": ["project coordination","planning","requirements","stakeholder communication"]
+}

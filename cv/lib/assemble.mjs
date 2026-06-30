@@ -12,6 +12,8 @@ const HEADINGS = {
 
 const t = (obj, lang) => (obj && (obj[lang] ?? obj.en)) || '';
 
+const MAX_BULLETS_PER_ENTRY = 5;
+
 function includeBullet(b, role) {
   if (role.leadBullets.includes(b.id)) return true;
   if ((b.tags || []).includes('all')) return true;
@@ -24,7 +26,8 @@ function orderBullets(bullets, role, lang) {
     .map(id => included.find(b => b.id === id))
     .filter(Boolean);
   const rest = included.filter(b => !role.leadBullets.includes(b.id));
-  return [...lead, ...rest].map(b => ({ id: b.id, text: t(b.text, lang) }));
+  return [...lead, ...rest].slice(0, MAX_BULLETS_PER_ENTRY)
+    .map(b => ({ id: b.id, text: t(b.text, lang) }));
 }
 
 function orderEntries(entries, role) {

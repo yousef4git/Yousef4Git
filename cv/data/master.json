@@ -27,7 +27,7 @@
         { "id": "op_judge", "tags": ["agentic","ai"],
           "text": { "en": "Added an AI check on the AI-written messages before a person approved them, an LLM-as-judge step." } },
         { "id": "ghrs", "tags": ["fullstack","it","solutions","pm","ops"],
-          "text": { "en": "Through GHRS, delivered client work for Saudi businesses: rebuilt websites, automated WhatsApp Business, and connected internal tools to customer channels." } },
+          "text": { "en": "Through GHRS, delivered client work for Saudi businesses: rebuilt websites, automated WhatsApp Business, and integrated internal tools with customer channels." } },
         { "id": "freightlx", "tags": ["solutions","ai","pm"],
           "text": { "en": "Advised an early logistics startup (FREIGHTLX) as an AI consultant on scope and build." } }
       ]
@@ -67,7 +67,7 @@
       "location": { "en": "Riyadh, Saudi Arabia" },
       "start": "2022-11", "end": "2024-10",
       "bullets": [
-        { "id": "allure_logistics", "tags": ["ops"],
+        { "id": "allure_logistics", "tags": ["archive"],
           "text": { "en": "Handled on-site logistics for large events." } }
       ]
     }
@@ -101,7 +101,7 @@
       { "key": "web", "label": { "en": "Web and full-stack" }, "items": ["Next.js","React","Tailwind CSS","FastAPI","Node","Convex"] },
       { "key": "data", "label": { "en": "Data" }, "items": ["PostgreSQL","pgvector","Redis"] },
       { "key": "cloud", "label": { "en": "Cloud and infrastructure" }, "items": ["AWS","Docker","GitHub Actions"] },
-      { "key": "ways", "label": { "en": "Ways of working" }, "items": ["Git","CI/CD","Requirements gathering","Technical planning","Stakeholder communication"] }
+      { "key": "ways", "label": { "en": "Ways of working" }, "items": ["Git","CI/CD","Requirements gathering","Technical planning","Roadmap delivery","Stakeholder communication"] }
     ]
   },
   "education": [

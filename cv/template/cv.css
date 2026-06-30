@@ -2,7 +2,7 @@
 * { box-sizing: border-box; }
 body {
   font-family: "Helvetica Neue", Arial, "Liberation Sans", sans-serif;
-  font-size: 9.5pt; line-height: 1.29; color: #16181d; margin: 0;
+  font-size: 9.5pt; line-height: 1.26; color: #16181d; margin: 0;
 }
 html[dir="rtl"] body {
   font-family: "IBM Plex Sans Arabic", "Cairo", "Geeza Pro", "Segoe UI", sans-serif;

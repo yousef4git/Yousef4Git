@@ -1,0 +1,11 @@
+{
+  "key": "solutions_engineer",
+  "file": "Solutions-AI-Engineer",
+  "title": { "en": "Solutions Engineer (Forward-Deployed AI)" },
+  "summary": { "en": "Solutions engineer and computer science student in Riyadh. I work directly with clients to turn a problem into a working system. I built a risk-triage system for an education platform, deliver web and automation work through GHRS, and explain technical choices in plain language." },
+  "sectionOrder": ["summary","skills","experience","projects","education","certs","languages"],
+  "tags": ["solutions","ai","fullstack","it"],
+  "leadBullets": ["op_design","ghrs","op_integrity"],
+  "skillOrder": ["ai","web","programming","cloud","data","ways"],
+  "keywords": ["solutions","client","FastAPI","integration"]
+}

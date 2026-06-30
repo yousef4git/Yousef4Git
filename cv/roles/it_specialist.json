@@ -1,0 +1,11 @@
+{
+  "key": "it_specialist",
+  "file": "IT-Specialist",
+  "title": { "en": "IT Specialist" },
+  "summary": { "en": "IT specialist and computer science student in Riyadh. I set up and connect systems, automate manual work, and support users. I rebuilt websites, automated WhatsApp Business, and integrated internal tools with customer channels, and I work with AWS, Docker, and GitHub Actions." },
+  "sectionOrder": ["summary","skills","experience","education","certs","languages"],
+  "tags": ["it","fullstack","ops"],
+  "leadBullets": ["ghrs"],
+  "skillOrder": ["cloud","web","programming","data","ai","ways"],
+  "keywords": ["AWS","Docker","GitHub Actions","systems","support"]
+}

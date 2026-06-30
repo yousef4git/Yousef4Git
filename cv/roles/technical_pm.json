@@ -1,0 +1,12 @@
+{
+  "key": "technical_pm",
+  "file": "Technical-Program-Manager",
+  "title": { "en": "Technical Program Manager" },
+  "summary": { "en": "Technical program manager with engineering and large-scale operations experience. I deliver projects from plan to launch. I prepared 1,500 staff for the Riyadh Metro launch, built and shipped a course platform, and coordinate technical delivery with clients. McKinsey Forward program." },
+  "sectionOrder": ["summary","skills","experience","projects","education","certs","languages"],
+  "tags": ["pm","ops","fullstack","it"],
+  "leadBullets": ["metro_scale","ghrs"],
+  "experienceOrder": ["yax","consultant","tutor","allure"],
+  "skillOrder": ["ways","programming","web","ai","cloud","data"],
+  "keywords": ["roadmap","delivery","stakeholder communication","program"]
+}

@@ -1,0 +1,11 @@
+{
+  "key": "full_stack_developer",
+  "file": "Full-Stack-Developer",
+  "title": { "en": "Full-Stack Developer" },
+  "summary": { "en": "Full-stack developer and computer science student in Riyadh. I build web products with Next.js, React, TypeScript, and FastAPI. I built and shipped Rusokh, a course platform now live in production, and deliver client web work through GHRS." },
+  "sectionOrder": ["summary","skills","experience","projects","education","certs","languages"],
+  "tags": ["fullstack","ai","it"],
+  "leadBullets": ["ghrs","op_design"],
+  "skillOrder": ["web","programming","data","cloud","ai","ways"],
+  "keywords": ["Next.js","React","TypeScript","FastAPI","PostgreSQL"]
+}
