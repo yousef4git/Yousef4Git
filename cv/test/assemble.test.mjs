@@ -15,7 +15,7 @@ const master = {
   skills: { categories: [
     { key:'programming', label:{en:'Programming'}, items:['Python'] },
     { key:'ai', label:{en:'AI and agents'}, items:['MCP'] } ] },
-  education: [{ primary:{en:'B.Sc. Computer Science'}, secondary:{en:'IMSIU'}, dates:'Expected Jan 2027' }],
+  education: [{ primary:{en:'B.Sc. Computer Science'}, secondary:{en:'IMSIU'}, dates:{en:'Expected Jan 2027'} }],
   certs: [{ name:{en:'Apple AI Program'}, org:{en:'Apple'}, year:'2025', note:{en:''} }],
   languages: [{ label:{en:'Arabic: native'} }],
 };

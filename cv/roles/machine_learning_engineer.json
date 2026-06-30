@@ -1,8 +1,11 @@
 {
   "key": "machine_learning_engineer",
   "file": "Machine-Learning-Engineer",
-  "title": { "en": "Machine Learning Engineer" },
-  "summary": { "en": "Computer science student and applied ML engineer in Riyadh. I work with Python and data, build and evaluate models, and ship AI features into real products. KAUST data science and machine learning scholarship, plus University of Michigan data science courses." },
+  "title": { "en": "Machine Learning Engineer", "ar": "مهندس تعلّم آلة" },
+  "summary": {
+    "en": "Computer science student and applied ML engineer in Riyadh. I work with Python and data, build and evaluate models, and ship AI features into real products. KAUST data science and machine learning scholarship, plus University of Michigan data science courses.",
+    "ar": "طالب علوم حاسب ومهندس تعلّم آلة تطبيقي في الرياض. أعمل مع Python والبيانات، وأبني النماذج وأقيّمها، وأدمج ميزات الذكاء الاصطناعي في منتجات حقيقية. منحة علم البيانات وتعلّم الآلة من KAUST، إضافة إلى مقررات علم البيانات من جامعة ميشيغان."
+  },
   "sectionOrder": ["summary","skills","experience","projects","education","certs","languages"],
   "tags": ["ml","ai","agentic"],
   "leadBullets": ["op_design","op_integrity"],

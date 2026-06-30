@@ -71,7 +71,7 @@ export function assembleCV(master, role, lang) {
     experience: { kind: 'experience', heading: HEADINGS.experience[lang], entries: expEntries },
     projects: { kind: 'projects', heading: HEADINGS.projects[lang], entries: projEntries },
     education: { kind: 'simple', heading: HEADINGS.education[lang],
-      entries: master.education.map(ed => ({ primary: t(ed.primary, lang), secondary: t(ed.secondary, lang), dates: ed.dates })) },
+      entries: master.education.map(ed => ({ primary: t(ed.primary, lang), secondary: t(ed.secondary, lang), dates: t(ed.dates, lang) })) },
     certs: { kind: 'certs', heading: HEADINGS.certs[lang],
       entries: master.certs.map(ct => ({ name: t(ct.name, lang), org: t(ct.org, lang), year: ct.year, note: t(ct.note, lang) })) },
     languages: { kind: 'inline', heading: HEADINGS.languages[lang],
