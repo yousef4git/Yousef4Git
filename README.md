@@ -2,7 +2,7 @@
 <div align="center">
 
 <a href="https://git.io/typing-svg">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=24&pause=1200&color=00B4D8&center=true&vCenter=true&random=false&width=800&lines=Hey%2C+I'm+Yousef+Alshuwayi+%F0%9F%87%B8%F0%9F%87%A6;Founder+%7C+AI+Engineer+%7C+Builder;Built+production+SaaS+solo+in+3+weeks+%E2%9A%A1;1%2C800%2B+students+%E2%80%94+still+teaching%2C+still+shipping;Arabic-first+AI+for+MENA+%7C+Riyadh" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=24&pause=1200&color=00B4D8&center=true&vCenter=true&random=false&width=800&lines=Hey%2C+I'm+Yousef+Alshuwayi+%F0%9F%87%B8%F0%9F%87%A6;AI+%26+Software+Consultant+%7C+Agentic+AI+Engineer;I+build+practical+AI+systems+and+web+products;1%2C800%2B+students+taught%2C+still+teaching;Riyadh%2C+Saudi+Arabia" alt="Typing SVG" />
 </a>
 
 <br/><br/>
@@ -17,18 +17,17 @@
 
 ## About Me
 
-I'm a Saudi founder and AI engineer who built a **production Arabic-first SaaS platform solo in 3 weeks** — then kept shipping.
+I'm a computer science student in Riyadh. I build AI systems and web products, and I have run operations at national scale.
 
-Before writing a single line of product code, I was managing **1,500 employees across two shifts** for the Riyadh Metro launch, keeping service running for 30 million visitors. Then came the career shift: Computer Science, an Apple AI scholarship (1 of 66 selected), KAUST, SDAIA — and finally building the things I was studying.
+I work as a freelance AI and software consultant. I built a risk-triage system for an education platform, where fixed rules do the scoring and an AI model only handles the Arabic text. I built **Rusokh**, a course platform that is live and in use, and I deliver client work through **GHRS**.
 
-Today I run **Rusokh** (live Arabic EdTech) and **GHRS** (business Devlopment & tech solutions), teach 1,800+ students, and am going deep on agentic AI systems through the SDA Bootcamp. I don't demo AI — I deploy it.
+Before engineering I prepared **1,500 staff across 45 stations** for the Riyadh Metro launch, which served over 30 million visitors. I have taught **1,800+ computer science students** over four years at a 4.9 of 5 rating, and I was selected 1 of 66 from over 400,000 applicants for **Apple's AI program**.
 
 ```
-Metro ops at 30M scale → CS & AI deep dive → Solo SaaS founder → Agentic systems
-That's the range. That's the edge.
+Operations at national scale → computer science and AI → consulting and building.
 ```
 
-> **Current mission:** Build the AI-native tools that empower Arabic-speaking founders, educators, and businesses — systems that work in production, not just demos.
+> I keep AI out of the parts where plain rules are safer.
 
 ---
 
@@ -60,34 +59,32 @@ That's the range. That's the edge.
 **Infrastructure**
 
 ![Docker](https://img.shields.io/badge/Docker-%232496ED.svg?style=for-the-badge&logo=docker&logoColor=white)
-![Google Cloud](https://img.shields.io/badge/Google%20Cloud%20Run-%234285F4.svg?style=for-the-badge&logo=google-cloud&logoColor=white)
+![AWS](https://img.shields.io/badge/AWS-%23232F3E.svg?style=for-the-badge&logo=amazon-aws&logoColor=white)
 ![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-%232088FF.svg?style=for-the-badge&logo=github-actions&logoColor=white)
 
 ---
 
-## Currently Building
+## Selected Work
 
-| Venture                          | What it is                                                                                           | Status         |
-| -------------------------------- | ---------------------------------------------------------------------------------------------------- | -------------- |
-| [**Rusokh**](https://rusokh.com) | Arabic-first university course platform — built solo, live in production, onboarding instructors now | 🟢 Live        |
-| **GHRS** غرس                     | business Devlopment & technical development solutions for Saudi businesses                           | 🔨 Building    |
-| **Replyli**                      | AI-powered engagement automation                                                                     | 🔨 Building    |
-| **yousefalshuwayi.online**       | Personal portfolio & case studies                                                                    | 🚀 Coming soon |
+| Project                          | What it is                                                                          | Status      |
+| -------------------------------- | ----------------------------------------------------------------------------------- | ----------- |
+| **Risk-triage system**           | Document intake and risk scoring for an education platform. Rules score, AI handles only the Arabic text. Paid client work. | ✅ Delivered |
+| [**Rusokh**](https://rusokh.com) | A course platform I built for myself, now live and in use. Next.js, Convex, payments, video, in Arabic and English.         | 🟢 Live      |
+| **GHRS** غرس                     | Client work for Saudi businesses: rebuilt websites, automated WhatsApp Business, connected internal tools to customer channels. | 🔨 Active    |
 
 ---
 
-## Currently Learning
+## Training
 
 ```
-SDA Agentic AI Bootcamp — 7 weeks · selective admission · 2026
+SDA Agentic AI Bootcamp · 7 weeks · selective admission · 2026 · completed
 ├── LLM Foundations    OpenAI · Anthropic · ALLAM · Deepseek · Promptfoo · DeepEval
 ├── RAG Systems        LangChain · pgvector · Milvus · RAGAS
 ├── Agent Systems      LangGraph · CrewAI · AutoGen · MCP · Function Calling
 ├── AgentOps           AgentOps · Mem0 · Redis · Cursor · Claude Code
-└── Deployment         FastAPI · Docker · GitHub Actions · AWS / Azure
-    ↳ Real projects with UK & Canadian startups
+└── Deployment         FastAPI · Docker · GitHub Actions · AWS
+    Real projects with UK and Canada startups
 ```
-
 
 ---
 
@@ -95,20 +92,20 @@ SDA Agentic AI Bootcamp — 7 weeks · selective admission · 2026
 
 | | Program | Issuer | Year |
 |-|---------|--------|------|
-| 🔄 | Agentic AI Bootcamp *(in progress — 7 weeks, selective admission)* | SDA Academy | 2026 |
-| ⚡ | Vibe Coding | SDAIA — Saudi Data & AI Authority | Feb 2026 |
-| 🧠 | Introduction to Artificial Intelligence · 40 hrs | KAUST | Jan 2026 |
-| 🍎 | Apple AI Program *(1 of 66 selected)* | Apple Developer Academy · Tuwaiq | 2025 |
-| 📊 | Education Scholarship — Data Science & ML | KAUST Academy | Nov 2025 |
-| 🐍 | Data Collection & Processing with Python | University of Michigan | Dec 2025 |
-| 📖 | Introduction to Data Science | University of Michigan | Nov 2025 |
-| 📈 | McKinsey Forward Program | McKinsey & Company | jun 2025 |
+| ✅ | Agentic AI Bootcamp *(completed, 7 weeks, selective admission)* | SDA Academy | 2026 |
+| ⚡ | Vibe Coding | SDAIA, Saudi Data & AI Authority | 2026 |
+| 🧠 | Introduction to Artificial Intelligence · 40 hrs | KAUST Academy | 2026 |
+| 🍎 | Apple AI Program *(1 of 66 from over 400,000 applicants)* | Apple Developer Academy · Tuwaiq | 2025 |
+| 📊 | Data Science & Machine Learning scholarship | KAUST Academy | 2025 |
+| 🐍 | Data Collection & Processing with Python | University of Michigan | 2025 |
+| 📖 | Introduction to Data Science | University of Michigan | 2025 |
+| 📈 | McKinsey Forward Program | McKinsey & Company | 2026 |
 
 ---
 
 <div align="center">
 
 *Riyadh · Saudi Arabia*
-*Open to collaborations on AI systems, Arabic-first products, and SaaS in the MENA region.*
+*Open to AI engineering, full-stack, and IT roles, and to consulting work in Saudi Arabia and the GCC.*
 
 </div>
