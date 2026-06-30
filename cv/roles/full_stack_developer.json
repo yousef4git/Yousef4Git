@@ -3,8 +3,8 @@
   "file": "Full-Stack-Developer",
   "title": { "en": "Full-Stack Developer", "ar": "مطوّر ويب متكامل" },
   "summary": {
-    "en": "Full-stack developer and computer science student in Riyadh. I build web products with Next.js, React, TypeScript, and FastAPI. I built and shipped Rusokh, a course platform now live in production, and deliver client web work through GHRS.",
-    "ar": "مطوّر ويب متكامل وطالب علوم حاسب في الرياض. أبني منتجات ويب باستخدام Next.js وReact وTypeScript وFastAPI. بنيت وأطلقت رسوخ، منصة دورات تعمل الآن في الإنتاج، وأنفّذ أعمال ويب للعملاء عبر GHRS."
+    "en": "Full-stack developer in Riyadh. I build web products with Next.js, React, TypeScript, and FastAPI. I built and shipped Rusokh, a course platform now live in production, and deliver client web work through GHRS.",
+    "ar": "مطوّر ويب متكامل في الرياض. أبني منتجات ويب باستخدام Next.js وReact وTypeScript وFastAPI. بنيت وأطلقت رسوخ، منصة دورات تعمل الآن في الإنتاج، وأنفّذ أعمال ويب للعملاء عبر GHRS."
   },
   "sectionOrder": ["summary","skills","experience","projects","education","certs","languages"],
   "tags": ["fullstack","ai","it"],

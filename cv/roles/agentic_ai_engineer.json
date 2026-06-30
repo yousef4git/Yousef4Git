@@ -3,8 +3,8 @@
   "file": "Agentic-AI-Engineer",
   "title": { "en": "Agentic AI Engineer", "ar": "مهندس ذكاء اصطناعي وكيلي" },
   "summary": {
-    "en": "Agentic AI engineer and computer science student in Riyadh. I build agent systems with LangGraph, CrewAI, AutoGen, and MCP, and I keep AI out of the parts where plain rules are safer. I designed a risk-triage system where rules do the scoring and the model only handles language, with an LLM-as-judge check before anything reaches a person.",
-    "ar": "مهندس ذكاء اصطناعي وكيلي وطالب علوم حاسب في الرياض. أبني أنظمة وكلاء باستخدام LangGraph وCrewAI وAutoGen وMCP، وأُبقي الذكاء الاصطناعي بعيدًا عن الأجزاء التي تؤديها القواعد الثابتة بأمان أكبر. صممت نظام ترتيب حسب الخطورة تتولى فيه القواعد حساب الدرجات، ويتولى النموذج اللغة فقط، مع خطوة تحكيم بالنموذج قبل وصول أي شيء إلى شخص."
+    "en": "Agentic AI engineer in Riyadh. I build agent systems with LangGraph, CrewAI, AutoGen, and MCP, and I keep AI out of the parts where plain rules are safer. I designed a risk-triage system where rules do the scoring and the model only handles language, with an LLM-as-judge check before anything reaches a person.",
+    "ar": "مهندس ذكاء اصطناعي وكيلي في الرياض. أبني أنظمة وكلاء باستخدام LangGraph وCrewAI وAutoGen وMCP، وأُبقي الذكاء الاصطناعي بعيدًا عن الأجزاء التي تؤديها القواعد الثابتة بأمان أكبر. صممت نظام ترتيب حسب الخطورة تتولى فيه القواعد حساب الدرجات، ويتولى النموذج اللغة فقط، مع خطوة تحكيم بالنموذج قبل وصول أي شيء إلى شخص."
   },
   "sectionOrder": ["summary","skills","experience","projects","education","certs","languages"],
   "tags": ["agentic","ai"],

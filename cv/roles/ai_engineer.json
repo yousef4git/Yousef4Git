@@ -3,8 +3,8 @@
   "file": "AI-Engineer",
   "title": { "en": "AI Engineer", "ar": "مهندس ذكاء اصطناعي" },
   "summary": {
-    "en": "AI engineer and computer science student in Riyadh. I build practical AI systems end to end, from data intake to a working product. I built a risk-triage system for an education platform and a financial-decision assistant in Apple's AI program, and I have run operations at national scale.",
-    "ar": "مهندس ذكاء اصطناعي وطالب علوم حاسب في الرياض. أبني أنظمة ذكاء اصطناعي عملية من البداية إلى النهاية، من استقبال البيانات إلى منتج يعمل. بنيت نظام ترتيب حسب الخطورة لمنصة تعليمية، ومساعدًا للقرارات المالية في برنامج Apple للذكاء الاصطناعي، وأدرت عمليات على نطاق وطني."
+    "en": "AI engineer in Riyadh. I build practical AI systems end to end, from data intake to a working product. I built a risk-triage system for an education platform and a financial-decision assistant in Apple's AI program, and I have run operations at national scale.",
+    "ar": "مهندس ذكاء اصطناعي في الرياض. أبني أنظمة ذكاء اصطناعي عملية من البداية إلى النهاية، من استقبال البيانات إلى منتج يعمل. بنيت نظام ترتيب حسب الخطورة لمنصة تعليمية، ومساعدًا للقرارات المالية في برنامج Apple للذكاء الاصطناعي، وأدرت عمليات على نطاق وطني."
   },
   "sectionOrder": ["summary","skills","experience","projects","education","certs","languages"],
   "tags": ["ai","ml","agentic","fullstack"],
