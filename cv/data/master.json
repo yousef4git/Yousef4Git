@@ -110,10 +110,10 @@
       "dates": "Expected Jan 2027" }
   ],
   "certs": [
-    { "name": { "en": "Agentic AI Bootcamp" }, "org": { "en": "SDA Academy" }, "year": "2026", "note": { "en": "Seven weeks, selective admission. LangGraph, CrewAI, AutoGen, MCP, RAG, AgentOps. Real UK and Canada startup projects." } },
+    { "name": { "en": "Agentic AI Bootcamp" }, "org": { "en": "SDA Academy" }, "year": "2026", "note": { "en": "Seven weeks, selective admission. Real UK and Canada startup projects." } },
     { "name": { "en": "McKinsey Forward" }, "org": { "en": "McKinsey & Company" }, "year": "2026", "note": { "en": "" } },
     { "name": { "en": "Apple AI Program" }, "org": { "en": "Apple Developer Academy and Tuwaiq" }, "year": "2025", "note": { "en": "1 of 66 selected from over 400,000 applicants." } },
-    { "name": { "en": "Introduction to Artificial Intelligence" }, "org": { "en": "KAUST Academy" }, "year": "2026", "note": { "en": "40 hours." } },
+    { "name": { "en": "Introduction to Artificial Intelligence" }, "org": { "en": "KAUST Academy" }, "year": "2026", "note": { "en": "" } },
     { "name": { "en": "Data Science and Machine Learning scholarship" }, "org": { "en": "KAUST Academy" }, "year": "2025", "note": { "en": "" } },
     { "name": { "en": "Data Collection and Processing with Python" }, "org": { "en": "University of Michigan" }, "year": "2025", "note": { "en": "" } },
     { "name": { "en": "Introduction to Data Science" }, "org": { "en": "University of Michigan" }, "year": "2025", "note": { "en": "" } },

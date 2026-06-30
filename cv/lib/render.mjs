@@ -35,11 +35,12 @@ function renderBlock(b) {
       + `<div class="entry-sub">${esc(e.secondary)}</div></div>`).join('');
   }
   if (b.kind === 'certs') {
-    return b.entries.map(e => {
+    const cells = b.entries.map(e => {
       const note = e.note ? ` ${esc(e.note)}` : '';
       return `<div class="cert"><span class="cert-name">${esc(e.name)}</span>, `
         + `${esc(e.org)}, ${esc(e.year)}.${note}</div>`;
     }).join('');
+    return `<div class="certs-grid">${cells}</div>`;
   }
   if (b.kind === 'inline') {
     return `<p class="inline">${b.items.map(esc).join('  ·  ')}</p>`;

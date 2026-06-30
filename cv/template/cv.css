@@ -1,34 +1,35 @@
-@page { size: A4; margin: 14mm 15mm; }
+@page { size: A4; margin: 11mm 13mm; }
 * { box-sizing: border-box; }
 body {
   font-family: "Helvetica Neue", Arial, "Liberation Sans", sans-serif;
-  font-size: 10.3pt; line-height: 1.4; color: #16181d; margin: 0;
+  font-size: 9.5pt; line-height: 1.29; color: #16181d; margin: 0;
 }
 html[dir="rtl"] body {
   font-family: "IBM Plex Sans Arabic", "Cairo", "Geeza Pro", "Segoe UI", sans-serif;
 }
-h1 { font-size: 19pt; margin: 0 0 2pt; letter-spacing: 0.2px; }
-.role { font-size: 11pt; color: #2b3a67; font-weight: 600; margin-bottom: 4pt; }
-.contact { font-size: 8.7pt; color: #444; margin-bottom: 8pt; }
-header { border-bottom: 1.4px solid #2b3a67; padding-bottom: 7pt; margin-bottom: 9pt; }
+h1 { font-size: 18pt; margin: 0 0 1pt; letter-spacing: 0.2px; }
+.role { font-size: 10.5pt; color: #2b3a67; font-weight: 600; margin-bottom: 2pt; }
+.contact { font-size: 8.4pt; color: #444; margin-bottom: 5pt; }
+header { border-bottom: 1.3px solid #2b3a67; padding-bottom: 4pt; margin-bottom: 5pt; }
 h2 {
-  font-size: 10.2pt; text-transform: uppercase; letter-spacing: 0.7px;
+  font-size: 9.8pt; text-transform: uppercase; letter-spacing: 0.7px;
   color: #2b3a67; border-bottom: 0.7px solid #c8cede;
-  padding-bottom: 2pt; margin: 11pt 0 5pt;
+  padding-bottom: 1.5pt; margin: 6pt 0 3pt;
 }
 section { break-inside: avoid; }
 .summary { margin: 0; }
-.skill-row { display: flex; gap: 8px; margin: 1.5pt 0; }
-.skill-label { flex: 0 0 33%; font-weight: 600; }
-html[dir="rtl"] .skill-label { flex-basis: 28%; }
+.skill-row { display: flex; gap: 8px; margin: 0.3pt 0; }
+.skill-label { flex: 0 0 30%; font-weight: 600; }
+html[dir="rtl"] .skill-label { flex-basis: 26%; }
 .skill-items { flex: 1; }
-.entry { margin: 0 0 6pt; }
+.entry { margin: 0 0 3pt; }
 .entry-head { display: flex; justify-content: space-between; gap: 10px; }
 .entry-title { font-weight: 700; }
-.entry-dates { color: #555; white-space: nowrap; font-size: 9.4pt; }
-.entry-sub { color: #444; font-size: 9.4pt; margin-bottom: 1pt; }
-ul { margin: 2pt 0 0; padding-inline-start: 16px; }
-li { margin: 1pt 0; }
-.cert { margin: 1.5pt 0; }
+.entry-dates { color: #555; white-space: nowrap; font-size: 9pt; }
+.entry-sub { color: #444; font-size: 9pt; margin-bottom: 0.5pt; }
+ul { margin: 1.5pt 0 0; padding-inline-start: 15px; }
+li { margin: 0.4pt 0; }
+.certs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 16px; }
+.cert { margin: 0.4pt 0; font-size: 8.9pt; break-inside: avoid; }
 .cert-name { font-weight: 600; }
 .inline { margin: 0; }
