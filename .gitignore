@@ -23,3 +23,8 @@ env/
 # Chatbot source — deployed to its Hugging Face Space, not to Vercel.
 # Kept out of the repo (contains personal CV files: linkedin.pdf, photos).
 theChatBot/
+
+# Local dev tooling and source materials, not part of the deployed site.
+# The CV generator, its data and outputs, and design or planning docs stay local.
+cv/
+docs/
