@@ -1,0 +1,126 @@
+{
+  "contact": {
+    "name": { "en": "Yousef Alshuwayi" },
+    "location": { "en": "Riyadh, Saudi Arabia" },
+    "email": "yousefalshuwayi@gmail.com",
+    "phone": "+966 50 600 7446",
+    "links": {
+      "linkedin": "linkedin.com/in/yousefalshuwayi",
+      "github": "github.com/Yousef4Git",
+      "website": "yousefalshuwayi.online"
+    }
+  },
+  "experience": [
+    {
+      "id": "consultant",
+      "title": { "en": "AI and Software Consultant (Freelance)" },
+      "org": { "en": "" },
+      "location": { "en": "Riyadh, Saudi Arabia" },
+      "start": "2025", "end": "present",
+      "bullets": [
+        { "id": "op_design", "tags": ["ai","agentic","ml","solutions","fullstack"],
+          "text": { "en": "Built a document intake and risk-triage system for an education platform. It reads facilitator notes, scores each student's risk with fixed rules, and uses an AI model only for the Arabic text, never for the scoring." } },
+        { "id": "op_integrity", "tags": ["ai","solutions","ml","pm"],
+          "text": { "en": "Caught that part of the source data was corrupted, with notes filed under the wrong students, reported it in a data-quality review, and kept it out of anything a parent would see." } },
+        { "id": "op_cache", "tags": ["agentic","ai"],
+          "text": { "en": "Made re-runs cheap with caching. A full run was about 71 model calls; later runs were about 5." } },
+        { "id": "op_judge", "tags": ["agentic","ai"],
+          "text": { "en": "Added an AI check on the AI-written messages before a person approved them, an LLM-as-judge step." } },
+        { "id": "ghrs", "tags": ["fullstack","it","solutions","pm","ops"],
+          "text": { "en": "Through GHRS, delivered client work for Saudi businesses: rebuilt websites, automated WhatsApp Business, and connected internal tools to customer channels." } },
+        { "id": "freightlx", "tags": ["solutions","ai","pm"],
+          "text": { "en": "Advised an early logistics startup (FREIGHTLX) as an AI consultant on scope and build." } }
+      ]
+    },
+    {
+      "id": "tutor",
+      "title": { "en": "Tutor" },
+      "org": { "en": "Shaguf" },
+      "location": { "en": "Riyadh, Saudi Arabia" },
+      "start": "2022-01", "end": "present",
+      "bullets": [
+        { "id": "tutor_scale", "tags": ["all"],
+          "text": { "en": "Taught 1,800+ computer science students over four years at a 4.9 of 5 rating." } },
+        { "id": "tutor_method", "tags": ["pm","it"],
+          "text": { "en": "Built lesson plans and follow-up that worked across different skill levels." } }
+      ]
+    },
+    {
+      "id": "yax",
+      "title": { "en": "Staff Manager, Riyadh Metro Launch" },
+      "org": { "en": "YAX (Your Amazing Xperience)" },
+      "location": { "en": "Riyadh, Saudi Arabia" },
+      "start": "2024-11", "end": "2025-05",
+      "bullets": [
+        { "id": "metro_scale", "tags": ["pm","it-planning","ops","all"],
+          "text": { "en": "Prepared 1,500 staff across 45 stations in one month for the metro opening, which served over 30 million visitors." } },
+        { "id": "metro_coord", "tags": ["pm","it-planning","ops"],
+          "text": { "en": "Coordinated between the operating companies and the Royal Commission. The contract was extended three months after the launch." } },
+        { "id": "metro_promo", "tags": ["pm","it-planning","ops"],
+          "text": { "en": "Promoted from Coordinator (Jun 2024 to Nov 2024), where I recruited and scheduled staff across Saudi Arabia and abroad." } }
+      ]
+    },
+    {
+      "id": "allure",
+      "title": { "en": "Operations Team Member" },
+      "org": { "en": "Allure Event" },
+      "location": { "en": "Riyadh, Saudi Arabia" },
+      "start": "2022-11", "end": "2024-10",
+      "bullets": [
+        { "id": "allure_logistics", "tags": ["ops"],
+          "text": { "en": "Handled on-site logistics for large events." } }
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "rusokh",
+      "title": { "en": "Rusokh, course platform (personal project)" },
+      "org": { "en": "" }, "location": { "en": "" },
+      "start": "2026", "end": "2026",
+      "bullets": [
+        { "id": "rusokh_desc", "tags": ["fullstack","ai","ml","all"],
+          "text": { "en": "As an instructor I hit the same problems on other course platforms, so I built my own. Next.js, Convex, payments, and video, in Arabic and English. It is live and in use." } }
+      ]
+    },
+    {
+      "id": "trayath",
+      "title": { "en": "Trayath, Apple AI program project" },
+      "org": { "en": "" }, "location": { "en": "" },
+      "start": "2025", "end": "2025",
+      "bullets": [
+        { "id": "trayath_desc", "tags": ["ai","agentic","ml"],
+          "text": { "en": "A simple assistant that helps people make better day-to-day financial decisions. Built during Apple's AI program (1 of 66 selected from over 400,000 applicants)." } }
+      ]
+    }
+  ],
+  "skills": {
+    "categories": [
+      { "key": "programming", "label": { "en": "Programming" }, "items": ["Python","TypeScript","JavaScript","SQL"] },
+      { "key": "ai", "label": { "en": "AI and agents" }, "items": ["LLMs","RAG","Prompt engineering","LangChain","LangGraph","CrewAI","AutoGen","MCP","Agent evaluation (LLM-as-judge)","AgentOps"] },
+      { "key": "web", "label": { "en": "Web and full-stack" }, "items": ["Next.js","React","Tailwind CSS","FastAPI","Node","Convex"] },
+      { "key": "data", "label": { "en": "Data" }, "items": ["PostgreSQL","pgvector","Redis"] },
+      { "key": "cloud", "label": { "en": "Cloud and infrastructure" }, "items": ["AWS","Docker","GitHub Actions"] },
+      { "key": "ways", "label": { "en": "Ways of working" }, "items": ["Git","CI/CD","Requirements gathering","Technical planning","Stakeholder communication"] }
+    ]
+  },
+  "education": [
+    { "primary": { "en": "B.Sc. Computer Science" },
+      "secondary": { "en": "Imam Muhammad ibn Saud Islamic University (IMSIU)" },
+      "dates": "Expected Jan 2027" }
+  ],
+  "certs": [
+    { "name": { "en": "Agentic AI Bootcamp" }, "org": { "en": "SDA Academy" }, "year": "2026", "note": { "en": "Seven weeks, selective admission. LangGraph, CrewAI, AutoGen, MCP, RAG, AgentOps. Real UK and Canada startup projects." } },
+    { "name": { "en": "McKinsey Forward" }, "org": { "en": "McKinsey & Company" }, "year": "2026", "note": { "en": "" } },
+    { "name": { "en": "Apple AI Program" }, "org": { "en": "Apple Developer Academy and Tuwaiq" }, "year": "2025", "note": { "en": "1 of 66 selected from over 400,000 applicants." } },
+    { "name": { "en": "Introduction to Artificial Intelligence" }, "org": { "en": "KAUST Academy" }, "year": "2026", "note": { "en": "40 hours." } },
+    { "name": { "en": "Data Science and Machine Learning scholarship" }, "org": { "en": "KAUST Academy" }, "year": "2025", "note": { "en": "" } },
+    { "name": { "en": "Data Collection and Processing with Python" }, "org": { "en": "University of Michigan" }, "year": "2025", "note": { "en": "" } },
+    { "name": { "en": "Introduction to Data Science" }, "org": { "en": "University of Michigan" }, "year": "2025", "note": { "en": "" } },
+    { "name": { "en": "Vibe Coding" }, "org": { "en": "SDAIA" }, "year": "2026", "note": { "en": "" } }
+  ],
+  "languages": [
+    { "label": { "en": "Arabic: native" } },
+    { "label": { "en": "English: intermediate" } }
+  ]
+}
