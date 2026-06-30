@@ -53,23 +53,21 @@
 
   <!-- Roles row -->
   <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="16" letter-spacing="3" fill="#8A7D6E">
-    <text x="80" y="438">FOUNDER</text>
-    <text x="220" y="438" fill="#C9A96E">·</text>
-    <text x="240" y="438">AGENTIC AI ENGINEER</text>
-    <text x="528" y="438" fill="#C9A96E">·</text>
-    <text x="548" y="438">FULL-STACK DEVELOPER</text>
+    <text x="80" y="438">AGENTIC AI ENGINEER</text>
+    <text x="368" y="438" fill="#C9A96E">·</text>
+    <text x="388" y="438">FULL-STACK DEVELOPER</text>
   </g>
 
   <!-- Tagline -->
   <g font-family="'Cormorant Garamond', Georgia, serif" font-size="30" fill="#F2EDE6">
-    <text x="80" y="512" font-style="italic">AI, the right tools, and an engineering mindset.</text>
-    <text x="80" y="554" font-style="italic"><tspan fill="#C9A96E">That's how</tspan> the next generation of work gets built — disciplined, not random.</text>
+    <text x="80" y="512" font-style="italic">I build practical AI systems and web products.</text>
+    <text x="80" y="554" font-style="italic"><tspan fill="#C9A96E">Plain rules</tspan> where they are safer, and AI where it helps.</text>
   </g>
 
   <!-- Bottom band -->
   <line x1="80" y1="588" x2="1120" y2="588" stroke="#C9A96E" stroke-width="0.5" opacity="0.4"/>
   <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" letter-spacing="3" fill="#8A7D6E">
-    <text x="80" y="608">GHRS · RUSOKH · REPLYLI</text>
+    <text x="80" y="608">GHRS · RUSOKH</text>
     <text x="1120" y="608" text-anchor="end">YOUSEFALSHUWAYI.ONLINE</text>
   </g>
 </svg>
