@@ -2030,7 +2030,7 @@
   <nav class="nav">
     <div class="brand"><span style="color:var(--muted)">2026</span></div>
     <ul>
-      <li><a href="#ventures" data-key="nav.ventures">Ventures</a></li>
+      <li><a href="#ventures" data-key="nav.ventures">Work</a></li>
       <li><a href="#trajectory" data-key="nav.trajectory">Trajectory</a></li>
       <li><a href="#running" data-key="nav.currently">Currently</a></li>
       <li><a href="#stack" data-key="nav.stack">Stack</a></li>
@@ -2113,19 +2113,61 @@
     <section class="wrap" id="ventures" data-screen-label="03 Ventures">
       <div class="ventures-head">
         <div class="rv">
-          <div class="eyebrow" data-key="ventures.eyebrow">02 / Ventures</div>
-          <h2 class="display rv d1" data-key="ventures.title" data-html="1">Three <em>companies.</em><br />One operator.
-          </h2>
+          <div class="eyebrow" data-key="ventures.eyebrow">02 / Selected work</div>
+          <h2 class="display rv d1" data-key="ventures.title" data-html="1">Selected <em>work.</em></h2>
         </div>
-        <div class="right rv d2" data-key="ventures.right" data-html="1">Founded, built, and shipped<br />between 2025 –
-          2026.<br /><span style="color:var(--gold)">/ three live, all maintained.</span></div>
+        <div class="right rv d2" data-key="ventures.right" data-html="1">A few things I have built<br />and delivered, 2025 to 2026.</div>
       </div>
 
       <div class="ventures">
 
+        <!-- Risk-triage system (paid client work, anonymized) -->
+        <article class="card tilt rv" data-tilt>
+          <div class="top"><span class="no">/ 01</span><span data-key="card.risk.kicker">Client work · AI</span></div>
+          <div>
+            <h3 data-key="card.risk.h3" data-html="1">Risk-triage<br />system.</h3>
+            <div class="arname" dir="rtl" data-key="card.risk.arname">نظام ترتيب حسب الخطورة</div>
+          </div>
+          <div class="badge build"><span class="dot"></span><span data-key="card.risk.badge">Paid client work</span></div>
+          <p class="oneliner" data-key="card.risk.line">Built a document intake and risk-triage system for an education
+            platform. It reads facilitator notes, scores each student's risk with fixed rules, and uses an AI model only
+            for the Arabic text, never for the scoring.</p>
+          <div class="spacer"></div>
+          <div class="meta-row"><span data-key="card.risk.meta1">2025</span><span class="tag"
+              data-key="card.risk.meta2">Education platform</span></div>
+        </article>
+
+        <!-- Rusokh -->
+        <article class="card hero-card tilt rv d1" data-tilt data-href="https://rusokh.com">
+          <div class="top"><span class="no">/ 02</span><span
+              data-key="card.rusokh.kicker">Course platform · personal project</span></div>
+          <div class="rusokh-mark">
+            <div class="icon">
+              <img src="assets/rusokh.png" alt="Rusokh"
+                style="width:48px;height:48px;display:block;object-fit:contain" />
+            </div>
+            <div class="names">
+              <div class="en latin">Rusokh</div>
+              <div class="ar" dir="rtl">رسوخ</div>
+            </div>
+          </div>
+          <div>
+            <h3 data-key="card.rusokh.h3" data-html="1">Course<br />platform.</h3>
+          </div>
+          <div class="badge"><span class="dot"></span><span data-key="card.rusokh.badge">Live · in use</span></div>
+          <p class="oneliner" data-key="card.rusokh.line">A course platform I built for myself. As an instructor I hit the
+            same problems on other platforms, so I built my own. Next.js, Convex, payments, and video, in Arabic and
+            English.</p>
+          <div class="spacer"></div>
+          <a class="cta" href="https://rusokh.com" target="_blank" rel="noopener"><span
+              data-key="cta.visit_rusokh">Visit rusokh.com</span> <span class="arrow">→</span></a>
+          <div class="meta-row"><span data-key="card.rusokh.meta1">2026</span><span class="tag"
+              data-key="card.rusokh.meta2">Personal project</span></div>
+        </article>
+
         <!-- GHRS -->
-        <article class="card tilt rv" data-tilt data-href="https://ghrs.sa">
-          <div class="top"><span class="no">/ 01</span><span data-key="card.ghrs.kicker">Business Dev</span></div>
+        <article class="card tilt rv d2" data-tilt data-href="https://ghrs.sa">
+          <div class="top"><span class="no">/ 03</span><span data-key="card.ghrs.kicker">Client work</span></div>
           <div class="rusokh-mark">
             <div class="icon" style="background:transparent;box-shadow:none;border-radius:10px">
               <img src="assets/ghrs-icon-brown.svg" alt="GHRS"
@@ -2140,72 +2182,14 @@
             <h3 class="latin">GHRS</h3>
             <div class="arname" dir="rtl">غرس للتنمية والحلول التقنية</div>
           </div>
-          <div class="badge"><span class="dot"></span><span data-key="card.ghrs.badge">Live · Onboarding entrepreneurs</span></div>
-          <p class="oneliner" data-key="card.ghrs.line">Business development and technical solutions for Saudi
-            businesses — digital transformation with local context.</p>
+          <div class="badge"><span class="dot"></span><span data-key="card.ghrs.badge">Client work</span></div>
+          <p class="oneliner" data-key="card.ghrs.line">Through GHRS I deliver client work for Saudi businesses: rebuilt
+            websites, automated WhatsApp Business, and connected internal tools to customer channels.</p>
           <div class="spacer"></div>
           <a class="cta" href="https://ghrs.sa" target="_blank" rel="noopener"><span data-key="cta.visit_ghrs">Visit
               ghrs.sa</span> <span class="arrow">→</span></a>
-          <div class="meta-row"><span data-key="card.ghrs.meta1">Founded 2025</span><span class="tag"
-              data-key="card.ghrs.meta2">Riyadh, KSA</span></div>
-        </article>
-
-        <!-- Rusokh -->
-        <article class="card hero-card tilt rv d1" data-tilt data-href="https://rusokh.com">
-          <div class="top"><span class="no">/ 02</span><span
-              data-key="card.rusokh.kicker">EdTech · SaaS</span></div>
-          <div class="rusokh-mark">
-            <div class="icon">
-              <img src="assets/rusokh.png" alt="Rusokh"
-                style="width:48px;height:48px;display:block;object-fit:contain" />
-            </div>
-            <div class="names">
-              <div class="en latin">Rusokh</div>
-              <div class="ar" dir="rtl">رسوخ</div>
-            </div>
-          </div>
-          <div>
-            <h3 data-key="card.rusokh.h3" data-html="1">Arabic-first<br />course platform.</h3>
-          </div>
-          <div class="badge"><span class="dot"></span><span data-key="card.rusokh.badge">Live · Onboarding
-              instructors</span></div>
-          <p class="oneliner" data-key="card.rusokh.line">University-grade Arabic-first learning platform. Built solo in
-            three weeks. Live in production, onboarding instructors today.</p>
-          <div class="spacer"></div>
-          <a class="cta" href="https://rusokh.com" target="_blank" rel="noopener"><span
-              data-key="cta.visit_rusokh">Visit rusokh.com</span> <span class="arrow">→</span></a>
-          <div class="meta-row"><span data-key="card.rusokh.meta1">Founded 2026</span><span class="tag"
-              data-key="card.rusokh.meta2">Built solo · 3 wks</span></div>
-        </article>
-
-        <!-- Replyli -->
-        <article class="card tilt rv d2" data-tilt data-href="https://replyli.com">
-          <div class="top"><span class="no">/ 03</span><span data-key="card.replyli.kicker">CRM · AI</span></div>
-          <div class="rusokh-mark">
-            <div class="icon" style="background:transparent;box-shadow:none;border-radius:10px">
-              <img src="assets/replyli-icon.svg" alt="Replyli"
-                style="width:48px;height:48px;display:block;object-fit:contain" />
-            </div>
-            <div class="names">
-              <div class="en latin">Replyli</div>
-              <div class="ar latin"
-                style="color:var(--muted);font-weight:600;font-size:14px;font-family:var(--mono);letter-spacing:.18em;text-transform:uppercase">
-                CRM · AI</div>
-            </div>
-          </div>
-          <div>
-            <h3 class="latin">Replyli</h3>
-            <div class="arname" style="color:var(--muted)" data-key="card.replyli.subtitle">AI-powered customer service
-              automation</div>
-          </div>
-          <div class="badge"><span class="dot"></span><span data-key="card.replyli.badge">Live</span></div>
-          <p class="oneliner" data-key="card.replyli.line">AI customer-service response systems for founders who ship.
-            Agent pipelines, not templates.</p>
-          <div class="spacer"></div>
-          <a class="cta" href="https://replyli.com" target="_blank" rel="noopener"><span
-              data-key="cta.visit_replyli">Visit replyli.com</span> <span class="arrow">→</span></a>
-          <div class="meta-row"><span data-key="card.replyli.meta1">In development</span><span class="tag"
-              data-key="card.replyli.meta2">Q2 · 2026</span></div>
+          <div class="meta-row"><span data-key="card.ghrs.meta1">2025 to Present</span><span class="tag"
+              data-key="card.ghrs.meta2">Riyadh</span></div>
         </article>
 
       </div>
@@ -2709,7 +2693,7 @@
        ============================================================ */
     const I18N = {
       en: {
-        'nav.ventures': 'Ventures', 'nav.trajectory': 'Trajectory', 'nav.currently': 'Currently', 'nav.stack': 'Stack', 'nav.Certificates': 'Certificates', 'nav.connect': 'Connect',
+        'nav.ventures': 'Work', 'nav.trajectory': 'Trajectory', 'nav.currently': 'Currently', 'nav.stack': 'Stack', 'nav.Certificates': 'Certificates', 'nav.connect': 'Connect',
 
         'hero.location': 'Riyadh · Saudi Arabia', 'hero.portfolio': 'Portfolio', 'hero.surname': 'Alshuwayi', 'hero.scroll': 'Scroll',
         'hero.role1': 'AI &amp; Software Consultant<b>Freelance · Riyadh</b>',
@@ -2727,24 +2711,27 @@
         'proof.s3.cap': 'Computer science, over four years.',
         'proof.range': 'Operations at national scale <span class="arrow">→</span> <em>Apple\'s AI program</em> <span class="latin" style="color:var(--muted);font-family:var(--mono);font-size:.55em;letter-spacing:.2em;white-space:nowrap">(1 of 66 from 400,000+ applicants)</span> <span class="arrow">→</span> KAUST <span class="arrow">→</span> SDAIA <span class="arrow">→</span> agentic AI engineering.',
 
-        'ventures.eyebrow': '02 / Ventures',
-        'ventures.title': 'Three <em>companies.</em><br />One operator.',
-        'ventures.right': 'Founded, built, and shipped<br />between 2025 – 2026.<br /><span style="color:var(--gold)">/ three live, all maintained.</span>',
+        'ventures.eyebrow': '02 / Selected work',
+        'ventures.title': 'Selected <em>work.</em>',
+        'ventures.right': 'A few things I have built<br />and delivered, 2025 to 2026.',
 
-        'card.ghrs.kicker': 'Business Dev',
-        'card.ghrs.badge': 'Live · Onboarding entrepreneurs',
-        'card.ghrs.line': 'Business development and technical solutions for Saudi businesses — digital transformation with local context.',
-        'card.ghrs.meta1': 'Founded 2025', 'card.ghrs.meta2': 'Riyadh, KSA', 'cta.visit_ghrs': 'Visit ghrs.sa',
+        'card.risk.kicker': 'Client work · AI',
+        'card.risk.h3': 'Risk-triage<br />system.',
+        'card.risk.arname': 'نظام ترتيب حسب الخطورة',
+        'card.risk.badge': 'Paid client work',
+        'card.risk.line': 'Built a document intake and risk-triage system for an education platform. It reads facilitator notes, scores each student\'s risk with fixed rules, and uses an AI model only for the Arabic text, never for the scoring.',
+        'card.risk.meta1': '2025', 'card.risk.meta2': 'Education platform',
 
-        'card.rusokh.feature': 'feature', 'card.rusokh.kicker': 'EdTech · SaaS',
-        'card.rusokh.h3': 'Arabic-first<br />course platform.',
-        'card.rusokh.badge': 'Live · Onboarding instructors',
-        'card.rusokh.line': 'University-grade Arabic-first learning platform. Built solo in three weeks. Live in production, onboarding instructors today.',
-        'card.rusokh.meta1': 'Founded 2026', 'card.rusokh.meta2': 'Built solo · 3 wks', 'cta.visit_rusokh': 'Visit rusokh.com',
+        'card.rusokh.kicker': 'Course platform · personal project',
+        'card.rusokh.h3': 'Course<br />platform.',
+        'card.rusokh.badge': 'Live · in use',
+        'card.rusokh.line': 'A course platform I built for myself. As an instructor I hit the same problems on other platforms, so I built my own. Next.js, Convex, payments, and video, in Arabic and English.',
+        'card.rusokh.meta1': '2026', 'card.rusokh.meta2': 'Personal project', 'cta.visit_rusokh': 'Visit rusokh.com',
 
-        'card.replyli.kicker': 'CRM · AI', 'card.replyli.subtitle': 'AI-powered customer service automation', 'card.replyli.badge': 'Live',
-        'card.replyli.line': 'AI customer-service response systems for founders who ship. Agent pipelines, not templates.',
-        'card.replyli.meta1': 'In development', 'card.replyli.meta2': 'Q2 · 2026', 'cta.visit_replyli': 'Visit replyli.com',
+        'card.ghrs.kicker': 'Client work',
+        'card.ghrs.badge': 'Client work',
+        'card.ghrs.line': 'Through GHRS I deliver client work for Saudi businesses: rebuilt websites, automated WhatsApp Business, and connected internal tools to customer channels.',
+        'card.ghrs.meta1': '2025 to Present', 'card.ghrs.meta2': 'Riyadh', 'cta.visit_ghrs': 'Visit ghrs.sa',
 
         'badge.live': 'Live', 'badge.in_progress': 'In Progress', 'badge.completed': 'Completed',
 
@@ -2825,7 +2812,7 @@
         'footer.line3': 'Crafted in Riyadh'
       },
       ar: {
-        'nav.ventures': 'المشاريع', 'nav.trajectory': 'المسار', 'nav.currently': 'الحاله الحاليه ', 'nav.stack': 'التقنيات', 'nav.Certificates': 'الشهادات', 'nav.connect': 'تواصل',
+        'nav.ventures': 'الأعمال', 'nav.trajectory': 'المسار', 'nav.currently': 'الحاله الحاليه ', 'nav.stack': 'التقنيات', 'nav.Certificates': 'الشهادات', 'nav.connect': 'تواصل',
 
         'hero.location': 'الرياض · المملكة العربية السعودية', 'hero.portfolio': 'السيره', 'hero.surname': 'الشويعي', 'hero.scroll': 'مرّر',
         'hero.role1': 'استشاري ذكاء اصطناعي وبرمجيات<b>عمل حر · الرياض</b>',
@@ -2843,24 +2830,27 @@
         'proof.s3.cap': 'علوم الحاسب، على مدى أربع سنوات.',
         'proof.range': 'عمليات على نطاق وطني <span class="arrow">→</span> <bdi><em>برنامج Apple AI</em> <span class="latin" style="color:var(--muted);font-family:var(--mono);font-size:.55em;letter-spacing:.2em;white-space:nowrap">(1 من 66 من أكثر من 400,000 متقدّم)</span></bdi> <span class="arrow">→</span> <bdi>KAUST</bdi> <span class="arrow">→</span> <bdi>SDAIA</bdi> <span class="arrow">→</span> هندسة وكلاء ذكاء اصطناعي.',
 
-        'ventures.eyebrow': '02 / المشاريع',
-        'ventures.title': 'ثلاث <em>شركات.</em><br />مشغّل واحد.',
-        'ventures.right': 'تأسست وبُنيت وأُطلقت<br />بين 2025 – 2026.<br /><span style="color:var(--gold)">/ ثلاث قائمة، جميعها قيد التشغيل.</span>',
+        'ventures.eyebrow': '02 / أعمال مختارة',
+        'ventures.title': '<em>أعمال</em> مختارة.',
+        'ventures.right': 'بعض ما بنيته<br />وسلّمته، 2025 إلى 2026.',
 
-        'card.ghrs.kicker': 'تطوير أعمال',
-        'card.ghrs.badge': 'قائم · نستقبل رواد الأعمال',
-        'card.ghrs.line': 'تطوير أعمال وحلول تقنية للشركات السعودية — تحوّل رقمي بسياق محلي.',
-        'card.ghrs.meta1': 'تأسست 2025', 'card.ghrs.meta2': 'الرياض، السعودية', 'cta.visit_ghrs': 'زُر ghrs.sa',
+        'card.risk.kicker': 'عمل لعميل · ذكاء اصطناعي',
+        'card.risk.h3': 'نظام ترتيب<br />حسب الخطورة.',
+        'card.risk.arname': 'نظام ترتيب حسب الخطورة',
+        'card.risk.badge': 'عمل مدفوع لعميل',
+        'card.risk.line': 'بنيتُ نظام استقبال مستندات وترتيب حسب الخطورة لمنصّة تعليمية. يقرأ ملاحظات المشرفين، ويقيّم خطورة كل طالب بقواعد ثابتة، ويستخدم نموذج ذكاء اصطناعي للنص العربي فقط، ولا يقرّر الخطورة أبداً.',
+        'card.risk.meta1': '2025', 'card.risk.meta2': 'منصّة تعليمية',
 
-        'card.rusokh.feature': 'مميّز', 'card.rusokh.kicker': 'تعليم · SaaS',
+        'card.rusokh.kicker': 'منصّة كورسات · مشروع شخصي',
         'card.rusokh.h3': 'منصّة كورسات.',
-        'card.rusokh.badge': 'قائم · نستقبل الشارحين',
-        'card.rusokh.line': 'منصّة تعلّم عربيّة بمستوى جامعي. بُنيت بشكل فردي خلال ثلاثة أسابيع. تعمل في الإنتاج، ويُسجَّل المحاضرون اليوم.',
-        'card.rusokh.meta1': 'تأسست 2026', 'card.rusokh.meta2': 'بُنيت فردياً · 3 أسابيع', 'cta.visit_rusokh': 'زُر rusokh.com',
+        'card.rusokh.badge': 'قائم · قيد الاستخدام',
+        'card.rusokh.line': 'منصّة كورسات بنيتها لنفسي. كمدرّب واجهتُ المشكلات نفسها على منصّات أخرى، فبنيتُ منصّتي. Next.js وConvex ومدفوعات وفيديو، بالعربية والإنجليزية.',
+        'card.rusokh.meta1': '2026', 'card.rusokh.meta2': 'مشروع شخصي', 'cta.visit_rusokh': 'زُر rusokh.com',
 
-        'card.replyli.kicker': 'CRM · ذكاء اصطناعي', 'card.replyli.subtitle': 'أتمتة خدمة العملاء بالذكاء الاصطناعي', 'card.replyli.badge': 'قائم',
-        'card.replyli.line': 'أنظمة ردود لخدمة العملاء بالذكاء الاصطناعي للمؤسسين الذين يُطلِقون. خطوط وكلاء، لا قوالب جاهزة.',
-        'card.replyli.meta1': 'قيد التطوير', 'card.replyli.meta2': 'Q2 · 2026', 'cta.visit_replyli': 'زُر replyli.com',
+        'card.ghrs.kicker': 'عمل لعملاء',
+        'card.ghrs.badge': 'عمل لعملاء',
+        'card.ghrs.line': 'عبر GHRS أنفّذ أعمالاً لعملاء من الشركات السعودية: إعادة بناء مواقع، وأتمتة WhatsApp Business، وربط الأدوات الداخلية بقنوات العملاء.',
+        'card.ghrs.meta1': '2025 حتى الآن', 'card.ghrs.meta2': 'الرياض', 'cta.visit_ghrs': 'زُر ghrs.sa',
 
         'badge.live': 'قائم', 'badge.in_progress': 'قيد التنفيذ', 'badge.completed': 'مكتمل',
 
