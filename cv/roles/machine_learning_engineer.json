@@ -3,8 +3,8 @@
   "file": "Machine-Learning-Engineer",
   "title": { "en": "Machine Learning Engineer", "ar": "مهندس تعلّم آلة" },
   "summary": {
-    "en": "Applied ML engineer in Riyadh. I work with Python and data, build and evaluate models, and ship AI features into real products. On a risk-triage system for an education platform I built the scoring and evaluation, with an AI model handling only the Arabic text.",
-    "ar": "مهندس تعلّم آلة تطبيقي في الرياض. أعمل مع Python والبيانات، وأبني النماذج وأقيّمها، وأدمج ميزات الذكاء الاصطناعي في منتجات حقيقية. في نظام ترتيب حسب الخطورة لمنصة تعليمية بنيت حساب الدرجات والتقييم، مع نموذج ذكاء اصطناعي يتولى النص العربي فقط."
+    "en": "Applied ML engineer in Riyadh who takes models from data to production and owns how they are measured. Working in Python across the data and evaluation layers, I built the scoring and evaluation for a risk-triage system on an education platform, keeping the model scoped to language and the decisions grounded in evidence.",
+    "ar": "مهندس تعلّم آلة تطبيقي في الرياض ينقل النماذج من البيانات إلى الإنتاج ويملك طريقة قياسها. أعمل بلغة Python عبر طبقات البيانات والتقييم، وبنيت حساب الدرجات والتقييم لنظام ترتيب حسب الخطورة في منصة تعليمية، مع إبقاء النموذج محصورًا في اللغة والقرارات مستندة إلى الأدلة."
   },
   "sectionOrder": ["summary","skills","experience","projects","education","certs","languages"],
   "tags": ["ml","ai","agentic"],

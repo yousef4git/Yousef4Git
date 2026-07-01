@@ -57,8 +57,8 @@
     },
     {
       "id": "tutor",
-      "title": { "en": "Tutor", "ar": "معلّم خصوصي" },
-      "org": { "en": "Shaguf", "ar": "شغف" },
+      "title": { "en": "Instructor", "ar": "شارح" },
+      "org": { "en": "Shaguf Educational Platform", "ar": "منصة شغوف التعليمية" },
       "location": { "en": "Riyadh, Saudi Arabia", "ar": "الرياض، السعودية" },
       "start": "2022-01", "end": "present",
       "bullets": [
@@ -69,8 +69,8 @@
           } },
         { "id": "tutor_method", "tags": ["pm","it"],
           "text": {
-            "en": "Built curriculum frameworks and personalised follow-up that lifted students across a wide range of skill levels.",
-            "ar": "بنيت أطرًا للمنهج ومتابعة فردية رفعت مستوى الطلاب على اختلاف مهاراتهم."
+            "en": "Built structured curricula and gave one-on-one follow-up, adapting explanations for students from beginner to advanced.",
+            "ar": "بنيت مناهج منظّمة وقدّمت متابعة فردية، وكيّفت الشرح للطلاب من المبتدئ إلى المتقدّم."
           } }
       ]
     },
@@ -151,7 +151,7 @@
       { "key": "programming", "label": { "en": "Programming", "ar": "البرمجة" }, "items": ["Python","TypeScript","JavaScript","SQL"] },
       { "key": "ai", "label": { "en": "AI and agents", "ar": "الذكاء الاصطناعي والوكلاء" }, "items": ["LLMs","RAG","Prompt engineering","LangChain","LangGraph","CrewAI","AutoGen","MCP","Agent evaluation (LLM-as-judge)","AgentOps"] },
       { "key": "web", "label": { "en": "Web and full-stack", "ar": "الويب والتطوير المتكامل" }, "items": ["Next.js","React","Tailwind CSS","FastAPI","Node","Convex"] },
-      { "key": "data", "label": { "en": "Data", "ar": "البيانات" }, "items": ["PostgreSQL","pgvector","Redis"] },
+      { "key": "data", "label": { "en": "Data", "ar": "البيانات" }, "items": ["pandas","NumPy","scikit-learn","PostgreSQL","pgvector","Redis"] },
       { "key": "cloud", "label": { "en": "Cloud and infrastructure", "ar": "السحابة والبنية التحتية" }, "items": ["AWS","Docker","GitHub Actions"] },
       { "key": "ways", "label": { "en": "Ways of working", "ar": "أساليب العمل" }, "items": ["Git","CI/CD","Requirements gathering","Technical planning","Roadmap delivery","Stakeholder communication"] }
     ]

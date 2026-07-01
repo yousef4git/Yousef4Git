@@ -3,8 +3,8 @@
   "file": "AI-Engineer",
   "title": { "en": "AI Engineer", "ar": "مهندس ذكاء اصطناعي" },
   "summary": {
-    "en": "AI engineer in Riyadh. I build practical AI systems end to end, from data intake to a working product. I built a document intake and risk-triage system for an education platform where fixed rules score risk and AI handles only the language, and I have run operations at national scale.",
-    "ar": "مهندس ذكاء اصطناعي في الرياض. أبني أنظمة ذكاء اصطناعي عملية من البداية إلى النهاية، من استقبال البيانات إلى منتج يعمل. بنيت نظام استقبال مستندات وترتيب حسب الخطورة لمنصة تعليمية، تحسب فيه القواعد الثابتة الخطورة ويتولى الذكاء الاصطناعي اللغة فقط، وأدرت عمليات على نطاق وطني."
+    "en": "AI engineer in Riyadh who designs and ships production AI systems end to end. I architected a document intake and risk-triage system for an education platform, deciding where models add value and where fixed rules keep decisions auditable, backed by a track record of delivering at national scale.",
+    "ar": "مهندس ذكاء اصطناعي في الرياض يصمّم أنظمة ذكاء اصطناعي إنتاجية ويطلقها من البداية إلى النهاية. صمّمت معمارية نظام لاستقبال المستندات وترتيب الطلاب حسب الخطورة لمنصة تعليمية، محدِّدًا أين يضيف النموذج قيمة وأين تُبقي القواعد الثابتة القرارات قابلة للمراجعة، مدعومًا بسجلّ في التسليم على نطاق وطني."
   },
   "sectionOrder": ["summary","skills","experience","projects","education","certs","languages"],
   "tags": ["ai","ml","agentic","fullstack"],

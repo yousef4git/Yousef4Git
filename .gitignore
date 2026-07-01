@@ -23,3 +23,9 @@ env/
 # Chatbot source — deployed to its Hugging Face Space, not to Vercel.
 # Kept out of the repo (contains personal CV files: linkedin.pdf, photos).
 theChatBot/
+
+# Private source materials in docs/: confidential, never commit
+# (client presentation, forwarded docs, source resume PDF).
+# The tracked docs/superpowers/**.md plan and spec files are unaffected.
+docs/*.pdf
+docs/*.pptx

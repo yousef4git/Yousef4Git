@@ -3,8 +3,8 @@
   "file": "Technical-Program-Manager",
   "title": { "en": "Technical Program Manager", "ar": "مدير برامج تقني" },
   "summary": {
-    "en": "Technical program manager with engineering and large-scale operations experience. I deliver projects from plan to launch. I prepared and deployed 1,500 staff across 45 stations for the Riyadh Metro launch, built and shipped a course platform, and coordinate technical delivery with clients.",
-    "ar": "مدير برامج تقني بخبرة في الهندسة والعمليات واسعة النطاق. أنفّذ المشاريع من التخطيط إلى الإطلاق. جهّزت ووزّعت 1,500 موظف عبر 45 محطة لإطلاق قطار الرياض، وبنيت وأطلقت منصة دورات، وأنسّق التنفيذ التقني مع العملاء."
+    "en": "Technical program manager who pairs hands-on engineering with operations experience at national scale. I own delivery from plan to launch: I led readiness for the Riyadh Metro opening, preparing and deploying 1,500 staff across 45 stations, shipped a course platform of my own, and now drive technical delivery and stakeholders across client programs.",
+    "ar": "مدير برامج تقني يجمع بين الهندسة العملية وخبرة العمليات على نطاق وطني. أملك التنفيذ من التخطيط إلى الإطلاق: قُدت الجاهزية لافتتاح قطار الرياض، فجهّزت ووزّعت 1,500 موظف عبر 45 محطة، وأطلقت منصة دورات خاصة بي، وأقود الآن التنفيذ التقني وأصحاب المصلحة عبر برامج العملاء."
   },
   "sectionOrder": ["summary","skills","experience","projects","education","certs","languages"],
   "tags": ["pm","ops","fullstack","it"],
