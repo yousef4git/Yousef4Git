@@ -15,6 +15,11 @@ export function fmtDate(value, lang) {
 
 export function fmtRange(start, end, lang) {
   const s = fmtDate(start, lang), e = fmtDate(end, lang);
-  if (s && e && s !== e) return `${s} ${TO[lang]} ${e}`;
+  if (s && e && s !== e) {
+    // Arabic "حتى الآن" (until now) already reads as a connector, so a
+    // present-range takes no "إلى" joiner; every dated range keeps it.
+    if (end === 'present' && lang === 'ar') return `${s} ${e}`;
+    return `${s} ${TO[lang]} ${e}`;
+  }
   return s || e;
 }

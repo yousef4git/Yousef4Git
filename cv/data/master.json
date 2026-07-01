@@ -20,33 +20,38 @@
       "bullets": [
         { "id": "op_design", "tags": ["ai","agentic","ml","solutions","fullstack"],
           "text": {
-            "en": "Built a document intake and risk-triage system for an education platform. It reads facilitator notes, scores each student's risk with fixed rules, and uses an AI model only for the Arabic text, never for the scoring.",
-            "ar": "بنيت نظامًا يستقبل المستندات ويرتّب الطلاب حسب درجة الخطورة لمنصة تعليمية. يقرأ ملاحظات المعلّمين، ويحسب خطورة كل طالب بقواعد ثابتة، ويستخدم نموذج ذكاء اصطناعي للنص العربي فقط، وليس في حساب الدرجات."
+            "en": "Designed and shipped a document intake and risk-triage system for an education platform. Fixed rules score each student's risk and an AI model handles only the Arabic text, never the scoring, so every decision stays auditable.",
+            "ar": "صمّمت وأطلقت نظام استقبال مستندات وترتيب حسب الخطورة لمنصة تعليمية. تحسب القواعد الثابتة خطورة كل طالب، ويتولى نموذج الذكاء الاصطناعي النص العربي فقط دون حساب الدرجات، لتبقى كل القرارات قابلة للمراجعة."
           } },
         { "id": "op_integrity", "tags": ["ai","solutions","ml","pm"],
           "text": {
-            "en": "Caught that part of the source data was corrupted, with notes filed under the wrong students, reported it in a data-quality review, and kept it out of anything a parent would see.",
-            "ar": "اكتشفت أن جزءًا من البيانات المصدرية كان تالفًا، وأن ملاحظات سُجّلت تحت طلاب خاطئين، فوثّقت ذلك في تقرير لجودة البيانات، ومنعت وصوله إلى أي شيء يراه ولي الأمر."
+            "en": "Caught corrupted source data with notes filed under the wrong students, flagged it in a data-quality review, and kept it out of anything a parent would see.",
+            "ar": "اكتشفت بيانات مصدرية تالفة فيها ملاحظات مُسجّلة تحت طلاب خاطئين، فوثّقتها في مراجعة لجودة البيانات، ومنعت وصولها إلى أي شيء يراه وليّ الأمر."
           } },
         { "id": "op_cache", "tags": ["agentic","ai"],
           "text": {
-            "en": "Made re-runs cheap with caching. A full run was about 71 model calls; later runs were about 5.",
-            "ar": "خفّضت تكلفة إعادة التشغيل عبر التخزين المؤقت. التشغيل الكامل كان نحو 71 طلبًا للنموذج، والتشغيلات اللاحقة نحو 5 طلبات."
+            "en": "Cut re-run cost with caching, taking a full run from about 71 model calls down to about 5.",
+            "ar": "خفّضت تكلفة إعادة التشغيل بالتخزين المؤقت، من نحو 71 طلبًا للنموذج في التشغيل الكامل إلى نحو 5 طلبات."
           } },
         { "id": "op_judge", "tags": ["agentic","ai"],
           "text": {
-            "en": "Added an AI check on the AI-written messages before a person approved them, an LLM-as-judge step.",
-            "ar": "أضفت تحققًا بالذكاء الاصطناعي على الرسائل المكتوبة آليًا قبل أن يعتمدها شخص، وهي خطوة تحكيم بالنموذج."
+            "en": "Added an LLM-as-judge check on every AI-written message before a person approves it, so nothing goes out unreviewed.",
+            "ar": "أضفت خطوة تحكيم بالنموذج على كل رسالة يكتبها الذكاء الاصطناعي قبل أن يعتمدها شخص، فلا يخرج شيء دون مراجعة."
           } },
         { "id": "ghrs", "tags": ["fullstack","it","solutions","pm","ops"],
           "text": {
-            "en": "Through GHRS, delivered client work for Saudi businesses: rebuilt websites, automated WhatsApp Business, and integrated internal tools with customer channels.",
-            "ar": "عبر GHRS، نفّذت أعمالًا لعملاء من الشركات السعودية: إعادة بناء مواقع، وأتمتة واتساب للأعمال، وربط الأدوات الداخلية بقنوات العملاء."
+            "en": "Through GHRS, delivered client work end to end for Saudi businesses: rebuilt websites, automated WhatsApp Business, and connected internal tools to customer channels, owning each project from scoping to deployment.",
+            "ar": "عبر GHRS، نفّذت أعمالًا متكاملة لعملاء من الشركات السعودية: إعادة بناء مواقع، وأتمتة واتساب للأعمال، وربط الأدوات الداخلية بقنوات العملاء، مع إدارة كل مشروع من تحديد النطاق حتى التسليم."
           } },
         { "id": "freightlx", "tags": ["solutions","ai","pm"],
           "text": {
-            "en": "Advised an early logistics startup (FREIGHTLX) as an AI consultant on scope and build.",
-            "ar": "قدّمت استشارة ذكاء اصطناعي لشركة لوجستية ناشئة (FREIGHTLX) حول النطاق والبناء."
+            "en": "Advised an early-stage logistics startup (FREIGHTLX) on AI scope and technical architecture, helping turn requirements into a working build.",
+            "ar": "قدّمت الاستشارة لشركة لوجستية ناشئة (FREIGHTLX) في نطاق الذكاء الاصطناعي والبنية التقنية، وساعدت على تحويل المتطلبات إلى منتج عملي."
+          } },
+        { "id": "op_requirements", "tags": ["solutions","pm","it"],
+          "text": {
+            "en": "Ran requirements gathering and technical planning across engineering, design, and operations teams, turning unclear asks into scoped, buildable work.",
+            "ar": "قُدت جمع المتطلبات والتخطيط التقني بين فرق الهندسة والتصميم والعمليات، محوّلًا الطلبات غير الواضحة إلى نطاق عمل واضح قابل للتنفيذ."
           } }
       ]
     },
@@ -59,13 +64,13 @@
       "bullets": [
         { "id": "tutor_scale", "tags": ["all"],
           "text": {
-            "en": "Taught 1,800+ computer science students over four years at a 4.9 of 5 rating.",
-            "ar": "درّست أكثر من 1,800 طالب في علوم الحاسب على مدى أربع سنوات بتقييم 4.9 من 5."
+            "en": "Taught 1,800+ computer science students over four years, holding a 4.9 of 5 learner rating.",
+            "ar": "درّست أكثر من 1,800 طالب في علوم الحاسب على مدى أربع سنوات، محافظًا على تقييم 4.9 من 5 من المتعلّمين."
           } },
         { "id": "tutor_method", "tags": ["pm","it"],
           "text": {
-            "en": "Built lesson plans and follow-up that worked across different skill levels.",
-            "ar": "أعددت خططًا دراسية ومتابعة تناسب مستويات مهارة مختلفة."
+            "en": "Built curriculum frameworks and personalised follow-up that lifted students across a wide range of skill levels.",
+            "ar": "بنيت أطرًا للمنهج ومتابعة فردية رفعت مستوى الطلاب على اختلاف مهاراتهم."
           } }
       ]
     },
@@ -78,13 +83,18 @@
       "bullets": [
         { "id": "metro_scale", "tags": ["pm","it-planning","ops","all"],
           "text": {
-            "en": "Prepared 1,500 staff across 45 stations in one month for the metro opening, which served over 30 million visitors.",
-            "ar": "جهّزت 1,500 موظف عبر 45 محطة خلال شهر واحد لافتتاح القطار، الذي خدم أكثر من 30 مليون زائر."
+            "en": "Prepared and deployed 1,500 staff across 45 stations in one month for the metro opening, which served over 30 million visitors.",
+            "ar": "جهّزت ووزّعت 1,500 موظف عبر 45 محطة خلال شهر واحد لافتتاح القطار، الذي خدم أكثر من 30 مليون زائر."
           } },
         { "id": "metro_coord", "tags": ["pm","it-planning","ops"],
           "text": {
-            "en": "Coordinated between the operating companies and the Royal Commission. The contract was extended three months after the launch.",
-            "ar": "نسّقت بين الشركات المشغّلة والهيئة الملكية. ومُدّد العقد ثلاثة أشهر بعد الإطلاق."
+            "en": "Coordinated readiness between the operating companies and the Royal Commission, and the contract was extended three months after the launch.",
+            "ar": "نسّقت الجاهزية بين الشركات المشغّلة والهيئة الملكية، ومُدّد العقد ثلاثة أشهر بعد الإطلاق."
+          } },
+        { "id": "metro_quality", "tags": ["pm","it-planning","ops"],
+          "text": {
+            "en": "Held service quality steady across morning and evening shifts through structured onboarding and clear shift discipline, under high demand and tight timelines.",
+            "ar": "حافظت على ثبات جودة الخدمة عبر ورديات الصباح والمساء من خلال تأهيل منظّم وانضباط واضح في الورديات، تحت ضغط عالٍ ومواعيد ضيّقة."
           } },
         { "id": "metro_promo", "tags": ["pm","it-planning","ops"],
           "text": {
@@ -102,8 +112,8 @@
       "bullets": [
         { "id": "allure_logistics", "tags": ["archive"],
           "text": {
-            "en": "Handled on-site logistics for large events.",
-            "ar": "أدرت الخدمات اللوجستية الميدانية لفعاليات كبيرة."
+            "en": "Coordinated on-site logistics for large-scale events, keeping workflows efficient and delivery smooth.",
+            "ar": "نسّقت الخدمات اللوجستية الميدانية لفعاليات كبيرة، مع الحفاظ على سير عمل فعّال وتنفيذ سلس."
           } }
       ]
     }
@@ -117,8 +127,8 @@
       "bullets": [
         { "id": "rusokh_desc", "tags": ["fullstack","ai","ml","all"],
           "text": {
-            "en": "As an instructor I hit the same problems on other course platforms, so I built my own. Next.js, Convex, payments, and video, in Arabic and English. It is live and in use.",
-            "ar": "بصفتي معلّمًا واجهت المشكلات نفسها في منصّات الدورات الأخرى، فبنيت منصّتي الخاصة. Next.js وConvex ومدفوعات وفيديو، بالعربية والإنجليزية. وهي تعمل الآن وقيد الاستخدام."
+            "en": "Built my own course platform after hitting the same gaps on other tools as an instructor. Full stack: Next.js 15, Convex, Moyasar payments, Bunny.net video, in Arabic and English. Live and onboarding its first instructors.",
+            "ar": "بنيت منصّة الدورات الخاصة بي بعد أن واجهت النواقص نفسها في الأدوات الأخرى بصفتي معلّمًا. حزمة متكاملة: Next.js 15 وConvex ومدفوعات Moyasar وفيديو Bunny.net، بالعربية والإنجليزية. تعمل الآن وتستقبل أوائل معلّميها."
           } }
       ]
     },
@@ -130,8 +140,8 @@
       "bullets": [
         { "id": "trayath_desc", "tags": ["ai","agentic","ml"],
           "text": {
-            "en": "A simple assistant that helps people make better day-to-day financial decisions. Built during Apple's AI program (1 of 66 selected from over 400,000 applicants).",
-            "ar": "مساعد بسيط يساعد الناس على اتخاذ قرارات مالية يومية أفضل. بُني خلال برنامج Apple للذكاء الاصطناعي (1 من 66 مختارًا من أكثر من 400,000 متقدّم)."
+            "en": "A simple assistant that helps people make better day-to-day financial decisions, built in Apple's AI program (selected 1 of 66 from over 400,000 applicants).",
+            "ar": "مساعد بسيط يعين الناس على اتخاذ قرارات مالية يومية أفضل، بُني في برنامج Apple للذكاء الاصطناعي (اختير 1 من 66 من أكثر من 400,000 متقدّم)."
           } }
       ]
     }
