@@ -17,7 +17,7 @@
 
 ## About Me
 
-I'm a computer science student in Riyadh. I build AI systems and web products, and I have run operations at national scale.
+I build AI systems and web products, and I have run operations at national scale.
 
 I work as a freelance AI and software consultant. I built a risk-triage system for an education platform, where fixed rules do the scoring and an AI model only handles the Arabic text. I built **Rusokh**, a course platform that is live and in use, and I deliver client work through **GHRS**.
 
