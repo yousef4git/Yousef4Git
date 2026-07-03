@@ -1,1 +1,34 @@
 @import "tailwindcss";
+
+@theme {
+  --color-night: #100e0b;
+  --color-coal: #161311;
+  --color-gold: #c9a96e;
+  --color-gold-bright: #e8d5a4;
+  --color-bone: #efe9de;
+  --color-stone: #a39b8b;
+  --color-noon: #17d9a3;
+  --font-display: var(--font-cormorant);
+  --font-body: var(--font-inter);
+  --font-mono: var(--font-jetbrains);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-night text-bone font-body antialiased;
+}
+
+/* Gold light sweep motif, applied to headings by chapters */
+.gold-sheen {
+  background: linear-gradient(100deg, #c9a96e 30%, #f4e9c8 50%, #c9a96e 70%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
