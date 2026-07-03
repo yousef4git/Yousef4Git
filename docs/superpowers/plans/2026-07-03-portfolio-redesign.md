@@ -20,6 +20,8 @@
 - Quality bar: `npm run build` clean, all tests green at every commit; final gate Lighthouse ≥90 performance, 100 accessibility.
 - Contact facts: yousefalshuwayi@gmail.com · linkedin.com/in/yousefalshuwayi · github.com/Yousef4Git · rusokh.com · ghrs.sa.
 - noon facts: AI Systems Engineer, noon (https://www.noon.edu.sa/en/), Riyadh, starting 2026-07-06. Offer signed.
+- CDMP is always written out as "Certified Data Management Professional (CDMP)" in every user-facing file (site content, persona, JSON-LD, linkedin.md).
+- The hero video source has no audio track (verified with ffprobe). There is no unmute control anywhere; the video plays muted and loops.
 
 ---
 
@@ -216,7 +218,7 @@ SRC="Certificates"
 OUT="public/media"
 mkdir -p "$OUT" public/cv
 
-# Hero video: 720p H.264, keep audio (hero has an unmute control), poster frame.
+# Hero video: 720p H.264, poster frame. Source clip has no audio track.
 ffmpeg -y -i "$SRC/Apple Academy/me presinting.mov" \
   -vf "scale=-2:720" -c:v libx264 -crf 26 -preset slow \
   -c:a aac -b:a 96k -movflags +faststart "$OUT/apple-presenting.mp4"
@@ -462,7 +464,7 @@ export const siteContent = {
   credentials: [
     {
       img: "/media/cert-cdmp-badge.png",
-      name: "CDMP Certification · Associate",
+      name: "Certified Data Management Professional (CDMP) · Associate",
       issuer: "DAMA",
       year: "2026",
       href: "https://eu.credential.net/1c13a3e1-5f2d-4840-a944-afc2a1c5f720",
@@ -572,7 +574,8 @@ FastAPI, Node, Convex. PostgreSQL, pgvector, Redis. AWS, Docker, GitHub Actions.
 
 ## Education and certifications
 B.Sc. Computer Science, Imam Muhammad ibn Saud Islamic University (IMSIU),
-expected Jan 2027. CDMP Certification, Associate (DAMA, 2026). Agentic AI
+expected Jan 2027. Certified Data Management Professional (CDMP), Associate
+(DAMA, 2026). Agentic AI
 Bootcamp (SDA Academy, 2026). McKinsey Forward (2026). Apple AI Program (2025).
 Introduction to AI (KAUST Academy, 2026). Data Science and ML scholarship (KAUST
 Academy, 2025). Data courses, University of Michigan (2025). Vibe Coding
@@ -902,8 +905,6 @@ test("hero video is muted, inline, poster-backed", async ({ page }) => {
   await expect(video).toHaveAttribute("playsinline", "");
   await expect(video).toHaveAttribute("poster", "/media/apple-presenting-poster.jpg");
   await expect(video).toHaveJSProperty("muted", true);
-  const unmute = page.getByRole("button", { name: /unmute/i });
-  await expect(unmute).toBeVisible();
 });
 ```
 
@@ -918,15 +919,13 @@ Replace `components/chapters/Hero.tsx`:
 
 ```tsx
 "use client";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { gsap, SplitText, useGSAP } from "@/lib/gsap";
 import { EASE, DUR } from "@/lib/motion";
 import { siteContent } from "@/content/site";
 
 export default function Hero() {
   const container = useRef<HTMLElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [muted, setMuted] = useState(true);
 
   useGSAP(
     () => {
@@ -950,13 +949,6 @@ export default function Hero() {
     { scope: container }
   );
 
-  const toggleMute = () => {
-    const v = videoRef.current;
-    if (!v) return;
-    v.muted = !v.muted;
-    setMuted(v.muted);
-  };
-
   return (
     <section
       ref={container}
@@ -965,7 +957,6 @@ export default function Hero() {
       className="relative flex min-h-screen items-center justify-center overflow-hidden opacity-0"
     >
       <video
-        ref={videoRef}
         data-hero-video
         className="absolute inset-0 h-full w-full object-cover"
         src={siteContent.hero.video}
@@ -987,12 +978,6 @@ export default function Hero() {
         </p>
         <p data-hero-tagline className="mt-2 text-stone">{siteContent.tagline}</p>
       </div>
-      <button
-        onClick={toggleMute}
-        className="absolute bottom-6 right-6 z-10 rounded border border-gold/40 px-3 py-1 font-mono text-xs text-gold hover:bg-gold/10"
-      >
-        {muted ? "Unmute" : "Mute"}
-      </button>
       <div data-scroll-cue aria-hidden className="absolute bottom-6 left-1/2 z-10 -translate-x-1/2 text-gold">
         ↓
       </div>
@@ -1012,7 +997,7 @@ Expected: all pass, including the reduced-motion test.
 
 ```bash
 git add components/chapters/Hero.tsx tests/e2e/site.spec.ts
-git commit -m "feat: cinematic hero with video, SplitText name reveal, unmute control"
+git commit -m "feat: cinematic hero with video and SplitText name reveal"
 ```
 
 ---
@@ -1713,7 +1698,7 @@ const personJsonLd = {
   address: { "@type": "PostalAddress", addressLocality: "Riyadh", addressCountry: "SA" },
   sameAs: ["https://linkedin.com/in/yousefalshuwayi", "https://github.com/Yousef4Git"],
   hasCredential: [
-    { "@type": "EducationalOccupationalCredential", name: "CDMP Certification - Associate", credentialCategory: "certification" },
+    { "@type": "EducationalOccupationalCredential", name: "Certified Data Management Professional (CDMP) - Associate", credentialCategory: "certification" },
     { "@type": "EducationalOccupationalCredential", name: "Agentic AI Bootcamp, SDA Academy", credentialCategory: "certificate" },
   ],
 };
@@ -1848,7 +1833,6 @@ Run `npm run dev` and confirm each item:
 - Desktop scroll-through: hero name reveal, noon pin, work horizontal slide, stage photo reveals, credentials fly-in, finale chat.
 - macOS System Settings > Accessibility > Display > Reduce motion ON, reload: every chapter fully readable, no pinning, no invisible content.
 - iPhone-size viewport: chapters stack vertically, no horizontal page scroll, video plays inline.
-- Unmute button toggles hero audio.
 
 - [ ] **Step 3: Run the full suite and commit any fixes**
 
@@ -1938,7 +1922,7 @@ Replace the table with:
 ```markdown
 | Name | Issuing organization | Issued | Credential |
 |---|---|---|---|
-| CDMP Certification, Associate | DAMA | Jul 2026 (expires Jul 2029) | https://eu.credential.net/1c13a3e1-5f2d-4840-a944-afc2a1c5f720 |
+| Certified Data Management Professional (CDMP), Associate | DAMA | Jul 2026 (expires Jul 2029) | https://eu.credential.net/1c13a3e1-5f2d-4840-a944-afc2a1c5f720 |
 | Agentic AI Bootcamp | SDA Academy | 2026 | |
 | McKinsey Forward | McKinsey & Company | 2026 | |
 | Apple AI Program (1 of 66 from 400,000+ applicants) | Apple Developer Academy & Tuwaiq | 2025 | |

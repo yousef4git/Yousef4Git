@@ -55,8 +55,8 @@ chapter dots for jumping.
 
 1. **Hero — the film open.** Full-viewport Apple presentation video, muted,
    behind a darkened gold-tinted overlay. Name reveals letter-by-letter
-   (SplitText), then "AI Systems Engineer at noon". Scroll cue; small unmute
-   control on the video.
+   (SplitText), then "AI Systems Engineer at noon". Scroll cue. The source
+   clip has no audio track, so the video simply plays muted and loops.
 2. **Now — noon chapter.** Pinned section: the new role and what he builds
    (agentic AI systems in production). Type-on text with parallax depth. The
    noon logo appears here; its green is a deliberate one-time accent against
@@ -66,7 +66,8 @@ chapter dots for jumping.
 4. **On stage.** SDA presenting photo + Shaguf best-instructor photo,
    large-format, scale-and-crossfade on scroll, short captions.
 5. **Credentials wall.** Badges/certificate images fly into a grid (Flip):
-   CDMP (live verify URL), SDA Agentic AI, KAUST, McKinsey Forward, SDAIA,
+   Certified Data Management Professional (CDMP, live verify URL), SDA
+   Agentic AI, KAUST, McKinsey Forward, SDAIA,
    Apple Developer Academy, Coursera. Hover lifts a card, shows issuer + date.
 6. **Finale — "Ask my CV anything."** Native chat panel rises in, plus contact
    links (email, LinkedIn, GitHub) and CV download.
@@ -120,7 +121,8 @@ Keep structure and voice rules (plain, no inflation, no em-dashes). Content:
 - **Experience:** new top entry "AI Systems Engineer, noon — Jul 2026–present,
   Riyadh" with 2–3 truthful bullets (role, focus area); freelance entry gets an
   end date. Company page: noon Education (noon.edu.sa), not noon.com.
-- **Certifications:** add CDMP – Associate (DAMA, issued 2026-07-02, expires
+- **Certifications:** add Certified Data Management Professional (CDMP),
+  Associate (DAMA, issued 2026-07-02, expires
   2029-07-02, verify: https://eu.credential.net/1c13a3e1-5f2d-4840-a944-afc2a1c5f720)
   and SDA Agentic AI Bootcamp; reconcile existing entries against
   `Certificates/` so names match the documents.
