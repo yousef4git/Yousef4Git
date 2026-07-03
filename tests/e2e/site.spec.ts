@@ -30,3 +30,11 @@ test("content is visible with reduced motion", async ({ browser }) => {
   await expect(page.getByRole("heading", { name: "Yousef Alshuwayi" })).toBeVisible();
   await ctx.close();
 });
+
+test("hero video is muted, inline, poster-backed", async ({ page }) => {
+  await page.goto("/");
+  const video = page.locator("video[data-hero-video]");
+  await expect(video).toHaveAttribute("playsinline", "");
+  await expect(video).toHaveAttribute("poster", "/media/apple-presenting-poster.jpg");
+  await expect(video).toHaveJSProperty("muted", true);
+});
