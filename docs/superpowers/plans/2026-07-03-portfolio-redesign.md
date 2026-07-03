@@ -315,7 +315,7 @@ export const DUR = { slow: 1.2, base: 0.8, quick: 0.3 } as const;
 ```css
 @import "tailwindcss";
 
-@theme {
+@theme inline {
   --color-night: #100e0b;
   --color-coal: #161311;
   --color-gold: #c9a96e;
@@ -338,7 +338,7 @@ body {
 
 /* Gold light sweep motif, applied to headings by chapters */
 .gold-sheen {
-  background: linear-gradient(100deg, #c9a96e 30%, #f4e9c8 50%, #c9a96e 70%);
+  background: linear-gradient(100deg, var(--color-gold) 30%, var(--color-gold-bright) 50%, var(--color-gold) 70%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
