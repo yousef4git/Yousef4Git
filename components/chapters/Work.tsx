@@ -11,14 +11,17 @@ export default function Work() {
       const mm = gsap.matchMedia();
       mm.add("(prefers-reduced-motion: no-preference) and (min-width: 768px)", () => {
         const track = container.current!.querySelector<HTMLElement>("[data-work-track]")!;
-        const shift = () => -(track.scrollWidth - window.innerWidth);
+        // Clamp: on viewports wider than the track there is no overflow to
+        // slide through; unclamped, x flips positive and end goes negative,
+        // inverting the scrub range.
+        const distance = () => Math.max(0, track.scrollWidth - window.innerWidth);
         gsap.to(track, {
-          x: shift,
+          x: () => -distance(),
           ease: "none",
           scrollTrigger: {
             trigger: container.current,
             start: "top top",
-            end: () => `+=${track.scrollWidth - window.innerWidth}`,
+            end: () => `+=${Math.max(1, distance())}`,
             scrub: 1,
             pin: true,
             invalidateOnRefresh: true,
