@@ -1343,7 +1343,7 @@ git commit -m "feat: credentials wall with staggered fly-in and verify links"
 
 **Interfaces:**
 - Produces: `checkRateLimit(ip: string, limit?: number, windowMs?: number): boolean` from `@/lib/rate-limit`.
-- Produces: `POST /api/chat` — accepts `{ messages: UIMessage[] }`; streams a UI message response; `503 { error: "chat_unavailable" }` without `AI_GATEWAY_API_KEY`; `429 { error: "rate_limited" }` over limit; `400 { error: "too_long" }` for oversized payloads. Model from `CHAT_MODEL` env, default `openai/gpt-4o-mini`.
+- Produces: `POST /api/chat` — accepts `{ messages: UIMessage[] }`; streams a UI message response; `503 { error: "chat_unavailable" }` without `AI_GATEWAY_API_KEY`; `429 { error: "rate_limited" }` over limit; `400 { error: "too_long" }` for oversized payloads; `400 { error: "bad_request" }` for unparseable JSON (client misuse never surfaces as a 500). Model from `CHAT_MODEL` env, default `openai/gpt-4o-mini`.
 
 - [ ] **Step 1: Write `vitest.config.ts` and failing unit tests**
 
@@ -1410,6 +1410,20 @@ describe("POST /api/chat degradation", () => {
     expect(res.status).toBe(503);
     expect(await res.json()).toEqual({ error: "chat_unavailable" });
   });
+
+  it("returns 400 bad_request for a malformed body", async () => {
+    process.env.AI_GATEWAY_API_KEY = "test-key";
+    const { POST } = await import("@/app/api/chat/route");
+    const res = await POST(
+      new Request("http://localhost/api/chat", {
+        method: "POST",
+        body: "not json",
+      })
+    );
+    expect(res.status).toBe(400);
+    expect(await res.json()).toEqual({ error: "bad_request" });
+    delete process.env.AI_GATEWAY_API_KEY;
+  });
 });
 ```
 
@@ -1461,7 +1475,12 @@ export async function POST(req: Request) {
   if (body.length > 16_000) {
     return Response.json({ error: "too_long" }, { status: 400 });
   }
-  const { messages }: { messages: UIMessage[] } = JSON.parse(body);
+  let messages: UIMessage[];
+  try {
+    ({ messages } = JSON.parse(body) as { messages: UIMessage[] });
+  } catch {
+    return Response.json({ error: "bad_request" }, { status: 400 });
+  }
   if (!Array.isArray(messages) || messages.length > 40) {
     return Response.json({ error: "too_long" }, { status: 400 });
   }
