@@ -32,3 +32,19 @@ theChatBot/
 # The tracked docs/superpowers/**.md plan and spec files are unaffected.
 docs/*.pdf
 docs/*.pptx
+
+# Next.js
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+next-env.d.ts
+
+# Tests
+/test-results/
+/playwright-report/
+/lighthouse.json
+
+# Raw certificate/media sources: personal documents, stay local like theChatBot/.
+# The published subset is the web derivatives in public/media/.
+Certificates/
