@@ -19,7 +19,12 @@ export async function POST(req: Request) {
   if (body.length > 16_000) {
     return Response.json({ error: "too_long" }, { status: 400 });
   }
-  const { messages }: { messages: UIMessage[] } = JSON.parse(body);
+  let messages: UIMessage[];
+  try {
+    ({ messages } = JSON.parse(body) as { messages: UIMessage[] });
+  } catch {
+    return Response.json({ error: "bad_request" }, { status: 400 });
+  }
   if (!Array.isArray(messages) || messages.length > 40) {
     return Response.json({ error: "too_long" }, { status: 400 });
   }
