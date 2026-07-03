@@ -1,0 +1,124 @@
+export const siteContent = {
+  name: "Yousef Alshuwayi",
+  role: "AI Systems Engineer at noon",
+  tagline: "I build production AI systems and web products.",
+  hero: {
+    video: "/media/apple-presenting.mp4",
+    poster: "/media/apple-presenting-poster.jpg",
+    videoAlt: "Yousef presenting at the Apple Developer Academy",
+  },
+  noon: {
+    heading: "A new chapter",
+    logo: "/media/noon-logo.png",
+    lines: [
+      "In July 2026 I joined noon as an AI Systems Engineer.",
+      "I build agentic AI systems that reach production and hold up there.",
+    ],
+    url: "https://www.noon.edu.sa/en/",
+  },
+  work: [
+    {
+      no: "/01",
+      kicker: "Course platform · Personal project",
+      title: "Rusokh",
+      line: "I hit the same problems on other course platforms as an instructor, so I built my own. Next.js, Convex, payments, and video, in Arabic and English. Live and in use.",
+      href: "https://rusokh.com",
+      cta: "Visit Rusokh",
+    },
+    {
+      no: "/02",
+      kicker: "Client work · Web and automation",
+      title: "GHRS",
+      line: "Through GHRS I deliver client work for Saudi businesses: rebuilt websites, automated WhatsApp Business, and connected internal tools to customer channels.",
+      href: "https://ghrs.sa",
+      cta: "Visit GHRS",
+    },
+    {
+      no: "/03",
+      kicker: "Client work · AI",
+      title: "Risk-triage system",
+      line: "Document intake and risk-triage for an education platform. Fixed rules score each case and an AI model handles only the Arabic text, never the scoring. Caching cut a full run from about 71 model calls to about 5.",
+      href: null,
+      cta: null,
+    },
+  ],
+  stage: [
+    {
+      src: "/media/photo-sda-presenting.jpg",
+      alt: "Yousef presenting at the SDA Agentic AI Bootcamp",
+      caption: "Presenting at the SDA Agentic AI Bootcamp",
+    },
+    {
+      src: "/media/photo-shaguf-honoring.jpg",
+      alt: "Yousef honored as best instructor at a Shaguf event",
+      caption: "Honored as best instructor at a Shaguf event",
+    },
+  ],
+  credentials: [
+    {
+      img: "/media/cert-cdmp-badge.png",
+      name: "Certified Data Management Professional (CDMP) · Associate",
+      issuer: "DAMA",
+      year: "2026",
+      href: "https://eu.credential.net/1c13a3e1-5f2d-4840-a944-afc2a1c5f720",
+    },
+    {
+      img: "/media/cert-sda.png",
+      name: "Agentic AI Bootcamp",
+      issuer: "SDA Academy",
+      year: "2026",
+      href: null,
+    },
+    {
+      img: "/media/cert-apple.png",
+      name: "Apple AI Program · 1 of 66 from 400,000+ applicants",
+      issuer: "Apple Developer Academy & Tuwaiq",
+      year: "2025",
+      href: null,
+    },
+    {
+      img: "/media/cert-kaust.png",
+      name: "Introduction to Artificial Intelligence",
+      issuer: "KAUST Academy",
+      year: "2026",
+      href: null,
+    },
+    {
+      img: "/media/cert-mckinsey-badge.png",
+      name: "McKinsey Forward",
+      issuer: "McKinsey & Company",
+      year: "2026",
+      href: null,
+    },
+    {
+      img: "/media/cert-sdaia.png",
+      name: "Vibe Coding",
+      issuer: "SDAIA",
+      year: "2026",
+      href: null,
+    },
+    {
+      img: "/media/cert-coursera-1.png",
+      name: "Data Collection and Processing with Python",
+      issuer: "University of Michigan",
+      year: "2025",
+      href: null,
+    },
+    {
+      img: "/media/cert-coursera-2.png",
+      name: "Introduction to Data Science",
+      issuer: "University of Michigan",
+      year: "2025",
+      href: null,
+    },
+  ],
+  contact: {
+    email: "yousefalshuwayi@gmail.com",
+    linkedin: "https://linkedin.com/in/yousefalshuwayi",
+    github: "https://github.com/Yousef4Git",
+    cv: "/cv/Yousef-Alshuwayi-AI-Engineer.pdf",
+  },
+  chapters: ["hero", "noon", "work", "stage", "credentials", "finale"] as const,
+} as const;
+
+export type SiteContent = typeof siteContent;
