@@ -20,6 +20,9 @@ env/
 .vscode/
 .idea/
 
+# Brainstorming visual-companion sessions (mockups, local state)
+.superpowers/
+
 # Chatbot source — deployed to its Hugging Face Space, not to Vercel.
 # Kept out of the repo (contains personal CV files: linkedin.pdf, photos).
 theChatBot/
