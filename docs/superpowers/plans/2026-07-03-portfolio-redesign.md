@@ -6,7 +6,7 @@
 
 **Architecture:** Next.js App Router at the repo root (old static site moves to `legacy/`). One page composed of six chapter components animated with GSAP ScrollTrigger/SplitText via `@gsap/react`. Chat is one API route (`streamText`, AI Gateway model string) + a `useChat` panel. All copy lives in a typed content module; all media are pre-generated derivatives in `public/media/`.
 
-**Tech Stack:** Next.js 15 (App Router, TypeScript), Tailwind v4, GSAP 3.13 + @gsap/react, Vercel AI SDK (`ai`, `@ai-sdk/react`), Playwright (e2e), Vitest (unit), ffmpeg + poppler (media pipeline), Vercel hosting.
+**Tech Stack:** Next.js 16 (App Router, TypeScript), Tailwind v4, GSAP 3.15 + @gsap/react, Vercel AI SDK (`ai`, `@ai-sdk/react`), Playwright (e2e), Vitest (unit), ffmpeg + poppler (media pipeline), Vercel hosting.
 
 **Spec:** `docs/superpowers/specs/2026-07-03-portfolio-redesign-design.md`
 
@@ -1344,7 +1344,7 @@ git commit -m "feat: credentials wall with staggered fly-in and verify links"
 
 **Interfaces:**
 - Produces: `checkRateLimit(ip: string, limit?: number, windowMs?: number): boolean` from `@/lib/rate-limit`.
-- Produces: `POST /api/chat` — accepts `{ messages: UIMessage[] }`; streams a UI message response; `503 { error: "chat_unavailable" }` without `AI_GATEWAY_API_KEY`; `429 { error: "rate_limited" }` over limit; `400 { error: "too_long" }` for oversized payloads; `400 { error: "bad_request" }` for unparseable JSON (client misuse never surfaces as a 500). Model from `CHAT_MODEL` env, default `openai/gpt-4o-mini`.
+- Produces: `POST /api/chat` — accepts `{ messages: UIMessage[] }`; streams a UI message response; `503 { error: "chat_unavailable" }` without `AI_GATEWAY_API_KEY`; `429 { error: "rate_limited" }` over limit; `400 { error: "too_long" }` for oversized payloads; `400 { error: "bad_request" }` for unparseable JSON or messages that fail UIMessage conversion (client misuse never surfaces as a 500). Model from `CHAT_MODEL` env, default `openai/gpt-4o-mini`.
 
 - [ ] **Step 1: Write `vitest.config.ts` and failing unit tests**
 
@@ -1425,6 +1425,20 @@ describe("POST /api/chat degradation", () => {
     expect(await res.json()).toEqual({ error: "bad_request" });
     delete process.env.AI_GATEWAY_API_KEY;
   });
+
+  it("returns 400 bad_request for messages that fail conversion", async () => {
+    process.env.AI_GATEWAY_API_KEY = "test-key";
+    const { POST } = await import("@/app/api/chat/route");
+    const res = await POST(
+      new Request("http://localhost/api/chat", {
+        method: "POST",
+        body: JSON.stringify({ messages: [{ role: "user" }] }),
+      })
+    );
+    expect(res.status).toBe(400);
+    expect(await res.json()).toEqual({ error: "bad_request" });
+    delete process.env.AI_GATEWAY_API_KEY;
+  });
 });
 ```
 
@@ -1486,10 +1500,17 @@ export async function POST(req: Request) {
     return Response.json({ error: "too_long" }, { status: 400 });
   }
 
+  let modelMessages;
+  try {
+    modelMessages = await convertToModelMessages(messages);
+  } catch {
+    return Response.json({ error: "bad_request" }, { status: 400 });
+  }
+
   const result = streamText({
     model: process.env.CHAT_MODEL ?? "openai/gpt-4o-mini",
     system: persona,
-    messages: await convertToModelMessages(messages),
+    messages: modelMessages,
   });
 
   return result.toUIMessageStreamResponse();
