@@ -48,3 +48,4 @@ next-env.d.ts
 # Raw certificate/media sources: personal documents, stay local like theChatBot/.
 # The published subset is the web derivatives in public/media/.
 Certificates/
+.vercel
