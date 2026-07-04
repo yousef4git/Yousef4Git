@@ -49,3 +49,8 @@ next-env.d.ts
 # The published subset is the web derivatives in public/media/.
 Certificates/
 .vercel
+
+# Claude Code local tooling state: session settings, agent/skill caches.
+.claude/
+.agents/
+skills-lock.json
