@@ -1,5 +1,6 @@
 "use client";
 import { useRef } from "react";
+import Image from "next/image";
 import { gsap, useGSAP } from "@/lib/gsap";
 import { siteContent } from "@/content/site";
 import ChapterHead from "@/components/ChapterHead";
@@ -44,7 +45,7 @@ export default function Work() {
 
   return (
     <section ref={container} id="work" data-chapter="work" className="min-h-screen overflow-hidden py-24">
-      <ChapterHead no="03" title="Selected work" note="Client and personal" />
+      <ChapterHead title="Selected work" note="Client and personal" />
       <div data-work-track className="mt-12 flex flex-col gap-8 px-6 md:w-max md:flex-row md:flex-nowrap md:pr-[40vw]">
         {siteContent.work.map((w) => (
           <article key={w.no} data-work-card className="w-full max-w-md shrink-0 rounded-lg border border-gold/20 bg-coal p-8 md:w-[32rem] md:max-w-none">
@@ -52,7 +53,21 @@ export default function Work() {
               <span>{w.no}</span>
               <span>{w.kicker}</span>
             </div>
-            <h3 className="mt-4 font-display text-3xl text-bone">{w.title}</h3>
+            {w.logo ? (
+              <h3 className="mt-4">
+                <span className="inline-block h-16 w-16 overflow-hidden rounded-xl bg-bone p-1.5 shadow-[0_16px_32px_-16px_rgba(0,0,0,0.8)]">
+                  <Image
+                    src={w.logo}
+                    alt={w.logoAlt}
+                    width={128}
+                    height={128}
+                    className="h-full w-full object-contain"
+                  />
+                </span>
+              </h3>
+            ) : (
+              <h3 className="mt-4 font-display text-3xl text-bone">{w.title}</h3>
+            )}
             <p className="mt-3 text-stone">{w.line}</p>
             {w.href && (
               <a href={w.href} target="_blank" rel="noopener noreferrer" className="mt-4 inline-block font-mono text-sm text-gold hover:text-gold-bright">

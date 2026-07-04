@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 
-const CHAPTERS = ["hero", "noon", "work", "stage", "credentials", "finale"];
+const CHAPTERS = ["hero", "noon", "yax", "stage", "work", "credentials"];
 
 test("all six chapters render", async ({ page }) => {
   await page.goto("/");
@@ -9,9 +9,13 @@ test("all six chapters render", async ({ page }) => {
   }
 });
 
-test("nav has one dot per chapter", async ({ page }) => {
+test("glass navbar links every stop", async ({ page }) => {
   await page.goto("/");
-  await expect(page.locator('nav[aria-label="Chapters"] a')).toHaveCount(6);
+  await expect(page.locator('nav[aria-label="Sections"] a')).toHaveCount(5);
+  await expect(page.locator('nav[aria-label="Sections"] a', { hasText: "Experience" })).toHaveAttribute(
+    "href",
+    "#noon"
+  );
 });
 
 test("credential verify links open in a new tab", async ({ page }) => {

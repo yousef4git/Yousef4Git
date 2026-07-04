@@ -23,13 +23,24 @@ export default function Hero() {
           .from("[data-hero-frame]", { autoAlpha: 0, y: 32, duration: DUR.slow })
           .from(
             split.chars,
-            { yPercent: 110, autoAlpha: 0, stagger: 0.045, duration: DUR.slow },
+            { yPercent: 110, autoAlpha: 0, stagger: 0.03, duration: DUR.slow },
             "-=0.7"
           )
-          .from("[data-hero-role]", { autoAlpha: 0, y: 24, duration: DUR.base }, "-=0.4")
+          // The kicker moves instead of fading: small text at partial opacity
+          // fails the color-contrast audit mid-animation.
+          .from(
+            "[data-hero-meta]",
+            { y: 12, letterSpacing: "0.5em", duration: DUR.base },
+            "-=0.8"
+          )
+          .from("[data-hero-role]", { autoAlpha: 0, y: 24, duration: DUR.base }, "-=0.5")
           .from("[data-hero-tagline]", { autoAlpha: 0, y: 16, duration: DUR.base }, "-=0.5")
-          .from("[data-hero-meta]", { autoAlpha: 0, duration: DUR.base }, "-=0.4")
-          .from("[data-scroll-cue]", { autoAlpha: 0, duration: DUR.base });
+          .from(
+            "[data-hero-badge]",
+            { autoAlpha: 0, y: 14, stagger: 0.08, duration: DUR.base },
+            "-=0.5"
+          )
+          .from("[data-scroll-cue]", { autoAlpha: 0, duration: DUR.base }, "-=0.3");
         gsap.to("[data-scroll-cue]", { y: 8, repeat: -1, yoyo: true, duration: 0.9, ease: EASE.drift });
         return () => split.revert();
       });
@@ -51,30 +62,42 @@ export default function Hero() {
         aria-hidden
         className="pointer-events-none absolute right-[-12%] top-1/2 hidden h-[40rem] w-[40rem] -translate-y-1/2 rounded-full bg-gold/10 blur-3xl md:block"
       />
-      <div className="mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-12 px-6 py-24 md:grid-cols-[1fr_auto] md:gap-20">
+      <div className="mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-12 px-6 py-24 md:grid-cols-[1fr_auto] md:gap-16">
         <div className="relative z-10 text-center md:text-left">
           <p data-hero-meta className="font-mono text-xs uppercase tracking-[0.3em] text-stone">
-            Scene 01 · Riyadh, Saudi Arabia
+            {siteContent.hero.location}
           </p>
           <h1
             data-hero-name
-            className="mt-6 font-display text-6xl leading-none gold-sheen md:text-7xl lg:text-8xl"
+            className="mt-5 font-display text-5xl leading-none gold-sheen md:text-6xl lg:text-7xl"
           >
             {siteContent.name}
           </h1>
           <p
             data-hero-role
-            className="mt-6 font-mono text-sm uppercase tracking-widest text-gold md:text-base"
+            className="mt-5 font-mono text-sm uppercase tracking-widest text-gold"
           >
             {siteContent.role}
           </p>
           <p data-hero-tagline className="mx-auto mt-3 max-w-md text-stone md:mx-0">
             {siteContent.tagline}
           </p>
+          <ul className="mt-7 flex flex-wrap justify-center gap-2 md:justify-start">
+            {siteContent.hero.badges.map((b) => (
+              <li
+                key={b}
+                data-hero-badge
+                className="flex items-center gap-2 rounded-full border border-gold/25 bg-coal/60 px-3.5 py-1.5 font-mono text-[11px] text-stone"
+              >
+                <span aria-hidden className="h-1 w-1 rounded-full bg-gold" />
+                {b}
+              </li>
+            ))}
+          </ul>
         </div>
         <div
           data-hero-frame
-          className="absolute inset-0 md:relative md:inset-auto md:w-[21rem] md:overflow-hidden md:rounded-2xl md:border md:border-gold/20 md:shadow-[0_40px_80px_-40px_rgba(0,0,0,0.9)] lg:w-[23rem]"
+          className="absolute inset-0 md:relative md:inset-auto md:w-[20rem] md:overflow-hidden md:rounded-2xl md:border md:border-gold/20 md:shadow-[0_40px_80px_-40px_rgba(0,0,0,0.9)] lg:w-[22rem]"
         >
           <video
             data-hero-video

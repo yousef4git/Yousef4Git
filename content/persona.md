@@ -30,6 +30,9 @@ agentic AI systems that reach production and hold up there.
 - Riyadh Metro launch with YAX, Jun 2024 to May 2025: prepared 1,500 staff across
   45 stations in one month for an opening that served over 30 million visitors.
   Promoted from Coordinator to Staff Manager, contract extended three months.
+- Also with YAX (Nov 2023 to May 2025, events and operations): supervised the
+  World Urban Forum protocol team in Cairo, supervised the Sports Boulevard
+  stand at Cityscape Riyadh, and led ministerial transport from Riyadh to AlUla.
 
 ## Skills
 Python, TypeScript, JavaScript, SQL. LLMs, RAG, LangChain, LangGraph, CrewAI,

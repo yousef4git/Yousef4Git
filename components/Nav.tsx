@@ -1,7 +1,24 @@
 "use client";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { gsap, useGSAP } from "@/lib/gsap";
-import { siteContent } from "@/content/site";
+
+const LINKS = [
+  { href: "#hero", label: "Intro" },
+  { href: "#noon", label: "Experience" },
+  { href: "#stage", label: "On stage" },
+  { href: "#work", label: "Work" },
+  { href: "#credentials", label: "Credentials" },
+];
+
+// Section id → the nav link that owns it (YAX rolls up under Experience).
+const SPY: Record<string, string> = {
+  hero: "#hero",
+  noon: "#noon",
+  yax: "#noon",
+  stage: "#stage",
+  work: "#work",
+  credentials: "#credentials",
+};
 
 export default function Nav() {
   const wrap = useRef<HTMLDivElement>(null);
@@ -15,33 +32,86 @@ export default function Nav() {
           ease: "none",
           scrollTrigger: { start: 0, end: "max", scrub: 0.3 },
         });
+        gsap.from("[data-nav-pill]", {
+          y: -16,
+          autoAlpha: 0,
+          duration: 0.8,
+          delay: 0.5,
+          ease: "power3.out",
+        });
       });
     },
     { scope: wrap }
   );
+
+  // Active-section highlight. IntersectionObserver reads live layout, so
+  // pinned sections (whose ScrollTrigger positions shift by pin spacers)
+  // stay correct: whichever section crosses the viewport's center band wins.
+  useEffect(() => {
+    const setActive = (href: string) => {
+      wrap.current
+        ?.querySelectorAll<HTMLAnchorElement>("[data-nav-link]")
+        .forEach((a) => {
+          const on = a.getAttribute("href") === href;
+          a.classList.toggle("bg-gold/15", on);
+          a.classList.toggle("text-gold-bright", on);
+          if (on) a.setAttribute("aria-current", "true");
+          else a.removeAttribute("aria-current");
+        });
+    };
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (!e.isIntersecting) continue;
+          const href = SPY[e.target.id];
+          if (href) setActive(href);
+        }
+      },
+      { rootMargin: "-45% 0px -45% 0px" }
+    );
+    Object.keys(SPY).forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) io.observe(el);
+    });
+    return () => io.disconnect();
+  }, []);
 
   return (
     <div ref={wrap}>
       <div
         data-progress
         aria-hidden
-        className="fixed left-0 top-0 z-50 h-px w-full origin-left scale-x-0 bg-gold/70"
+        className="fixed left-0 top-0 z-[65] h-px w-full origin-left scale-x-0 bg-gold/70"
       />
-      <a href="#hero" className="fixed top-6 left-6 z-50 font-display text-2xl text-gold" aria-label="YA, back to top">
-        YA
-      </a>
-      <nav aria-label="Chapters" className="fixed right-5 top-1/2 z-50 -translate-y-1/2 hidden md:flex flex-col gap-1">
-        {siteContent.chapters.map((c) => (
+      <div className="pointer-events-none fixed inset-x-0 top-4 z-50 flex justify-center px-3">
+        <div
+          data-nav-pill
+          className="liquid-glass pointer-events-auto flex max-w-full items-center rounded-full py-1.5 pl-4 pr-1.5"
+        >
           <a
-            key={c}
-            href={`#${c}`}
-            aria-label={c}
-            className="group flex h-6 w-6 items-center justify-center"
+            href="#hero"
+            aria-label="YA, back to top"
+            className="mr-2 font-display text-xl leading-none text-gold"
           >
-            <span aria-hidden className="block h-2 w-2 rounded-full bg-stone/40 transition-colors group-hover:bg-gold" />
+            YA
           </a>
-        ))}
-      </nav>
+          <nav
+            aria-label="Sections"
+            className="no-scrollbar flex items-center gap-0.5 overflow-x-auto max-md:[mask-image:linear-gradient(to_right,black_88%,transparent)]"
+          >
+            {LINKS.map((l) => (
+              <a
+                key={l.href}
+                data-nav-link
+                href={l.href}
+                className="whitespace-nowrap rounded-full px-3 py-1.5 font-mono text-[11px] uppercase tracking-wider text-stone transition-colors hover:text-bone"
+              >
+                {l.label}
+              </a>
+            ))}
+          </nav>
+        </div>
+      </div>
     </div>
   );
 }

@@ -31,7 +31,7 @@ export default function Credentials() {
   return (
     <section ref={container} id="credentials" data-chapter="credentials" className="min-h-screen py-24">
       <div className="mx-auto max-w-6xl">
-        <ChapterHead no="05" title="Credentials" note="Verified where possible" />
+        <ChapterHead title="Credentials" note="Verified where possible" />
       </div>
       <div data-cred-grid className="mx-auto mt-12 grid max-w-6xl grid-cols-2 gap-6 px-6 md:grid-cols-4">
         {siteContent.credentials.map((c) => {

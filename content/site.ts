@@ -3,9 +3,15 @@ export const siteContent = {
   role: "AI Systems Engineer at noon",
   tagline: "I build production AI systems and web products.",
   hero: {
+    location: "Riyadh, Saudi Arabia",
     video: "/media/apple-presenting.mp4",
     poster: "/media/apple-presenting-poster.jpg",
     videoAlt: "Yousef presenting at the Apple Developer Academy",
+    badges: [
+      "Certified Data Management Professional (CDMP)",
+      "Apple AI Program · 1 of 66",
+      "SDA Agentic AI Bootcamp",
+    ],
   },
   noon: {
     heading: "A new chapter",
@@ -16,27 +22,62 @@ export const siteContent = {
     ],
     url: "https://www.noon.edu.sa/en/",
   },
+  yax: {
+    logo: "/media/yax-logo.jpg",
+    company: "YAX, Your Amazing Xperience",
+    meta: "Events and operations · Riyadh · Nov 2023 to May 2025",
+    intro:
+      "Before AI work I ran events and operations with YAX. Big teams, hard deadlines, real logistics.",
+    roles: [
+      {
+        title: "Staff Manager, Riyadh Metro",
+        dates: "Nov 2024 - May 2025",
+        line: "Recruited, trained and managed 1,500 event staff for the Riyadh Metro launch, across 45 stations that served over 30 million visitors.",
+      },
+      {
+        title: "Human Resources Coordinator",
+        dates: "Apr 2024 - Nov 2024",
+        line: "Recruited and coordinated staff for projects inside Saudi Arabia and abroad, and kept staffing records accurate across teams.",
+      },
+      {
+        title: "Operations Team Member",
+        dates: "Nov 2023 - Nov 2024",
+        line: "Coordinated on site logistics for events and worked with cross functional teams to keep quality high on the ground.",
+      },
+    ],
+    highlights: [
+      "Supervised the World Urban Forum protocol team in Cairo",
+      "Supervised the Sports Boulevard stand at Cityscape Riyadh",
+      "Led ministerial transport from Riyadh to AlUla",
+    ],
+  },
   work: [
     {
       no: "/01",
       kicker: "Course platform · Personal project",
-      title: "Rusokh",
+      title: null,
+      logo: "/media/rusokh-logo.png",
+      logoAlt: "Rusokh",
       line: "I hit the same problems on other course platforms as an instructor, so I built my own. Next.js, Convex, payments, and video, in Arabic and English. Live and in use.",
       href: "https://rusokh.com",
-      cta: "Visit Rusokh",
+      cta: "Visit the platform",
     },
     {
       no: "/02",
       kicker: "Client work · Web and automation",
-      title: "GHRS",
-      line: "Through GHRS I deliver client work for Saudi businesses: rebuilt websites, automated WhatsApp Business, and connected internal tools to customer channels.",
+      title: null,
+      logo: "/media/ghrs-logo.png",
+      logoAlt: "GHRS",
+      line: "Client work for Saudi businesses: rebuilt websites, automated WhatsApp Business, and connected internal tools to customer channels.",
       href: "https://ghrs.sa",
-      cta: "Visit GHRS",
+      cta: "Visit the site",
     },
     {
       no: "/03",
       kicker: "Client work · AI",
       title: "Risk-triage system",
+      logo: null,
+      logoAlt: null,
       line: "Document intake and risk-triage for an education platform. Fixed rules score each case and an AI model handles only the Arabic text, never the scoring. Caching cut a full run from about 71 model calls to about 5.",
       href: null,
       cta: null,
@@ -129,7 +170,7 @@ export const siteContent = {
     github: "https://github.com/Yousef4Git",
     cv: "/cv/Yousef-Alshuwayi-AI-Engineer.pdf",
   },
-  chapters: ["hero", "noon", "work", "stage", "credentials", "finale"] as const,
+  chapters: ["hero", "noon", "yax", "stage", "work", "credentials"] as const,
 } as const;
 
 export type SiteContent = typeof siteContent;

@@ -35,6 +35,21 @@ export default function Stage() {
               scrollTrigger: { trigger: fig, start: "top 88%", end: "top 45%", scrub: 1 },
             }
           );
+          // Slow drift inside the cropped frame for depth; the constant
+          // overscale keeps edges covered through the ±6% travel.
+          const img = fig.querySelector("img");
+          if (img) {
+            gsap.fromTo(
+              img,
+              { yPercent: -6, scale: 1.12 },
+              {
+                yPercent: 6,
+                scale: 1.12,
+                ease: "none",
+                scrollTrigger: { trigger: fig, start: "top bottom", end: "bottom top", scrub: true },
+              }
+            );
+          }
         });
       });
     },
@@ -44,7 +59,7 @@ export default function Stage() {
   return (
     <section ref={container} id="stage" data-chapter="stage" className="bg-coal py-24 md:py-36">
       <div className="mx-auto max-w-6xl">
-        <ChapterHead no="04" title="On stage" note="Teaching and speaking" />
+        <ChapterHead title="On stage" note="Teaching and speaking" />
         <div className="mt-16 grid grid-cols-1 gap-16 px-6 md:grid-cols-12 md:gap-x-6 md:gap-y-0">
           {siteContent.stage.map((s, i) => (
             <figure key={s.src} data-stage-photo className={PLACEMENT[i]}>
