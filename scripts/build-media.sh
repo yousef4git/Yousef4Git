@@ -6,12 +6,14 @@ SRC="Certificates"
 OUT="public/media"
 mkdir -p "$OUT" public/cv
 
-# Hero video: 720p H.264, keep audio (hero has an unmute control), poster frame.
+# Hero video: 720p H.264, poster frame. Source clip has no audio track.
 ffmpeg -y -i "$SRC/Apple Academy/me presinting.mov" \
   -vf "scale=-2:720" -c:v libx264 -crf 26 -preset slow \
   -c:a aac -b:a 96k -movflags +faststart "$OUT/apple-presenting.mp4"
-ffmpeg -y -i "$OUT/apple-presenting.mp4" -ss 00:00:01 -frames:v 1 -q:v 3 \
-  "$OUT/apple-presenting-poster.jpg"
+ffmpeg -y -i "$OUT/apple-presenting.mp4" -ss 00:00:01 -frames:v 1 \
+  -q:v 6 -huffman optimal "$OUT/apple-presenting-poster.jpg"
+# Poster stays small on purpose: the Task 14 Lighthouse gate flagged the q:v 3
+# version (~36KB); keep regenerated posters within ~10% of 26KB.
 
 # Stage photos: max 1600px on the long side.
 sips -Z 1600 "$SRC/SDA Agentic AI Bootcamp/me presinging.jpeg" \
