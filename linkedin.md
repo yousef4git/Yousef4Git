@@ -1,6 +1,6 @@
 # Yousef Alshuwayi, LinkedIn Profile (copy-paste guide)
 
-Everything below is written in your voice: plain, no inflation, no em-dashes, no "student" self-framing, the consulting client stays anonymized as "an education platform" (never connect it to noon), and certificate/program names live only in the Certifications and Honors sections (not in the headline or About). Paste each block into the matching LinkedIn section. Character limits are noted where they matter.
+Everything below is written in your voice: plain, no inflation, no em-dashes, no "student" self-framing, the consulting client stays anonymized as "an education platform" (never connect it to Noon Academy), and certificate/program names live only in the Certifications and Honors sections (not in the headline or About). Paste each block into the matching LinkedIn section. Character limits are noted where they matter.
 
 **Sections:** [Headline](#1-headline) · [About](#2-about) · [Experience](#3-experience) · [Education](#4-education) · [Certifications](#5-licenses--certifications) · [Projects](#6-projects) · [Skills](#7-skills) · [Languages](#8-languages) · [Honors](#9-honors--awards) · [Featured](#10-featured) · [Open to Work](#11-open-to-work) · [Services](#12-services-freelance) · [Recommendations](#13-recommendations) · [Contact & URL](#14-contact-info--custom-url) · [Photo & Banner](#15-photo--banner) · [Voice checklist](#voice-checklist)
 
@@ -11,17 +11,17 @@ LinkedIn limit: 220 characters. This is the single most searched field, so keep 
 
 **Primary (recommended):**
 ```
-AI Systems Engineer at noon | Agentic AI · LLMs · Python | I build production AI systems that ship and hold up | Riyadh
+AI Systems Engineer at Noon Academy | Agentic AI · LLMs · Python | I build production AI systems that ship and hold up | Riyadh
 ```
 
 **Alternate (recruiter search):**
 ```
-AI Systems Engineer | Agentic AI, LLMs, RAG | Python · Next.js · FastAPI | noon | Riyadh, Saudi Arabia
+AI Systems Engineer | Agentic AI, LLMs, RAG | Python · Next.js · FastAPI | Noon Academy | Riyadh, Saudi Arabia
 ```
 
 **Arabic (if you add an Arabic secondary profile):**
 ```
-مهندس أنظمة ذكاء اصطناعي في noon | ذكاء اصطناعي توكيلي ونماذج لغوية | أبني أنظمة ذكاء اصطناعي إنتاجية | Python · Next.js | الرياض
+مهندس أنظمة ذكاء اصطناعي في Noon Academy | ذكاء اصطناعي توكيلي ونماذج لغوية | أبني أنظمة ذكاء اصطناعي إنتاجية | Python · Next.js | الرياض
 ```
 
 ---
@@ -31,7 +31,7 @@ LinkedIn limit: 2,600 characters. The first 2 lines show before "see more", so t
 
 **English:**
 ```
-I am an AI Systems Engineer at noon in Riyadh. I design and ship production AI systems, and before this I ran delivery at national scale. I care about systems that actually reach production and hold up there.
+I am an AI Systems Engineer at Noon Academy in Riyadh. I design and ship production AI systems, and before this I ran delivery at national scale. I care about systems that actually reach production and hold up there.
 
 For an education platform, I built a document intake and risk-triage system where fixed rules do the scoring and an AI model handles only the Arabic text, never the decision, so every result stays auditable. I added caching that cut a full run from about 71 model calls to about 5, and an LLM-as-judge check so nothing reaches a person unreviewed.
 
@@ -44,7 +44,7 @@ I work in Python and TypeScript across LLMs and agent systems (LangGraph, CrewAI
 
 **Arabic:**
 ```
-أعمل مهندس أنظمة ذكاء اصطناعي في noon بالرياض. أصمّم وأطلق أنظمة ذكاء اصطناعي إنتاجية، وقبل ذلك أدرت التنفيذ على نطاق وطني. أهتم بالأنظمة التي تصل فعلًا إلى الإنتاج وتصمد فيه.
+أعمل مهندس أنظمة ذكاء اصطناعي في Noon Academy بالرياض. أصمّم وأطلق أنظمة ذكاء اصطناعي إنتاجية، وقبل ذلك أدرت التنفيذ على نطاق وطني. أهتم بالأنظمة التي تصل فعلًا إلى الإنتاج وتصمد فيه.
 
 لمنصة تعليمية، بنيت نظام استقبال مستندات وترتيب حسب الخطورة، تحسب فيه القواعد الثابتة الدرجات ويتولى نموذج الذكاء الاصطناعي النص العربي فقط دون القرار، لتبقى كل نتيجة قابلة للمراجعة. أضفت تخزينًا مؤقتًا خفّض التشغيل الكامل من نحو 71 طلبًا للنموذج إلى نحو 5، وخطوة تحكيم بالنموذج قبل أن تصل أي رسالة إلى شخص.
 
@@ -60,15 +60,15 @@ I work in Python and TypeScript across LLMs and agent systems (LangGraph, CrewAI
 ## 3. Experience
 Add these as separate positions, newest first. Where a company had two roles, add both under the same company so LinkedIn shows the promotion and the full tenure. Bullets use "•" (paste as-is or let LinkedIn format).
 
-### 3.0 AI Systems Engineer, noon
+### 3.0 AI Systems Engineer, Noon Academy
 - **Title:** AI Systems Engineer
 - **Employment type:** Full-time
-- **Company:** noon (search LinkedIn for the noon education company, noon.edu.sa, NOT noon.com the marketplace)
+- **Company:** Noon Academy (search LinkedIn for the Noon Academy, noon.edu.sa)
 - **Location:** Riyadh, Saudi Arabia
 - **Dates:** Jul 2026 to Present
 - **Description:**
 ```
-I build and run production AI systems at noon, the education platform serving students across the region.
+I build and run production AI systems at Noon Academy, the education platform serving students across the region.
 ```
 Note: expand these bullets after the first months in the role, with real shipped work. Keep every claim true.
 
@@ -241,14 +241,14 @@ Add these as Featured items (they are the first visual proof recruiters click):
 ---
 
 ## 11. Open to Work
-Turn Open to Work OFF: Profile > Open to > Finding a new job > delete. You are employed at noon.
+Turn Open to Work OFF: Profile > Open to > Finding a new job > delete. You are employed at Noon Academy.
 Do the same for the green banner or photo frame if either is on.
 
 ---
 
 ## 12. Services (freelance)
 Turn the Services page OFF (Open to > Providing services > remove). Consulting is now
-track record, not an offer. If noon's contract later allows side work, this section can return.
+track record, not an offer. If Noon Academy's contract later allows side work, this section can return.
 
 ---
 
@@ -283,5 +283,4 @@ Hi [name], I'm tidying up my LinkedIn and would really value a short recommendat
 - Keep the Metro numbers exact: 1,500 staff, 45 stations, 30 million visitors.
 - Program and certificate names belong in Certifications and Honors, not in the Headline or About.
 - Confident and senior in framing, but every claim stays true.
-- noon is your employer, named plainly. The anonymized consulting client stays "an education platform"; never connect the two.
-```
+- Noon Academy is your employer, named plainly. The anonymized consulting client stays "an education platform"; never connect the two.
