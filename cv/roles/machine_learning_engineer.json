@@ -1,0 +1,14 @@
+{
+  "key": "machine_learning_engineer",
+  "file": "Machine-Learning-Engineer",
+  "title": { "en": "Machine Learning Engineer", "ar": "مهندس تعلّم آلة" },
+  "summary": {
+    "en": "Applied ML engineer in Riyadh who takes models from data to production and owns how they are measured. Working in Python across the data and evaluation layers, I built the scoring and evaluation for a risk-triage system on an education platform, keeping the model scoped to language and the decisions grounded in evidence.",
+    "ar": "مهندس تعلّم آلة تطبيقي في الرياض ينقل النماذج من البيانات إلى الإنتاج ويملك طريقة قياسها. أعمل بلغة Python عبر طبقات البيانات والتقييم، وبنيت حساب الدرجات والتقييم لنظام ترتيب حسب الخطورة في منصة تعليمية، مع إبقاء النموذج محصورًا في اللغة والقرارات مستندة إلى الأدلة."
+  },
+  "sectionOrder": ["summary","skills","experience","projects","education","certs","languages"],
+  "tags": ["ml","ai","agentic"],
+  "leadBullets": ["op_design","op_integrity"],
+  "skillOrder": ["programming","ai","data","cloud","web","ways"],
+  "keywords": ["Python","machine learning","data","PostgreSQL"]
+}

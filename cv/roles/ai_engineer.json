@@ -1,0 +1,14 @@
+{
+  "key": "ai_engineer",
+  "file": "AI-Engineer",
+  "title": { "en": "AI Engineer", "ar": "مهندس ذكاء اصطناعي" },
+  "summary": {
+    "en": "AI engineer in Riyadh who designs and ships production AI systems end to end. I architected a document intake and risk-triage system for an education platform, deciding where models add value and where fixed rules keep decisions auditable, backed by a track record of delivering at national scale.",
+    "ar": "مهندس ذكاء اصطناعي في الرياض يصمّم أنظمة ذكاء اصطناعي إنتاجية ويطلقها من البداية إلى النهاية. صمّمت معمارية نظام لاستقبال المستندات وترتيب الطلاب حسب الخطورة لمنصة تعليمية، محدِّدًا أين يضيف النموذج قيمة وأين تُبقي القواعد الثابتة القرارات قابلة للمراجعة، مدعومًا بسجلّ في التسليم على نطاق وطني."
+  },
+  "sectionOrder": ["summary","skills","experience","projects","education","certs","languages"],
+  "tags": ["ai","ml","agentic","fullstack"],
+  "leadBullets": ["op_design","op_integrity"],
+  "skillOrder": ["ai","programming","data","web","cloud","ways"],
+  "keywords": ["Python","LLMs","RAG","machine learning","FastAPI"]
+}

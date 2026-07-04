@@ -1,0 +1,14 @@
+{
+  "key": "it_specialist",
+  "file": "IT-Specialist",
+  "title": { "en": "IT Specialist", "ar": "أخصائي تقنية معلومات" },
+  "summary": {
+    "en": "IT specialist in Riyadh who builds and connects the systems a business runs on, and automates the manual work in between. I have rebuilt websites, automated WhatsApp Business, and integrated internal tools with customer channels end to end, working across AWS, Docker, and GitHub Actions.",
+    "ar": "أخصائي تقنية معلومات في الرياض يبني الأنظمة التي تدير عليها الشركات أعمالها ويربطها، ويؤتمت العمل اليدوي بينها. أعدت بناء مواقع، وأتمتت واتساب للأعمال، وربطت الأدوات الداخلية بقنوات العملاء من البداية إلى النهاية، وأعمل عبر AWS وDocker وGitHub Actions."
+  },
+  "sectionOrder": ["summary","skills","experience","education","certs","languages"],
+  "tags": ["it","fullstack","ops"],
+  "leadBullets": ["ghrs"],
+  "skillOrder": ["cloud","web","programming","data","ai","ways"],
+  "keywords": ["AWS","Docker","GitHub Actions","systems","support"]
+}

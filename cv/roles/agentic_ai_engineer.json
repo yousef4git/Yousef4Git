@@ -1,0 +1,14 @@
+{
+  "key": "agentic_ai_engineer",
+  "file": "Agentic-AI-Engineer",
+  "title": { "en": "Agentic AI Engineer", "ar": "مهندس ذكاء اصطناعي توكيلي" },
+  "summary": {
+    "en": "Agentic AI engineer in Riyadh who architects production agent systems with LangGraph, CrewAI, AutoGen, and MCP, and knows where autonomy pays off and where deterministic rules protect the outcome. I designed a risk-triage system where rules own the scoring, the model handles only language, and an LLM-as-judge gates every output before it reaches a person.",
+    "ar": "مهندس ذكاء اصطناعي توكيلي في الرياض يصمّم معمارية أنظمة وكلاء إنتاجية باستخدام LangGraph وCrewAI وAutoGen وMCP، ويعرف أين يفيد الاستقلال الذاتي وأين تحمي القواعد الحاسمة النتيجة. صمّمت نظام ترتيب حسب الخطورة تملك فيه القواعد حساب الدرجات، ويتولى النموذج اللغة فقط، ويضبط تحكيمٌ بالنموذج كل مخرَج قبل وصوله إلى شخص."
+  },
+  "sectionOrder": ["summary","skills","experience","projects","education","certs","languages"],
+  "tags": ["agentic","ai"],
+  "leadBullets": ["op_design","op_judge","op_cache"],
+  "skillOrder": ["ai","programming","web","data","cloud","ways"],
+  "keywords": ["LangGraph","CrewAI","AutoGen","MCP","AgentOps","LLM"]
+}

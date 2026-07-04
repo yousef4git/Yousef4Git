@@ -1,0 +1,178 @@
+{
+  "contact": {
+    "name": { "en": "Yousef Alshuwayi", "ar": "يوسف الشويعي" },
+    "location": { "en": "Riyadh, Saudi Arabia", "ar": "الرياض، السعودية" },
+    "email": "yousefalshuwayi@gmail.com",
+    "phone": "+966 50 600 7446",
+    "links": {
+      "linkedin": "linkedin.com/in/yousefalshuwayi",
+      "github": "github.com/Yousef4Git",
+      "website": "yousefalshuwayi.online"
+    }
+  },
+  "experience": [
+    {
+      "id": "consultant",
+      "title": { "en": "AI and Software Consultant (Freelance)", "ar": "مستشار ذكاء اصطناعي وبرمجيات (عمل حر)" },
+      "org": { "en": "", "ar": "" },
+      "location": { "en": "Riyadh, Saudi Arabia", "ar": "الرياض، السعودية" },
+      "start": "2025", "end": "present",
+      "bullets": [
+        { "id": "op_design", "tags": ["ai","agentic","ml","solutions","fullstack"],
+          "text": {
+            "en": "Designed and shipped a document intake and risk-triage system for an education platform. Fixed rules score each student's risk and an AI model handles only the Arabic text, never the scoring, so every decision stays auditable.",
+            "ar": "صمّمت وأطلقت نظام استقبال مستندات وترتيب حسب الخطورة لمنصة تعليمية. تحسب القواعد الثابتة خطورة كل طالب، ويتولى نموذج الذكاء الاصطناعي النص العربي فقط دون حساب الدرجات، لتبقى كل القرارات قابلة للمراجعة."
+          } },
+        { "id": "op_integrity", "tags": ["ai","solutions","ml","pm"],
+          "text": {
+            "en": "Caught corrupted source data with notes filed under the wrong students, flagged it in a data-quality review, and kept it out of anything a parent would see.",
+            "ar": "اكتشفت بيانات مصدرية تالفة فيها ملاحظات مُسجّلة تحت طلاب خاطئين، فوثّقتها في مراجعة لجودة البيانات، ومنعت وصولها إلى أي شيء يراه وليّ الأمر."
+          } },
+        { "id": "op_cache", "tags": ["agentic","ai"],
+          "text": {
+            "en": "Cut re-run cost with caching, taking a full run from about 71 model calls down to about 5.",
+            "ar": "خفّضت تكلفة إعادة التشغيل بالتخزين المؤقت، من نحو 71 طلبًا للنموذج في التشغيل الكامل إلى نحو 5 طلبات."
+          } },
+        { "id": "op_judge", "tags": ["agentic","ai"],
+          "text": {
+            "en": "Added an LLM-as-judge check on every AI-written message before a person approves it, so nothing goes out unreviewed.",
+            "ar": "أضفت خطوة تحكيم بالنموذج على كل رسالة يكتبها الذكاء الاصطناعي قبل أن يعتمدها شخص، فلا يخرج شيء دون مراجعة."
+          } },
+        { "id": "ghrs", "tags": ["fullstack","it","solutions","pm","ops"],
+          "text": {
+            "en": "Through GHRS, delivered client work end to end for Saudi businesses: rebuilt websites, automated WhatsApp Business, and connected internal tools to customer channels, owning each project from scoping to deployment.",
+            "ar": "عبر GHRS، نفّذت أعمالًا متكاملة لعملاء من الشركات السعودية: إعادة بناء مواقع، وأتمتة واتساب للأعمال، وربط الأدوات الداخلية بقنوات العملاء، مع إدارة كل مشروع من تحديد النطاق حتى التسليم."
+          } },
+        { "id": "freightlx", "tags": ["solutions","ai","pm"],
+          "text": {
+            "en": "Advised an early-stage logistics startup (FREIGHTLX) on AI scope and technical architecture, helping turn requirements into a working build.",
+            "ar": "قدّمت الاستشارة لشركة لوجستية ناشئة (FREIGHTLX) في نطاق الذكاء الاصطناعي والبنية التقنية، وساعدت على تحويل المتطلبات إلى منتج عملي."
+          } },
+        { "id": "op_requirements", "tags": ["solutions","pm","it"],
+          "text": {
+            "en": "Ran requirements gathering and technical planning across engineering, design, and operations teams, turning unclear asks into scoped, buildable work.",
+            "ar": "قُدت جمع المتطلبات والتخطيط التقني بين فرق الهندسة والتصميم والعمليات، محوّلًا الطلبات غير الواضحة إلى نطاق عمل واضح قابل للتنفيذ."
+          } }
+      ]
+    },
+    {
+      "id": "tutor",
+      "title": { "en": "Instructor", "ar": "شارح" },
+      "org": { "en": "Shaguf Educational Platform", "ar": "منصة شغوف التعليمية" },
+      "location": { "en": "Riyadh, Saudi Arabia", "ar": "الرياض، السعودية" },
+      "start": "2022-01", "end": "present",
+      "bullets": [
+        { "id": "tutor_scale", "tags": ["all"],
+          "text": {
+            "en": "Taught 1,800+ computer science students over four years, holding a 4.9 of 5 learner rating.",
+            "ar": "درّست أكثر من 1,800 طالب في علوم الحاسب على مدى أربع سنوات، محافظًا على تقييم 4.9 من 5 من المتعلّمين."
+          } },
+        { "id": "tutor_method", "tags": ["pm","it"],
+          "text": {
+            "en": "Built structured curricula and gave one-on-one follow-up, adapting explanations for students from beginner to advanced.",
+            "ar": "بنيت مناهج منظّمة وقدّمت متابعة فردية، وكيّفت الشرح للطلاب من المبتدئ إلى المتقدّم."
+          } }
+      ]
+    },
+    {
+      "id": "yax",
+      "title": { "en": "Staff Manager, Riyadh Metro Launch", "ar": "مدير طاقم، إطلاق قطار الرياض" },
+      "org": { "en": "YAX (Your Amazing Xperience)", "ar": "YAX" },
+      "location": { "en": "Riyadh, Saudi Arabia", "ar": "الرياض، السعودية" },
+      "start": "2024-11", "end": "2025-05",
+      "bullets": [
+        { "id": "metro_scale", "tags": ["pm","it-planning","ops","all"],
+          "text": {
+            "en": "Prepared and deployed 1,500 staff across 45 stations in one month for the metro opening, which served over 30 million visitors.",
+            "ar": "جهّزت ووزّعت 1,500 موظف عبر 45 محطة خلال شهر واحد لافتتاح القطار، الذي خدم أكثر من 30 مليون زائر."
+          } },
+        { "id": "metro_coord", "tags": ["pm","it-planning","ops"],
+          "text": {
+            "en": "Coordinated readiness between the operating companies and the Royal Commission, and the contract was extended three months after the launch.",
+            "ar": "نسّقت الجاهزية بين الشركات المشغّلة والهيئة الملكية، ومُدّد العقد ثلاثة أشهر بعد الإطلاق."
+          } },
+        { "id": "metro_quality", "tags": ["pm","it-planning","ops"],
+          "text": {
+            "en": "Held service quality steady across morning and evening shifts through structured onboarding and clear shift discipline, under high demand and tight timelines.",
+            "ar": "حافظت على ثبات جودة الخدمة عبر ورديات الصباح والمساء من خلال تأهيل منظّم وانضباط واضح في الورديات، تحت ضغط عالٍ ومواعيد ضيّقة."
+          } },
+        { "id": "metro_promo", "tags": ["pm","it-planning","ops"],
+          "text": {
+            "en": "Promoted from Coordinator (Jun 2024 to Nov 2024), where I recruited and scheduled staff across Saudi Arabia and abroad.",
+            "ar": "تمت ترقيتي من منسّق (يونيو 2024 إلى نوفمبر 2024)، حيث وظّفت ونظّمت جداول الطواقم داخل السعودية وخارجها."
+          } }
+      ]
+    },
+    {
+      "id": "allure",
+      "title": { "en": "Operations Team Member", "ar": "عضو فريق عمليات" },
+      "org": { "en": "Allure Event", "ar": "Allure Event" },
+      "location": { "en": "Riyadh, Saudi Arabia", "ar": "الرياض، السعودية" },
+      "start": "2022-11", "end": "2024-10",
+      "bullets": [
+        { "id": "allure_logistics", "tags": ["archive"],
+          "text": {
+            "en": "Coordinated on-site logistics for large-scale events, keeping workflows efficient and delivery smooth.",
+            "ar": "نسّقت الخدمات اللوجستية الميدانية لفعاليات كبيرة، مع الحفاظ على سير عمل فعّال وتنفيذ سلس."
+          } }
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "rusokh",
+      "title": { "en": "Rusokh, course platform (personal project)", "ar": "رسوخ، منصة دورات (مشروع شخصي)" },
+      "org": { "en": "", "ar": "" }, "location": { "en": "", "ar": "" },
+      "start": "2026", "end": "2026",
+      "bullets": [
+        { "id": "rusokh_desc", "tags": ["fullstack","ai","ml","all"],
+          "text": {
+            "en": "Built my own course platform after hitting the same gaps on other tools as an instructor. Full stack: Next.js 15, Convex, Moyasar payments, Bunny.net video, in Arabic and English. Live and onboarding its first instructors.",
+            "ar": "بنيت منصّة الدورات الخاصة بي بعد أن واجهت النواقص نفسها في الأدوات الأخرى بصفتي معلّمًا. حزمة متكاملة: Next.js 15 وConvex ومدفوعات Moyasar وفيديو Bunny.net، بالعربية والإنجليزية. تعمل الآن وتستقبل أوائل معلّميها."
+          } }
+      ]
+    },
+    {
+      "id": "trayath",
+      "title": { "en": "Trayath, Apple AI program project", "ar": "تريث، مشروع من برنامج Apple للذكاء الاصطناعي" },
+      "org": { "en": "", "ar": "" }, "location": { "en": "", "ar": "" },
+      "start": "2025", "end": "2025",
+      "bullets": [
+        { "id": "trayath_desc", "tags": ["ai","agentic","ml"],
+          "text": {
+            "en": "A simple assistant that helps people make better day-to-day financial decisions, built in Apple's AI program (selected 1 of 66 from over 400,000 applicants).",
+            "ar": "مساعد بسيط يعين الناس على اتخاذ قرارات مالية يومية أفضل، بُني في برنامج Apple للذكاء الاصطناعي (اختير 1 من 66 من أكثر من 400,000 متقدّم)."
+          } }
+      ]
+    }
+  ],
+  "skills": {
+    "categories": [
+      { "key": "programming", "label": { "en": "Programming", "ar": "البرمجة" }, "items": ["Python","TypeScript","JavaScript","SQL"] },
+      { "key": "ai", "label": { "en": "AI and agents", "ar": "الذكاء الاصطناعي والوكلاء" }, "items": ["LLMs","RAG","Prompt engineering","LangChain","LangGraph","CrewAI","AutoGen","MCP","Agent evaluation (LLM-as-judge)","AgentOps"] },
+      { "key": "web", "label": { "en": "Web and full-stack", "ar": "الويب والتطوير المتكامل" }, "items": ["Next.js","React","Tailwind CSS","FastAPI","Node","Convex"] },
+      { "key": "data", "label": { "en": "Data", "ar": "البيانات" }, "items": ["pandas","NumPy","scikit-learn","PostgreSQL","pgvector","Redis"] },
+      { "key": "cloud", "label": { "en": "Cloud and infrastructure", "ar": "السحابة والبنية التحتية" }, "items": ["AWS","Docker","GitHub Actions"] },
+      { "key": "ways", "label": { "en": "Ways of working", "ar": "أساليب العمل" }, "items": ["Git","CI/CD","Requirements gathering","Technical planning","Roadmap delivery","Stakeholder communication"] }
+    ]
+  },
+  "education": [
+    { "primary": { "en": "B.Sc. Computer Science", "ar": "بكالوريوس علوم الحاسب" },
+      "secondary": { "en": "Imam Muhammad ibn Saud Islamic University (IMSIU)", "ar": "جامعة الإمام محمد بن سعود الإسلامية" },
+      "dates": { "en": "Expected Jan 2027", "ar": "متوقّع يناير 2027" } }
+  ],
+  "certs": [
+    { "name": { "en": "Agentic AI Bootcamp", "ar": "معسكر الذكاء الاصطناعي الوكيلي" }, "org": { "en": "SDA Academy", "ar": "أكاديمية SDA" }, "year": "2026", "note": { "en": "Seven weeks, selective admission. Real UK and Canada startup projects.", "ar": "سبعة أسابيع، قبول انتقائي. مشاريع حقيقية مع شركات ناشئة في بريطانيا وكندا." } },
+    { "name": { "en": "McKinsey Forward", "ar": "McKinsey Forward" }, "org": { "en": "McKinsey & Company", "ar": "McKinsey & Company" }, "year": "2026", "note": { "en": "", "ar": "" } },
+    { "name": { "en": "Apple AI Program", "ar": "برنامج Apple للذكاء الاصطناعي" }, "org": { "en": "Apple Developer Academy and Tuwaiq", "ar": "أكاديمية Apple للمطورين وطويق" }, "year": "2025", "note": { "en": "1 of 66 selected from over 400,000 applicants.", "ar": "1 من 66 مختارًا من أكثر من 400,000 متقدّم." } },
+    { "name": { "en": "Introduction to Artificial Intelligence", "ar": "مقدمة في الذكاء الاصطناعي" }, "org": { "en": "KAUST Academy", "ar": "أكاديمية KAUST" }, "year": "2026", "note": { "en": "", "ar": "" } },
+    { "name": { "en": "Data Science and Machine Learning scholarship", "ar": "منحة علم البيانات وتعلّم الآلة" }, "org": { "en": "KAUST Academy", "ar": "أكاديمية KAUST" }, "year": "2025", "note": { "en": "", "ar": "" } },
+    { "name": { "en": "Data Collection and Processing with Python", "ar": "جمع البيانات ومعالجتها باستخدام Python" }, "org": { "en": "University of Michigan", "ar": "جامعة ميشيغان" }, "year": "2025", "note": { "en": "", "ar": "" } },
+    { "name": { "en": "Introduction to Data Science", "ar": "مقدمة في علم البيانات" }, "org": { "en": "University of Michigan", "ar": "جامعة ميشيغان" }, "year": "2025", "note": { "en": "", "ar": "" } },
+    { "name": { "en": "Vibe Coding", "ar": "Vibe Coding" }, "org": { "en": "SDAIA", "ar": "SDAIA" }, "year": "2026", "note": { "en": "", "ar": "" } }
+  ],
+  "languages": [
+    { "label": { "en": "Arabic: native", "ar": "العربية: اللغة الأم" } },
+    { "label": { "en": "English: intermediate", "ar": "الإنجليزية: متوسط" } }
+  ]
+}

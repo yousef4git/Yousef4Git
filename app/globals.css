@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-night: #100e0b;
+  --color-coal: #161311;
+  --color-gold: #c9a96e;
+  --color-gold-bright: #e8d5a4;
+  --color-bone: #efe9de;
+  --color-stone: #a39b8b;
+  --color-noon: #17d9a3;
+  --font-display: var(--font-cormorant);
+  --font-body: var(--font-inter);
+  --font-mono: var(--font-jetbrains);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-night text-bone font-body antialiased;
+}
+
+/* Gold light sweep motif, applied to headings by chapters */
+.gold-sheen {
+  background: linear-gradient(100deg, var(--color-gold) 30%, var(--color-gold-bright) 50%, var(--color-gold) 70%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Liquid glass: layered translucency, saturation boost, and a specular top
+   edge. Shared by the navbar, chat bubble, and chat panel. */
+.liquid-glass {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.09),
+    rgba(255, 255, 255, 0.02) 40%,
+    rgba(201, 169, 110, 0.07)
+  );
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  backdrop-filter: blur(24px) saturate(160%);
+  border: 1px solid rgba(239, 233, 222, 0.12);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.03),
+    0 20px 50px -20px rgba(0, 0, 0, 0.75);
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Film grain: one fixed composited layer, ties the chapters together and
+   softens video/photo compression. Decorative only. */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
