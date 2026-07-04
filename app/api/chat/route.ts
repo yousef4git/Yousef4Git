@@ -29,10 +29,17 @@ export async function POST(req: Request) {
     return Response.json({ error: "too_long" }, { status: 400 });
   }
 
+  let modelMessages;
+  try {
+    modelMessages = await convertToModelMessages(messages);
+  } catch {
+    return Response.json({ error: "bad_request" }, { status: 400 });
+  }
+
   const result = streamText({
     model: process.env.CHAT_MODEL ?? "openai/gpt-4o-mini",
     system: persona,
-    messages: await convertToModelMessages(messages),
+    messages: modelMessages,
   });
 
   return result.toUIMessageStreamResponse();

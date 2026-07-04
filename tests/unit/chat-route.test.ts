@@ -30,4 +30,18 @@ describe("POST /api/chat degradation", () => {
     expect(await res.json()).toEqual({ error: "bad_request" });
     delete process.env.AI_GATEWAY_API_KEY;
   });
+
+  it("returns 400 bad_request for messages that fail conversion", async () => {
+    process.env.AI_GATEWAY_API_KEY = "test-key";
+    const { POST } = await import("@/app/api/chat/route");
+    const res = await POST(
+      new Request("http://localhost/api/chat", {
+        method: "POST",
+        body: JSON.stringify({ messages: [{ role: "user" }] }),
+      })
+    );
+    expect(res.status).toBe(400);
+    expect(await res.json()).toEqual({ error: "bad_request" });
+    delete process.env.AI_GATEWAY_API_KEY;
+  });
 });
