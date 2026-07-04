@@ -222,8 +222,10 @@ mkdir -p "$OUT" public/cv
 ffmpeg -y -i "$SRC/Apple Academy/me presinting.mov" \
   -vf "scale=-2:720" -c:v libx264 -crf 26 -preset slow \
   -c:a aac -b:a 96k -movflags +faststart "$OUT/apple-presenting.mp4"
-ffmpeg -y -i "$OUT/apple-presenting.mp4" -ss 00:00:01 -frames:v 1 -q:v 3 \
-  "$OUT/apple-presenting-poster.jpg"
+ffmpeg -y -i "$OUT/apple-presenting.mp4" -ss 00:00:01 -frames:v 1 \
+  -q:v 6 -huffman optimal "$OUT/apple-presenting-poster.jpg"
+# Poster stays small on purpose: the Task 14 Lighthouse gate flagged the q:v 3
+# version (~36KB); keep regenerated posters within ~10% of 26KB.
 
 # Stage photos: max 1600px on the long side.
 sips -Z 1600 "$SRC/SDA Agentic AI Bootcamp/me presinging.jpeg" \
@@ -278,7 +280,7 @@ git commit -m "feat: media pipeline, web-ready video, photos, certificate render
 
 **Interfaces:**
 - Produces: Tailwind color utilities `bg-night`, `bg-coal`, `text-gold`, `text-gold-bright`, `text-bone`, `text-stone`, `text-noon`; font vars `--font-display` (Cormorant Garamond), `--font-body` (Inter), `--font-mono` (JetBrains Mono) with Tailwind utilities `font-display`, `font-body`, `font-mono`.
-- Produces: `lib/gsap.ts` exporting `{ gsap, ScrollTrigger, SplitText, Flip, useGSAP }` (plugins pre-registered). Every animated component imports GSAP ONLY from here.
+- Produces: `lib/gsap.ts` exporting `{ gsap, ScrollTrigger, SplitText, useGSAP }` (plugins pre-registered). Every animated component imports GSAP ONLY from here. (Flip was registered here originally but dropped at the Task 14 quality gate: nothing imports it and it cost TBT. Re-add `import { Flip } from "gsap/Flip"` plus register/export when a layout-morph feature actually lands.)
 - Produces: `lib/motion.ts` exporting `EASE = { cinematic: "power3.out", drift: "power2.inOut", snap: "power4.out" }` and `DUR = { slow: 1.2, base: 0.8, quick: 0.3 }`.
 
 - [ ] **Step 1: Write `lib/gsap.ts`**
@@ -288,14 +290,13 @@ git commit -m "feat: media pipeline, web-ready video, photos, certificate render
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
-import { Flip } from "gsap/Flip";
 import { useGSAP } from "@gsap/react";
 
 if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger, SplitText, Flip, useGSAP);
+  gsap.registerPlugin(ScrollTrigger, SplitText, useGSAP);
 }
 
-export { gsap, ScrollTrigger, SplitText, Flip, useGSAP };
+export { gsap, ScrollTrigger, SplitText, useGSAP };
 ```
 
 - [ ] **Step 2: Write `lib/motion.ts`**
@@ -1267,7 +1268,7 @@ git commit -m "feat: on-stage photo chapter with scrubbed scale reveal"
 
 - [ ] **Step 1: Implement**
 
-Keep the Task 5 markup, convert to a client component, and add the fly-in (cards converge into the grid from offset/rotation; spec's "fly into a grid" via staggered transforms — Flip stays registered for the hover-detail evolution):
+Keep the Task 5 markup, convert to a client component, and add the fly-in (cards converge into the grid from offset/rotation; spec's "fly into a grid" via staggered transforms — Flip is not used and was dropped from lib/gsap.ts at the Task 14 quality gate):
 
 ```tsx
 "use client";
@@ -2039,5 +2040,5 @@ Post-launch (manual, listed for the user):
 
 - Spec coverage: architecture (T1–T3), asset pipeline (T2), six chapters (T5–T10, T12), motion/perf/a11y (T3, T6–T10, T14), chatbot (T11–T12), SEO/OG/CSP (T13), linkedin.md (T15), rollout (T16). Build order matches the spec.
 - Deviation from spec, deliberate: `Certificates/` is gitignored rather than committed. The spec said it "stays in the repo" as source of truth; it stays on disk, but raw personal documents (certificate PDFs, original video) should not be pushed to a public remote. Only the web derivatives in `public/media/` are committed.
-- Spec's "Flip for the credentials fly-in": implemented as staggered converge-into-grid transforms (same visual intent); Flip remains registered in `lib/gsap.ts` for future layout morphs. Deviation is cosmetic-technique only.
+- Spec's "Flip for the credentials fly-in": implemented as staggered converge-into-grid transforms (same visual intent); Flip was later dropped from `lib/gsap.ts` at the Task 14 quality gate (unused, cost TBT). Deviation is cosmetic-technique only.
 - Section ids/data attributes are the stable contract between chapter tasks and tests; every task states it must preserve them.
