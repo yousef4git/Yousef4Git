@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef } from "react";
 import { gsap, useGSAP } from "@/lib/gsap";
+import Mark from "@/components/Mark";
 
 const LINKS = [
   { href: "#hero", label: "Intro" },
@@ -88,12 +89,8 @@ export default function Nav() {
           data-nav-pill
           className="liquid-glass pointer-events-auto flex max-w-full items-center rounded-full py-1.5 pl-4 pr-1.5"
         >
-          <a
-            href="#hero"
-            aria-label="YA, back to top"
-            className="mr-2 font-display text-xl leading-none text-gold"
-          >
-            YA
+          <a href="#hero" aria-label="Yousef Alshuwayi, back to top" className="mr-1.5 flex items-center">
+            <Mark className="h-7 w-7" />
           </a>
           <nav
             aria-label="Sections"
