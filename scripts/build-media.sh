@@ -6,20 +6,24 @@ SRC="Certificates"
 OUT="public/media"
 mkdir -p "$OUT" public/cv
 
-# Hero video: 720p H.264, poster frame. Source clip has no audio track.
+# Hero video: native portrait 1080x1920 H.264 CRF 21 (~3MB, spec budget <=3-4MB).
+# The 720p CRF 26 cut looked blurry stretched across desktop. Source is silent.
 ffmpeg -y -i "$SRC/Apple Academy/me presinting.mov" \
-  -vf "scale=-2:720" -c:v libx264 -crf 26 -preset slow \
-  -c:a aac -b:a 96k -movflags +faststart "$OUT/apple-presenting.mp4"
+  -c:v libx264 -crf 21 -preset slow -pix_fmt yuv420p -an \
+  -movflags +faststart "$OUT/apple-presenting.mp4"
+# Poster: 720-wide from the video; keep it under ~80KB, it is the LCP image.
 ffmpeg -y -i "$OUT/apple-presenting.mp4" -ss 00:00:01 -frames:v 1 \
-  -q:v 6 -huffman optimal "$OUT/apple-presenting-poster.jpg"
-# Poster stays small on purpose: the Task 14 Lighthouse gate flagged the q:v 3
-# version (~36KB); keep regenerated posters within ~10% of 26KB.
+  -vf "scale=720:-2" -q:v 5 -huffman optimal "$OUT/apple-presenting-poster.jpg"
 
 # Stage photos: max 1600px on the long side.
 sips -Z 1600 "$SRC/SDA Agentic AI Bootcamp/me presinging.jpeg" \
   --out "$OUT/photo-sda-presenting.jpg" >/dev/null
-sips -Z 1600 "$SRC/Shaguf/honoring me and me talking as the speaker on a shaguf event as the best instructor.jpeg" \
-  --out "$OUT/photo-shaguf-honoring.jpg" >/dev/null
+# The Shaguf source is a composite: two photos on a gray matte. Crop bands
+# (pixel coords measured from the 900x1600 composite) instead of shipping it.
+ffmpeg -y -i "$SRC/Shaguf/honoring me and me talking as the speaker on a shaguf event as the best instructor.jpeg" \
+  -vf "crop=892:490:4:304" -q:v 3 "$OUT/photo-shaguf-stage.jpg"
+ffmpeg -y -i "$SRC/Shaguf/honoring me and me talking as the speaker on a shaguf event as the best instructor.jpeg" \
+  -vf "crop=892:477:4:820" -q:v 3 "$OUT/photo-shaguf-audience.jpg"
 
 # Certificate PDFs -> PNG (first page, 200dpi). pdftoppm appends -1 to the prefix.
 render() { pdftoppm -png -r 200 -f 1 -l 1 "$1" "$OUT/tmp" && mv "$OUT"/tmp*.png "$2"; }

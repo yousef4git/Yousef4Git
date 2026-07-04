@@ -70,6 +70,7 @@ export default function ChatPanel() {
         <input
           value={input}
           onChange={(e) => setInput(e.target.value)}
+          aria-label="Ask about my work"
           placeholder="Ask about my work…"
           className="flex-1 rounded border border-gold/20 bg-coal px-4 py-2 text-bone placeholder:text-stone focus:border-gold focus:outline-none"
         />

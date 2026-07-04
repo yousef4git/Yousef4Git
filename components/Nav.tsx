@@ -1,8 +1,32 @@
+"use client";
+import { useRef } from "react";
+import { gsap, useGSAP } from "@/lib/gsap";
 import { siteContent } from "@/content/site";
 
 export default function Nav() {
+  const wrap = useRef<HTMLDivElement>(null);
+
+  useGSAP(
+    () => {
+      const mm = gsap.matchMedia();
+      mm.add("(prefers-reduced-motion: no-preference)", () => {
+        gsap.to("[data-progress]", {
+          scaleX: 1,
+          ease: "none",
+          scrollTrigger: { start: 0, end: "max", scrub: 0.3 },
+        });
+      });
+    },
+    { scope: wrap }
+  );
+
   return (
-    <>
+    <div ref={wrap}>
+      <div
+        data-progress
+        aria-hidden
+        className="fixed left-0 top-0 z-50 h-px w-full origin-left scale-x-0 bg-gold/70"
+      />
       <a href="#hero" className="fixed top-6 left-6 z-50 font-display text-2xl text-gold" aria-label="YA, back to top">
         YA
       </a>
@@ -18,6 +42,6 @@ export default function Nav() {
           </a>
         ))}
       </nav>
-    </>
+    </div>
   );
 }

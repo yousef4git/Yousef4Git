@@ -44,8 +44,8 @@ export default function Noon() {
     <section ref={container} id="noon" data-chapter="noon" className="relative flex min-h-screen items-center overflow-hidden bg-coal">
       <div data-noon-depth aria-hidden className="pointer-events-none absolute -right-24 top-1/4 h-96 w-96 rounded-full bg-noon/5 blur-3xl" />
       <div className="mx-auto max-w-3xl px-6 py-24">
-        <p data-noon-kicker className="font-mono text-xs uppercase tracking-widest text-noon">
-          {siteContent.noon.heading}
+        <p data-noon-kicker className="font-mono text-xs uppercase tracking-[0.3em] text-noon">
+          Scene 02 · {siteContent.noon.heading}
         </p>
         <a data-noon-logo href={siteContent.noon.url} target="_blank" rel="noopener noreferrer" className="mt-6 block w-40">
           <Image src={siteContent.noon.logo} alt="noon" width={288} height={64} />

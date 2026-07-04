@@ -2,6 +2,7 @@
 import { useRef } from "react";
 import { gsap, useGSAP } from "@/lib/gsap";
 import { siteContent } from "@/content/site";
+import ChapterHead from "@/components/ChapterHead";
 
 export default function Work() {
   const container = useRef<HTMLElement>(null);
@@ -43,7 +44,7 @@ export default function Work() {
 
   return (
     <section ref={container} id="work" data-chapter="work" className="min-h-screen overflow-hidden py-24">
-      <h2 className="px-6 font-display text-4xl text-gold md:text-5xl">Selected work</h2>
+      <ChapterHead no="03" title="Selected work" note="Client and personal" />
       <div data-work-track className="mt-12 flex flex-col gap-8 px-6 md:w-max md:flex-row md:flex-nowrap md:pr-[40vw]">
         {siteContent.work.map((w) => (
           <article key={w.no} data-work-card className="w-full max-w-md shrink-0 rounded-lg border border-gold/20 bg-coal p-8 md:w-[32rem] md:max-w-none">

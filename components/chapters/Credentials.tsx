@@ -4,6 +4,7 @@ import Image from "next/image";
 import { gsap, useGSAP } from "@/lib/gsap";
 import { EASE } from "@/lib/motion";
 import { siteContent } from "@/content/site";
+import ChapterHead from "@/components/ChapterHead";
 
 export default function Credentials() {
   const container = useRef<HTMLElement>(null);
@@ -29,7 +30,9 @@ export default function Credentials() {
 
   return (
     <section ref={container} id="credentials" data-chapter="credentials" className="min-h-screen py-24">
-      <h2 className="px-6 font-display text-4xl text-gold md:text-5xl">Credentials</h2>
+      <div className="mx-auto max-w-6xl">
+        <ChapterHead no="05" title="Credentials" note="Verified where possible" />
+      </div>
       <div data-cred-grid className="mx-auto mt-12 grid max-w-6xl grid-cols-2 gap-6 px-6 md:grid-cols-4">
         {siteContent.credentials.map((c) => {
           const card = (

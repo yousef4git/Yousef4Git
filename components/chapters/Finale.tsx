@@ -8,7 +8,11 @@ export default function Finale() {
   return (
     <section id="finale" data-chapter="finale" className="flex min-h-screen items-center bg-coal">
       <div className="w-full mx-auto max-w-3xl px-6 py-24 text-center">
-        <h2 className="font-display text-4xl md:text-5xl text-gold">Ask my CV anything</h2>
+        <p className="font-mono text-xs uppercase tracking-[0.3em] text-gold">
+          Scene 06 <span className="text-stone">· Closing credits</span>
+        </p>
+        <h2 className="mt-4 font-display text-4xl text-bone md:text-6xl">Ask my CV anything</h2>
+        <div aria-hidden className="mx-auto mt-6 h-px w-16 bg-gold/40" />
         <div className="mt-10"><ChatPanel /></div>
         <div className="mt-10 flex flex-wrap justify-center gap-6 font-mono text-sm">
           <a className="text-gold hover:text-gold-bright" href={`mailto:${contact.email}`}>Email</a>
