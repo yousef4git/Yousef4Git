@@ -1344,7 +1344,7 @@ git commit -m "feat: credentials wall with staggered fly-in and verify links"
 
 **Interfaces:**
 - Produces: `checkRateLimit(ip: string, limit?: number, windowMs?: number): boolean` from `@/lib/rate-limit`.
-- Produces: `POST /api/chat` — accepts `{ messages: UIMessage[] }`; streams a UI message response; `503 { error: "chat_unavailable" }` without `AI_GATEWAY_API_KEY`; `429 { error: "rate_limited" }` over limit; `400 { error: "too_long" }` for oversized payloads; `400 { error: "bad_request" }` for unparseable JSON or messages that fail UIMessage conversion (client misuse never surfaces as a 500). Model from `CHAT_MODEL` env, default `openai/gpt-4o-mini`.
+- Produces: `POST /api/chat` — accepts `{ messages: UIMessage[] }`; streams a UI message response; `503 { error: "chat_unavailable" }` without `OPENAI_API_KEY`; `429 { error: "rate_limited" }` over limit; `400 { error: "too_long" }` for oversized payloads; `400 { error: "bad_request" }` for unparseable JSON or messages that fail UIMessage conversion (client misuse never surfaces as a 500). Model from `CHAT_MODEL` env, default `gpt-4o-mini` (direct OpenAI provider, user request 2026-07-04).
 
 - [ ] **Step 1: Write `vitest.config.ts` and failing unit tests**
 
@@ -1397,7 +1397,7 @@ import { describe, it, expect, beforeEach } from "vitest";
 
 describe("POST /api/chat degradation", () => {
   beforeEach(() => {
-    delete process.env.AI_GATEWAY_API_KEY;
+    delete process.env.OPENAI_API_KEY;
   });
 
   it("returns 503 chat_unavailable without an API key", async () => {
@@ -1413,7 +1413,7 @@ describe("POST /api/chat degradation", () => {
   });
 
   it("returns 400 bad_request for a malformed body", async () => {
-    process.env.AI_GATEWAY_API_KEY = "test-key";
+    process.env.OPENAI_API_KEY = "test-key";
     const { POST } = await import("@/app/api/chat/route");
     const res = await POST(
       new Request("http://localhost/api/chat", {
@@ -1423,11 +1423,11 @@ describe("POST /api/chat degradation", () => {
     );
     expect(res.status).toBe(400);
     expect(await res.json()).toEqual({ error: "bad_request" });
-    delete process.env.AI_GATEWAY_API_KEY;
+    delete process.env.OPENAI_API_KEY;
   });
 
   it("returns 400 bad_request for messages that fail conversion", async () => {
-    process.env.AI_GATEWAY_API_KEY = "test-key";
+    process.env.OPENAI_API_KEY = "test-key";
     const { POST } = await import("@/app/api/chat/route");
     const res = await POST(
       new Request("http://localhost/api/chat", {
@@ -1437,7 +1437,7 @@ describe("POST /api/chat degradation", () => {
     );
     expect(res.status).toBe(400);
     expect(await res.json()).toEqual({ error: "bad_request" });
-    delete process.env.AI_GATEWAY_API_KEY;
+    delete process.env.OPENAI_API_KEY;
   });
 });
 ```
@@ -1470,6 +1470,7 @@ export function checkRateLimit(ip: string, limit = 20, windowMs = 60_000): boole
 
 ```ts
 import { streamText, convertToModelMessages, type UIMessage } from "ai";
+import { openai } from "@ai-sdk/openai";
 import { readFileSync } from "node:fs";
 import path from "node:path";
 import { checkRateLimit } from "@/lib/rate-limit";
@@ -1479,7 +1480,7 @@ export const maxDuration = 30;
 const persona = readFileSync(path.join(process.cwd(), "content/persona.md"), "utf8");
 
 export async function POST(req: Request) {
-  if (!process.env.AI_GATEWAY_API_KEY) {
+  if (!process.env.OPENAI_API_KEY) {
     return Response.json({ error: "chat_unavailable" }, { status: 503 });
   }
   const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
@@ -1508,7 +1509,7 @@ export async function POST(req: Request) {
   }
 
   const result = streamText({
-    model: process.env.CHAT_MODEL ?? "openai/gpt-4o-mini",
+    model: openai(process.env.CHAT_MODEL ?? "gpt-4o-mini"),
     system: persona,
     messages: modelMessages,
   });
@@ -1520,9 +1521,9 @@ export async function POST(req: Request) {
 `.env.example`:
 
 ```bash
-# Vercel AI Gateway key (Vercel dashboard > AI > Gateway). Chat degrades gracefully without it.
-AI_GATEWAY_API_KEY=
-# Optional override; defaults to openai/gpt-4o-mini
+# OpenAI API key (platform.openai.com > API keys). Chat degrades gracefully without it.
+OPENAI_API_KEY=
+# Optional override; defaults to gpt-4o-mini
 CHAT_MODEL=
 ```
 
@@ -1685,7 +1686,7 @@ import ChatPanel from "@/components/ChatPanel";
 - [ ] **Step 5: Run tests**
 
 Run: `npm run test:e2e` — expected: all pass, including both chat tests.
-Optional live check: `vercel env pull` or a local `.env.local` with a real `AI_GATEWAY_API_KEY`, then `npm run dev` and ask "What did you build at Rusokh?" — expect a streamed, in-character answer.
+Optional live check: `vercel env pull` or a local `.env.local` with a real `OPENAI_API_KEY`, then `npm run dev` and ask "What did you build at Rusokh?" — expect a streamed, in-character answer.
 
 - [ ] **Step 6: Commit**
 
@@ -2032,7 +2033,7 @@ git commit -m "docs: update LinkedIn guide for noon role, CDMP and SDA certifica
 - [ ] **Step 1: Set the chat env var and deploy a preview**
 
 ```bash
-vercel env add AI_GATEWAY_API_KEY production preview   # paste key when prompted
+vercel env add OPENAI_API_KEY production preview   # paste key when prompted
 vercel deploy
 ```
 

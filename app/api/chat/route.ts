@@ -1,4 +1,5 @@
 import { streamText, convertToModelMessages, type UIMessage } from "ai";
+import { openai } from "@ai-sdk/openai";
 import { readFileSync } from "node:fs";
 import path from "node:path";
 import { checkRateLimit } from "@/lib/rate-limit";
@@ -8,7 +9,7 @@ export const maxDuration = 30;
 const persona = readFileSync(path.join(process.cwd(), "content/persona.md"), "utf8");
 
 export async function POST(req: Request) {
-  if (!process.env.AI_GATEWAY_API_KEY) {
+  if (!process.env.OPENAI_API_KEY) {
     return Response.json({ error: "chat_unavailable" }, { status: 503 });
   }
   const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
@@ -37,7 +38,7 @@ export async function POST(req: Request) {
   }
 
   const result = streamText({
-    model: process.env.CHAT_MODEL ?? "openai/gpt-4o-mini",
+    model: openai(process.env.CHAT_MODEL ?? "gpt-4o-mini"),
     system: persona,
     messages: modelMessages,
   });

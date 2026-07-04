@@ -92,10 +92,10 @@ chapter dots for jumping.
 
 ## Native chatbot
 
-- **Backend:** `app/api/chat/route.ts` — AI SDK `streamText` with a gateway
-  `"provider/model"` string, streaming via UI message stream response.
-  Default model `openai/gpt-4o-mini` via AI Gateway (parity with the current
-  bot), overridable with a `CHAT_MODEL` env var.
+- **Backend:** `app/api/chat/route.ts` — AI SDK `streamText` with the direct
+  `@ai-sdk/openai` provider, streaming via UI message stream response.
+  Default model `gpt-4o-mini` on the user's own OpenAI key (parity with the
+  current bot), overridable with a `CHAT_MODEL` env var.
 - **Persona:** rebuilt from `theChatBot/me/summary.txt` + `linkedin.txt`
   (local-only sources),
   updated with noon, CDMP, SDA; stored as versioned `content/persona.md` so
@@ -107,7 +107,7 @@ chapter dots for jumping.
 - **Frontend:** `useChat` in the finale chapter — streaming text with typing
   shimmer, suggested starter questions, fully styled in the site design
   system. No iframe, no Gradio.
-- **Env:** `AI_GATEWAY_API_KEY` (or provider key) in Vercel env. Graceful
+- **Env:** `OPENAI_API_KEY` in Vercel env. Graceful
   degradation: missing key or API error → panel shows contact links instead.
 
 ## linkedin.md updates

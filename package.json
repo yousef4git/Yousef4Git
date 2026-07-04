@@ -9,6 +9,7 @@
     "test:e2e": "playwright test"
   },
   "dependencies": {
+    "@ai-sdk/openai": "^4.0.7",
     "@ai-sdk/react": "^4.0.15",
     "@gsap/react": "^2.1.2",
     "ai": "^7.0.14",
