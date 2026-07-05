@@ -11,13 +11,13 @@ const read = (rel) => {
   try { return fs.readFileSync(path.join(root, rel), 'utf8'); } catch { return ''; }
 };
 
-// Content files that must follow the plain/humble voice rules.
+// Public copy of the Next.js site (the old static index.html lives in
+// legacy/ and is no longer served). These must follow the voice rules.
 const CONTENT = [
-  'index.html',
   'README.md',
-  'theChatBot/me/summary.txt',
-  'theChatBot/me/linkedin.txt',
-  'assets/og-image.svg',
+  'content/site.ts',
+  'content/persona.md',
+  'app/layout.tsx',
 ];
 
 for (const rel of CONTENT) {
@@ -32,42 +32,26 @@ for (const rel of CONTENT) {
   });
 }
 
-test('index.html: AWS in, Google Cloud out', () => {
-  const t = read('index.html');
-  assert.ok(/AWS/.test(t), 'AWS missing from index.html');
-  assert.ok(!/google cloud/i.test(t), 'Google Cloud still present in index.html');
+test('persona and README: AWS in, Google Cloud out', () => {
+  for (const rel of ['content/persona.md', 'README.md']) {
+    const t = read(rel);
+    assert.ok(/AWS/.test(t), `AWS missing from ${rel}`);
+    assert.ok(!/google cloud/i.test(t), `Google Cloud still present in ${rel}`);
+  }
 });
 
-test('README.md: AWS in, Google Cloud out', () => {
-  const t = read('README.md');
-  assert.ok(/AWS/.test(t), 'AWS missing from README');
-  assert.ok(!/google cloud/i.test(t), 'Google Cloud still present in README');
+test('site content: McKinsey Forward is 2026', () => {
+  const t = read('content/site.ts');
+  const m = t.match(/McKinsey Forward[\s\S]{0,200}?year: "(\d{4})"/);
+  assert.ok(m, 'McKinsey Forward credential missing from content/site.ts');
+  assert.equal(m[1], '2026', 'McKinsey date is not 2026');
 });
 
-test('index.html: Selected work present and McKinsey is 2026', () => {
-  const t = read('index.html');
-  assert.ok(/Selected work/.test(t), '"Selected work" section missing');
-  assert.ok(/McKinsey Forward/.test(t), 'McKinsey Forward missing');
-  assert.ok(
-    !/cred\.mckinsey\.date'?\s*[:>]\s*'?2025/.test(t),
-    'McKinsey date still shows 2025',
-  );
-});
-
-test('i18n en/ar key parity', () => {
-  const t = read('index.html');
-  const enStart = t.indexOf('en: {');
-  const arStart = t.indexOf('\n      ar: {');
-  assert.ok(enStart > 0 && arStart > enStart, 'i18n en/ar blocks not found');
-  const arEnd = t.indexOf('\n    };', arStart);
-  assert.ok(arEnd > arStart, 'i18n closing not found');
-  const enBlock = t.slice(enStart, arStart);
-  const arBlock = t.slice(arStart, arEnd);
-  const keys = (block) => new Set([...block.matchAll(/^\s*'([^']+)':/gm)].map((m) => m[1]));
-  const en = keys(enBlock);
-  const ar = keys(arBlock);
-  const missingInAr = [...en].filter((k) => !ar.has(k));
-  const missingInEn = [...ar].filter((k) => !en.has(k));
-  assert.deepEqual(missingInAr, [], `keys present in en but missing in ar: ${missingInAr}`);
-  assert.deepEqual(missingInEn, [], `keys present in ar but missing in en: ${missingInEn}`);
+test('CDMP stays spelled out on site and persona', () => {
+  for (const rel of ['content/site.ts', 'content/persona.md']) {
+    assert.ok(
+      read(rel).includes('Certified Data Management Professional'),
+      `${rel} does not spell out CDMP`,
+    );
+  }
 });

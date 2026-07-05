@@ -3,13 +3,13 @@
   "file": "IT-Planning-Coordinator",
   "title": { "en": "IT Planning and Project Coordinator", "ar": "مخطّط ومنسّق مشاريع تقنية المعلومات" },
   "summary": {
-    "en": "IT planning and project coordinator with a computer science background who runs delivery across teams and stakeholders. I led planning for the Riyadh Metro opening, readying 1,500 staff across 45 stations in a single month and coordinating between the operating companies and the Royal Commission, and I now plan and deliver technical projects for clients.",
-    "ar": "مخطّط ومنسّق مشاريع تقنية المعلومات بخلفية في علوم الحاسب يقود التنفيذ بين الفرق وأصحاب المصلحة. قُدت التخطيط لافتتاح قطار الرياض، فهيّأت 1,500 موظف عبر 45 محطة في شهر واحد، ونسّقت بين الشركات المشغّلة والهيئة الملكية، وأخطّط الآن وأنفّذ مشاريع تقنية للعملاء."
+    "en": "IT planning and project coordinator with a computer science background who runs delivery across teams and stakeholders. I led planning for the Riyadh Metro opening, readying 1,500 staff across 45 stations in a single month and coordinating between the operating companies and the Royal Commission, and I now deliver technical systems at Noon Academy.",
+    "ar": "مخطّط ومنسّق مشاريع تقنية المعلومات بخلفية في علوم الحاسب يقود التنفيذ بين الفرق وأصحاب المصلحة. قُدت التخطيط لافتتاح قطار الرياض، فهيّأت 1,500 موظف عبر 45 محطة في شهر واحد، ونسّقت بين الشركات المشغّلة والهيئة الملكية، وأنفّذ الآن أنظمة تقنية في نون أكاديمي."
   },
   "sectionOrder": ["summary","skills","experience","education","certs","languages"],
   "tags": ["it-planning","pm","ops","it"],
   "leadBullets": ["metro_scale","metro_coord","ghrs"],
-  "experienceOrder": ["yax","consultant","tutor","allure"],
+  "experienceOrder": ["noon","yax","consultant","tutor","allure"],
   "skillOrder": ["ways","programming","cloud","web","data","ai"],
   "keywords": ["project coordination","planning","requirements","stakeholder communication"]
 }

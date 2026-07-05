@@ -52,8 +52,15 @@ export function renderHTML(a, css) {
   const sections = a.order.map(id => {
     const b = a.blocks[id];
     if (!b) return '';
-    return `<section><h2>${esc(b.heading)}</h2>${renderBlock(b)}</section>`;
+    return `<section class="s-${esc(id)}"><h2>${esc(b.heading)}</h2>${renderBlock(b)}</section>`;
   }).join('');
+
+  // Each contact item is direction-isolated so the "|" separators between
+  // RTL text and LTR links resolve in paragraph order instead of doubling.
+  const contact = a.contactLine
+    .split('  |  ')
+    .map((p) => `<bdi>${esc(p)}</bdi>`)
+    .join(' | ');
 
   return `<!doctype html>
 <html lang="${esc(a.lang)}" dir="${esc(a.dir)}">
@@ -63,7 +70,7 @@ export function renderHTML(a, css) {
 <header>
   <h1>${esc(a.name)}</h1>
   <div class="role">${esc(a.title)}</div>
-  <div class="contact">${esc(a.contactLine)}</div>
+  <div class="contact">${contact}</div>
 </header>
 <main>${sections}</main>
 </body></html>`;

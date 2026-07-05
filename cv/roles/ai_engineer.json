@@ -1,14 +1,45 @@
 {
   "key": "ai_engineer",
   "file": "AI-Engineer",
-  "title": { "en": "AI Engineer", "ar": "مهندس ذكاء اصطناعي" },
-  "summary": {
-    "en": "AI engineer in Riyadh who designs and ships production AI systems end to end. I architected a document intake and risk-triage system for an education platform, deciding where models add value and where fixed rules keep decisions auditable, backed by a track record of delivering at national scale.",
-    "ar": "مهندس ذكاء اصطناعي في الرياض يصمّم أنظمة ذكاء اصطناعي إنتاجية ويطلقها من البداية إلى النهاية. صمّمت معمارية نظام لاستقبال المستندات وترتيب الطلاب حسب الخطورة لمنصة تعليمية، محدِّدًا أين يضيف النموذج قيمة وأين تُبقي القواعد الثابتة القرارات قابلة للمراجعة، مدعومًا بسجلّ في التسليم على نطاق وطني."
+  "title": {
+    "en": "AI Engineer",
+    "ar": "مهندس ذكاء اصطناعي"
   },
-  "sectionOrder": ["summary","skills","experience","projects","education","certs","languages"],
-  "tags": ["ai","ml","agentic","fullstack"],
-  "leadBullets": ["op_design","op_integrity"],
-  "skillOrder": ["ai","programming","data","web","cloud","ways"],
-  "keywords": ["Python","LLMs","RAG","machine learning","FastAPI"]
+  "summary": {
+    "en": "AI systems engineer at Noon Academy in Riyadh, designing and shipping production AI systems end to end. As an independent consultant I architected a document intake and risk-triage system for an education platform, deciding where models add value and where fixed rules keep decisions auditable, with a track record of delivering at national scale.",
+    "ar": "مهندس أنظمة ذكاء اصطناعي في نون أكاديمي بالرياض، يصمّم أنظمة ذكاء اصطناعي إنتاجية ويطلقها من البداية إلى النهاية. بصفتي مستشارًا مستقلًا صمّمت معمارية نظام لاستقبال المستندات وترتيب الطلاب حسب الخطورة لمنصة تعليمية، محدِّدًا أين يضيف النموذج قيمة وأين تُبقي القواعد الثابتة القرارات قابلة للمراجعة، مع سجلّ في التسليم على نطاق وطني."
+  },
+  "sectionOrder": [
+    "summary",
+    "skills",
+    "experience",
+    "projects",
+    "education",
+    "certs",
+    "languages"
+  ],
+  "tags": [
+    "ai",
+    "ml",
+    "agentic"
+  ],
+  "leadBullets": [
+    "op_design",
+    "op_integrity"
+  ],
+  "skillOrder": [
+    "ai",
+    "programming",
+    "data",
+    "web",
+    "cloud",
+    "ways"
+  ],
+  "keywords": [
+    "Python",
+    "LLMs",
+    "RAG",
+    "machine learning",
+    "FastAPI"
+  ]
 }

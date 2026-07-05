@@ -1,15 +1,50 @@
 {
   "key": "technical_pm",
   "file": "Technical-Program-Manager",
-  "title": { "en": "Technical Program Manager", "ar": "مدير برامج تقني" },
-  "summary": {
-    "en": "Technical program manager who pairs hands-on engineering with operations experience at national scale. I own delivery from plan to launch: I led readiness for the Riyadh Metro opening, preparing and deploying 1,500 staff across 45 stations, shipped a course platform of my own, and now drive technical delivery and stakeholders across client programs.",
-    "ar": "مدير برامج تقني يجمع بين الهندسة العملية وخبرة العمليات على نطاق وطني. أملك التنفيذ من التخطيط إلى الإطلاق: قُدت الجاهزية لافتتاح قطار الرياض، فجهّزت ووزّعت 1,500 موظف عبر 45 محطة، وأطلقت منصة دورات خاصة بي، وأقود الآن التنفيذ التقني وأصحاب المصلحة عبر برامج العملاء."
+  "title": {
+    "en": "Technical Program Manager",
+    "ar": "مدير برامج تقني"
   },
-  "sectionOrder": ["summary","skills","experience","projects","education","certs","languages"],
-  "tags": ["pm","ops","fullstack","it"],
-  "leadBullets": ["metro_scale","ghrs"],
-  "experienceOrder": ["yax","consultant","tutor","allure"],
-  "skillOrder": ["ways","programming","web","ai","cloud","data"],
-  "keywords": ["roadmap","delivery","stakeholder communication","program"]
+  "summary": {
+    "en": "Technical program manager who pairs hands-on engineering with operations experience at national scale. I own delivery from plan to launch: I led readiness for the Riyadh Metro opening, preparing and deploying 1,500 staff across 45 stations, shipped a course platform of my own, and now build production AI systems at Noon Academy.",
+    "ar": "مدير برامج تقني يجمع بين الهندسة العملية وخبرة العمليات على نطاق وطني. أملك التنفيذ من التخطيط إلى الإطلاق: قُدت الجاهزية لافتتاح قطار الرياض، فجهّزت ووزّعت 1,500 موظف عبر 45 محطة، وأطلقت منصة دورات خاصة بي، وأبني الآن أنظمة ذكاء اصطناعي إنتاجية في نون أكاديمي."
+  },
+  "sectionOrder": [
+    "summary",
+    "skills",
+    "experience",
+    "projects",
+    "education",
+    "certs",
+    "languages"
+  ],
+  "tags": [
+    "pm",
+    "ops"
+  ],
+  "leadBullets": [
+    "metro_scale",
+    "ghrs"
+  ],
+  "experienceOrder": [
+    "noon",
+    "yax",
+    "consultant",
+    "tutor",
+    "allure"
+  ],
+  "skillOrder": [
+    "ways",
+    "programming",
+    "web",
+    "ai",
+    "cloud",
+    "data"
+  ],
+  "keywords": [
+    "roadmap",
+    "delivery",
+    "stakeholder communication",
+    "program"
+  ]
 }
