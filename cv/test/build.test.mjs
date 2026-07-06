@@ -36,5 +36,5 @@ test('every English CV builds with name, its title, keywords, <=2 pages, clean t
   }
 });
 
-// The suite ships English-only since 2026-07-05 (Arabic strings stay in the
-// data so Arabic builds can return with `--lang=ar`; nothing verifies them).
+// The suite ships English-only since 2026-07-06; Arabic strings stay in the
+// data (parity tests guard them) so Arabic output can come back if needed.

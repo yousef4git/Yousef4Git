@@ -1,0 +1,14 @@
+{
+  "key": "ai_tech_consultant",
+  "file": "AI-Technology-Consultant",
+  "title": { "en": "AI Technology Consultant", "ar": "مستشار تقنيات الذكاء الاصطناعي" },
+  "summary": {
+    "en": "AI technology consultant who takes clients from a business problem to working software, owning requirements, integration, and delivery end to end, now an AI systems engineer at Noon Academy. Through GHRS I rebuilt websites, automated WhatsApp Business, and connected internal tools to customer channels for Saudi businesses, and I bring AI into that work where it earns its place.",
+    "ar": "مستشار تقنيات ذكاء اصطناعي ينقل العملاء من مشكلة العمل إلى برمجيات عاملة، مالكًا المتطلبات والتكامل والتسليم من البداية إلى النهاية، ويعمل الآن مهندس أنظمة ذكاء اصطناعي في نون أكاديمي. عبر GHRS أعدت بناء مواقع، وأتمتت واتساب للأعمال، وربطت الأدوات الداخلية بقنوات العملاء لشركات سعودية، وأُدخل الذكاء الاصطناعي في هذا العمل حيث يستحق مكانه."
+  },
+  "sectionOrder": ["summary", "skills", "experience", "projects", "education", "certs", "languages"],
+  "tags": ["solutions", "it"],
+  "leadBullets": ["ghrs", "op_design", "op_requirements"],
+  "skillOrder": ["ways", "ai", "web", "programming", "cloud", "data"],
+  "keywords": ["consultant", "integration", "requirements", "WhatsApp Business"]
+}
