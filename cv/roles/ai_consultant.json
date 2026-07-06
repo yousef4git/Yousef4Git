@@ -1,0 +1,14 @@
+{
+  "key": "ai_consultant",
+  "file": "AI-Consultant",
+  "title": { "en": "AI Consultant", "ar": "مستشار ذكاء اصطناعي" },
+  "summary": {
+    "en": "AI consultant who helps organizations decide where AI actually pays off, then delivers the system, now an AI systems engineer at Noon Academy. For an education platform I scoped and shipped document intake and risk-triage, keeping models where they add value and fixed rules where decisions must stay auditable, and I turn unclear business asks into scoped, buildable work.",
+    "ar": "مستشار ذكاء اصطناعي يساعد المؤسسات على تحديد أين يجدي الذكاء الاصطناعي فعلًا ثم يسلّم النظام، ويعمل الآن مهندس أنظمة ذكاء اصطناعي في نون أكاديمي. لمنصة تعليمية حدّدت نطاق نظام استقبال المستندات والترتيب حسب الخطورة وأطلقته، مبقيًا النماذج حيث تضيف قيمة والقواعد الثابتة حيث يجب أن تبقى القرارات قابلة للمراجعة، وأحوّل الطلبات غير الواضحة إلى نطاق عمل قابل للتنفيذ."
+  },
+  "sectionOrder": ["summary","skills","experience","projects","education","certs","languages"],
+  "tags": [],
+  "leadBullets": ["op_design","freightlx","op_requirements","op_integrity","ghrs","trayath_desc"],
+  "skillOrder": ["ai","ways","programming","web","data","cloud"],
+  "keywords": ["consultant","requirements","stakeholder communication","AI"]
+}

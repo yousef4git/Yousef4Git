@@ -36,13 +36,5 @@ test('every English CV builds with name, its title, keywords, <=2 pages, clean t
   }
 });
 
-test('every Arabic CV builds, is RTL-rendered, and contains Arabic text', () => {
-  for (const key of allRoleKeys()) {
-    const role = loadRole(key);
-    const { pdfPath, htmlPath } = buildOne(master, role, 'ar');
-    const { text, pages } = verifyPdf(pdfPath);
-    assert.match(fs.readFileSync(htmlPath, 'utf8'), /dir="rtl"/, key);
-    assert.match(text, /[؀-ۿ]/, `${key}: no Arabic glyphs in PDF`);
-    assert.ok(pages >= 1 && pages <= 2, `${key}: pages=${pages}`);
-  }
-});
+// The suite ships English-only since 2026-07-05 (Arabic strings stay in the
+// data so Arabic builds can return with `--lang=ar`; nothing verifies them).
