@@ -9,9 +9,9 @@ const STORAGE_KEY = "ya-chat-session-v1";
 const MAX_INPUT = 500;
 
 const STARTERS = [
-  "What did you build at Rusokh?",
-  "What will you do at noon?",
-  "How does the risk-triage system work?",
+  "How did you build a whole platform in 16 days?",
+  "What does 100% adoption actually mean?",
+  "Why did you go from managing 1,500 people to building AI systems?",
 ];
 
 function loadSession(): UIMessage[] | null {

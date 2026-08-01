@@ -6,7 +6,7 @@ test("chat bubble opens a panel with starters and an input", async ({ page }) =>
   await expect(panel).toBeHidden();
   await page.locator("[data-chat-bubble]").click();
   await expect(panel).toBeVisible();
-  await expect(panel.getByRole("button", { name: /rusokh/i })).toBeVisible();
+  await expect(panel.getByRole("button", { name: /16 days/i })).toBeVisible();
   await expect(panel.getByPlaceholder(/ask/i)).toBeVisible();
 });
 
