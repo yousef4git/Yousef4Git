@@ -1,16 +1,17 @@
 export const siteContent = {
   name: "Yousef Alshuwayi",
   role: "AI Systems Engineer at noon",
-  tagline: "I build production AI systems and web products.",
+  tagline:
+    "I build AI systems that people actually adopt, and that keep running after I hand them over.",
   hero: {
     location: "Riyadh, Saudi Arabia",
     video: "/media/apple-presenting.mp4",
     poster: "/media/apple-presenting-poster.jpg",
     videoAlt: "Yousef presenting at the Apple Developer Academy",
     badges: [
-      "Certified Data Management Professional (CDMP)",
       "Apple AI Program · 1 of 66",
       "SDA Agentic AI Bootcamp",
+      "Certified Data Management Professional (CDMP)",
     ],
   },
   noon: {

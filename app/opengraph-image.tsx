@@ -23,7 +23,7 @@ export default function OgImage() {
         <div style={{ fontSize: 76, fontWeight: 600, color: "#C9A96E" }}>Yousef Alshuwayi</div>
         <div style={{ fontSize: 34, marginTop: 20, letterSpacing: 4 }}>AI SYSTEMS ENGINEER AT NOON</div>
         <div style={{ fontSize: 24, marginTop: 28, color: "#A39B8B" }}>
-          I build production AI systems and web products · yousefalshuwayi.online
+          I build AI systems that people actually adopt · yousefalshuwayi.online
         </div>
       </div>
     ),
