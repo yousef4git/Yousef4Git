@@ -1544,6 +1544,213 @@ git commit -m "feat(site): point the chat at the Noon portal story"
 
 ---
 
+### Task 9: The portal in use
+
+**Files:**
+- Modify: `content/site.ts` (add a `portal` key inside the existing `noon` object)
+- Modify: `components/chapters/Noon.tsx` (render the row between the bullets and the hackathon block)
+
+**Interfaces:**
+- Consumes: `siteContent.noon` from Task 3. The `noon` object already has `kicker`, `logo`, `url`, `meta`, `lead`, `promise`, `landing`, `stats`, `bullets`, `hackathon`, `closer`. Add `portal` between `bullets` and `hackathon`.
+- Produces: nothing consumed by later tasks.
+
+**Material not in the overhaul doc.** Three photographs of the Training & Development Portal being used, added at the owner's request after the plan was written. They are the only direct evidence on the site that the portal is real and in daily use, which is what the "100% adoption" stat asserts.
+
+**These images were redacted before this task starts. Do not undo that work and do not re-import any original.** The three originals contained third-party personal data and have been deleted:
+- `photo-portal-trainer.jpg` (1600x1535): the roster name column is framed out of shot, and a residual strip of truncated name glyphs at the frame edge is blurred. The attendance chips stay legible.
+- `photo-portal-trainee.jpg` (1600x1182): the app header carrying the user's name is blurred. The question UI stays legible.
+- `photo-portal-hr.jpg` (696x700): cropped to the phone lock screen only, removing a Slack header that carried a named colleague and their profile photo.
+
+**Layout note:** the three photographs have different aspect ratios (roughly 1.04, 1.35, and 0.99). The row therefore uses a fixed `aspect-[4/3]` box with `object-cover` so the grid stays even. This differs from the hackathon row, whose two photographs are both 1600x1066 and can use natural height.
+
+- [ ] **Step 1: Add the `portal` key to the `noon` object**
+
+In `content/site.ts`, inside the existing `noon: { ... }` object, insert this key between `bullets` and `hackathon`:
+
+```ts
+    portal: {
+      label: "The portal in use",
+      photos: [
+        {
+          src: "/media/photo-portal-trainer.jpg",
+          alt: "A trainer marking attendance for a workshop batch in the Training and Development Portal",
+          caption: "A trainer taking attendance",
+          width: 1600,
+          height: 1535,
+        },
+        {
+          src: "/media/photo-portal-trainee.jpg",
+          alt: "A trainee answering a competency scenario question in the portal on a phone",
+          caption: "A trainee answering a competency question",
+          width: 1600,
+          height: 1182,
+        },
+        {
+          src: "/media/photo-portal-hr.jpg",
+          alt: "The portal's automated daily absence report arriving as a phone notification",
+          caption: "The daily absence report, sent automatically",
+          width: 696,
+          height: 700,
+        },
+      ],
+    },
+```
+
+- [ ] **Step 2: Render the row in Noon.tsx**
+
+In `components/chapters/Noon.tsx`, insert this block immediately after the closing `</ul>` of `[data-noon-bullets]` and immediately before the `<div data-noon-hackathon ...>` block:
+
+```tsx
+        {/* Direct evidence for the adoption stat: the portal in real use. */}
+        <div data-noon-portal className="mt-16">
+          <p
+            data-noon-portal-label
+            className="font-mono text-xs uppercase tracking-[0.2em] text-noon"
+          >
+            {noon.portal.label}
+          </p>
+          <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-3">
+            {noon.portal.photos.map((p) => (
+              <figure key={p.src} data-noon-portal-photo>
+                <div className="overflow-hidden rounded-lg border border-bone/10 shadow-[0_30px_60px_-30px_rgba(0,0,0,0.8)]">
+                  <Image
+                    src={p.src}
+                    alt={p.alt}
+                    width={p.width}
+                    height={p.height}
+                    className="aspect-[4/3] w-full object-cover"
+                    sizes="(max-width: 640px) 100vw, 30vw"
+                  />
+                </div>
+                <figcaption className="mt-3 font-mono text-xs text-stone">
+                  {p.caption}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+```
+
+- [ ] **Step 3: Add the reveal animation**
+
+In the same file, inside the existing `mm.add("(prefers-reduced-motion: no-preference)", () => { ... })` block (the second one, which already animates `[data-noon-bullet]`, `[data-noon-also]`, `[data-noon-photo]`, and `[data-noon-closer]`), add:
+
+```tsx
+        gsap.from("[data-noon-portal-label], [data-noon-portal-photo]", {
+          autoAlpha: 0,
+          y: 32,
+          stagger: 0.12,
+          duration: 0.8,
+          ease: EASE.cinematic,
+          scrollTrigger: { trigger: "[data-noon-portal]", start: "top 85%" },
+        });
+```
+
+- [ ] **Step 4: Verify**
+
+Run: `npx tsc --noEmit && npm run test:unit && npm run build && npm run test:e2e`
+Expected: all pass.
+
+- [ ] **Step 5: Confirm no original PII files came back**
+
+Run: `ls public/media/ | grep -iE "trainee|trainer|attindance|competincey|HR email"`
+Expected: no output. The only portal images are `photo-portal-trainer.jpg`, `photo-portal-trainee.jpg`, and `photo-portal-hr.jpg`.
+
+- [ ] **Step 6: Check the section renders**
+
+Run `npm run dev`. In the Noon section, confirm a green `The portal in use` kicker followed by three equal-height photographs in one row, each with a mono caption, sitting between the bullets and the `Also at noon` block. At 375px they stack to one column. Confirm no personal name is legible in any of the three.
+
+- [ ] **Step 7: Commit**
+
+```bash
+git add content/site.ts components/chapters/Noon.tsx public/media/photo-portal-trainer.jpg public/media/photo-portal-trainee.jpg public/media/photo-portal-hr.jpg
+git commit -m "feat(site): show the Noon portal in use, with PII redacted"
+```
+
+---
+
+### Task 10: Serve one CV
+
+**Files:**
+- Create: `public/cv/Yousef-Alshuwayi-AI-Systems-Engineer.pdf` (copy of `cv/Yousef-Alshuwayi-AI-Systems-Engineer.pdf`)
+- Delete: `public/cv/Yousef-Alshuwayi-AI-Engineer.pdf`
+- Delete: all 10 PDFs in `cv/output/`
+- Modify: `content/site.ts` (the `contact.cv` value)
+
+**Interfaces:**
+- Consumes: `siteContent.contact.cv`, already read by `components/Footer.tsx:33` as `href={contact.cv}` with a `download` attribute. `Footer.tsx` does NOT change.
+- Produces: nothing consumed by later tasks. This is the last task.
+
+**Material not in the overhaul doc**, added at the owner's request. The site currently serves a stale CV whose content predates the whole overhaul. The new CV matches the new site copy (16 days, 100% adoption, four role experiences, Shaguf 1,800+ at 4.9/5, Apple 1 of 66).
+
+**Owner decisions, already made. Do not revisit:**
+- `cv/output/*.pdf` (10 role-specific CVs) are deleted. The generator and the `cv/roles/*.json` configs stay, so they can be rebuilt.
+- `docs/Yousef Alshuwayi - Resume 2026.pdf`, `docs/Forward.pdf`, and `theChatBot/me/linkedin.pdf` are NOT touched.
+- The CV is published as-is, including the phone number it contains. This is deliberate.
+
+- [ ] **Step 1: Put the new CV where the site can serve it**
+
+```bash
+cp cv/Yousef-Alshuwayi-AI-Systems-Engineer.pdf public/cv/Yousef-Alshuwayi-AI-Systems-Engineer.pdf
+```
+
+- [ ] **Step 2: Point the site at it**
+
+In `content/site.ts`, in the `contact` object, replace the `cv` value:
+
+```ts
+    cv: "/cv/Yousef-Alshuwayi-AI-Systems-Engineer.pdf",
+```
+
+Leave `email`, `linkedin`, and `github` unchanged.
+
+- [ ] **Step 3: Delete the stale CVs**
+
+```bash
+git rm -f public/cv/Yousef-Alshuwayi-AI-Engineer.pdf
+git rm -f cv/output/*.pdf
+```
+
+If `git rm` reports a path is not tracked, remove it with plain `rm` instead and note which ones were untracked.
+
+- [ ] **Step 4: Confirm nothing still points at a deleted file**
+
+Run: `grep -rn "AI-Engineer.pdf" --include="*.ts" --include="*.tsx" --include="*.json" . | grep -v node_modules | grep -v package-lock`
+Expected: no output.
+
+Run: `ls public/cv/`
+Expected: exactly one file, `Yousef-Alshuwayi-AI-Systems-Engineer.pdf`.
+
+Run: `ls cv/output/*.pdf 2>/dev/null | wc -l`
+Expected: `0`.
+
+Run: `ls cv/roles/*.json | wc -l`
+Expected: `10`. The generator's role configs must survive.
+
+- [ ] **Step 5: Verify**
+
+Run: `npx tsc --noEmit && npm run test:unit && npm run build && npm run test:e2e`
+Expected: all pass.
+
+- [ ] **Step 6: Confirm the download works**
+
+Run `npm run dev`, then:
+
+```bash
+curl -sI http://localhost:3000/cv/Yousef-Alshuwayi-AI-Systems-Engineer.pdf | head -3
+```
+
+Expected: `HTTP/1.1 200` and a `content-type` of `application/pdf`. Then confirm the footer's CV link resolves to that path.
+
+- [ ] **Step 7: Commit**
+
+```bash
+git add content/site.ts public/cv/Yousef-Alshuwayi-AI-Systems-Engineer.pdf
+git commit -m "feat(site): serve the current AI Systems Engineer CV and drop the rest"
+```
+
+---
+
 ## Final verification
 
 - [ ] `npx tsc --noEmit` passes
