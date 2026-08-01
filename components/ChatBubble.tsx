@@ -100,6 +100,12 @@ export default function ChatBubble() {
     return () => window.removeEventListener("keydown", onKey);
   }, [open]);
 
+  useEffect(() => {
+    const openChat = () => setOpen(true);
+    window.addEventListener("ya:open-chat", openChat);
+    return () => window.removeEventListener("ya:open-chat", openChat);
+  }, []);
+
   const send = (text: string) => {
     const t = text.trim().slice(0, MAX_INPUT);
     if (!t || busy) return;

@@ -38,3 +38,13 @@ test("conversation survives closing the bubble and reloading the tab", async ({ 
   await page.locator("[data-chat-bubble]").click();
   await expect(page.locator("[data-chat-panel]")).toContainText("Tell me about the Metro project");
 });
+
+test("the site card opens the chat", async ({ page }) => {
+  await page.goto("/");
+  await page.locator('section[data-chapter="work"]').scrollIntoViewIfNeeded();
+  await page
+    .locator('section[data-chapter="work"]')
+    .getByRole("button", { name: /ask it something/i })
+    .click();
+  await expect(page.locator("[data-chat-panel]")).toBeVisible();
+});
