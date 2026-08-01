@@ -47,6 +47,14 @@ export default function Noon() {
           ease: EASE.cinematic,
           scrollTrigger: { trigger: "[data-noon-bullets]", start: "top 85%" },
         });
+        gsap.from("[data-noon-portal-label], [data-noon-portal-photo]", {
+          autoAlpha: 0,
+          y: 32,
+          stagger: 0.12,
+          duration: 0.8,
+          ease: EASE.cinematic,
+          scrollTrigger: { trigger: "[data-noon-portal]", start: "top 85%" },
+        });
         gsap.from("[data-noon-also]", {
           autoAlpha: 0,
           y: 20,
@@ -133,6 +141,34 @@ export default function Noon() {
             </li>
           ))}
         </ul>
+        {/* Direct evidence for the adoption stat: the portal in real use. */}
+        <div data-noon-portal className="mt-16">
+          <p
+            data-noon-portal-label
+            className="font-mono text-xs uppercase tracking-[0.2em] text-noon"
+          >
+            {noon.portal.label}
+          </p>
+          <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-3">
+            {noon.portal.photos.map((p) => (
+              <figure key={p.src} data-noon-portal-photo>
+                <div className="overflow-hidden rounded-lg border border-bone/10 shadow-[0_30px_60px_-30px_rgba(0,0,0,0.8)]">
+                  <Image
+                    src={p.src}
+                    alt={p.alt}
+                    width={p.width}
+                    height={p.height}
+                    className="aspect-[4/3] w-full object-cover"
+                    sizes="(max-width: 640px) 100vw, 30vw"
+                  />
+                </div>
+                <figcaption className="mt-3 font-mono text-xs text-stone">
+                  {p.caption}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
         {/* Second beat: the ministry-level programme, kept to one paragraph
             and two photographs so it supports the portal without competing. */}
         <div data-noon-hackathon className="mt-16">

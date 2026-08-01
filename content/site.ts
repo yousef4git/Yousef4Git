@@ -35,6 +35,32 @@ export const siteContent = {
       "Adopted by 100% of the teams it touches (trainers, trainees, T&D, and HR) before any official rollout",
       "Built for handover: question banks, batch management, analytics, audit log, and full operational control, all owned by a non-technical team",
     ],
+    portal: {
+      label: "The portal in use",
+      photos: [
+        {
+          src: "/media/photo-portal-trainer.jpg",
+          alt: "A trainer marking attendance for a workshop batch in the Training and Development Portal",
+          caption: "A trainer taking attendance",
+          width: 1600,
+          height: 1535,
+        },
+        {
+          src: "/media/photo-portal-trainee.jpg",
+          alt: "A trainee answering a competency scenario question in the portal on a phone",
+          caption: "A trainee answering a competency question",
+          width: 1600,
+          height: 1182,
+        },
+        {
+          src: "/media/photo-portal-hr.jpg",
+          alt: "The portal's automated daily absence report arriving as a phone notification",
+          caption: "The daily absence report, sent automatically",
+          width: 696,
+          height: 700,
+        },
+      ],
+    },
     hackathon: {
       label: "Also at noon",
       line: "I judged the Educational Games Industry Hackathon, run with the Ministry of Communications and Information Technology and supported by Replit. The AI-based solutions in those evaluation sessions proved again that young Saudi talent can ship educational products that compete.",
