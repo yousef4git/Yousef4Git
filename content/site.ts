@@ -217,7 +217,7 @@ export const siteContent = {
     email: "yousefalshuwayi@gmail.com",
     linkedin: "https://linkedin.com/in/yousefalshuwayi",
     github: "https://github.com/Yousef4Git",
-    cv: "/cv/Yousef-Alshuwayi-AI-Engineer.pdf",
+    cv: "/cv/Yousef-Alshuwayi-AI-Systems-Engineer.pdf",
   },
   chapters: ["hero", "noon", "teaching", "work", "yax", "credentials"] as const,
 } as const;
