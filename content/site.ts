@@ -15,13 +15,48 @@ export const siteContent = {
     ],
   },
   noon: {
-    heading: "A new chapter",
+    kicker: "The 16-day platform",
     logo: "/media/noon-logo.png",
-    lines: [
-      "In July 2026 I joined noon as an AI Systems Engineer.",
-      "I build agentic AI systems that reach production and hold up there.",
-    ],
     url: "https://www.noon.edu.sa/en/",
+    meta: "AI Systems Engineer · Noon Academy · July 2026 - Present",
+    lead: "My first assignment at noon was a measurement layer inside a six-day training camp: one exercise a day, ten fixed scenarios, two user roles.",
+    promise:
+      "I made myself a bigger promise: build a platform that serves the whole training journey, and hand it to the Training & Development team needing zero engineering support.",
+    landing: "Sixteen days later, the Training & Development Portal was live.",
+    stats: [
+      { value: "16", unit: "days", label: "Concept to live" },
+      { value: "100", unit: "%", label: "Team adoption" },
+      { value: "4", label: "Role experiences" },
+    ],
+    bullets: [
+      "From a daily assessment tool to the platform that now runs noon's supervisor and leadership training end to end",
+      "Four distinct role experiences (trainee, trainer, T&D operations console, and leadership views) where there had been two",
+      "Integrated with noon's central database by API: automatic enrollment, and a daily absence report that reaches HR on schedule, every day, without a human touching it",
+      "Adopted by 100% of the teams it touches (trainers, trainees, T&D, and HR) before any official rollout",
+      "Built for handover: question banks, batch management, analytics, audit log, and full operational control, all owned by a non-technical team",
+    ],
+    hackathon: {
+      label: "Also at noon",
+      line: "I judged the Educational Games Industry Hackathon, run with the Ministry of Communications and Information Technology and supported by Replit. The AI-based solutions in those evaluation sessions proved again that young Saudi talent can ship educational products that compete.",
+      photos: [
+        {
+          src: "/media/photo-hackathon-judging.jpg",
+          alt: "Yousef judging project presentations at the Educational Games Industry Hackathon",
+          caption: "Evaluation sessions",
+          width: 1600,
+          height: 1066,
+        },
+        {
+          src: "/media/photo-hackathon-group.jpg",
+          alt: "Yousef with the Ministry of Communications and Information Technology and noon teams at the hackathon closing ceremony",
+          caption: "Closing ceremony with the MCIT and noon teams",
+          width: 1600,
+          height: 1066,
+        },
+      ],
+    },
+    closer:
+      "The next goal is already in motion: turning a two-month program tool into a platform facilitators open every single day of the year.",
   },
   yax: {
     logo: "/media/yax-logo.jpg",
