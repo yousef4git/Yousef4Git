@@ -2,9 +2,9 @@ import dynamic from "next/dynamic";
 import Nav from "@/components/Nav";
 import Hero from "@/components/chapters/Hero";
 import Noon from "@/components/chapters/Noon";
-import Yax from "@/components/chapters/Yax";
-import Stage from "@/components/chapters/Stage";
+import Teaching from "@/components/chapters/Teaching";
 import Work from "@/components/chapters/Work";
+import Yax from "@/components/chapters/Yax";
 import Credentials from "@/components/chapters/Credentials";
 import Footer from "@/components/Footer";
 
@@ -17,9 +17,9 @@ export default function Home() {
         <Nav />
         <Hero />
         <Noon />
-        <Yax />
-        <Stage />
+        <Teaching />
         <Work />
+        <Yax />
         <Credentials />
       </main>
       <Footer />

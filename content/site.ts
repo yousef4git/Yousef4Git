@@ -119,29 +119,43 @@ export const siteContent = {
       cta: null,
     },
   ],
-  stage: [
-    {
-      src: "/media/photo-sda-presenting.jpg",
-      alt: "Yousef presenting at the SDA Agentic AI Bootcamp",
-      caption: "Presenting at the SDA Agentic AI Bootcamp",
-      width: 1600,
-      height: 1200,
-    },
-    {
-      src: "/media/photo-shaguf-stage.jpg",
-      alt: "Yousef speaking on stage as the honored best instructor at a Shaguf event",
-      caption: "Honored as best instructor at a Shaguf event",
-      width: 892,
-      height: 490,
-    },
-    {
-      src: "/media/photo-shaguf-audience.jpg",
-      alt: "The audience at the Shaguf session",
-      caption: "The room at the Shaguf session",
-      width: 892,
-      height: 477,
-    },
-  ],
+  teaching: {
+    title: "Teaching",
+    note: "Shaguf Educational Platform",
+    meta: "Instructor · Jan 2022 - Present",
+    lines: [
+      "For four years and counting, I've taught computer science to 1,800+ students, holding a 4.9 out of 5 rating the whole way, and honored as best instructor on stage at a Shaguf event.",
+      "Teaching is where I learned the skill I use most as an engineer: taking something complicated and making it land, for a beginner, for an expert, or for a stakeholder who just needs to trust the system.",
+    ],
+    stats: [
+      { value: "1,800", unit: "+", label: "Students taught" },
+      { value: "4.9", unit: "/5", label: "Instructor rating" },
+      { value: "4", unit: "years", label: "And counting" },
+    ],
+    gallery: [
+      {
+        src: "/media/photo-sda-presenting.jpg",
+        alt: "Yousef presenting at the SDA Agentic AI Bootcamp",
+        caption: "Presenting at the SDA Agentic AI Bootcamp",
+        width: 1600,
+        height: 1200,
+      },
+      {
+        src: "/media/photo-shaguf-stage.jpg",
+        alt: "Yousef speaking on stage as the honored best instructor at a Shaguf event",
+        caption: "Honored as best instructor at a Shaguf event",
+        width: 892,
+        height: 490,
+      },
+      {
+        src: "/media/photo-shaguf-audience.jpg",
+        alt: "The audience at the Shaguf session",
+        caption: "The room at the Shaguf session",
+        width: 892,
+        height: 477,
+      },
+    ],
+  },
   credentials: [
     {
       img: "/media/cert-cdmp-badge.png",
@@ -206,7 +220,7 @@ export const siteContent = {
     github: "https://github.com/Yousef4Git",
     cv: "/cv/Yousef-Alshuwayi-AI-Engineer.pdf",
   },
-  chapters: ["hero", "noon", "yax", "stage", "work", "credentials"] as const,
+  chapters: ["hero", "noon", "teaching", "work", "yax", "credentials"] as const,
 } as const;
 
 export type SiteContent = typeof siteContent;

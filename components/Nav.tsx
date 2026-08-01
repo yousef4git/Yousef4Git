@@ -5,19 +5,20 @@ import Mark from "@/components/Mark";
 
 const LINKS = [
   { href: "#hero", label: "Intro" },
-  { href: "#noon", label: "Experience" },
-  { href: "#stage", label: "On stage" },
+  { href: "#noon", label: "Noon" },
+  { href: "#teaching", label: "Teaching" },
   { href: "#work", label: "Work" },
+  { href: "#yax", label: "Before AI" },
   { href: "#credentials", label: "Credentials" },
 ];
 
-// Section id → the nav link that owns it (YAX rolls up under Experience).
+// Every section now owns its own nav stop, so the spy map is one to one.
 const SPY: Record<string, string> = {
   hero: "#hero",
   noon: "#noon",
-  yax: "#noon",
-  stage: "#stage",
+  teaching: "#teaching",
   work: "#work",
+  yax: "#yax",
   credentials: "#credentials",
 };
 
