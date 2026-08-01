@@ -95,12 +95,12 @@ export default function Noon() {
           className="pointer-events-none absolute -right-24 top-1/4 h-96 w-96 rounded-full bg-noon/5 blur-3xl"
         />
         <div className="mx-auto w-full max-w-3xl px-6 py-24">
-          <p
+          <h2
             data-noon-kicker
             className="font-mono text-xs uppercase tracking-[0.3em] text-noon"
           >
             {noon.kicker}
-          </p>
+          </h2>
           <a
             data-noon-logo
             href={noon.url}

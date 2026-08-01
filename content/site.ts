@@ -116,7 +116,7 @@ export const siteContent = {
       meta: "Freelance via GHRS · 2025 - 2026",
       logo: "/media/ghrs-logo.png",
       logoAlt: "GHRS",
-      line: "End-to-end delivery for Saudi businesses: rebuilt websites, automated WhatsApp Business, connected internal tools to customer channels. On the AI side: an auditable document-intake and risk-triage system for an education platform, and AI architecture advisory for an early-stage logistics startup.",
+      line: "End-to-end delivery for Saudi businesses: rebuilt websites, automated WhatsApp Business, connected internal tools to customer channels. On the AI side: AI architecture advisory for an early-stage logistics startup.",
       href: "https://ghrs.sa",
       cta: "Visit GHRS",
       action: null,

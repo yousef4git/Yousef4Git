@@ -87,7 +87,7 @@ export default function Credentials() {
                   height={300}
                   className="h-32 w-full rounded object-contain"
                 />
-                <p className="mt-3 text-sm text-bone">{c.name}</p>
+                <h3 className="mt-3 text-sm text-bone">{c.name}</h3>
                 <p className="mt-1 font-mono text-xs text-stone">
                   {c.issuer} · {c.year}
                 </p>

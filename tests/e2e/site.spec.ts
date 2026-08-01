@@ -1,6 +1,7 @@
 import { test, expect } from "@playwright/test";
+import { siteContent } from "../../content/site";
 
-const CHAPTERS = ["hero", "noon", "teaching", "work", "yax", "credentials"];
+const CHAPTERS = siteContent.chapters;
 
 test("all six chapters render", async ({ page }) => {
   await page.goto("/");
