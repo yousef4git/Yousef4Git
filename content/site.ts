@@ -60,32 +60,15 @@ export const siteContent = {
   },
   yax: {
     logo: "/media/yax-logo.jpg",
-    company: "YAX, Your Amazing Xperience",
-    meta: "Events and operations · Riyadh · Nov 2023 to May 2025",
-    intro:
-      "Before AI work I ran events and operations with YAX. Big teams, hard deadlines, real logistics.",
-    roles: [
-      {
-        title: "Staff Manager, Riyadh Metro",
-        dates: "Nov 2024 - May 2025",
-        line: "Recruited, trained and managed 1,500 event staff for the Riyadh Metro launch, across 45 stations that served over 30 million visitors.",
-      },
-      {
-        title: "Human Resources Coordinator",
-        dates: "Apr 2024 - Nov 2024",
-        line: "Recruited and coordinated staff for projects inside Saudi Arabia and abroad, and kept staffing records accurate across teams.",
-      },
-      {
-        title: "Operations Team Member",
-        dates: "Nov 2023 - Nov 2024",
-        line: "Coordinated on site logistics for events and worked with cross functional teams to keep quality high on the ground.",
-      },
+    title: "Before AI",
+    note: "Operations at scale",
+    meta: "YAX · Nov 2023 - May 2025",
+    lines: [
+      "Before I built systems for machines, I ran them for people. At YAX I was promoted twice in one year - operations, to HR coordination, to Staff Manager for the Riyadh Metro launch: 1,500 staff recruited, trained, and deployed across 45 stations in a single month, serving 30M+ visitors.",
+      "Along the way: supervising the World Urban Forum protocol team in Cairo, and leading ministerial transport from Riyadh to AlUla.",
     ],
-    highlights: [
-      "Supervised the World Urban Forum protocol team in Cairo",
-      "Supervised the Sports Boulevard stand at Cityscape Riyadh",
-      "Led ministerial transport from Riyadh to AlUla",
-    ],
+    bridge:
+      "That period is why I build the way I build: systems have to survive contact with real people, real deadlines, and real chaos.",
   },
   work: [
     {
