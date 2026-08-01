@@ -1,6 +1,7 @@
 import { test, expect } from "@playwright/test";
+import { siteContent } from "../../content/site";
 
-const CHAPTERS = ["hero", "noon", "yax", "stage", "work", "credentials"];
+const CHAPTERS = siteContent.chapters;
 
 test("all six chapters render", async ({ page }) => {
   await page.goto("/");
@@ -9,13 +10,24 @@ test("all six chapters render", async ({ page }) => {
   }
 });
 
+test("chapters follow the narrative order", async ({ page }) => {
+  await page.goto("/");
+  const ids = await page
+    .locator("section[data-chapter]")
+    .evaluateAll((els) => els.map((e) => e.id));
+  expect(ids).toEqual(CHAPTERS);
+});
+
 test("glass navbar links every stop", async ({ page }) => {
   await page.goto("/");
-  await expect(page.locator('nav[aria-label="Sections"] a')).toHaveCount(5);
-  await expect(page.locator('nav[aria-label="Sections"] a', { hasText: "Experience" })).toHaveAttribute(
+  await expect(page.locator('nav[aria-label="Sections"] a')).toHaveCount(6);
+  await expect(page.locator('nav[aria-label="Sections"] a', { hasText: "Noon" })).toHaveAttribute(
     "href",
     "#noon"
   );
+  await expect(
+    page.locator('nav[aria-label="Sections"] a', { hasText: "Before AI" })
+  ).toHaveAttribute("href", "#yax");
 });
 
 test("credential verify links open in a new tab", async ({ page }) => {

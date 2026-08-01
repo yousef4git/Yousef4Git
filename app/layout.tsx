@@ -18,20 +18,22 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://yousefalshuwayi.online"),
   title: "Yousef Alshuwayi · AI Systems Engineer at noon",
   description:
-    "AI Systems Engineer at noon. I build production AI systems and web products: agentic AI, LLMs, Python, Next.js. Riyadh, Saudi Arabia.",
+    "AI Systems Engineer at noon. I build AI systems that people actually adopt, and that keep running after I hand them over. Agentic AI, LLMs, Python, Next.js. Riyadh, Saudi Arabia.",
   alternates: { canonical: "/" },
   openGraph: {
     type: "profile",
     siteName: "Yousef Alshuwayi",
     title: "Yousef Alshuwayi · AI Systems Engineer at noon",
-    description: "I build production AI systems and web products.",
+    description:
+      "I build AI systems that people actually adopt, and that keep running after I hand them over.",
     url: "https://yousefalshuwayi.online/",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
     title: "Yousef Alshuwayi · AI Systems Engineer at noon",
-    description: "I build production AI systems and web products.",
+    description:
+      "I build AI systems that people actually adopt, and that keep running after I hand them over.",
   },
 };
 

@@ -68,12 +68,28 @@ export default function Work() {
             ) : (
               <h3 className="mt-4 font-display text-3xl text-bone">{w.title}</h3>
             )}
+            {w.meta && <p className="mt-3 font-mono text-xs text-stone">{w.meta}</p>}
             <p className="mt-3 text-stone">{w.line}</p>
-            {w.href && (
-              <a href={w.href} target="_blank" rel="noopener noreferrer" className="mt-4 inline-block font-mono text-sm text-gold hover:text-gold-bright">
+            {w.href ? (
+              <a
+                href={w.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-block font-mono text-sm text-gold hover:text-gold-bright"
+              >
                 {w.cta} →
               </a>
-            )}
+            ) : w.action === "open-chat" ? (
+              // The chat lives in a sibling component, so the card asks for it
+              // by event rather than lifting the panel's open state to the page.
+              <button
+                type="button"
+                onClick={() => window.dispatchEvent(new CustomEvent("ya:open-chat"))}
+                className="mt-4 inline-block font-mono text-sm text-gold hover:text-gold-bright"
+              >
+                {w.cta} →
+              </button>
+            ) : null}
           </article>
         ))}
       </div>
