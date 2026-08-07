@@ -2,6 +2,10 @@ const BANNED = [
   'arabic-first', 'arabic first', 'running three companies', 'one operator',
   'full power', 'shipped solo', 'deploy it', 'demo it',
   'founder & ceo', 'founder and ceo',
+  // No claim may draw its power from a comparison with other people. Every
+  // sentence stands on Yousef's own evidence: adoption, handover, dates,
+  // numbers. If a line needs a villain to work, it gets rewritten.
+  'most engineers', 'not demos', 'unlike others',
 ];
 
 export function findViolations(text) {

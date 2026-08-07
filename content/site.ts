@@ -22,30 +22,28 @@ export const siteContent = {
     // No eyebrow here on purpose. The addendum caps this section at the lead,
     // the four steps and the closer, and a floating "Forward deployed" label
     // would be the one use of the phrase with no evidence next to it.
-    lead: "Most engineers receive a spec. I go get the problem.",
-    // Verbatim from the addendum. The only change is the leading capital:
-    // the name and the line render as separate elements, so each line opens
-    // its own sentence and the addendum's "Embed - " separator disappears.
+    lead: "I work closest to the problem: with the team that owns it, inside their day-to-day, until the solution is theirs.",
+    // Verbatim from addendum v2. Every line stands on its own evidence, with
+    // no comparison to how anyone else works.
     steps: [
       {
         name: "Embed",
-        line: "Sit with the people who own the problem until I understand it better than the brief does.",
+        line: "I sit with the people who own the problem and learn how their day actually runs.",
       },
       {
         name: "Scope",
-        line: "Turn ambiguity into a product with clear success criteria.",
+        line: "I turn what I heard into a product with clear success criteria we agree on.",
       },
       {
         name: "Ship",
-        line: "Production fast, with guardrails, not demos.",
+        line: "I get it into production early, then shape it around real usage.",
       },
       {
         name: "Hand over",
-        line: "The job isn't done until the team runs it without me.",
+        line: "I track adoption until the team runs it on their own, then I step back.",
       },
     ],
-    closer:
-      "They call this forward deployed engineering. I called it common sense before I knew it had a name.",
+    closer: "This way of working has a name now: forward deployed engineering.",
   },
   noon: {
     kicker: "The 16-day platform",
@@ -163,7 +161,7 @@ export const siteContent = {
       meta: null,
       logo: null,
       logoAlt: null,
-      line: "Built as a product, not a page: a streaming AI chat that answers as me, with rate limits, input validation, and prompt guardrails behind the API. Try it: ask it anything on this page.",
+      line: "Built as a product: a streaming AI chat that answers as me, with rate limits, input validation, and prompt guardrails behind the API. Try it: ask it anything on this page.",
       href: null,
       cta: "Ask it something",
       action: "open-chat",
