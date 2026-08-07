@@ -90,7 +90,7 @@ export default function Method() {
       className="relative overflow-hidden py-24 md:py-32"
     >
       <div className="mx-auto max-w-6xl">
-        <ChapterHead title={method.title} note={method.note} />
+        <ChapterHead title={method.title} />
         <div className="px-6">
           <p
             data-method-lead

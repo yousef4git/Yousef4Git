@@ -19,7 +19,9 @@ export const siteContent = {
   },
   method: {
     title: "How I work",
-    note: "Forward deployed",
+    // No eyebrow here on purpose. The addendum caps this section at the lead,
+    // the four steps and the closer, and a floating "Forward deployed" label
+    // would be the one use of the phrase with no evidence next to it.
     lead: "Most engineers receive a spec. I go get the problem.",
     steps: [
       {
