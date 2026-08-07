@@ -23,14 +23,17 @@ export const siteContent = {
     // the four steps and the closer, and a floating "Forward deployed" label
     // would be the one use of the phrase with no evidence next to it.
     lead: "Most engineers receive a spec. I go get the problem.",
+    // Verbatim from the addendum. The only change is the leading capital:
+    // the name and the line render as separate elements, so each line opens
+    // its own sentence and the addendum's "Embed - " separator disappears.
     steps: [
       {
         name: "Embed",
-        line: "I sit with the people who own the problem until I understand it better than the brief does.",
+        line: "Sit with the people who own the problem until I understand it better than the brief does.",
       },
       {
         name: "Scope",
-        line: "I turn the ambiguity into a product with clear success criteria.",
+        line: "Turn ambiguity into a product with clear success criteria.",
       },
       {
         name: "Ship",
@@ -38,7 +41,7 @@ export const siteContent = {
       },
       {
         name: "Hand over",
-        line: "The job is not done until the team runs it without me.",
+        line: "The job isn't done until the team runs it without me.",
       },
     ],
     closer:
