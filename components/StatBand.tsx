@@ -46,7 +46,11 @@ export default function StatBand({
           <dt className="mt-2 font-mono text-[11px] uppercase tracking-[0.2em] text-stone">
             {s.label}
           </dt>
-          <dd className="flex items-baseline gap-1 font-display text-4xl leading-none text-bone md:text-5xl">
+          {/* Cormorant defaults to old-style figures, so "1,800" renders with
+              the 1 at x-height and the 8 ascending, and "4.9" drops below the
+              baseline. Lining evens the heights; tabular keeps the three cells
+              optically aligned. */}
+          <dd className="flex items-baseline gap-1 font-display text-4xl leading-none tabular-nums lining-nums text-bone md:text-5xl">
             {s.value}
             {s.unit && <span className={`font-mono text-base ${unitTone}`}>{s.unit}</span>}
           </dd>

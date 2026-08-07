@@ -68,7 +68,9 @@ export default function Credentials() {
               {lead.issuer} · {lead.year}
             </p>
             {lead.note && (
-              <p className="mt-4 font-display text-xl text-gold md:text-2xl">{lead.note}</p>
+              <p className="mt-4 font-display text-xl lining-nums text-gold md:text-2xl">
+                {lead.note}
+              </p>
             )}
           </div>
         </div>
@@ -110,7 +112,9 @@ export default function Credentials() {
           })}
         </div>
 
-        <div className="mt-12">
+        {/* Clearance must exceed the cards' 60px reveal travel, or they slide
+            through this label on the way in. It also separates the tiers. */}
+        <div className="mt-20">
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-stone">Also</p>
           <ul data-cred-also-list className="mt-4 space-y-2">
             {also.map((a) => (
