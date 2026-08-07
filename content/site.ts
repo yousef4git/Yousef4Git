@@ -1,8 +1,11 @@
 export const siteContent = {
   name: "Yousef Alshuwayi",
   role: "AI Systems Engineer at noon",
+  // The title is the fact; the second clause is the way of working. They stay
+  // separate so the site never reads as a claim to a job title noon did not give.
+  roleAside: "I work forward deployed",
   tagline:
-    "I build AI systems that people actually adopt, and that keep running after I hand them over.",
+    "I embed with the team that owns the problem, turn ambiguity into a product, ship it fast, and hand it over so it runs without me.",
   hero: {
     location: "Riyadh, Saudi Arabia",
     video: "/media/apple-presenting.mp4",
@@ -14,14 +17,41 @@ export const siteContent = {
       "Certified Data Management Professional (CDMP)",
     ],
   },
+  method: {
+    title: "How I work",
+    note: "Forward deployed",
+    lead: "Most engineers receive a spec. I go get the problem.",
+    steps: [
+      {
+        name: "Embed",
+        line: "I sit with the people who own the problem until I understand it better than the brief does.",
+      },
+      {
+        name: "Scope",
+        line: "I turn the ambiguity into a product with clear success criteria.",
+      },
+      {
+        name: "Ship",
+        line: "Production fast, with guardrails, not demos.",
+      },
+      {
+        name: "Hand over",
+        line: "The job is not done until the team runs it without me.",
+      },
+    ],
+    closer:
+      "They call this forward deployed engineering. I called it common sense before I knew it had a name.",
+  },
   noon: {
     kicker: "The 16-day platform",
     logo: "/media/noon-logo.png",
     url: "https://www.noon.edu.sa/en/",
     meta: "AI Systems Engineer · Noon Academy · July 2026 - Present",
+    framing:
+      "This is what forward deployed looks like from the inside: I sat with the Training & Development team, not apart from them.",
     lead: "My first assignment at noon was a measurement layer inside a six-day training camp: one exercise a day, ten fixed scenarios, two user roles.",
     promise:
-      "I made myself a bigger promise: build a platform that serves the whole training journey, and hand it to the Training & Development team needing zero engineering support.",
+      "I made myself a bigger promise: embed with the Training & Development team, build the platform that serves their whole training journey, and hand it over needing zero engineering support.",
     landing: "Sixteen days later, the Training & Development Portal was live.",
     stats: [
       { value: "16", unit: "days", label: "Concept to live" },
@@ -94,7 +124,7 @@ export const siteContent = {
       "Along the way: supervising the World Urban Forum protocol team in Cairo, and leading ministerial transport from Riyadh to AlUla.",
     ],
     bridge:
-      "That period is why I build the way I build: systems have to survive contact with real people, real deadlines, and real chaos.",
+      "That was my first forward deployment, before I knew the term existed. Systems have to survive contact with real people, real deadlines, and real chaos.",
   },
   work: [
     {
@@ -116,7 +146,7 @@ export const siteContent = {
       meta: "Freelance via GHRS · 2025 - 2026",
       logo: "/media/ghrs-logo.png",
       logoAlt: "GHRS",
-      line: "End-to-end delivery for Saudi businesses: rebuilt websites, automated WhatsApp Business, connected internal tools to customer channels. On the AI side: AI architecture advisory for an early-stage logistics startup.",
+      line: "Forward deployed before the title existed: end-to-end delivery for Saudi businesses, scoped directly with owners, built, deployed, handed over. Rebuilt websites, automated WhatsApp Business, connected internal tools to customer channels, and advised an early-stage logistics startup on AI architecture.",
       href: "https://ghrs.sa",
       cta: "Visit GHRS",
       action: null,
@@ -217,9 +247,9 @@ export const siteContent = {
     email: "yousefalshuwayi@gmail.com",
     linkedin: "https://linkedin.com/in/yousefalshuwayi",
     github: "https://github.com/Yousef4Git",
-    cv: "/cv/Yousef-Alshuwayi-AI-Systems-Engineer.pdf",
+    cv: "/cv/Yousef-Alshuwayi-Forward-Deployed-Engineer.pdf",
   },
-  chapters: ["hero", "noon", "teaching", "work", "yax", "credentials"] as const,
+  chapters: ["hero", "method", "noon", "teaching", "work", "yax", "credentials"] as const,
 } as const;
 
 export type SiteContent = typeof siteContent;

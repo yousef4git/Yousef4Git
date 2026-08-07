@@ -73,13 +73,17 @@ export default function Hero() {
           >
             {siteContent.name}
           </h1>
+          {/* Title in gold, way of working in stone: the hierarchy is the
+              honesty. noon gave the first clause, not the second. */}
           <p
             data-hero-role
-            className="mt-5 font-mono text-sm uppercase tracking-widest text-gold"
+            className="mt-5 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 font-mono text-sm uppercase tracking-widest text-gold md:justify-start"
           >
-            {siteContent.role}
+            <span>{siteContent.role}</span>
+            <span aria-hidden className="h-1 w-1 rounded-full bg-gold/50" />
+            <span className="text-stone">{siteContent.roleAside}</span>
           </p>
-          <p data-hero-tagline className="mx-auto mt-3 max-w-md text-stone md:mx-0">
+          <p data-hero-tagline className="mx-auto mt-3 max-w-xl text-stone md:mx-0">
             {siteContent.tagline}
           </p>
           <ul className="mt-7 flex flex-wrap justify-center gap-2 md:justify-start">

@@ -1,6 +1,7 @@
 import dynamic from "next/dynamic";
 import Nav from "@/components/Nav";
 import Hero from "@/components/chapters/Hero";
+import Method from "@/components/chapters/Method";
 import Noon from "@/components/chapters/Noon";
 import Teaching from "@/components/chapters/Teaching";
 import Work from "@/components/chapters/Work";
@@ -16,6 +17,7 @@ export default function Home() {
       <main>
         <Nav />
         <Hero />
+        <Method />
         <Noon />
         <Teaching />
         <Work />

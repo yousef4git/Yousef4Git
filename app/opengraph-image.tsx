@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
-export const alt = "Yousef Alshuwayi · AI Systems Engineer at noon";
+export const alt = "Yousef Alshuwayi · AI Systems Engineer · Forward Deployed";
 
 export default function OgImage() {
   return new ImageResponse(
@@ -21,9 +21,14 @@ export default function OgImage() {
       >
         <div style={{ width: 120, height: 4, background: "#C9A96E", marginBottom: 40 }} />
         <div style={{ fontSize: 76, fontWeight: 600, color: "#C9A96E" }}>Yousef Alshuwayi</div>
+        {/* Same split as the hero: the title is what noon gave, the second
+            line is how the work gets done. Never merged into one claim. */}
         <div style={{ fontSize: 34, marginTop: 20, letterSpacing: 4 }}>AI SYSTEMS ENGINEER AT NOON</div>
+        <div style={{ fontSize: 34, marginTop: 10, letterSpacing: 4, color: "#A39B8B" }}>
+          I WORK FORWARD DEPLOYED
+        </div>
         <div style={{ fontSize: 24, marginTop: 28, color: "#A39B8B" }}>
-          I build AI systems that people actually adopt · yousefalshuwayi.online
+          Embed · scope · ship · hand over · yousefalshuwayi.online
         </div>
       </div>
     ),

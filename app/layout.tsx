@@ -16,24 +16,26 @@ const jetbrains = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://yousefalshuwayi.online"),
-  title: "Yousef Alshuwayi · AI Systems Engineer at noon",
+  // The middot stands in for the addendum's dash: em and en dashes fail the
+  // voice lint that guards this file.
+  title: "Yousef Alshuwayi · AI Systems Engineer · Forward Deployed",
   description:
-    "AI Systems Engineer at noon. I build AI systems that people actually adopt, and that keep running after I hand them over. Agentic AI, LLMs, Python, Next.js. Riyadh, Saudi Arabia.",
+    "AI Systems Engineer at noon working forward deployed: embedding with teams, shipping production AI in days, and handing over systems that run without an engineer.",
   alternates: { canonical: "/" },
   openGraph: {
     type: "profile",
     siteName: "Yousef Alshuwayi",
-    title: "Yousef Alshuwayi · AI Systems Engineer at noon",
+    title: "Yousef Alshuwayi · AI Systems Engineer · Forward Deployed",
     description:
-      "I build AI systems that people actually adopt, and that keep running after I hand them over.",
+      "AI Systems Engineer at noon working forward deployed: embedding with teams, shipping production AI in days, and handing over systems that run without an engineer.",
     url: "https://yousefalshuwayi.online/",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Yousef Alshuwayi · AI Systems Engineer at noon",
+    title: "Yousef Alshuwayi · AI Systems Engineer · Forward Deployed",
     description:
-      "I build AI systems that people actually adopt, and that keep running after I hand them over.",
+      "AI Systems Engineer at noon working forward deployed: embedding with teams, shipping production AI in days, and handing over systems that run without an engineer.",
   },
 };
 

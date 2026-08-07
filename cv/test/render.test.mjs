@@ -28,6 +28,28 @@ test('sets dir and lang attributes', () => {
   assert.match(html, /<html lang="ar" dir="rtl">/);
 });
 
+test('simple entries without dates render no dates span', () => {
+  const html = renderHTML({
+    ...assembled,
+    order: ['education'],
+    blocks: { education: { kind:'simple', heading:'Education', entries:[
+      { primary:'B.Sc. Computer Science', secondary:'IMSIU', dates:'' }] } },
+  }, 'body{}');
+  assert.match(html, /B\.Sc\. Computer Science/);
+  assert.match(html, /IMSIU/);
+  assert.doesNotMatch(html, /entry-dates/);
+});
+
+test('simple entries with dates still render them', () => {
+  const html = renderHTML({
+    ...assembled,
+    order: ['education'],
+    blocks: { education: { kind:'simple', heading:'Education', entries:[
+      { primary:'B.Sc. Computer Science', secondary:'IMSIU', dates:'2020' }] } },
+  }, 'body{}');
+  assert.match(html, /<span class="entry-dates">2020<\/span>/);
+});
+
 test('escapes HTML special characters', () => {
   const html = renderHTML({ ...assembled, name:'A & <B>' }, 'body{}');
   assert.match(html, /A &amp; &lt;B&gt;/);

@@ -15,7 +15,7 @@ const master = {
   skills: { categories: [
     { key:'programming', label:{en:'Programming'}, items:['Python'] },
     { key:'ai', label:{en:'AI and agents'}, items:['MCP'] } ] },
-  education: [{ primary:{en:'B.Sc. Computer Science'}, secondary:{en:'IMSIU'}, dates:{en:'Expected Jan 2027'} }],
+  education: [{ primary:{en:'B.Sc. Computer Science'}, secondary:{en:'IMSIU'} }],
   certs: [{ name:{en:'Apple AI Program'}, org:{en:'Apple'}, year:'2025', note:{en:''} }],
   languages: [{ label:{en:'Arabic: native'} }],
 };
@@ -48,4 +48,15 @@ test('skills reordered by skillOrder', () => {
 test('rtl for arabic', () => {
   const a = assembleCV(master, role, 'ar');
   assert.equal(a.dir, 'rtl');
+});
+
+// Education is deliberately undated: the degree is the fact, the timeline is
+// not. An entry with no dates must assemble without inventing one.
+test('education carries no dates', () => {
+  for (const lang of ['en', 'ar']) {
+    const a = assembleCV(master, role, lang);
+    for (const e of a.blocks.education.entries) {
+      assert.equal(e.dates, '', `${lang}: education entry has dates`);
+    }
+  }
 });

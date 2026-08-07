@@ -3,7 +3,7 @@ import { siteContent } from "../../content/site";
 
 const CHAPTERS = siteContent.chapters;
 
-test("all six chapters render", async ({ page }) => {
+test("every chapter renders", async ({ page }) => {
   await page.goto("/");
   for (const c of CHAPTERS) {
     await expect(page.locator(`section[data-chapter="${c}"]`)).toHaveCount(1);
@@ -20,14 +20,38 @@ test("chapters follow the narrative order", async ({ page }) => {
 
 test("glass navbar links every stop", async ({ page }) => {
   await page.goto("/");
-  await expect(page.locator('nav[aria-label="Sections"] a')).toHaveCount(6);
+  await expect(page.locator('nav[aria-label="Sections"] a')).toHaveCount(CHAPTERS.length);
   await expect(page.locator('nav[aria-label="Sections"] a', { hasText: "Noon" })).toHaveAttribute(
     "href",
     "#noon"
   );
   await expect(
+    page.locator('nav[aria-label="Sections"] a', { hasText: "How I work" })
+  ).toHaveAttribute("href", "#method");
+  await expect(
     page.locator('nav[aria-label="Sections"] a', { hasText: "Before AI" })
   ).toHaveAttribute("href", "#yax");
+});
+
+// The four steps are the section's whole job. They must be readable without
+// the scroll animation ever firing, which is what reduced motion emulates.
+test("the four forward deployed steps read without motion", async ({ browser }) => {
+  const ctx = await browser.newContext({ reducedMotion: "reduce" });
+  const page = await ctx.newPage();
+  await page.goto("/");
+  const method = page.locator('section[data-chapter="method"]');
+  for (const step of siteContent.method.steps) {
+    await expect(method.getByRole("heading", { name: step.name })).toBeVisible();
+  }
+  await ctx.close();
+});
+
+test("the CV link serves the forward deployed CV", async ({ page }) => {
+  await page.goto("/");
+  const link = page.locator(`a[href="${siteContent.contact.cv}"]`).first();
+  await expect(link).toHaveAttribute("href", /Forward-Deployed-Engineer\.pdf$/);
+  const res = await page.request.get(siteContent.contact.cv);
+  expect(res.status()).toBe(200);
 });
 
 test("credential verify links open in a new tab", async ({ page }) => {

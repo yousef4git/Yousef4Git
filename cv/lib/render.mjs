@@ -28,11 +28,14 @@ function renderBlock(b) {
     }).join('');
   }
   if (b.kind === 'simple') {
-    return b.entries.map(e =>
-      `<div class="entry"><div class="entry-head">`
-      + `<span class="entry-title">${esc(e.primary)}</span>`
-      + `<span class="entry-dates">${esc(e.dates)}</span></div>`
-      + `<div class="entry-sub">${esc(e.secondary)}</div></div>`).join('');
+    // Dates are optional here: education carries no graduation date, and an
+    // empty span would still claim its side of the justified head row.
+    return b.entries.map(e => {
+      const dates = e.dates ? `<span class="entry-dates">${esc(e.dates)}</span>` : '';
+      return `<div class="entry"><div class="entry-head">`
+        + `<span class="entry-title">${esc(e.primary)}</span>${dates}</div>`
+        + `<div class="entry-sub">${esc(e.secondary)}</div></div>`;
+    }).join('');
   }
   if (b.kind === 'certs') {
     const cells = b.entries.map(e => {

@@ -3,11 +3,14 @@ import { useEffect, useRef } from "react";
 import { gsap, useGSAP } from "@/lib/gsap";
 import Mark from "@/components/Mark";
 
+// Labels match each section's own heading: "Selected work" rather than "Work",
+// so it cannot be misread as a second link to "How I work".
 const LINKS = [
   { href: "#hero", label: "Intro" },
+  { href: "#method", label: "How I work" },
   { href: "#noon", label: "Noon" },
   { href: "#teaching", label: "Teaching" },
-  { href: "#work", label: "Work" },
+  { href: "#work", label: "Selected work" },
   { href: "#yax", label: "Before AI" },
   { href: "#credentials", label: "Credentials" },
 ];
@@ -15,6 +18,7 @@ const LINKS = [
 // Every section now owns its own nav stop, so the spy map is one to one.
 const SPY: Record<string, string> = {
   hero: "#hero",
+  method: "#method",
   noon: "#noon",
   teaching: "#teaching",
   work: "#work",

@@ -113,6 +113,14 @@ export default function Noon() {
           <p data-noon-meta className="mt-4 font-mono text-xs text-stone">
             {noon.meta}
           </p>
+          {/* Names the model before the evidence, so the story below reads as
+              proof rather than as one more project write-up. */}
+          <p
+            data-noon-meta
+            className="mt-4 max-w-2xl border-t border-noon/20 pt-4 text-sm italic text-stone"
+          >
+            {noon.framing}
+          </p>
           <p data-noon-line className="mt-10 max-w-2xl text-lg text-stone">
             {noon.lead}
           </p>
