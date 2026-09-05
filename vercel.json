@@ -1,5 +1,13 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    { "source": "/cv/Yousef-Alshuwayi-AI-Engineer.pdf",
+      "destination": "/cv/Yousef-Alshuwayi-Forward-Deployed-Engineer.pdf",
+      "permanent": false },
+    { "source": "/cv/Yousef-Alshuwayi-AI-Systems-Engineer.pdf",
+      "destination": "/cv/Yousef-Alshuwayi-Forward-Deployed-Engineer.pdf",
+      "permanent": false }
+  ],
   "headers": [
     {
       "source": "/(.*)",
