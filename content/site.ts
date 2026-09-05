@@ -1,5 +1,9 @@
 export const siteContent = {
   name: "Yousef Alshuwayi",
+  // The one place the domain lives. Metadata, sitemap, robots and the OG
+  // card all read it from here, so a move only ever edits these two lines.
+  host: "youusef.com",
+  url: "https://youusef.com",
   role: "AI Systems Engineer at noon",
   // The title is the fact; the second clause is the way of working. They stay
   // separate so the site never reads as a claim to a job title noon did not give.

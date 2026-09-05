@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import { siteContent } from "@/content/site";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
@@ -28,7 +29,7 @@ export default function OgImage() {
           I WORK FORWARD DEPLOYED
         </div>
         <div style={{ fontSize: 24, marginTop: 28, color: "#A39B8B" }}>
-          Embed · scope · ship · hand over · yousefalshuwayi.online
+          {`Embed · scope · ship · hand over · ${siteContent.host}`}
         </div>
       </div>
     ),

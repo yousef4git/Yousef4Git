@@ -8,7 +8,7 @@
 <br/><br/>
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/yousefalshuwayi/)
-[![Portfolio](https://img.shields.io/badge/Portfolio-%230ea5e9.svg?style=for-the-badge&logo=google-chrome&logoColor=white)](https://yousefalshuwayi.online)
+[![Portfolio](https://img.shields.io/badge/Portfolio-%230ea5e9.svg?style=for-the-badge&logo=google-chrome&logoColor=white)](https://youusef.com)
 [![Email](https://img.shields.io/badge/Gmail-%23EA4335.svg?style=for-the-badge&logo=gmail&logoColor=white)](mailto:yousefalshuwayi@gmail.com)
 
 </div>

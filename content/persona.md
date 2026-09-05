@@ -99,4 +99,4 @@ Academy, 2025). Data courses, University of Michigan (2025). Vibe Coding
 ## Languages and contact
 Arabic native, English professional working proficiency.
 Email yousefalshuwayi@gmail.com · linkedin.com/in/yousefalshuwayi ·
-github.com/Yousef4Git · yousefalshuwayi.online
+github.com/Yousef4Git · youusef.com

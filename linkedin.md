@@ -231,7 +231,7 @@ Note: your CV rates English as "intermediate". "Professional working proficiency
 ## 10. Featured
 Add these as Featured items (they are the first visual proof recruiters click):
 1. **Rusokh**, link https://rusokh.com (title: "Rusokh, a course platform I built and shipped")
-2. **Portfolio**, link https://yousefalshuwayi.online (the redesigned cinematic site)
+2. **Portfolio**, link https://youusef.com (the redesigned cinematic site)
 3. **GitHub**, link https://github.com/Yousef4Git
 4. **CV (PDF)**, upload your AI Engineer CV as the default; it is your best "share with anyone" version.
 5. Optional: a short post describing the risk-triage system (rules do the scoring, the model only handles language, LLM-as-judge gates output). A single well-written post here doubles as proof of how you think.
@@ -264,7 +264,7 @@ Hi [name], I'm tidying up my LinkedIn and would really value a short recommendat
 - **Custom URL:** linkedin.com/in/yousefalshuwayi (keep it)
 - **Email:** yousefalshuwayi@gmail.com
 - **Phone:** +966 50 600 7446
-- **Website:** https://yousefalshuwayi.online (label it "Portfolio")
+- **Website:** https://youusef.com (label it "Portfolio")
 - **GitHub:** add https://github.com/Yousef4Git as a second website link (label "GitHub")
 
 ---

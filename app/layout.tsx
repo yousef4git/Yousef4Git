@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter, JetBrains_Mono } from "next/font/google";
+import { siteContent } from "@/content/site";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -15,7 +16,7 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://yousefalshuwayi.online"),
+  metadataBase: new URL(siteContent.url),
   // The middot stands in for the addendum's dash: em and en dashes fail the
   // voice lint that guards this file.
   title: "Yousef Alshuwayi · AI Systems Engineer · Forward Deployed",
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
     title: "Yousef Alshuwayi · AI Systems Engineer · Forward Deployed",
     description:
       "AI Systems Engineer at noon working forward deployed: embedding with teams, shipping production AI in days, and handing over systems that run without an engineer.",
-    url: "https://yousefalshuwayi.online/",
+    url: `${siteContent.url}/`,
     locale: "en_US",
   },
   twitter: {
@@ -45,7 +46,7 @@ const personJsonLd = {
   name: "Yousef Alshuwayi",
   jobTitle: "AI Systems Engineer",
   worksFor: { "@type": "Organization", name: "noon", url: "https://www.noon.edu.sa/en/" },
-  url: "https://yousefalshuwayi.online",
+  url: siteContent.url,
   email: "mailto:yousefalshuwayi@gmail.com",
   address: { "@type": "PostalAddress", addressLocality: "Riyadh", addressCountry: "SA" },
   sameAs: ["https://linkedin.com/in/yousefalshuwayi", "https://github.com/Yousef4Git"],

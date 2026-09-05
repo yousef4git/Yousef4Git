@@ -1,4 +1,4 @@
-# Portfolio Content Overhaul — yousefalshuwayi.online
+# Portfolio Content Overhaul — youusef.com
 
 **Purpose of this document:** A full content audit of the current site, a critique of what's wrong (the same problems that plagued the old CVs), and exact replacement copy for every section. This is a handoff document for implementation — the copy below is final and ready to paste. Design/layout stays as-is unless a note says otherwise; this is a **content and emphasis** overhaul, not a redesign.
 
