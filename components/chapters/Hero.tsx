@@ -1,64 +1,66 @@
 "use client";
 import { useRef } from "react";
+import { preload } from "react-dom";
 import { gsap, SplitText, useGSAP } from "@/lib/gsap";
 import { EASE, DUR } from "@/lib/motion";
 import { siteContent } from "@/content/site";
 
+// The hero is visible from the first paint: the frame and the poster are
+// never faded, only moved, so the largest paint does not wait for JavaScript
+// and the entrance animation. The text lines start clipped by a CSS rule
+// (see globals.css, motion-only) and are revealed by the timeline; with
+// JavaScript off, the noscript block below undoes the clips.
 export default function Hero() {
   const container = useRef<HTMLElement>(null);
   const { hero } = siteContent;
+
+  preload(hero.poster, { as: "image", fetchPriority: "high" });
 
   useGSAP(
     () => {
       const mm = gsap.matchMedia();
       mm.add("(prefers-reduced-motion: no-preference)", () => {
         const split = SplitText.create("[data-hero-name]", { type: "words,chars" });
-        gsap.set(container.current, { autoAlpha: 1 });
+        // Characters hide before the heading's clip opens, in the same frame,
+        // so the name never flashes whole.
+        gsap.set(split.chars, { yPercent: 110, autoAlpha: 0 });
+        gsap.set("[data-hero-name]", { clipPath: "none" });
+        const open = { clipPath: "inset(0 0 0% 0)", y: 0, duration: DUR.base };
+        const openX = { clipPath: "inset(0 0% 0 0)", y: 0, duration: DUR.base };
         gsap
           .timeline({ defaults: { ease: EASE.cinematic } })
-          .from("[data-hero-frame]", { autoAlpha: 0, y: 32, duration: DUR.slow })
-          .from(
-            split.chars,
-            { yPercent: 110, autoAlpha: 0, stagger: 0.03, duration: DUR.slow },
-            "-=0.7"
-          )
-          // Every line of small text wipes in behind a clip instead of fading:
-          // text at partial opacity fails the colour-contrast audit
-          // mid-animation, and a wipe reads as a reveal rather than a fade.
-          .from("[data-hero-meta]", { y: 12, duration: DUR.base }, "-=0.8")
-          .from(
-            "[data-hero-role]",
-            { clipPath: "inset(0 0 100% 0)", y: 16, duration: DUR.base },
-            "-=0.5"
-          )
-          .from(
-            "[data-hero-tagline]",
-            { clipPath: "inset(0 0 100% 0)", y: 12, duration: DUR.base },
-            "-=0.5"
-          )
-          .from(
+          .fromTo("[data-hero-frame]", { y: 32 }, { y: 0, duration: DUR.slow })
+          .to(split.chars, { yPercent: 0, autoAlpha: 1, stagger: 0.03, duration: DUR.slow }, "-=0.7")
+          .fromTo("[data-hero-meta]", { y: 12 }, { y: 0, duration: DUR.base }, "-=0.8")
+          .fromTo("[data-hero-role]", { clipPath: "inset(0 0 100% 0)", y: 16 }, open, "-=0.5")
+          .fromTo("[data-hero-tagline]", { clipPath: "inset(0 0 100% 0)", y: 12 }, open, "-=0.5")
+          .fromTo(
             "[data-hero-badge]",
-            { clipPath: "inset(0 100% 0 0)", y: 10, stagger: 0.08, duration: DUR.base },
+            { clipPath: "inset(0 100% 0 0)", y: 10 },
+            { ...openX, stagger: 0.08 },
             "-=0.5"
           )
-          .from(
+          .fromTo(
             "[data-hero-cta]",
-            { clipPath: "inset(0 100% 0 0)", y: 10, stagger: 0.1, duration: DUR.base },
+            { clipPath: "inset(0 100% 0 0)", y: 10 },
+            { ...openX, stagger: 0.1 },
             "-=0.5"
           )
-          .from("[data-scroll-cue]", { scaleY: 0, transformOrigin: "top", duration: DUR.base }, "-=0.2");
-        gsap.to("[data-scroll-cue]", {
-          scaleY: 0.4,
-          transformOrigin: "top",
-          repeat: -1,
-          yoyo: true,
-          duration: 1.1,
-          ease: EASE.drift,
-        });
+          .fromTo(
+            "[data-scroll-cue]",
+            { scaleY: 0 },
+            { scaleY: 1, transformOrigin: "top", duration: DUR.base },
+            "-=0.2"
+          )
+          .to("[data-scroll-cue]", {
+            scaleY: 0.4,
+            transformOrigin: "top",
+            repeat: -1,
+            yoyo: true,
+            duration: 1.1,
+            ease: EASE.drift,
+          });
         return () => split.revert();
-      });
-      mm.add("(prefers-reduced-motion: reduce)", () => {
-        gsap.set(container.current, { autoAlpha: 1 });
       });
     },
     { scope: container }
@@ -69,8 +71,11 @@ export default function Hero() {
       ref={container}
       id="hero"
       data-chapter="hero"
-      className="relative flex min-h-screen items-center overflow-hidden opacity-0"
+      className="relative flex min-h-screen items-center overflow-hidden"
     >
+      <noscript>
+        <style>{`[data-hero-clip],[data-hero-clip-x]{clip-path:none!important}[data-hero-frame],[data-hero-meta],[data-scroll-cue]{transform:none!important}`}</style>
+      </noscript>
       <div
         aria-hidden
         className="pointer-events-none absolute right-[-12%] top-1/2 hidden h-[40rem] w-[40rem] -translate-y-1/2 rounded-full bg-gold/10 blur-3xl md:block"
@@ -82,6 +87,7 @@ export default function Hero() {
           </p>
           <h1
             data-hero-name
+            data-hero-clip
             className="mt-4 font-display text-5xl leading-none text-gold md:text-6xl lg:text-7xl"
           >
             {siteContent.name}
@@ -90,13 +96,18 @@ export default function Hero() {
               honesty. Noon gave the first clause, not the second. */}
           <p
             data-hero-role
+            data-hero-clip
             className="mt-5 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-sm font-medium uppercase tracking-wide text-gold md:justify-start"
           >
             <span>{siteContent.role}</span>
             <span aria-hidden className="h-1 w-1 rounded-full bg-gold/50" />
             <span className="text-stone">{siteContent.roleAside}</span>
           </p>
-          <p data-hero-tagline className="mx-auto mt-4 max-w-xl text-lg text-stone md:mx-0">
+          <p
+            data-hero-tagline
+            data-hero-clip
+            className="mx-auto mt-4 max-w-xl text-lg text-stone md:mx-0"
+          >
             {siteContent.tagline}
           </p>
           <ul className="mt-7 flex flex-wrap justify-center gap-2 md:justify-start">
@@ -104,6 +115,7 @@ export default function Hero() {
               <li
                 key={b}
                 data-hero-badge
+                data-hero-clip-x
                 className="rounded-full border border-gold/25 bg-coal/70 px-3.5 py-1.5 text-xs text-bone/90"
               >
                 {b}
@@ -113,6 +125,7 @@ export default function Hero() {
           <div className="mt-9 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 md:justify-start">
             <a
               data-hero-cta
+              data-hero-clip-x
               href={hero.cta.cv}
               download
               className="rounded-full bg-gold px-5 py-2.5 text-sm font-medium text-night transition-colors hover:bg-gold-bright"
@@ -121,6 +134,7 @@ export default function Hero() {
             </a>
             <a
               data-hero-cta
+              data-hero-clip-x
               href={`mailto:${hero.cta.email}`}
               className="text-sm font-medium text-gold underline-offset-4 transition-colors hover:text-gold-bright hover:underline"
             >
@@ -135,7 +149,6 @@ export default function Hero() {
           <video
             data-hero-video
             className="h-full w-full object-cover md:aspect-[9/16] md:h-auto"
-            src={hero.video}
             poster={hero.poster}
             autoPlay
             muted
@@ -143,7 +156,14 @@ export default function Hero() {
             playsInline
             preload="metadata"
             aria-label={hero.videoAlt}
-          />
+          >
+            {/* Phones sit behind an 80% scrim and never show the full frame,
+                so they get the 720p cut (about a quarter of the bytes). The
+                1080p source comes first so a browser that ignores the media
+                attribute still gets today's behaviour. */}
+            <source src={hero.video} type="video/mp4" media="(min-width: 768px)" />
+            <source src={hero.videoSmall} type="video/mp4" />
+          </video>
           {/* On phones the video sits behind the copy, so the scrim is heavy;
               on wider screens it only grounds the caption at the frame's foot. */}
           <div

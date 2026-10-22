@@ -87,6 +87,18 @@ body::after {
   mix-blend-mode: overlay;
 }
 
+/* Hero entrance, first-paint states. The frame and the location line are
+   visible from the start (only moved), so the largest paint never waits for
+   JavaScript; the text lines wait behind a clip that the timeline opens.
+   Motion-only: with reduced motion nothing here applies. */
+@media (prefers-reduced-motion: no-preference) {
+  [data-hero-clip] { clip-path: inset(0 0 100% 0); }
+  [data-hero-clip-x] { clip-path: inset(0 100% 0 0); }
+  [data-hero-frame] { transform: translateY(32px); }
+  [data-hero-meta] { transform: translateY(12px); }
+  [data-scroll-cue] { transform: scaleY(0); transform-origin: top; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
