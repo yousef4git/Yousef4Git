@@ -24,7 +24,7 @@ export default function OgImage() {
         <div style={{ fontSize: 76, fontWeight: 600, color: "#C9A96E" }}>Yousef Alshuwayi</div>
         {/* Same split as the hero: the title is what noon gave, the second
             line is how the work gets done. Never merged into one claim. */}
-        <div style={{ fontSize: 34, marginTop: 20, letterSpacing: 4 }}>AI SYSTEMS ENGINEER AT NOON</div>
+        <div style={{ fontSize: 34, marginTop: 20, letterSpacing: 4 }}>AI SYSTEMS ENGINEER AT NOON ACADEMY</div>
         <div style={{ fontSize: 34, marginTop: 10, letterSpacing: 4, color: "#A39B8B" }}>
           I WORK FORWARD DEPLOYED
         </div>
