@@ -32,9 +32,10 @@ AI Systems Engineer at Noon Academy (noon.edu.sa), Central Operations, Riyadh,
 since July 2026. I build internal tools and AI learning experiences, from staff
 training and HR integrations to student platforms and workshop content. I work
 with the people using each system, then build, test, improve and hand it over.
-Five pieces of work so far:
+Four pieces of work so far, plus an early internal placement tool for the
+school-staffing team:
 
-### Training and Development Portal (live since July 2026)
+### Training and Development Portal (live)
 I built a portal in Arabic covering the trainee journey, trainers' daily work and
 programme administration. Trainees see their agenda, complete exercises, reflect
 on each day and follow their progress. Trainers manage attendance, run activities
@@ -44,17 +45,18 @@ programme changes. After launch I worked through the team's feedback and
 addressed 26 documented points in five days. Stack: React, TypeScript, Vite, Express, Supabase and
 PostgreSQL, Replit. Public site: https://trainingat.noon.edu.sa/
 
-### Citadel to ZenHR integration (live and handed over)
-A daily integration that keeps employees' work locations, sections and direct
-managers in ZenHR aligned with their placements in Citadel. Citadel provides
-placement and reporting data; ZenHR keeps job titles and employment records, and
-HR keeps employment decisions. Missing matches and conflicts are held for review
-rather than guessed. I cleaned up employee data, reviewed proposed changes and
-completed three weeks of integration testing before handover. In the documented
-go-live run, 40 of 218 reviewed records were corrected, two unmatched records were
-held for follow-up and no errors were recorded. Stack: TypeScript, Node.js, PostgreSQL, ZenHR API, OAuth 2.0.
+### Ops-to-HR placement integration (live and handed over)
+I built a daily integration that keeps employees' work locations, sections and
+direct managers in the HR platform aligned with their operational placements.
+The ops system provides placement and reporting data; the HR platform keeps job
+titles and employment records, and HR keeps employment decisions. Unmatched
+records are held for review. I cleaned the source data, reviewed the proposed
+changes and ran three weeks of integration testing before handing it over.
+Go-live reconciled a few hundred records with zero errors, and routine placement
+changes now reach HR records without manual re-entry. Stack: TypeScript,
+Node.js, PostgreSQL, the HR platform's API, OAuth 2.0.
 
-### MCIT × Noon generative AI learning platform (platform live, classroom pilot next)
+### MCIT × Noon generative AI learning platform (live)
 I built the student platform, teacher board and admin tools, and created the
 Arabic learning content. Students learn how generative AI works, practise writing
 better prompts, and build a small app they can test, improve and share. The
@@ -63,14 +65,13 @@ creation to a final knowledge check, with prompt feedback and retries, app
 generation, improvement requests, saved versions and project sharing. I wrote
 the activities, knowledge checks, prompt-feedback rubric and teacher guidance,
 and built teacher session controls, progress reporting, admin tools and
-AI-spending safeguards. The platform is live and tested end to end; the
-classroom pilot, final content review and wider rollout are the next steps. I
-built the platform and the content; the partner programme itself is shared with
-MCIT and Noon. Stack: Next.js, React, TypeScript, PostgreSQL, Drizzle, Replit.
+AI-spending safeguards. The platform is live and tested end to end. I built
+the platform and the content; the partner programme itself is shared with MCIT
+and Noon. Stack: Next.js, React, TypeScript, PostgreSQL, Drizzle, Replit.
 Public site: https://noonai.noon.edu.sa/
 
 ### AI Week, the boys' session (delivered 15 October 2026)
-I co-created and delivered the boys' AI Week session with Talah. We used short
+I co-created and delivered the boys' AI Week session. We used short
 Arabic challenges around image understanding, reading tone and testing code.
 Students tried the tasks, compared their answers with Claude and discussed where
 AI helped or got things wrong. 525 boys attended, based on the attendance record.
@@ -78,29 +79,23 @@ AI helped or got things wrong. 525 boys attended, based on the attendance record
 session was the boys' session; the girls' session and the programme artwork were
 other people's work.
 
-### School staff placements (initial internal build)
-An early placement tool for the school-staffing team with an API connection to
-Noon Admin, built from the team's requirements around school needs, staff
-experience, performance, language and location, and connected it to Noon Admin through an API.
-
 ### Also at Noon
 I judged the Educational Games Industry Hackathon, run with the Ministry of
 Communications and Information Technology and supported by Replit.
 
 ## Track record
-- AI and software consultant, freelance, Riyadh, Jan 2025 to Jul 2026. I built
-  and launched software for Saudi businesses through GHRS: rebuilt websites,
+- Co-Founder of GHRS Ventures, AI and software consulting, Riyadh, Jan 2025 to
+  Jul 2026. I built and launched software for Saudi businesses through GHRS: rebuilt websites,
   automated WhatsApp Business, connected internal tools to customer channels. I
   also delivered an education AI system with rule-based decisions and human
   review: fixed rules score each case, an AI model handles only the Arabic text,
   never the scoring, and an LLM-as-judge check runs before anything reaches a
   person. Caching cut a full run from about 71 model calls to about 5. I advised
-  logistics startup FREIGHTLX on its AI architecture; I did not build its whole
-  product.
+  a freight company on its AI architecture; I did not build its whole product.
 - Built Rusokh (rusokh.com), a bilingual course platform on Next.js and Convex,
   live and in use.
-- Built Trayath in Apple's AI program (selected 1 of 66 from over 400,000
-  applicants), an assistant for day-to-day financial decisions.
+- Built Trayath in Apple's AI program (selected 1 of 66), an assistant for
+  day-to-day financial decisions.
 - Instructor at Shaguf Educational Platform since Jan 2022: I've taught 1,800+
   computer science students at Shaguf over four years, with a 4.9/5 learner
   rating, and was honored as best instructor on stage at a Shaguf event.
@@ -121,7 +116,7 @@ FastAPI, Node, Convex, Drizzle. PostgreSQL, pgvector, Redis, Supabase. AWS,
 Vercel, Docker, GitHub Actions, OAuth 2.0 integrations.
 
 ## Education and certifications
-B.Sc. Computer Science, Imam Muhammad ibn Saud Islamic University (IMSIU).
+BSc Computer Science, Imam Muhammad ibn Saud Islamic University (IMSIU).
 AWS Certified AI Business Strategist, Early Adopter designation (Amazon Web
 Services Training and Certification): a business-focused certification covering
 AI investment decisions, business cases, responsible governance and adoption from

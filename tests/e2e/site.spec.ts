@@ -31,6 +31,8 @@ test("glass navbar links every stop", async ({ page }) => {
   await expect(
     page.locator('nav[aria-label="Sections"] a', { hasText: "Before AI" })
   ).toHaveAttribute("href", "#yax");
+  // The logo link carries real text, so text-only readers never print its href.
+  await expect(page.locator('a[href="#hero"]').first()).toHaveText(/back to top/i);
 });
 
 // The four steps are the section's whole job. They must be readable without
@@ -52,6 +54,12 @@ test("the CV link serves the AI Engineer CV", async ({ page }) => {
   await expect(link).toHaveAttribute("href", /AI-Engineer\.pdf$/);
   const res = await page.request.get(siteContent.contact.cv);
   expect(res.status()).toBe(200);
+});
+
+test("the degree opens the credentials chapter", async ({ page }) => {
+  await page.goto("/");
+  const creds = page.locator('section[data-chapter="credentials"]');
+  await expect(creds.locator("[data-cred-education]")).toContainText("BSc Computer Science");
 });
 
 test("credential verify links open in a new tab", async ({ page }) => {
@@ -79,7 +87,7 @@ test("hero video is muted, inline, poster-backed", async ({ page }) => {
   await expect(video).toHaveJSProperty("muted", true);
 });
 
-test("the Noon chapter carries the five handoff projects with their media", async ({ page }) => {
+test("the Noon chapter carries the four public projects with their media", async ({ page }) => {
   await page.goto("/");
   const noon = page.locator('section[data-chapter="noon"]');
   for (const p of siteContent.noon.projects) {
@@ -89,8 +97,8 @@ test("the Noon chapter carries the five handoff projects with their media", asyn
     await expect(article.locator("[data-status]")).toHaveText(p.status);
   }
   await expect(noon.locator("[data-strip] li")).toHaveCount(10);
-  await expect(noon.locator("[data-flow]")).toHaveCount(1);
-  await expect(noon.locator("article#noon-school-staff-placements img")).toHaveCount(0);
+  await expect(noon.locator("article#noon-ops-hr-integration [data-flow]")).toHaveCount(1);
+  await expect(noon.locator("article")).toHaveCount(siteContent.noon.projects.length);
 });
 
 // Every project must read with motion off: the reveals are an enhancement,

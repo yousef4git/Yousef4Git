@@ -74,7 +74,7 @@ const noonProjects: readonly NoonProject[] = [
     title: "Training & Development Portal",
     role: "Built the platform and improved it with the training team.",
     status: "Live",
-    statusDetail: "Live since July 2026.",
+    statusDetail: null,
     summary: "Built Noon's training portal so the team can run facilitator training from one place.",
     description:
       "I built a portal in Arabic covering the trainee journey, trainers' daily work and programme administration. Trainees can see their agenda, complete exercises, reflect on each day and follow their progress. Trainers can manage attendance, run activities and record assessments. The training team can set up cohorts, update content, review results and export reports without needing engineering for normal programme changes.",
@@ -123,40 +123,40 @@ const noonProjects: readonly NoonProject[] = [
     flow: null,
   },
   {
-    id: "noon-citadel-zenhr",
-    title: "Citadel to ZenHR integration",
+    id: "noon-ops-hr-integration",
+    title: "Ops-to-HR placement integration",
     role: "Built, tested and handed over the integration.",
     status: "Live and handed over",
     statusDetail: "Daily placement updates are live and the integration has been handed over.",
     summary:
-      "Connected Noon's staffing system to ZenHR so school placements and reporting lines do not have to be entered twice.",
+      "Connected the ops system to the HR platform so school placements and reporting lines do not have to be entered twice.",
     description:
-      "I built a daily integration that keeps employees' work locations, sections and direct managers aligned with their placements in Citadel. I also cleaned up employee data, checked the proposed changes and tested the connection before handing it over. Job titles and employment decisions stay with HR, and missing matches are held for review.",
+      "I built a daily integration that keeps employees' work locations, sections and direct managers in the HR platform aligned with their operational placements. I cleaned the source data, reviewed the proposed changes and ran three weeks of integration testing before handing it over. Job titles and employment decisions stay with HR; unmatched records are held for review.",
     work: [
-      "Connected Citadel placement data to the ZenHR API.",
-      "Set clear ownership: Citadel provides placement and reporting data; ZenHR retains job titles and employment records.",
+      "Connected ops-system placement data to the HR platform's API.",
+      "Set clear ownership: the ops system provides placement and reporting data; the HR platform retains job titles and employment records.",
       "Cleaned up data, reviewed proposed changes and added safeguards for missing matches and unavailable manager information.",
       "Completed three weeks of integration testing before handover.",
     ],
     outcomes: [
-      "The go-live run corrected 40 employee records out of 218 reviewed, with no errors.",
-      "Routine placement changes flow into HR records without being entered again by hand.",
+      "Go-live reconciled a few hundred records with zero errors.",
+      "Routine placement changes reach HR records without manual re-entry.",
     ],
     metrics: [],
     links: [],
     media: [],
     treatment: "flow",
     flow: {
-      from: { name: "Citadel", items: ["Work locations", "Sections", "Direct managers"] },
-      to: { name: "ZenHR", items: ["Job titles", "Employment records", "Employment decisions"] },
+      from: { name: "Ops system", items: ["Work locations", "Sections", "Direct managers"] },
+      to: { name: "HR platform", items: ["Job titles", "Employment records", "Employment decisions"] },
     },
   },
   {
     id: "noon-mcit-genai",
     title: "MCIT × Noon: generative AI learning platform",
     role: "Built the full platform and created the learning content.",
-    status: "Platform live, classroom pilot next",
-    statusDetail: "Student, teacher and admin flows are live and tested end to end; the classroom pilot is next.",
+    status: "Live",
+    statusDetail: "Student, teacher and admin flows are live and tested end to end.",
     summary:
       "Built the MCIT × Noon student AI platform and its learning content, from the first activity to a working app.",
     description:
@@ -166,11 +166,11 @@ const noonProjects: readonly NoonProject[] = [
       "Built prompt feedback with retries, app generation, improvement requests, saved versions and project sharing.",
       "Created the Arabic curriculum, on-screen activities, knowledge questions and teacher guidance.",
       "Built teacher session controls, progress reporting, admin tools and AI-spending safeguards.",
-      "Tested the full flow end to end and prepared it for the classroom pilot.",
+      "Tested the full flow end to end.",
     ],
     outcomes: [
       "A live platform with student, teacher and admin workflows.",
-      "Learning content and classroom materials ready for the pilot.",
+      "Learning content and classroom materials ready for use.",
       "Student-linked answers, prompt attempts and app versions available for programme reporting.",
     ],
     metrics: [],
@@ -253,15 +253,15 @@ const noonProjects: readonly NoonProject[] = [
   {
     id: "noon-ai-week",
     title: "AI Week, the boys' session",
-    role: "Co-created and delivered the session with Talah.",
+    role: "Co-created and delivered the session.",
     status: "Delivered",
-    statusDetail: "Delivered with Talah on 15 October 2026.",
+    statusDetail: "Delivered on 15 October 2026.",
     summary:
-      "Worked with Talah on a hands-on Arabic AI session for boys, focused on trying AI and questioning its answers.",
+      "A hands-on Arabic AI session for boys, focused on trying AI and questioning its answers.",
     description:
-      "I co-created and delivered the boys' AI Week session with Talah. We used short Arabic challenges around image understanding, reading tone and testing code. Students tried the tasks themselves, compared their answers with Claude and discussed where AI helped or got things wrong. The aim was simple: use AI, but check its work and make your own judgement.",
+      "I co-created and delivered the boys' AI Week session. We used short Arabic challenges around image understanding, reading tone and testing code. Students tried the tasks themselves, compared their answers with Claude and discussed where AI helped or got things wrong. The aim was simple: use AI, but check its work and make your own judgement.",
     work: [
-      "Prepared the session and learning activities with Talah.",
+      "Prepared the session and learning activities.",
       "Co-delivered the boys' session using hands-on challenges and live student participation.",
       "Used examples that encouraged students to test AI outputs instead of accepting them at face value.",
     ],
@@ -283,27 +283,6 @@ const noonProjects: readonly NoonProject[] = [
     treatment: "poster",
     flow: null,
   },
-  {
-    id: "noon-school-staff-placements",
-    title: "School staff placements",
-    role: "Built the initial internal tool and API connection.",
-    status: "Initial internal build",
-    statusDetail: null,
-    summary: "Built an early school-staff placement tool and connected it to Noon Admin through an API.",
-    description:
-      "I built an early placement tool for the school-staffing team and connected it to Noon Admin through an API. I worked from the team's requirements around school needs, staff experience, performance, language and location.",
-    work: [
-      "Built the initial internal placement platform.",
-      "Added an API connection from the placement tool to Noon Admin.",
-      "Worked from the school team's placement requirements and improved the tool's workflow.",
-    ],
-    outcomes: [],
-    metrics: [],
-    links: [],
-    media: [],
-    treatment: "none",
-    flow: null,
-  },
 ];
 
 const credentials: readonly Credential[] = [
@@ -314,7 +293,7 @@ const credentials: readonly Credential[] = [
     issuer: "Apple Developer Academy & Tuwaiq",
     year: "2025",
     href: null,
-    note: "Selected 1 of 66 from 400,000+ applicants",
+    note: "Selected 1 of 66",
     description: null,
   },
   {
@@ -375,12 +354,12 @@ const work: readonly WorkRow[] = [
   },
   {
     id: "consulting",
-    kicker: "AI & Software Consultant, freelance",
+    kicker: "Co-Founder, AI & software consulting",
     meta: "Jan 2025 to Jul 2026",
-    title: "Consulting through GHRS",
+    title: "GHRS Ventures",
     logo: "/media/ghrs-logo.png",
     logoAlt: "GHRS",
-    line: "I built and launched software for Saudi businesses through GHRS. I also delivered an education AI system with rule-based decisions and human review, and advised logistics startup FREIGHTLX on its AI architecture.",
+    line: "I built and launched software for Saudi businesses through GHRS. I also delivered an education AI system with rule-based decisions and human review, and advised a freight company on its AI architecture.",
     href: "https://ghrs.sa",
     cta: "Visit ghrs.sa",
     action: null,
@@ -459,9 +438,9 @@ export const siteContent = {
     title: "Noon Academy",
     meta: "AI Systems Engineer, Central Operations, since July 2026",
     framing:
-      "This is what forward deployed looks like from the inside: I sit with the team that owns each problem, not apart from it.",
+      "I sit with the team that owns each problem, not apart from it.",
     intro:
-      "I turn day-to-day operational problems into working tools. At Noon Academy, that includes a training portal the team can run themselves, an early school-staff placement tool, a daily HR data integration, and a student AI platform with its learning content.",
+      "I turn day-to-day operational problems into working tools. At Noon Academy, that includes a training portal the team can run themselves, a daily HR data integration, a student AI platform with its learning content, and an early internal placement tool for the school-staffing team.",
     projects: noonProjects,
     hackathon: {
       label: "Also at Noon",
@@ -543,7 +522,9 @@ export const siteContent = {
   },
   credentials: {
     title: "Credentials",
-    lead: "Programmes and certifications, with a verification link where one exists.",
+    lead: "Education, programmes and certifications, with a verification link where one exists.",
+    // The degree is a plain credential: no graduation date anywhere on the site.
+    education: "BSc Computer Science, Imam Muhammad ibn Saud Islamic University (IMSIU)",
     featured: credentials,
     alsoLead: "Also completed:",
     also: [

@@ -8,7 +8,7 @@ import ChapterHead from "@/components/ChapterHead";
 
 export default function Credentials() {
   const container = useRef<HTMLElement>(null);
-  const { title, lead: sectionLead, featured, alsoLead, also } = siteContent.credentials;
+  const { title, lead: sectionLead, education, featured, alsoLead, also } = siteContent.credentials;
   const [lead, ...rest] = featured;
 
   useGSAP(
@@ -48,6 +48,14 @@ export default function Credentials() {
       <div className="mx-auto max-w-6xl">
         <ChapterHead title={title} lead={sectionLead} />
         <div className="mt-12 px-6">
+          {/* The degree first: one plain row before the programmes. */}
+          <div
+            data-cred-education
+            className="grid grid-cols-1 gap-2 border-t border-bone/10 py-8 md:grid-cols-12 md:gap-x-8"
+          >
+            <h3 className="text-sm text-stone md:col-span-3">Education</h3>
+            <p className="text-base leading-snug text-bone md:col-span-9">{education}</p>
+          </div>
           {/* The selection stat is the credential, so Apple gets the wide row. */}
           <div
             data-cred-lead

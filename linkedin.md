@@ -85,7 +85,7 @@ I work with founders and teams to design and ship AI and software that holds up 
 • Built a document intake and risk-triage system for an education platform: fixed rules score each case and an AI model handles only the Arabic text, never the scoring, so every decision stays auditable.
 • Cut re-run cost with caching, taking a full run from about 71 model calls to about 5, and added an LLM-as-judge check so nothing reaches a person unreviewed.
 • Through GHRS, delivered client work end to end for Saudi businesses: rebuilt websites, automated WhatsApp Business, and connected internal tools to customer channels.
-• Advised an early-stage logistics startup (FREIGHTLX) on AI scope and technical architecture, turning requirements into a working build.
+• Advised an early-stage freight company on AI scope and technical architecture, turning requirements into a working build.
 • Ran requirements gathering and technical planning across engineering, design, and operations teams, turning unclear asks into scoped, buildable work.
 ```
 
@@ -158,7 +158,7 @@ Add each separately (Name / Issuing organization / Issue date). This is the righ
 | Certified Data Management Professional (CDMP), Associate | DAMA | Jul 2026 (expires Jul 2029) | https://eu.credential.net/1c13a3e1-5f2d-4840-a944-afc2a1c5f720 |
 | Agentic AI Bootcamp | SDA Academy | 2026 | |
 | McKinsey Forward | McKinsey & Company | 2026 | |
-| Apple AI Program (1 of 66 from 400,000+ applicants) | Apple Developer Academy & Tuwaiq | 2025 | |
+| Apple AI Program (1 of 66) | Apple Developer Academy & Tuwaiq | 2025 | |
 | Introduction to Artificial Intelligence | KAUST Academy | 2026 | |
 | Data Science and Machine Learning scholarship | KAUST Academy | 2025 | |
 | Data Collection and Processing with Python | University of Michigan | 2025 | |
@@ -180,7 +180,7 @@ A bilingual course platform I built after hitting the same gaps in other tools a
 - **Dates:** 2025
 - **Description:**
 ```
-A simple assistant that helps people make better day-to-day financial decisions, built in Apple's AI program (selected 1 of 66 from over 400,000 applicants).
+A simple assistant that helps people make better day-to-day financial decisions, built in Apple's AI program (selected 1 of 66).
 ```
 ---
 
@@ -209,9 +209,9 @@ Note: your CV rates English as "intermediate". "Professional working proficiency
 ---
 
 ## 9. Honors & Awards
-- **Apple AI Program, selected 1 of 66 from over 400,000 applicants** · Apple Developer Academy & Tuwaiq · 2025
+- **Apple AI Program, selected 1 of 66** · Apple Developer Academy & Tuwaiq · 2025
   ```
-  Selected for Apple's AI program, one of 66 from more than 400,000 applicants. Built Trayath, an assistant for everyday financial decisions.
+  Selected for Apple's AI program, one of 66. Built Trayath, an assistant for everyday financial decisions.
   ```
 - **Riyadh Metro launch contract extended** · YAX · 2025
   ```
@@ -279,7 +279,7 @@ Hi [name], I'm tidying up my LinkedIn and would really value a short recommendat
 - No em-dashes or en-dashes. Use commas, periods, or "·" and "|" as separators.
 - Never lead as a "student"; the degree is a plain credential only.
 - The paid client stays "an education platform". Never name it.
-- No inflated titles (no Founder/CEO/CTO). GHRS and FREIGHTLX are consultant engagements; Rusokh is a personal project.
+- No inflated titles (no Founder/CEO/CTO). GHRS and the freight company are consultant engagements; Rusokh is a personal project.
 - Keep the Metro numbers exact: 1,500 staff, 85 stations, 30 million visitors.
 - Program and certificate names belong in Certifications and Honors, not in the Headline or About.
 - Confident and senior in framing, but every claim stays true.

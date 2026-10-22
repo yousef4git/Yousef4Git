@@ -19,24 +19,24 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteContent.url),
   // The middot stands in for the addendum's dash: em and en dashes fail the
   // voice lint that guards this file.
-  title: "Yousef Alshuwayi · AI Systems Engineer · Forward Deployed",
+  title: "Yousef Alshuwayi · AI Systems Engineer",
   description:
-    "AI Systems Engineer at Noon Academy, working forward deployed: embedding with teams, shipping internal tools and AI learning platforms, and handing them over so they run without an engineer.",
+    "AI Systems Engineer at Noon Academy. I embed with the team that owns the problem, ship internal tools and AI learning platforms, and hand them over so they run without an engineer.",
   alternates: { canonical: "/" },
   openGraph: {
     type: "profile",
     siteName: "Yousef Alshuwayi",
-    title: "Yousef Alshuwayi · AI Systems Engineer · Forward Deployed",
+    title: "Yousef Alshuwayi · AI Systems Engineer",
     description:
-      "AI Systems Engineer at Noon Academy, working forward deployed: embedding with teams, shipping internal tools and AI learning platforms, and handing them over so they run without an engineer.",
+      "AI Systems Engineer at Noon Academy. I embed with the team that owns the problem, ship internal tools and AI learning platforms, and hand them over so they run without an engineer.",
     url: `${siteContent.url}/`,
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Yousef Alshuwayi · AI Systems Engineer · Forward Deployed",
+    title: "Yousef Alshuwayi · AI Systems Engineer",
     description:
-      "AI Systems Engineer at Noon Academy, working forward deployed: embedding with teams, shipping internal tools and AI learning platforms, and handing them over so they run without an engineer.",
+      "AI Systems Engineer at Noon Academy. I embed with the team that owns the problem, ship internal tools and AI learning platforms, and hand them over so they run without an engineer.",
   },
 };
 
@@ -46,6 +46,7 @@ const personJsonLd = {
   name: "Yousef Alshuwayi",
   jobTitle: "AI Systems Engineer",
   worksFor: { "@type": "Organization", name: "Noon Academy", url: "https://www.noon.edu.sa/en/" },
+  alumniOf: { "@type": "CollegeOrUniversity", name: "Imam Muhammad ibn Saud Islamic University" },
   url: siteContent.url,
   email: "mailto:yousefalshuwayi@gmail.com",
   address: { "@type": "PostalAddress", addressLocality: "Riyadh", addressCountry: "SA" },

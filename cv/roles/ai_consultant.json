@@ -8,7 +8,7 @@
   },
   "sectionOrder": ["summary", "skills", "experience", "projects", "education", "certs", "languages"],
   "tags": ["ai", "solutions"],
-  "leadBullets": ["op_design", "freightlx", "op_integrity"],
+  "leadBullets": ["op_design", "freight_advisory", "op_integrity"],
   "skillOrder": ["ai", "programming", "data", "ways", "web", "cloud"],
   "keywords": ["consultant", "LLMs", "RAG", "evaluation", "Python"]
 }

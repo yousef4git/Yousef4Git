@@ -45,13 +45,13 @@
           }
         },
         {
-          "id": "noon_citadel",
+          "id": "noon_hr_integration",
           "tags": [
             "all"
           ],
           "text": {
-            "en": "Built a daily Citadel to ZenHR integration for school placements and reporting lines, holding unmatched records for review; the go-live run corrected 40 of 218 records with no errors.",
-            "ar": "بنيت تكاملًا يوميًا من Citadel إلى ZenHR لتعيينات المدارس وخطوط الإبلاغ، مع حجز السجلات غير المطابقة للمراجعة؛ وصحّح تشغيل الإطلاق 40 سجلًا من 218 دون أخطاء."
+            "en": "Built a daily ops-to-HR integration keeping work locations, sections and direct managers aligned with school placements; go-live reconciled a few hundred records with zero errors.",
+            "ar": "بنيت تكاملًا يوميًا بين نظام العمليات ومنصة الموارد البشرية يُبقي مواقع العمل والأقسام والمديرين المباشرين متوافقة مع تعيينات المدارس؛ وسوّى تشغيل الإطلاق بضع مئات من السجلات دون أخطاء."
           }
         },
         {
@@ -60,8 +60,8 @@
             "all"
           ],
           "text": {
-            "en": "Built the MCIT × Noon generative AI learning platform (student, teacher and admin flows) and wrote its Arabic learning content; live, with the classroom pilot next.",
-            "ar": "بنيت منصة MCIT × Noon لتعلّم الذكاء الاصطناعي التوليدي (مسارات الطالب والمعلم والمشرف) وكتبت محتواها التعليمي بالعربية؛ تعمل الآن، والتجربة الصفية هي الخطوة التالية."
+            "en": "Built the MCIT × Noon generative AI learning platform (student, teacher and admin flows) and wrote its Arabic learning content; live.",
+            "ar": "بنيت منصة MCIT × Noon لتعلّم الذكاء الاصطناعي التوليدي (مسارات الطالب والمعلم والمشرف) وكتبت محتواها التعليمي بالعربية؛ وهي تعمل الآن."
           }
         },
         {
@@ -84,8 +84,8 @@
             "it-planning"
           ],
           "text": {
-            "en": "Built an initial school-staff placement tool and connected it to Noon Admin through an API.",
-            "ar": "بنيت أداة أولية لتعيين كوادر المدارس وربطتها بـ Noon Admin عبر واجهة برمجية."
+            "en": "Built an early internal placement tool for the school-staffing team, with an API connection to the school system.",
+            "ar": "بنيت أداة داخلية أولية لتعيين كوادر المدارس لفريق توظيف المدارس، وربطتها بنظام المدارس عبر واجهة برمجية."
           }
         }
       ]
@@ -170,14 +170,14 @@
           }
         },
         {
-          "id": "freightlx",
+          "id": "freight_advisory",
           "tags": [
             "solutions",
             "ai"
           ],
           "text": {
-            "en": "Advised logistics startup FREIGHTLX on its AI architecture, helping turn requirements into a working build.",
-            "ar": "قدّمت الاستشارة لشركة FREIGHTLX اللوجستية الناشئة في بنية الذكاء الاصطناعي لديها، وساعدت على تحويل المتطلبات إلى منتج عملي."
+            "en": "Advised a freight company on its AI architecture, helping turn requirements into a working build.",
+            "ar": "قدّمت الاستشارة لشركة شحن في بنية الذكاء الاصطناعي لديها، وساعدت على تحويل المتطلبات إلى منتج عملي."
           }
         },
         {
@@ -428,8 +428,8 @@
             "ml"
           ],
           "text": {
-            "en": "A simple assistant that helps people make better day-to-day financial decisions, built in Apple's AI program (selected 1 of 66 from over 400,000 applicants).",
-            "ar": "مساعد بسيط يعين الناس على اتخاذ قرارات مالية يومية أفضل، بُني في برنامج Apple للذكاء الاصطناعي (اختير 1 من 66 من أكثر من 400,000 متقدّم)."
+            "en": "A simple assistant that helps people make better day-to-day financial decisions, built in Apple's AI program (selected 1 of 66).",
+            "ar": "مساعد بسيط يعين الناس على اتخاذ قرارات مالية يومية أفضل، بُني في برنامج Apple للذكاء الاصطناعي (اختير 1 من 66)."
           }
         }
       ]
@@ -613,8 +613,8 @@
       },
       "year": "2025",
       "note": {
-        "en": "1 of 66 selected from over 400,000 applicants.",
-        "ar": "1 من 66 مختارًا من أكثر من 400,000 متقدّم."
+        "en": "1 of 66 selected.",
+        "ar": "1 من 66 مختارًا."
       }
     },
     {

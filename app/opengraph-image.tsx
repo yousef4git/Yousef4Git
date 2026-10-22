@@ -3,7 +3,7 @@ import { siteContent } from "@/content/site";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
-export const alt = "Yousef Alshuwayi · AI Systems Engineer · Forward Deployed";
+export const alt = "Yousef Alshuwayi · AI Systems Engineer";
 
 export default function OgImage() {
   return new ImageResponse(

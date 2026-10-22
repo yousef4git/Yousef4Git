@@ -9,7 +9,7 @@ const STORAGE_KEY = "ya-chat-session-v1";
 const MAX_INPUT = 500;
 
 const STARTERS = [
-  "What does 'forward deployed' actually mean?",
+  "How do you work with a team?",
   "What did you build at Noon Academy?",
   "Why did you go from managing 1,500 people to building AI systems?",
 ];

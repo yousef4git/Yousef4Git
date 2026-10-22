@@ -103,8 +103,9 @@ export default function Nav() {
           data-nav-pill
           className="liquid-glass pointer-events-auto flex max-w-full items-center rounded-full py-1.5 pl-4 pr-1.5"
         >
-          <a href="#hero" aria-label="Yousef Alshuwayi, back to top" className="mr-1.5 flex items-center">
+          <a href="#hero" className="me-1.5 flex items-center">
             <Mark className="h-7 w-7" />
+            <span className="sr-only">Yousef Alshuwayi, back to top</span>
           </a>
           <nav
             aria-label="Sections"

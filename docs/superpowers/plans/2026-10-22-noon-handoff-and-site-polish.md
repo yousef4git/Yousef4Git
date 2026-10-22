@@ -43,7 +43,7 @@
 - Produces: `siteContent.work[]` items become `{ id, kicker, meta, logo, logoAlt, line, href, cta, action }` with no `no` field.
 - Produces: `siteContent.contact.cv === "/cv/Yousef-Alshuwayi-AI-Engineer.pdf"`; `siteContent.footer = { title, line }`; `siteContent.hero.cta = { cv, email }`.
 
-- [ ] **Step 1: Write the failing test** `tests/unit/content.test.ts` with `describe("noon content")`: five project ids in order `["noon-training-development","noon-citadel-zenhr","noon-mcit-genai","noon-ai-week","noon-school-staff-placements"]`; every `media[].src` exists under `public/`; MCIT has 10 media and every caption of a `test_data` screen contains "test" or "demonstration" or "Draft"; AI Week metrics include a context containing "365"; the Citadel metric context contains "go-live"; the serialised `siteContent` contains none of `["100%","16 days","30M","30 million","Arabic-first"]`; credentials contain an entry named "AWS Certified AI Business Strategist" with `designation === "Early Adopter"` and `year === null`; `contact.cv` ends with `AI-Engineer.pdf`.
+- [ ] **Step 1: Write the failing test** `tests/unit/content.test.ts` with `describe("noon content")`: five project ids in order `["noon-training-development","noon-ops-hr-integration","noon-mcit-genai","noon-ai-week","noon-school-staff-placements"]`; every `media[].src` exists under `public/`; MCIT has 10 media and every caption of a `test_data` screen contains "test" or "demonstration" or "Draft"; AI Week metrics include a context containing "365"; the Citadel metric context contains "go-live"; the serialised `siteContent` contains none of `["100%","16 days","30M","30 million","Arabic-first"]`; credentials contain an entry named "AWS Certified AI Business Strategist" with `designation === "Early Adopter"` and `year === null`; `contact.cv` ends with `AI-Engineer.pdf`.
 - [ ] **Step 2: Run it:** `npx vitest run tests/unit/content.test.ts`. Expected: FAIL (properties missing).
 - [ ] **Step 3: Rewrite `content/site.ts`** per the spec's content mapping, keeping `host`, `url`, `method`, `teaching.gallery`, `hackathon` photos, `chapters`.
 - [ ] **Step 4: Run** `npx vitest run`. Expected: all pass (copy test included).
@@ -75,7 +75,7 @@
 - Consumes: `NoonProject` from Task 1.
 - Produces: `ProjectBlock({ project }: { project: NoonProject })` rendering `article[data-noon-project=id]`, `h3` title, `p[data-status]`, the treatment by `project.treatment`.
 - Produces: `ScreenStrip({ media }: { media: NoonProject["media"] })` rendering `ul.strip` of `li > figure` at a fixed height (`h-64 md:h-80`), natural widths.
-- Produces: `FlowFigure()` rendering the Citadel to ZenHR ownership figure from the project's `work[1]` sentence.
+- Produces: `FlowFigure()` rendering the ops-to-HR integration ownership figure from the project's `work[1]` sentence.
 - Produces: `Figure({ metric })` rendering value in display type and `context` in a small stone line.
 
 - [ ] **Step 1: Build the four components** as above.

@@ -19,9 +19,9 @@
 
 I am an AI Systems Engineer at Noon Academy in Riyadh. I turn day-to-day operational problems into working tools: a training portal the team runs themselves, a daily HR data integration, a student generative AI platform with its Arabic learning content, and hands-on AI sessions for students. I work with the people using each system, then build, test, improve and hand it over.
 
-Before that I worked as a freelance AI and software consultant. I built and launched software for Saudi businesses through **GHRS**, delivered an education AI system with rule-based decisions and human review, and advised logistics startup FREIGHTLX on its AI architecture. I also built **Rusokh**, a course platform that is live and in use.
+Before that I co-founded **GHRS Ventures**, an AI and software consulting venture. I built and launched software for Saudi businesses through GHRS, delivered an education AI system with rule-based decisions and human review, and advised a freight company on its AI architecture. I also built **Rusokh**, a course platform that is live and in use.
 
-I have taught **1,800+ computer science students** at Shaguf over four years, with a 4.9/5 learner rating. Before engineering I managed the deployment of **1,500 staff across 85 Riyadh Metro stations** in one month for the launch. I was selected 1 of 66 from over 400,000 applicants for **Apple's AI program**.
+I have taught **1,800+ computer science students** at Shaguf over four years, with a 4.9/5 learner rating. Before engineering I managed the deployment of **1,500 staff across 85 Riyadh Metro stations** in one month for the launch. I was selected 1 of 66 for **Apple's AI program**.
 
 ```
 Operations at national scale → computer science and AI → consulting → Noon Academy.
@@ -36,10 +36,9 @@ Operations at national scale → computer science and AI → consulting → Noon
 | Project | What it is | Status |
 | --- | --- | --- |
 | [**Training & Development Portal**](https://trainingat.noon.edu.sa/) | Trainee, trainer and programme-admin workflows in one training record, with cohort setup, content management, analytics and exports. | 🟢 Live |
-| **Citadel to ZenHR integration** | Daily sync of work locations, sections and direct managers from Citadel into ZenHR; unmatched records are held for review. | ✅ Live and handed over |
-| [**MCIT × Noon generative AI learning platform**](https://noonai.noon.edu.sa/) | Student, teacher and admin flows plus the Arabic curriculum: prompt practice with feedback, app building with saved versions, knowledge checks. | 🟢 Platform live, classroom pilot next |
-| **AI Week, boys' session** | Co-created and delivered with Talah. 525 attended; 88% of 365 survey respondents responded positively. | ✅ Delivered |
-| **School staff placements** | Initial internal placement tool with a Noon Admin API connection. | 🔨 Initial build |
+| **Ops-to-HR placement integration** | Daily sync of work locations, sections and direct managers from the ops system into the HR platform; unmatched records are held for review. | ✅ Live and handed over |
+| [**MCIT × Noon generative AI learning platform**](https://noonai.noon.edu.sa/) | Student, teacher and admin flows plus the Arabic curriculum: prompt practice with feedback, app building with saved versions, knowledge checks. | 🟢 Live |
+| **AI Week, boys' session** | Co-created and delivered the boys' session. 525 attended; 88% of 365 survey respondents responded positively. | ✅ Delivered |
 
 ---
 
@@ -109,7 +108,7 @@ SDA Agentic AI Bootcamp · 7 weeks · selective admission · 2026 · completed
 | 📊 | Certified Data Management Professional (CDMP), Associate | DAMA | 2026 |
 | ⚡ | Vibe Coding | SDAIA, Saudi Data & AI Authority | 2026 |
 | 🧠 | Introduction to Artificial Intelligence · 40 hrs | KAUST Academy | 2026 |
-| 🍎 | Apple AI Program *(1 of 66 from over 400,000 applicants)* | Apple Developer Academy · Tuwaiq | 2025 |
+| 🍎 | Apple AI Program *(1 of 66)* | Apple Developer Academy · Tuwaiq | 2025 |
 | 📈 | Data Science & Machine Learning scholarship | KAUST Academy | 2025 |
 | 🐍 | Data Collection & Processing with Python | University of Michigan | 2025 |
 | 📖 | Introduction to Data Science | University of Michigan | 2025 |
