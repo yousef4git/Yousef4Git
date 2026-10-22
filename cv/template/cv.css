@@ -3,7 +3,7 @@
 * { box-sizing: border-box; }
 body {
   font-family: "Helvetica Neue", Arial, "Liberation Sans", sans-serif;
-  font-size: 9.5pt; line-height: 1.21; color: #16181d; margin: 0;
+  font-size: 9.5pt; line-height: 1.2; color: #16181d; margin: 0;
 }
 /* Arabic script needs more leading than Latin for ascenders and marks. */
 html[dir="rtl"] body { line-height: 1.26; }
@@ -13,11 +13,11 @@ html[dir="rtl"] body {
 h1 { font-size: 18pt; margin: 0 0 1pt; letter-spacing: 0.2px; }
 .role { font-size: 10.5pt; color: #2b3a67; font-weight: 600; margin-bottom: 2pt; }
 .contact { font-size: 8.4pt; color: #444; margin-bottom: 5pt; }
-header { border-bottom: 1.3px solid #2b3a67; padding-bottom: 3pt; margin-bottom: 4pt; }
+header { border-bottom: 1.3px solid #2b3a67; padding-bottom: 3pt; margin-bottom: 3pt; }
 h2 {
   font-size: 9.8pt; text-transform: uppercase; letter-spacing: 0.7px;
   color: #2b3a67; border-bottom: 0.7px solid #c8cede;
-  padding-bottom: 1.5pt; margin: 5pt 0 2.5pt;
+  padding-bottom: 1.5pt; margin: 4pt 0 2pt;
 }
 section { break-inside: avoid; }
 .summary { margin: 0; }
@@ -25,7 +25,7 @@ section { break-inside: avoid; }
 .skill-label { flex: 0 0 30%; font-weight: 600; }
 html[dir="rtl"] .skill-label { flex-basis: 26%; }
 .skill-items { flex: 1; }
-.entry { margin: 0 0 2.5pt; }
+.entry { margin: 0 0 2pt; }
 .entry-head { display: flex; justify-content: space-between; gap: 10px; }
 .entry-title { font-weight: 700; }
 .entry-dates { color: #555; white-space: nowrap; font-size: 9pt; }

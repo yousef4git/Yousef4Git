@@ -46,10 +46,10 @@ test("the four forward deployed steps read without motion", async ({ browser }) 
   await ctx.close();
 });
 
-test("the CV link serves the forward deployed CV", async ({ page }) => {
+test("the CV link serves the AI Engineer CV", async ({ page }) => {
   await page.goto("/");
   const link = page.locator(`a[href="${siteContent.contact.cv}"]`).first();
-  await expect(link).toHaveAttribute("href", /Forward-Deployed-Engineer\.pdf$/);
+  await expect(link).toHaveAttribute("href", /AI-Engineer\.pdf$/);
   const res = await page.request.get(siteContent.contact.cv);
   expect(res.status()).toBe(200);
 });
@@ -77,4 +77,32 @@ test("hero video is muted, inline, poster-backed", async ({ page }) => {
   await expect(video).toHaveAttribute("playsinline", "");
   await expect(video).toHaveAttribute("poster", "/media/apple-presenting-poster.jpg");
   await expect(video).toHaveJSProperty("muted", true);
+});
+
+test("the Noon chapter carries the five handoff projects with their media", async ({ page }) => {
+  await page.goto("/");
+  const noon = page.locator('section[data-chapter="noon"]');
+  for (const p of siteContent.noon.projects) {
+    const article = noon.locator(`article#${p.id}`);
+    await expect(article).toHaveCount(1);
+    await expect(article.locator("h3").first()).toHaveText(p.title);
+    await expect(article.locator("[data-status]")).toHaveText(p.status);
+  }
+  await expect(noon.locator("[data-strip] li")).toHaveCount(10);
+  await expect(noon.locator("[data-flow]")).toHaveCount(1);
+  await expect(noon.locator("article#noon-school-staff-placements img")).toHaveCount(0);
+});
+
+// Every project must read with motion off: the reveals are an enhancement,
+// never the thing that makes the content appear.
+test("the Noon projects read without motion", async ({ browser }) => {
+  const ctx = await browser.newContext({ reducedMotion: "reduce" });
+  const page = await ctx.newPage();
+  await page.goto("/");
+  for (const p of siteContent.noon.projects) {
+    const title = page.locator(`article#${p.id} h3`).first();
+    await title.scrollIntoViewIfNeeded();
+    await expect(title).toBeVisible();
+  }
+  await ctx.close();
 });

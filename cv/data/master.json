@@ -35,13 +35,57 @@
       "end": "present",
       "bullets": [
         {
-          "id": "noon_scope",
+          "id": "noon_training",
           "tags": [
             "all"
           ],
           "text": {
-            "en": "Build agentic AI systems that reach production and hold up there, owning design, evaluation, and deployment.",
-            "ar": "أبني أنظمة ذكاء اصطناعي توكيلية تصل إلى الإنتاج وتصمد فيه، مالكًا التصميم والتقييم والنشر."
+            "en": "Built and launched an Arabic training portal for trainees, trainers and the Training & Development team; the team now runs cohorts and content without engineering.",
+            "ar": "بنيت وأطلقت بوابة تدريب بالعربية للمتدربين والمدربين وفريق التدريب والتطوير؛ ويدير الفريق الآن الدفعات والمحتوى دون الحاجة إلى الهندسة."
+          }
+        },
+        {
+          "id": "noon_citadel",
+          "tags": [
+            "all"
+          ],
+          "text": {
+            "en": "Built a daily Citadel to ZenHR integration for school placements and reporting lines, holding unmatched records for review; the go-live run corrected 40 of 218 records with no errors.",
+            "ar": "بنيت تكاملًا يوميًا من Citadel إلى ZenHR لتعيينات المدارس وخطوط الإبلاغ، مع حجز السجلات غير المطابقة للمراجعة؛ وصحّح تشغيل الإطلاق 40 سجلًا من 218 دون أخطاء."
+          }
+        },
+        {
+          "id": "noon_mcit",
+          "tags": [
+            "all"
+          ],
+          "text": {
+            "en": "Built the MCIT × Noon generative AI learning platform (student, teacher and admin flows) and wrote its Arabic learning content; live, with the classroom pilot next.",
+            "ar": "بنيت منصة MCIT × Noon لتعلّم الذكاء الاصطناعي التوليدي (مسارات الطالب والمعلم والمشرف) وكتبت محتواها التعليمي بالعربية؛ تعمل الآن، والتجربة الصفية هي الخطوة التالية."
+          }
+        },
+        {
+          "id": "noon_aiweek",
+          "tags": [
+            "ai",
+            "agentic",
+            "ml"
+          ],
+          "text": {
+            "en": "Co-created and co-delivered the boys' AI Week session: 525 attended; 88% of 365 survey respondents were positive.",
+            "ar": "شاركت في إعداد وتقديم جلسة أسبوع الذكاء الاصطناعي للبنين: حضر 525 طالبًا، و88% من 365 مشاركًا في الاستبيان كانوا إيجابيين."
+          }
+        },
+        {
+          "id": "noon_placements",
+          "tags": [
+            "fullstack",
+            "it",
+            "it-planning"
+          ],
+          "text": {
+            "en": "Built an initial school-staff placement tool and connected it to Noon Admin through an API.",
+            "ar": "بنيت أداة أولية لتعيين كوادر المدارس وربطتها بـ Noon Admin عبر واجهة برمجية."
           }
         }
       ]
@@ -73,8 +117,8 @@
             "fullstack"
           ],
           "text": {
-            "en": "Designed and shipped a document intake and risk-triage system for an education platform. Fixed rules score each student's risk and an AI model handles only the Arabic text, never the scoring, so every decision stays auditable.",
-            "ar": "صمّمت وأطلقت نظام استقبال مستندات وترتيب حسب الخطورة لمنصة تعليمية. تحسب القواعد الثابتة خطورة كل طالب، ويتولى نموذج الذكاء الاصطناعي النص العربي فقط دون حساب الدرجات، لتبقى كل القرارات قابلة للمراجعة."
+            "en": "Delivered an education AI system with rule-based decisions and human review: fixed rules score each student's risk and an AI model handles only the Arabic text, never the scoring, so every decision stays auditable.",
+            "ar": "سلّمت نظام ذكاء اصطناعي تعليميًا بقرارات قائمة على القواعد ومراجعة بشرية: تحسب القواعد الثابتة خطورة كل طالب، ويتولى نموذج الذكاء الاصطناعي النص العربي فقط دون حساب الدرجات، لتبقى كل القرارات قابلة للمراجعة."
           }
         },
         {
@@ -82,8 +126,7 @@
           "tags": [
             "ai",
             "solutions",
-            "ml",
-            "pm"
+            "ml"
           ],
           "text": {
             "en": "Caught corrupted source data with notes filed under the wrong students, flagged it in a data-quality review, and kept it out of anything a parent would see.",
@@ -122,8 +165,8 @@
             "ops"
           ],
           "text": {
-            "en": "Through GHRS, delivered client work end to end for Saudi businesses: rebuilt websites, automated WhatsApp Business, and connected internal tools to customer channels, owning each project from scoping to deployment.",
-            "ar": "عبر GHRS، نفّذت أعمالًا متكاملة لعملاء من الشركات السعودية: إعادة بناء مواقع، وأتمتة واتساب للأعمال، وربط الأدوات الداخلية بقنوات العملاء، مع إدارة كل مشروع من تحديد النطاق حتى التسليم."
+            "en": "Built and launched software for Saudi businesses through GHRS: rebuilt websites, automated WhatsApp Business and connected internal tools to customer channels, owning each project from scoping to deployment.",
+            "ar": "بنيت وأطلقت برمجيات لشركات سعودية عبر GHRS: إعادة بناء مواقع، وأتمتة واتساب للأعمال، وربط الأدوات الداخلية بقنوات العملاء، مع إدارة كل مشروع من تحديد النطاق حتى النشر."
           }
         },
         {
@@ -133,15 +176,14 @@
             "ai"
           ],
           "text": {
-            "en": "Advised an early-stage logistics startup (FREIGHTLX) on AI scope and technical architecture, helping turn requirements into a working build.",
-            "ar": "قدّمت الاستشارة لشركة لوجستية ناشئة (FREIGHTLX) في نطاق الذكاء الاصطناعي والبنية التقنية، وساعدت على تحويل المتطلبات إلى منتج عملي."
+            "en": "Advised logistics startup FREIGHTLX on its AI architecture, helping turn requirements into a working build.",
+            "ar": "قدّمت الاستشارة لشركة FREIGHTLX اللوجستية الناشئة في بنية الذكاء الاصطناعي لديها، وساعدت على تحويل المتطلبات إلى منتج عملي."
           }
         },
         {
           "id": "op_requirements",
           "tags": [
-            "pm",
-            "it"
+            "pm"
           ],
           "text": {
             "en": "Ran requirements gathering and technical planning across engineering, design, and operations teams, turning unclear asks into scoped, buildable work.",
@@ -173,14 +215,13 @@
             "all"
           ],
           "text": {
-            "en": "Taught 1,800+ computer science students over four years, holding a 4.9 of 5 learner rating.",
-            "ar": "درّست أكثر من 1,800 طالب في علوم الحاسب على مدى أربع سنوات، محافظًا على تقييم 4.9 من 5 من المتعلّمين."
+            "en": "Taught 1,800+ computer science students at Shaguf over four years, with a 4.9/5 learner rating.",
+            "ar": "درّست أكثر من 1,800 طالب في علوم الحاسب في شغوف على مدى أربع سنوات، بتقييم 4.9 من 5 من المتعلّمين."
           }
         },
         {
           "id": "tutor_method",
           "tags": [
-            "pm",
             "it"
           ],
           "text": {
@@ -216,8 +257,8 @@
             "all"
           ],
           "text": {
-            "en": "Prepared and deployed 1,500 staff across 45 stations in one month for the metro opening, which served over 30 million visitors.",
-            "ar": "جهّزت ووزّعت 1,500 موظف عبر 45 محطة خلال شهر واحد لافتتاح القطار، الذي خدم أكثر من 30 مليون زائر."
+            "en": "Managed the deployment of 1,500 staff across 45 Riyadh Metro stations in one month for the launch.",
+            "ar": "أدرت توزيع 1,500 موظف عبر 45 محطة في قطار الرياض خلال شهر واحد للإطلاق."
           }
         },
         {
@@ -511,6 +552,21 @@
         "ar": "DAMA"
       },
       "year": "2026",
+      "note": {
+        "en": "",
+        "ar": ""
+      }
+    },
+    {
+      "name": {
+        "en": "AWS Certified AI Business Strategist (Early Adopter)",
+        "ar": "AWS Certified AI Business Strategist (Early Adopter)"
+      },
+      "org": {
+        "en": "Amazon Web Services Training and Certification",
+        "ar": "Amazon Web Services Training and Certification"
+      },
+      "year": "",
       "note": {
         "en": "",
         "ar": ""

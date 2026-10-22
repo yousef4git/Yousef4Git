@@ -55,3 +55,17 @@ test('escapes HTML special characters', () => {
   assert.match(html, /A &amp; &lt;B&gt;/);
   assert.doesNotMatch(html, /<B>/);
 });
+
+test('certs without a year omit the year segment', () => {
+  const html = renderHTML({
+    ...assembled,
+    order: ['certs'],
+    blocks: { certs: { kind:'certs', heading:'Certifications', entries:[
+      { name:'AWS Certified AI Business Strategist', org:'Amazon Web Services Training and Certification',
+        year:'', note:'Early Adopter designation.' },
+      { name:'McKinsey Forward', org:'McKinsey & Company', year:'2026', note:'' } ] } },
+  }, 'body{}');
+  assert.match(html, /AWS Certified AI Business Strategist<\/span>, Amazon Web Services Training and Certification\. Early Adopter designation\./);
+  assert.match(html, /McKinsey Forward<\/span>, McKinsey &amp; Company, 2026\./);
+  assert.doesNotMatch(html, /, \./);
+});
