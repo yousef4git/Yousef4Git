@@ -6,8 +6,8 @@
     "ar": "مهندس ذكاء اصطناعي"
   },
   "summary": {
-    "en": "AI systems engineer at Noon Academy in Riyadh, designing and shipping production AI systems end to end. As an independent consultant I architected a document intake and risk-triage system for an education platform, deciding where models add value and where fixed rules keep decisions auditable, with a track record of delivering at national scale.",
-    "ar": "مهندس أنظمة ذكاء اصطناعي في نون أكاديمي بالرياض، يصمّم أنظمة ذكاء اصطناعي إنتاجية ويطلقها من البداية إلى النهاية. بصفتي مستشارًا مستقلًا صمّمت معمارية نظام لاستقبال المستندات وترتيب الطلاب حسب الخطورة لمنصة تعليمية، محدِّدًا أين يضيف النموذج قيمة وأين تُبقي القواعد الثابتة القرارات قابلة للمراجعة، مع سجلّ في التسليم على نطاق وطني."
+    "en": "AI Systems Engineer at Noon Academy in Riyadh, building internal tools and AI learning platforms that reach production and are handed over to the teams that run them: a training portal, a daily HR integration and a student generative AI platform with its Arabic content. As an independent consultant I designed an auditable document intake and risk-triage system for an education platform, deciding where models add value and where fixed rules keep decisions reviewable.",
+    "ar": "مهندس أنظمة ذكاء اصطناعي في نون أكاديمي بالرياض، يبني أدوات داخلية ومنصات تعلّم بالذكاء الاصطناعي تصل إلى الإنتاج وتُسلَّم إلى الفرق التي تشغّلها: بوابة تدريب، وتكامل يومي مع الموارد البشرية، ومنصة ذكاء اصطناعي توليدي للطلاب بمحتواها العربي. وبصفتي مستشارًا مستقلًا صمّمت نظامًا قابلًا للمراجعة لاستقبال المستندات وترتيب الحالات حسب الخطورة لمنصة تعليمية، محدِّدًا أين يضيف النموذج قيمة وأين تُبقي القواعد الثابتة القرارات قابلة للمراجعة."
   },
   "sectionOrder": [
     "summary",

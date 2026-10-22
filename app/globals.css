@@ -21,12 +21,21 @@ body {
   @apply bg-night text-bone font-body antialiased;
 }
 
-/* Gold light sweep motif, applied to headings by chapters */
-.gold-sheen {
-  background: linear-gradient(100deg, var(--color-gold) 30%, var(--color-gold-bright) 50%, var(--color-gold) 70%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/* Keyboard focus is gold, the same colour the page uses for every action. */
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+  border-radius: 2px;
 }
 
 /* Liquid glass: layered translucency, saturation boost, and a specular top
@@ -54,6 +63,17 @@ body {
   display: none;
 }
 
+/* A horizontal strip of screens: snaps per frame, scrolls with the thumb,
+   and never captures the page's vertical scroll. */
+.strip {
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+}
+.strip > * {
+  scroll-snap-align: start;
+}
+
 /* Film grain: one fixed composited layer, ties the chapters together and
    softens video/photo compression. Decorative only. */
 body::after {
@@ -65,6 +85,18 @@ body::after {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
   opacity: 0.05;
   mix-blend-mode: overlay;
+}
+
+/* Hero entrance, first-paint states. The frame and the location line are
+   visible from the start (only moved), so the largest paint never waits for
+   JavaScript; the text lines wait behind a clip that the timeline opens.
+   Motion-only: with reduced motion nothing here applies. */
+@media (prefers-reduced-motion: no-preference) {
+  [data-hero-clip] { clip-path: inset(0 0 100% 0); }
+  [data-hero-clip-x] { clip-path: inset(0 100% 0 0); }
+  [data-hero-frame] { transform: translateY(32px); }
+  [data-hero-meta] { transform: translateY(12px); }
+  [data-scroll-cue] { transform: scaleY(0); transform-origin: top; }
 }
 
 @media (prefers-reduced-motion: reduce) {

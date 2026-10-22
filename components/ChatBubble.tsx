@@ -10,7 +10,7 @@ const MAX_INPUT = 500;
 
 const STARTERS = [
   "What does 'forward deployed' actually mean?",
-  "How did you build a whole platform in 16 days?",
+  "What did you build at Noon Academy?",
   "Why did you go from managing 1,500 people to building AI systems?",
 ];
 

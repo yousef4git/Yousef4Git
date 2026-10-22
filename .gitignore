@@ -32,6 +32,13 @@ theChatBot/
 # The tracked docs/superpowers/**.md plan and spec files are unaffected.
 docs/*.pdf
 docs/*.pptx
+# The Noon handoff pack and its prompts are implementation context, never
+# published: the content lives in content/site.ts and the images in public/media/noon.
+docs/noon-portfolio-handoff/
+docs/*-Standalone.md
+docs/portfolio-experience-and-aws-prompt.md
+docs/aws-certified-*.png
+Untitled
 
 # Next.js
 node_modules/
@@ -54,3 +61,6 @@ Certificates/
 .claude/
 .agents/
 skills-lock.json
+
+# Impeccable local state: critique snapshots and hook cache stay on this machine.
+.impeccable/

@@ -21,14 +21,14 @@ export const metadata: Metadata = {
   // voice lint that guards this file.
   title: "Yousef Alshuwayi · AI Systems Engineer · Forward Deployed",
   description:
-    "AI Systems Engineer at noon working forward deployed: embedding with teams, shipping production AI in days, and handing over systems that run without an engineer.",
+    "AI Systems Engineer at Noon Academy, working forward deployed: embedding with teams, shipping internal tools and AI learning platforms, and handing them over so they run without an engineer.",
   alternates: { canonical: "/" },
   openGraph: {
     type: "profile",
     siteName: "Yousef Alshuwayi",
     title: "Yousef Alshuwayi · AI Systems Engineer · Forward Deployed",
     description:
-      "AI Systems Engineer at noon working forward deployed: embedding with teams, shipping production AI in days, and handing over systems that run without an engineer.",
+      "AI Systems Engineer at Noon Academy, working forward deployed: embedding with teams, shipping internal tools and AI learning platforms, and handing them over so they run without an engineer.",
     url: `${siteContent.url}/`,
     locale: "en_US",
   },
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Yousef Alshuwayi · AI Systems Engineer · Forward Deployed",
     description:
-      "AI Systems Engineer at noon working forward deployed: embedding with teams, shipping production AI in days, and handing over systems that run without an engineer.",
+      "AI Systems Engineer at Noon Academy, working forward deployed: embedding with teams, shipping internal tools and AI learning platforms, and handing them over so they run without an engineer.",
   },
 };
 
@@ -45,7 +45,7 @@ const personJsonLd = {
   "@type": "Person",
   name: "Yousef Alshuwayi",
   jobTitle: "AI Systems Engineer",
-  worksFor: { "@type": "Organization", name: "noon", url: "https://www.noon.edu.sa/en/" },
+  worksFor: { "@type": "Organization", name: "Noon Academy", url: "https://www.noon.edu.sa/en/" },
   url: siteContent.url,
   email: "mailto:yousefalshuwayi@gmail.com",
   address: { "@type": "PostalAddress", addressLocality: "Riyadh", addressCountry: "SA" },
@@ -53,6 +53,7 @@ const personJsonLd = {
   hasCredential: [
     { "@type": "EducationalOccupationalCredential", name: "Certified Data Management Professional (CDMP) - Associate", credentialCategory: "certification" },
     { "@type": "EducationalOccupationalCredential", name: "Agentic AI Bootcamp, SDA Academy", credentialCategory: "certificate" },
+    { "@type": "EducationalOccupationalCredential", name: "AWS Certified AI Business Strategist (Early Adopter), Amazon Web Services Training and Certification", credentialCategory: "certification" },
   ],
 };
 

@@ -40,8 +40,11 @@ function renderBlock(b) {
   if (b.kind === 'certs') {
     const cells = b.entries.map(e => {
       const note = e.note ? ` ${esc(e.note)}` : '';
+      // A credential with no issue date (the AWS early-adopter designation)
+      // prints issuer only; an empty year would leave ", ." on the page.
+      const year = e.year ? `, ${esc(e.year)}` : '';
       return `<div class="cert"><span class="cert-name">${esc(e.name)}</span>, `
-        + `${esc(e.org)}, ${esc(e.year)}.${note}</div>`;
+        + `${esc(e.org)}${year}.${note}</div>`;
     }).join('');
     return `<div class="certs-grid">${cells}</div>`;
   }

@@ -2,7 +2,7 @@
 <div align="center">
 
 <a href="https://git.io/typing-svg">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=24&pause=1200&color=00B4D8&center=true&vCenter=true&random=false&width=800&lines=Hey%2C+I'm+Yousef+Alshuwayi+%F0%9F%87%B8%F0%9F%87%A6;AI+%26+Software+Consultant+%7C+Agentic+AI+Engineer;I+build+practical+AI+systems+and+web+products;1%2C800%2B+students+taught%2C+still+teaching;Riyadh%2C+Saudi+Arabia" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=24&pause=1200&color=00B4D8&center=true&vCenter=true&random=false&width=800&lines=Hey%2C+I'm+Yousef+Alshuwayi+%F0%9F%87%B8%F0%9F%87%A6;AI+Systems+Engineer+at+Noon+Academy;I+build+internal+tools+and+AI+learning+platforms;1%2C800%2B+students+taught%2C+still+teaching;Riyadh%2C+Saudi+Arabia" alt="Typing SVG" />
 </a>
 
 <br/><br/>
@@ -17,17 +17,29 @@
 
 ## About Me
 
-I build AI systems and web products, and I have run operations at national scale.
+I am an AI Systems Engineer at Noon Academy in Riyadh. I turn day-to-day operational problems into working tools: a training portal the team runs themselves, a daily HR data integration, a student generative AI platform with its Arabic learning content, and hands-on AI sessions for students. I work with the people using each system, then build, test, improve and hand it over.
 
-I work as a freelance AI and software consultant. I built a risk-triage system for an education platform, where fixed rules do the scoring and an AI model only handles the Arabic text. I built **Rusokh**, a course platform that is live and in use, and I deliver client work through **GHRS**.
+Before that I worked as a freelance AI and software consultant. I built and launched software for Saudi businesses through **GHRS**, delivered an education AI system with rule-based decisions and human review, and advised logistics startup FREIGHTLX on its AI architecture. I also built **Rusokh**, a course platform that is live and in use.
 
-Before engineering I prepared **1,500 staff across 45 stations** for the Riyadh Metro launch, which served over 30 million visitors. I have taught **1,800+ computer science students** over four years at a 4.9 of 5 rating, and I was selected 1 of 66 from over 400,000 applicants for **Apple's AI program**.
+I have taught **1,800+ computer science students** at Shaguf over four years, with a 4.9/5 learner rating. Before engineering I managed the deployment of **1,500 staff across 45 Riyadh Metro stations** in one month for the launch. I was selected 1 of 66 from over 400,000 applicants for **Apple's AI program**.
 
 ```
-Operations at national scale → computer science and AI → consulting and building.
+Operations at national scale → computer science and AI → consulting → Noon Academy.
 ```
 
 > I keep AI out of the parts where plain rules are safer.
+
+---
+
+## At Noon Academy
+
+| Project | What it is | Status |
+| --- | --- | --- |
+| [**Training & Development Portal**](https://trainingat.noon.edu.sa/) | Trainee, trainer and programme-admin workflows in one training record, with cohort setup, content management, analytics and exports. React, TypeScript, Vite, Express, Supabase. | 🟢 Live |
+| **Citadel to ZenHR integration** | Daily sync of work locations, sections and direct managers from Citadel into ZenHR; unmatched records are held for review. TypeScript, Node.js, PostgreSQL, OAuth 2.0. | ✅ Live and handed over |
+| [**MCIT × Noon generative AI learning platform**](https://noonai.noon.edu.sa/) | Student, teacher and admin flows plus the Arabic curriculum: prompt practice with feedback, app building with saved versions, knowledge checks. Next.js, PostgreSQL, Drizzle. | 🟢 Platform live, classroom pilot next |
+| **AI Week, boys' session** | Co-created and delivered with Talah. 525 attended; 88% of 365 survey respondents responded positively. | ✅ Delivered |
+| **School staff placements** | Initial internal placement tool with a Noon Admin API connection. | 🔨 Initial build |
 
 ---
 
@@ -70,7 +82,7 @@ Operations at national scale → computer science and AI → consulting and buil
 | -------------------------------- | ----------------------------------------------------------------------------------- | ----------- |
 | **Risk-triage system**           | Document intake and risk scoring for an education platform. Rules score, AI handles only the Arabic text. Paid client work. | ✅ Delivered |
 | [**Rusokh**](https://rusokh.com) | A course platform I built for myself, now live and in use. Next.js, Convex, payments, video, in Arabic and English.         | 🟢 Live      |
-| **GHRS** غرس                     | Client work for Saudi businesses: rebuilt websites, automated WhatsApp Business, connected internal tools to customer channels. | 🔨 Active    |
+| **GHRS** غرس                     | Client work for Saudi businesses: rebuilt websites, automated WhatsApp Business, connected internal tools to customer channels. | ✅ Delivered |
 
 ---
 
@@ -92,20 +104,22 @@ SDA Agentic AI Bootcamp · 7 weeks · selective admission · 2026 · completed
 
 | | Program | Issuer | Year |
 |-|---------|--------|------|
+| ☁️ | AWS Certified AI Business Strategist, Early Adopter designation *(AI investment decisions, business cases, responsible governance, adoption from pilot to production)* | Amazon Web Services Training and Certification | |
 | ✅ | Agentic AI Bootcamp *(completed, 7 weeks, selective admission)* | SDA Academy | 2026 |
+| 📊 | Certified Data Management Professional (CDMP), Associate | DAMA | 2026 |
 | ⚡ | Vibe Coding | SDAIA, Saudi Data & AI Authority | 2026 |
 | 🧠 | Introduction to Artificial Intelligence · 40 hrs | KAUST Academy | 2026 |
 | 🍎 | Apple AI Program *(1 of 66 from over 400,000 applicants)* | Apple Developer Academy · Tuwaiq | 2025 |
-| 📊 | Data Science & Machine Learning scholarship | KAUST Academy | 2025 |
+| 📈 | Data Science & Machine Learning scholarship | KAUST Academy | 2025 |
 | 🐍 | Data Collection & Processing with Python | University of Michigan | 2025 |
 | 📖 | Introduction to Data Science | University of Michigan | 2025 |
-| 📈 | McKinsey Forward Program | McKinsey & Company | 2026 |
+| 🧭 | McKinsey Forward Program | McKinsey & Company | 2026 |
 
 ---
 
 <div align="center">
 
 *Riyadh · Saudi Arabia*
-*Open to AI engineering, full-stack, and IT roles, and to consulting work in Saudi Arabia and the GCC.*
+*AI Systems Engineer at Noon Academy. Open to conversations about AI engineering and consulting work in Saudi Arabia and the GCC.*
 
 </div>
