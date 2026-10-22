@@ -62,6 +62,14 @@ test("the degree opens the credentials chapter", async ({ page }) => {
   await expect(creds.locator("[data-cred-education]")).toContainText("BSc Computer Science");
 });
 
+test("the hero links LinkedIn beside the CV and email", async ({ page }) => {
+  await page.goto("/");
+  const link = page.locator('section[data-chapter="hero"] a', { hasText: "LinkedIn" });
+  await expect(link).toHaveAttribute("href", siteContent.contact.linkedin);
+  await expect(link).toHaveAttribute("target", "_blank");
+  await expect(link).toHaveAttribute("rel", /noopener/);
+});
+
 test("credential verify links open in a new tab", async ({ page }) => {
   await page.goto("/");
   const links = page.locator('section[data-chapter="credentials"] a[href^="https"]');

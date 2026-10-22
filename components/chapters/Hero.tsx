@@ -140,6 +140,16 @@ export default function Hero() {
             >
               {hero.cta.emailLabel}
             </a>
+            <a
+              data-hero-cta
+              data-hero-clip-x
+              href={hero.cta.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-medium text-gold underline-offset-4 transition-colors hover:text-gold-bright hover:underline"
+            >
+              {hero.cta.linkedinLabel}
+            </a>
           </div>
         </div>
         <div

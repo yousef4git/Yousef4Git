@@ -6,6 +6,7 @@
 
 const CV = "/cv/Yousef-Alshuwayi-AI-Engineer.pdf";
 const EMAIL = "yousefalshuwayi@gmail.com";
+const LINKEDIN = "https://linkedin.com/in/yousefalshuwayi";
 
 export type Media = {
   src: string;
@@ -403,7 +404,14 @@ export const siteContent = {
       "AWS Certified AI Business Strategist",
       "Certified Data Management Professional (CDMP)",
     ],
-    cta: { cv: CV, cvLabel: "Download CV", email: EMAIL, emailLabel: "Email me" },
+    cta: {
+      cv: CV,
+      cvLabel: "Download CV",
+      email: EMAIL,
+      emailLabel: "Email me",
+      linkedin: LINKEDIN,
+      linkedinLabel: "LinkedIn",
+    },
   },
   method: {
     title: "How I work",
@@ -438,7 +446,7 @@ export const siteContent = {
     title: "Noon Academy",
     meta: "AI Systems Engineer, Central Operations, since July 2026",
     framing:
-      "I sit with the team that owns each problem, not apart from it.",
+      "I sit with the team that owns each problem.",
     intro:
       "I turn day-to-day operational problems into working tools. At Noon Academy, that includes a training portal the team can run themselves, a daily HR data integration, a student AI platform with its learning content, and an early internal placement tool for the school-staffing team.",
     projects: noonProjects,
@@ -540,7 +548,7 @@ export const siteContent = {
   },
   contact: {
     email: EMAIL,
-    linkedin: "https://linkedin.com/in/yousefalshuwayi",
+    linkedin: LINKEDIN,
     github: "https://github.com/Yousef4Git",
     cv: CV,
   },

@@ -215,6 +215,8 @@ describe("credentials and contact", () => {
   it("serves the AI Engineer CV from the hero and the footer", () => {
     expect(siteContent.contact.cv).toMatch(/AI-Engineer\.pdf$/);
     expect(siteContent.hero.cta.cv).toBe(siteContent.contact.cv);
+    expect(siteContent.hero.cta.linkedin).toBe(siteContent.contact.linkedin);
+    expect(siteContent.hero.cta.linkedinLabel).toBe("LinkedIn");
   });
 
   it("frames GHRS as the venture, with the supplied descriptions and 85 Metro stations", () => {
