@@ -338,7 +338,7 @@ const noonProjects: readonly NoonProject[] = [
 
 const credentials: readonly Credential[] = [
   {
-    img: "/media/cert-apple.png",
+    img: "/media/cert-apple.jpg",
     name: "Apple AI Program",
     designation: null,
     issuer: "Apple Developer Academy & Tuwaiq",
@@ -444,6 +444,7 @@ export const siteContent = {
   hero: {
     location: "Riyadh, Saudi Arabia",
     video: "/media/apple-presenting.mp4",
+    videoSmall: "/media/apple-presenting-720.mp4",
     poster: "/media/apple-presenting-poster.jpg",
     videoAlt: "Yousef presenting at the Apple Developer Academy",
     videoCaption: "Apple Developer Academy",

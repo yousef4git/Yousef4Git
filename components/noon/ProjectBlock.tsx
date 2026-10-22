@@ -3,6 +3,7 @@ import type { Media, NoonProject } from "@/content/site";
 import Figure from "@/components/noon/Figure";
 import FlowFigure from "@/components/noon/FlowFigure";
 import ScreenStrip from "@/components/noon/ScreenStrip";
+import MoreList from "@/components/noon/MoreList";
 
 const FRAME =
   "overflow-hidden rounded-lg border border-bone/10 bg-night shadow-[0_30px_60px_-30px_rgba(0,0,0,0.8)]";
@@ -67,15 +68,6 @@ function MediaRow({ project }: { project: NoonProject }) {
   }
 }
 
-function Bullet({ text }: { text: string }) {
-  return (
-    <li className="relative pl-4 text-sm leading-relaxed text-stone">
-      <span aria-hidden className="absolute left-0 top-[0.6em] h-1 w-1 rounded-full bg-noon" />
-      {text}
-    </li>
-  );
-}
-
 // One project: a sticky title column, the copy, then the media across the row.
 // Live things get the Noon green; an initial build stays in stone, so the
 // status reads as a fact rather than as a decoration.
@@ -131,19 +123,11 @@ export default function ProjectBlock({ project }: { project: NoonProject }) {
           <div className="mt-8 grid gap-8 sm:grid-cols-2">
             <div>
               <h4 className="text-sm font-medium text-bone">What I did</h4>
-              <ul className="mt-3 space-y-2.5">
-                {project.work.map((w) => (
-                  <Bullet key={w} text={w} />
-                ))}
-              </ul>
+              <MoreList items={project.work} />
             </div>
             <div>
               <h4 className="text-sm font-medium text-bone">Where it stands</h4>
-              <ul className="mt-3 space-y-2.5">
-                {project.outcomes.map((o) => (
-                  <Bullet key={o} text={o} />
-                ))}
-              </ul>
+              <MoreList items={project.outcomes} />
               {project.metrics.length > 0 && (
                 <div className="mt-7 space-y-5">
                   {project.metrics.map((m) => (

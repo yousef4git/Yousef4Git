@@ -11,6 +11,10 @@ mkdir -p "$OUT" public/cv
 ffmpeg -y -i "$SRC/Apple Academy/me presinting.mov" \
   -c:v libx264 -crf 21 -preset slow -pix_fmt yuv420p -an \
   -movflags +faststart "$OUT/apple-presenting.mp4"
+# Phones get a 720p cut (about 650KB) through a <source media> on the hero video.
+ffmpeg -y -i "$SRC/Apple Academy/me presinting.mov" \
+  -vf "scale=720:-2" -c:v libx264 -crf 27 -preset slow -pix_fmt yuv420p -an \
+  -movflags +faststart "$OUT/apple-presenting-720.mp4"
 # Poster: 720-wide from the video; keep it under ~80KB, it is the LCP image.
 ffmpeg -y -i "$OUT/apple-presenting.mp4" -ss 00:00:01 -frames:v 1 \
   -vf "scale=720:-2" -q:v 5 -huffman optimal "$OUT/apple-presenting-poster.jpg"
@@ -28,7 +32,12 @@ ffmpeg -y -i "$SRC/Shaguf/honoring me and me talking as the speaker on a shaguf 
 # Certificate PDFs -> PNG (first page, 200dpi). pdftoppm appends -1 to the prefix.
 render() { pdftoppm -png -r 200 -f 1 -l 1 "$1" "$OUT/tmp" && mv "$OUT"/tmp*.png "$2"; }
 render "$SRC/SDA Agentic AI Bootcamp/SDA Agentic AI Bootcamp Certificate.pdf" "$OUT/cert-sda.png"
-render "$SRC/Apple Academy/APPLE DEVOLOPER ACADEMY.pdf"                        "$OUT/cert-apple.png"
+# Apple: the scan carries a national ID number on both the English and the
+# Arabic line, so the two boxes are painted out before the crop and the JPG.
+render "$SRC/Apple Academy/APPLE DEVOLOPER ACADEMY.pdf"                        "$OUT/cert-apple-raw.png"
+ffmpeg -y -i "$OUT/cert-apple-raw.png" \
+  -vf "drawbox=x=280:y=835:w=500:h=65:color=white@1:t=fill,drawbox=x=1670:y=835:w=480:h=70:color=white@1:t=fill,crop=2339:1560:0:50,scale=1600:-2" \
+  -q:v 3 "$OUT/cert-apple.jpg" && rm "$OUT/cert-apple-raw.png"
 render "$SRC/KAUST/KAUST.pdf"                                                 "$OUT/cert-kaust.png"
 render "$SRC/KAUST/Coursera 1.pdf"                                            "$OUT/cert-coursera-1.png"
 render "$SRC/KAUST/Coursera 2.pdf"                                            "$OUT/cert-coursera-2.png"

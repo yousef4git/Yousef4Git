@@ -53,19 +53,19 @@ export default function Credentials() {
             data-cred-lead
             className="grid grid-cols-1 gap-8 border-t border-bone/10 py-10 md:grid-cols-12 md:items-center md:gap-x-8"
           >
-            <div className="md:col-span-5">
+            <div className="md:col-span-6">
               <div className="overflow-hidden rounded-lg border border-bone/10 bg-bone p-2 shadow-[0_30px_60px_-30px_rgba(0,0,0,0.8)]">
                 <Image
                   src={lead.img}
                   alt={lead.name}
-                  width={800}
-                  height={600}
+                  width={1600}
+                  height={1067}
                   className="w-full rounded"
-                  sizes="(max-width: 768px) 100vw, 480px"
+                  sizes="(max-width: 768px) 100vw, 580px"
                 />
               </div>
             </div>
-            <div className="md:col-span-7 md:pl-4">
+            <div className="md:col-span-6 md:pl-6">
               <h3 className="font-display text-3xl text-bone md:text-4xl">{lead.name}</h3>
               <p className="mt-2 text-sm text-stone">
                 {lead.issuer}
