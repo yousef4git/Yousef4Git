@@ -6,17 +6,13 @@ import { siteContent } from "@/content/site";
 
 export default function Hero() {
   const container = useRef<HTMLElement>(null);
+  const { hero } = siteContent;
 
   useGSAP(
     () => {
       const mm = gsap.matchMedia();
       mm.add("(prefers-reduced-motion: no-preference)", () => {
-        // Each char carries its own gold-sheen: background-clip on the parent
-        // stops painting once transformed char spans create stacking contexts.
-        const split = SplitText.create("[data-hero-name]", {
-          type: "words,chars",
-          charsClass: "gold-sheen",
-        });
+        const split = SplitText.create("[data-hero-name]", { type: "words,chars" });
         gsap.set(container.current, { autoAlpha: 1 });
         gsap
           .timeline({ defaults: { ease: EASE.cinematic } })
@@ -26,22 +22,39 @@ export default function Hero() {
             { yPercent: 110, autoAlpha: 0, stagger: 0.03, duration: DUR.slow },
             "-=0.7"
           )
-          // The kicker moves instead of fading: small text at partial opacity
-          // fails the color-contrast audit mid-animation.
+          // Every line of small text wipes in behind a clip instead of fading:
+          // text at partial opacity fails the colour-contrast audit
+          // mid-animation, and a wipe reads as a reveal rather than a fade.
+          .from("[data-hero-meta]", { y: 12, duration: DUR.base }, "-=0.8")
           .from(
-            "[data-hero-meta]",
-            { y: 12, letterSpacing: "0.5em", duration: DUR.base },
-            "-=0.8"
-          )
-          .from("[data-hero-role]", { autoAlpha: 0, y: 24, duration: DUR.base }, "-=0.5")
-          .from("[data-hero-tagline]", { autoAlpha: 0, y: 16, duration: DUR.base }, "-=0.5")
-          .from(
-            "[data-hero-badge]",
-            { autoAlpha: 0, y: 14, stagger: 0.08, duration: DUR.base },
+            "[data-hero-role]",
+            { clipPath: "inset(0 0 100% 0)", y: 16, duration: DUR.base },
             "-=0.5"
           )
-          .from("[data-scroll-cue]", { autoAlpha: 0, duration: DUR.base }, "-=0.3");
-        gsap.to("[data-scroll-cue]", { y: 8, repeat: -1, yoyo: true, duration: 0.9, ease: EASE.drift });
+          .from(
+            "[data-hero-tagline]",
+            { clipPath: "inset(0 0 100% 0)", y: 12, duration: DUR.base },
+            "-=0.5"
+          )
+          .from(
+            "[data-hero-badge]",
+            { clipPath: "inset(0 100% 0 0)", y: 10, stagger: 0.08, duration: DUR.base },
+            "-=0.5"
+          )
+          .from(
+            "[data-hero-cta]",
+            { clipPath: "inset(0 100% 0 0)", y: 10, stagger: 0.1, duration: DUR.base },
+            "-=0.5"
+          )
+          .from("[data-scroll-cue]", { scaleY: 0, transformOrigin: "top", duration: DUR.base }, "-=0.2");
+        gsap.to("[data-scroll-cue]", {
+          scaleY: 0.4,
+          transformOrigin: "top",
+          repeat: -1,
+          yoyo: true,
+          duration: 1.1,
+          ease: EASE.drift,
+        });
         return () => split.revert();
       });
       mm.add("(prefers-reduced-motion: reduce)", () => {
@@ -62,42 +75,58 @@ export default function Hero() {
         aria-hidden
         className="pointer-events-none absolute right-[-12%] top-1/2 hidden h-[40rem] w-[40rem] -translate-y-1/2 rounded-full bg-gold/10 blur-3xl md:block"
       />
-      <div className="mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-12 px-6 py-24 md:grid-cols-[1fr_auto] md:gap-16">
+      <div className="mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-12 px-6 pb-24 pt-28 md:grid-cols-[1fr_auto] md:gap-16 md:py-24">
         <div className="relative z-10 text-center md:text-left">
-          <p data-hero-meta className="font-mono text-xs uppercase tracking-[0.3em] text-stone">
-            {siteContent.hero.location}
+          <p data-hero-meta className="text-sm text-stone">
+            {hero.location}
           </p>
           <h1
             data-hero-name
-            className="mt-5 font-display text-5xl leading-none gold-sheen md:text-6xl lg:text-7xl"
+            className="mt-4 font-display text-5xl leading-none text-gold md:text-6xl lg:text-7xl"
           >
             {siteContent.name}
           </h1>
           {/* Title in gold, way of working in stone: the hierarchy is the
-              honesty. noon gave the first clause, not the second. */}
+              honesty. Noon gave the first clause, not the second. */}
           <p
             data-hero-role
-            className="mt-5 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 font-mono text-sm uppercase tracking-widest text-gold md:justify-start"
+            className="mt-5 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-sm font-medium uppercase tracking-wide text-gold md:justify-start"
           >
             <span>{siteContent.role}</span>
             <span aria-hidden className="h-1 w-1 rounded-full bg-gold/50" />
             <span className="text-stone">{siteContent.roleAside}</span>
           </p>
-          <p data-hero-tagline className="mx-auto mt-3 max-w-xl text-stone md:mx-0">
+          <p data-hero-tagline className="mx-auto mt-4 max-w-xl text-lg text-stone md:mx-0">
             {siteContent.tagline}
           </p>
           <ul className="mt-7 flex flex-wrap justify-center gap-2 md:justify-start">
-            {siteContent.hero.badges.map((b) => (
+            {hero.badges.map((b) => (
               <li
                 key={b}
                 data-hero-badge
-                className="flex items-center gap-2 rounded-full border border-gold/25 bg-coal/60 px-3.5 py-1.5 font-mono text-[11px] text-stone"
+                className="rounded-full border border-gold/25 bg-coal/70 px-3.5 py-1.5 text-xs text-bone/90"
               >
-                <span aria-hidden className="h-1 w-1 rounded-full bg-gold" />
                 {b}
               </li>
             ))}
           </ul>
+          <div className="mt-9 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 md:justify-start">
+            <a
+              data-hero-cta
+              href={hero.cta.cv}
+              download
+              className="rounded-full bg-gold px-5 py-2.5 text-sm font-medium text-night transition-colors hover:bg-gold-bright"
+            >
+              {hero.cta.cvLabel}
+            </a>
+            <a
+              data-hero-cta
+              href={`mailto:${hero.cta.email}`}
+              className="text-sm font-medium text-gold underline-offset-4 transition-colors hover:text-gold-bright hover:underline"
+            >
+              {hero.cta.emailLabel}
+            </a>
+          </div>
         </div>
         <div
           data-hero-frame
@@ -106,30 +135,34 @@ export default function Hero() {
           <video
             data-hero-video
             className="h-full w-full object-cover md:aspect-[9/16] md:h-auto"
-            src={siteContent.hero.video}
-            poster={siteContent.hero.poster}
+            src={hero.video}
+            poster={hero.poster}
             autoPlay
             muted
             loop
             playsInline
             preload="metadata"
-            aria-label={siteContent.hero.videoAlt}
+            aria-label={hero.videoAlt}
           />
+          {/* On phones the video sits behind the copy, so the scrim is heavy;
+              on wider screens it only grounds the caption at the frame's foot. */}
           <div
             aria-hidden
-            className="absolute inset-0 bg-night/70 [background-image:radial-gradient(ellipse_at_center,rgba(201,169,110,0.12),transparent_65%)] md:bg-transparent md:[background-image:linear-gradient(to_top,rgba(16,14,11,0.55),transparent_45%)]"
+            className="absolute inset-0 bg-night/80 md:bg-transparent md:[background-image:linear-gradient(to_top,rgba(16,14,11,0.7),transparent_40%)]"
           />
           <p
             aria-hidden
-            className="absolute bottom-4 left-1/2 hidden w-full -translate-x-1/2 text-center font-mono text-[10px] uppercase tracking-[0.3em] text-bone/70 md:block"
+            className="absolute bottom-4 left-0 hidden w-full text-center text-xs text-bone/80 md:block"
           >
-            Apple Developer Academy
+            {hero.videoCaption}
           </p>
         </div>
       </div>
-      <div data-scroll-cue aria-hidden className="absolute bottom-6 left-1/2 z-10 -translate-x-1/2 text-gold">
-        ↓
-      </div>
+      <div
+        data-scroll-cue
+        aria-hidden
+        className="absolute bottom-6 left-1/2 z-10 h-10 w-px -translate-x-1/2 bg-gold/70"
+      />
     </section>
   );
 }

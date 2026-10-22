@@ -7,21 +7,16 @@ import { siteContent } from "@/content/site";
 import ChapterHead from "@/components/ChapterHead";
 import StatBand from "@/components/StatBand";
 
-const PLACEMENT = [
-  "md:col-span-8 md:col-start-1",
-  "md:col-span-6 md:col-start-7 md:mt-24",
-  "md:col-span-7 md:col-start-3 md:mt-6",
-];
-
 const SIZES = [
-  "(max-width: 768px) 100vw, 60vw",
-  "(max-width: 768px) 100vw, 45vw",
-  "(max-width: 768px) 100vw, 52vw",
+  "(max-width: 768px) 100vw, 660px",
+  "(max-width: 640px) 100vw, 320px",
+  "(max-width: 640px) 100vw, 320px",
 ];
 
 export default function Teaching() {
   const container = useRef<HTMLElement>(null);
   const { teaching } = siteContent;
+  const [stage, ...rest] = teaching.gallery;
 
   useGSAP(
     () => {
@@ -36,26 +31,23 @@ export default function Teaching() {
           scrollTrigger: { trigger: "[data-teach-copy]", start: "top 82%" },
         });
         gsap.utils.toArray<HTMLElement>("[data-stage-photo]").forEach((fig) => {
-          gsap.fromTo(
-            fig,
-            { autoAlpha: 0, y: 48 },
-            {
-              autoAlpha: 1,
-              y: 0,
-              ease: "power2.out",
-              scrollTrigger: { trigger: fig, start: "top 88%", end: "top 45%", scrub: 1 },
-            }
-          );
+          gsap.from(fig, {
+            autoAlpha: 0,
+            scale: 1.03,
+            duration: 0.9,
+            ease: EASE.cinematic,
+            scrollTrigger: { trigger: fig, start: "top 88%" },
+          });
           // Slow drift inside the cropped frame for depth; the constant
-          // overscale keeps edges covered through the plus/minus 6% travel.
+          // overscale keeps edges covered through the plus/minus 4% travel.
           const img = fig.querySelector("img");
           if (img) {
             gsap.fromTo(
               img,
-              { yPercent: -6, scale: 1.12 },
+              { yPercent: -4, scale: 1.08 },
               {
-                yPercent: 6,
-                scale: 1.12,
+                yPercent: 4,
+                scale: 1.08,
                 ease: "none",
                 scrollTrigger: { trigger: fig, start: "top bottom", end: "bottom top", scrub: true },
               }
@@ -68,50 +60,58 @@ export default function Teaching() {
   );
 
   return (
-    <section
-      ref={container}
-      id="teaching"
-      data-chapter="teaching"
-      className="bg-coal py-24 md:py-36"
-    >
+    <section ref={container} id="teaching" data-chapter="teaching" className="py-24 md:py-32">
       <div className="mx-auto max-w-6xl">
-        <ChapterHead title={teaching.title} note={teaching.note} />
-        <div data-teach-copy className="mt-10 px-6">
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-stone">
-            {teaching.meta}
-          </p>
-          <div className="mt-8 max-w-2xl space-y-5">
-            {teaching.lines.map((l) => (
-              <p key={l} data-teach-line className="text-stone">
-                {l}
-              </p>
-            ))}
+        <ChapterHead title={teaching.title} lead={teaching.lead} />
+        <div className="mt-12 grid grid-cols-1 gap-12 px-6 md:grid-cols-12 md:gap-x-8">
+          <div data-teach-copy className="md:col-span-5">
+            <div className="space-y-5">
+              {teaching.lines.map((l, i) => (
+                <p
+                  key={l}
+                  data-teach-line
+                  className={i === 0 ? "text-lg leading-relaxed text-bone/90" : "text-stone"}
+                >
+                  {l}
+                </p>
+              ))}
+            </div>
+            <div className="mt-10">
+              <StatBand stats={teaching.stats} layout="stack" />
+            </div>
           </div>
-          <div className="mt-14 max-w-3xl">
-            <StatBand stats={teaching.stats} />
-          </div>
-        </div>
-        <div className="mt-20 grid grid-cols-1 gap-16 px-6 md:grid-cols-12 md:gap-x-6 md:gap-y-0">
-          {teaching.gallery.map((s, i) => (
-            <figure key={s.src} data-stage-photo className={PLACEMENT[i]}>
+          <div className="grid grid-cols-1 gap-6 md:col-span-7">
+            <figure data-stage-photo>
               <div className="overflow-hidden rounded-lg border border-gold/10 shadow-[0_30px_60px_-30px_rgba(0,0,0,0.8)]">
                 <Image
-                  src={s.src}
-                  alt={s.alt}
-                  width={s.width}
-                  height={s.height}
-                  className="w-full"
-                  sizes={SIZES[i]}
+                  src={stage.src}
+                  alt={stage.alt}
+                  width={stage.width}
+                  height={stage.height}
+                  className="aspect-[4/3] w-full object-cover"
+                  sizes={SIZES[0]}
                 />
               </div>
-              <figcaption className="mt-3 font-mono text-xs text-stone">
-                <span aria-hidden className="mr-2 text-gold">
-                  ·0{i + 1}
-                </span>
-                {s.caption}
-              </figcaption>
+              <figcaption className="mt-3 text-xs text-stone">{stage.caption}</figcaption>
             </figure>
-          ))}
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+              {rest.map((s, i) => (
+                <figure key={s.src} data-stage-photo>
+                  <div className="overflow-hidden rounded-lg border border-gold/10 shadow-[0_30px_60px_-30px_rgba(0,0,0,0.8)]">
+                    <Image
+                      src={s.src}
+                      alt={s.alt}
+                      width={s.width}
+                      height={s.height}
+                      className="aspect-[16/9] w-full object-cover"
+                      sizes={SIZES[i + 1]}
+                    />
+                  </div>
+                  <figcaption className="mt-3 text-xs text-stone">{s.caption}</figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

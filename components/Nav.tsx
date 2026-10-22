@@ -3,19 +3,19 @@ import { useEffect, useRef } from "react";
 import { gsap, useGSAP } from "@/lib/gsap";
 import Mark from "@/components/Mark";
 
-// Labels match each section's own heading: "Selected work" rather than "Work",
-// so it cannot be misread as a second link to "How I work".
+// Labels match each section's own heading, in sentence case, so the nav
+// reads as a table of contents rather than as a row of badges.
 const LINKS = [
   { href: "#hero", label: "Intro" },
   { href: "#method", label: "How I work" },
   { href: "#noon", label: "Noon" },
   { href: "#teaching", label: "Teaching" },
-  { href: "#work", label: "Selected work" },
+  { href: "#work", label: "Projects" },
   { href: "#yax", label: "Before AI" },
   { href: "#credentials", label: "Credentials" },
 ];
 
-// Every section now owns its own nav stop, so the spy map is one to one.
+// Every section owns its own nav stop, so the spy map is one to one.
 const SPY: Record<string, string> = {
   hero: "#hero",
   method: "#method",
@@ -50,9 +50,9 @@ export default function Nav() {
     { scope: wrap }
   );
 
-  // Active-section highlight. IntersectionObserver reads live layout, so
-  // pinned sections (whose ScrollTrigger positions shift by pin spacers)
-  // stay correct: whichever section crosses the viewport's center band wins.
+  // Active-section highlight. IntersectionObserver reads live layout, so it
+  // stays correct however tall a chapter becomes: whichever section crosses
+  // the viewport's centre band wins.
   useEffect(() => {
     const setActive = (href: string) => {
       wrap.current
@@ -61,8 +61,11 @@ export default function Nav() {
           const on = a.getAttribute("href") === href;
           a.classList.toggle("bg-gold/15", on);
           a.classList.toggle("text-gold-bright", on);
-          if (on) a.setAttribute("aria-current", "true");
-          else a.removeAttribute("aria-current");
+          if (on) {
+            a.setAttribute("aria-current", "true");
+            // Keep the active stop in view on narrow screens, where the pill scrolls.
+            a.scrollIntoView({ block: "nearest", inline: "nearest" });
+          } else a.removeAttribute("aria-current");
         });
     };
     const io = new IntersectionObserver(
@@ -84,6 +87,12 @@ export default function Nav() {
 
   return (
     <div ref={wrap}>
+      <a
+        href="#noon"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[80] focus:rounded-full focus:bg-gold focus:px-4 focus:py-2 focus:text-sm focus:text-night"
+      >
+        Skip to the work
+      </a>
       <div
         data-progress
         aria-hidden
@@ -99,14 +108,14 @@ export default function Nav() {
           </a>
           <nav
             aria-label="Sections"
-            className="no-scrollbar flex items-center gap-0.5 overflow-x-auto max-md:[mask-image:linear-gradient(to_right,black_88%,transparent)]"
+            className="no-scrollbar flex items-center gap-0.5 overflow-x-auto scroll-smooth max-md:[mask-image:linear-gradient(to_right,black_88%,transparent)]"
           >
             {LINKS.map((l) => (
               <a
                 key={l.href}
                 data-nav-link
                 href={l.href}
-                className="whitespace-nowrap rounded-full px-3 py-1.5 font-mono text-[11px] uppercase tracking-wider text-stone transition-colors hover:text-bone"
+                className="whitespace-nowrap rounded-full px-3 py-1.5 text-xs font-medium text-stone transition-colors hover:text-bone"
               >
                 {l.label}
               </a>

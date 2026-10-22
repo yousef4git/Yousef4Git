@@ -1,40 +1,36 @@
 import { siteContent } from "@/content/site";
 
+const LINK = "text-sm font-medium text-gold underline-offset-4 transition-colors hover:text-gold-bright hover:underline";
+
 export default function Footer() {
-  const { contact } = siteContent;
+  const { contact, footer } = siteContent;
   return (
-    <footer id="contact" data-chapter="footer" className="border-t border-gold/10 bg-coal">
-      <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 px-6 py-16 text-center">
-        <p className="font-mono text-xs uppercase tracking-[0.3em] text-gold">Closing credits</p>
-        <p className="max-w-md text-stone">
-          Questions about my work? The chat in the corner answers from my CV, or reach me
-          directly.
-        </p>
-        <div className="flex flex-wrap justify-center gap-6 font-mono text-sm">
-          <a className="text-gold hover:text-gold-bright" href={`mailto:${contact.email}`}>
-            Email
-          </a>
-          <a
-            className="text-gold hover:text-gold-bright"
-            href={contact.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            LinkedIn
-          </a>
-          <a
-            className="text-gold hover:text-gold-bright"
-            href={contact.github}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            GitHub
-          </a>
-          <a className="text-gold hover:text-gold-bright" href={contact.cv} download>
-            Download CV
-          </a>
+    <footer id="contact" data-chapter="footer" className="border-t border-gold/10 bg-night">
+      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-10 px-6 py-20 md:grid-cols-12 md:items-end md:py-28">
+        <div className="md:col-span-7">
+          <p className="font-display text-5xl leading-none text-bone md:text-7xl">{footer.title}</p>
+          <p className="mt-6 max-w-md text-stone">{footer.line}</p>
         </div>
-        <p className="font-mono text-[11px] text-stone">Yousef Alshuwayi · Riyadh, Saudi Arabia</p>
+        <div className="flex flex-col items-start gap-5 md:col-span-5 md:items-end md:text-right">
+          <a
+            href={`mailto:${contact.email}`}
+            className="rounded-full bg-gold px-5 py-2.5 text-sm font-medium text-night transition-colors hover:bg-gold-bright"
+          >
+            {contact.email}
+          </a>
+          <div className="flex flex-wrap gap-x-6 gap-y-2 md:justify-end">
+            <a className={LINK} href={contact.linkedin} target="_blank" rel="noopener noreferrer">
+              LinkedIn
+            </a>
+            <a className={LINK} href={contact.github} target="_blank" rel="noopener noreferrer">
+              GitHub
+            </a>
+            <a className={LINK} href={contact.cv} download>
+              Download CV
+            </a>
+          </div>
+          <p className="mt-4 text-xs text-stone">Yousef Alshuwayi, Riyadh, Saudi Arabia</p>
+        </div>
       </div>
     </footer>
   );

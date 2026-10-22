@@ -21,12 +21,21 @@ body {
   @apply bg-night text-bone font-body antialiased;
 }
 
-/* Gold light sweep motif, applied to headings by chapters */
-.gold-sheen {
-  background: linear-gradient(100deg, var(--color-gold) 30%, var(--color-gold-bright) 50%, var(--color-gold) 70%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/* Keyboard focus is gold, the same colour the page uses for every action. */
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+  border-radius: 2px;
 }
 
 /* Liquid glass: layered translucency, saturation boost, and a specular top
@@ -52,6 +61,17 @@ body {
 }
 .no-scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+/* A horizontal strip of screens: snaps per frame, scrolls with the thumb,
+   and never captures the page's vertical scroll. */
+.strip {
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+}
+.strip > * {
+  scroll-snap-align: start;
 }
 
 /* Film grain: one fixed composited layer, ties the chapters together and
