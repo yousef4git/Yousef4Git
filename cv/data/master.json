@@ -20,8 +20,8 @@
     {
       "id": "noon",
       "title": {
-        "en": "AI Systems Engineer",
-        "ar": "مهندس أنظمة ذكاء اصطناعي"
+        "en": "AI Systems Engineer, Central Operations",
+        "ar": "مهندس أنظمة ذكاء اصطناعي، العمليات المركزية"
       },
       "org": {
         "en": "Noon Academy",
@@ -40,8 +40,8 @@
             "all"
           ],
           "text": {
-            "en": "Built and launched an Arabic training portal for trainees, trainers and the Training & Development team; the team now runs cohorts and content without engineering.",
-            "ar": "بنيت وأطلقت بوابة تدريب بالعربية للمتدربين والمدربين وفريق التدريب والتطوير؛ ويدير الفريق الآن الدفعات والمحتوى دون الحاجة إلى الهندسة."
+            "en": "Built a portal in Arabic covering the trainee journey, trainers' daily work and programme administration; the Training & Development team can launch and run standard cohorts without routine engineering support.",
+            "ar": "بنيت بوابة بالعربية تغطي رحلة المتدرب وعمل المدربين اليومي وإدارة البرنامج؛ ويستطيع فريق التدريب والتطوير إطلاق الدفعات الاعتيادية وتشغيلها دون دعم هندسي روتيني."
           }
         },
         {
@@ -50,8 +50,8 @@
             "all"
           ],
           "text": {
-            "en": "Built a daily ops-to-HR integration keeping work locations, sections and direct managers aligned with school placements; go-live reconciled a few hundred records with zero errors.",
-            "ar": "بنيت تكاملًا يوميًا بين نظام العمليات ومنصة الموارد البشرية يُبقي مواقع العمل والأقسام والمديرين المباشرين متوافقة مع تعيينات المدارس؛ وسوّى تشغيل الإطلاق بضع مئات من السجلات دون أخطاء."
+            "en": "Built a daily integration that keeps employees' work locations, sections and direct managers in the HR platform aligned with their operational placements; go-live reconciled a few hundred records with zero errors.",
+            "ar": "بنيت تكاملًا يوميًا يُبقي مواقع عمل الموظفين وأقسامهم ومديريهم المباشرين في منصة الموارد البشرية متوافقة مع تعييناتهم التشغيلية؛ وسوّى تشغيل الإطلاق بضع مئات من السجلات دون أخطاء."
           }
         },
         {
@@ -60,8 +60,8 @@
             "all"
           ],
           "text": {
-            "en": "Built the MCIT × Noon generative AI learning platform (student, teacher and admin flows) and wrote its Arabic learning content; live.",
-            "ar": "بنيت منصة MCIT × Noon لتعلّم الذكاء الاصطناعي التوليدي (مسارات الطالب والمعلم والمشرف) وكتبت محتواها التعليمي بالعربية؛ وهي تعمل الآن."
+            "en": "Built the student platform, teacher board and admin tools of the MCIT × Noon generative AI learning platform, and created the Arabic learning content.",
+            "ar": "بنيت منصة الطالب ولوحة المعلم وأدوات المشرف في منصة MCIT × Noon لتعلّم الذكاء الاصطناعي التوليدي، وأعددت محتواها التعليمي بالعربية."
           }
         },
         {
@@ -72,8 +72,8 @@
             "ml"
           ],
           "text": {
-            "en": "Co-created and co-delivered the boys' AI Week session: 525 attended; 88% of 365 survey respondents were positive.",
-            "ar": "شاركت في إعداد وتقديم جلسة أسبوع الذكاء الاصطناعي للبنين: حضر 525 طالبًا، و88% من 365 مشاركًا في الاستبيان كانوا إيجابيين."
+            "en": "Co-created and delivered the boys' AI Week session: 525 attended; 88% positive in the end-of-session survey.",
+            "ar": "شاركت في إعداد جلسة أسبوع الذكاء الاصطناعي للبنين وتقديمها: حضر 525 طالبًا، و88% ردود إيجابية في استبيان نهاية الجلسة."
           }
         },
         {
@@ -84,8 +84,18 @@
             "it-planning"
           ],
           "text": {
-            "en": "Built an early internal placement tool for the school-staffing team, with an API connection to the school system.",
-            "ar": "بنيت أداة داخلية أولية لتعيين كوادر المدارس لفريق توظيف المدارس، وربطتها بنظام المدارس عبر واجهة برمجية."
+            "en": "Built an early internal placement tool for the school-staffing team.",
+            "ar": "بنيت أداة داخلية أولية لتعيين كوادر المدارس لفريق توظيف المدارس."
+          }
+        },
+        {
+          "id": "noon_hackathon",
+          "tags": [
+            "all"
+          ],
+          "text": {
+            "en": "Judged the Educational Games Industry Hackathon, run with MCIT and supported by Replit.",
+            "ar": "حكّمت في هاكاثون صناعة الألعاب التعليمية الذي أُقيم مع وزارة الاتصالات وتقنية المعلومات وبدعم من Replit."
           }
         }
       ]
@@ -93,12 +103,12 @@
     {
       "id": "consultant",
       "title": {
-        "en": "AI and Software Consultant (Freelance)",
-        "ar": "مستشار ذكاء اصطناعي وبرمجيات (عمل حر)"
+        "en": "Co-Founder, AI and Software Consulting",
+        "ar": "شريك مؤسس، استشارات الذكاء الاصطناعي والبرمجيات"
       },
       "org": {
-        "en": "",
-        "ar": ""
+        "en": "GHRS Ventures",
+        "ar": "GHRS Ventures"
       },
       "location": {
         "en": "",
@@ -107,6 +117,16 @@
       "start": "2025-01",
       "end": "2026-07",
       "bullets": [
+        {
+          "id": "ghrs",
+          "tags": [
+            "all"
+          ],
+          "text": {
+            "en": "Built and launched software for Saudi businesses through GHRS: rebuilt websites, automated WhatsApp Business and connected internal tools to customer channels.",
+            "ar": "بنيت وأطلقت برمجيات لشركات سعودية عبر GHRS: إعادة بناء مواقع، وأتمتة واتساب للأعمال، وربط الأدوات الداخلية بقنوات العملاء."
+          }
+        },
         {
           "id": "op_design",
           "tags": [
@@ -134,39 +154,14 @@
           }
         },
         {
-          "id": "op_cache",
+          "id": "op_judge_cache",
           "tags": [
             "agentic",
             "ai"
           ],
           "text": {
-            "en": "Cut re-run cost with caching, taking a full run from about 71 model calls down to about 5.",
-            "ar": "خفّضت تكلفة إعادة التشغيل بالتخزين المؤقت، من نحو 71 طلبًا للنموذج في التشغيل الكامل إلى نحو 5 طلبات."
-          }
-        },
-        {
-          "id": "op_judge",
-          "tags": [
-            "agentic",
-            "ai"
-          ],
-          "text": {
-            "en": "Added an LLM-as-judge check on every AI-written message before a person approves it, so nothing goes out unreviewed.",
-            "ar": "أضفت خطوة تحكيم بالنموذج على كل رسالة يكتبها الذكاء الاصطناعي قبل أن يعتمدها شخص، فلا يخرج شيء دون مراجعة."
-          }
-        },
-        {
-          "id": "ghrs",
-          "tags": [
-            "fullstack",
-            "it",
-            "solutions",
-            "pm",
-            "ops"
-          ],
-          "text": {
-            "en": "Built and launched software for Saudi businesses through GHRS: rebuilt websites, automated WhatsApp Business and connected internal tools to customer channels, owning each project from scoping to deployment.",
-            "ar": "بنيت وأطلقت برمجيات لشركات سعودية عبر GHRS: إعادة بناء مواقع، وأتمتة واتساب للأعمال، وربط الأدوات الداخلية بقنوات العملاء، مع إدارة كل مشروع من تحديد النطاق حتى النشر."
+            "en": "Added an LLM-as-judge check on every AI-written message before a person approves it, and cut a full run from about 71 model calls to about 5 with caching.",
+            "ar": "أضفت خطوة تحكيم بالنموذج على كل رسالة يكتبها الذكاء الاصطناعي قبل أن يعتمدها شخص، وخفّضت التشغيل الكامل من نحو 71 طلبًا للنموذج إلى نحو 5 بالتخزين المؤقت."
           }
         },
         {
@@ -176,8 +171,8 @@
             "ai"
           ],
           "text": {
-            "en": "Advised a freight company on its AI architecture, helping turn requirements into a working build.",
-            "ar": "قدّمت الاستشارة لشركة شحن في بنية الذكاء الاصطناعي لديها، وساعدت على تحويل المتطلبات إلى منتج عملي."
+            "en": "Advised a freight company on its AI architecture.",
+            "ar": "قدّمت الاستشارة لشركة شحن في بنية الذكاء الاصطناعي لديها."
           }
         },
         {
@@ -257,8 +252,8 @@
             "all"
           ],
           "text": {
-            "en": "Managed the deployment of 1,500 staff across 85 Riyadh Metro stations in one month for the launch.",
-            "ar": "أدرت توزيع 1,500 موظف عبر 85 محطة في قطار الرياض خلال شهر واحد للإطلاق."
+            "en": "Managed the deployment of 1,500 staff across 85 Riyadh Metro stations in one month for the launch. Promoted twice within a year.",
+            "ar": "أدرت توزيع 1,500 موظف عبر 85 محطة في قطار الرياض خلال شهر واحد للإطلاق. وتمت ترقيتي مرتين خلال سنة واحدة."
           }
         },
         {
@@ -293,8 +288,8 @@
             "ops"
           ],
           "text": {
-            "en": "Promoted twice in one year, from Operations Team Member to Human Resources Coordinator (Apr 2024) to Staff Manager (Nov 2024), recruiting and scheduling staff for projects in Saudi Arabia and abroad.",
-            "ar": "تمت ترقيتي مرتين خلال سنة واحدة، من عضو فريق عمليات إلى منسّق موارد بشرية (أبريل 2024) ثم مدير طاقم (نوفمبر 2024)، مع توظيف وجدولة الطواقم لمشاريع داخل السعودية وخارجها."
+            "en": "Promoted from Operations Team Member to Human Resources Coordinator (Apr 2024) to Staff Manager (Nov 2024), recruiting and scheduling staff for projects in Saudi Arabia and abroad.",
+            "ar": "رُقّيت من عضو فريق عمليات إلى منسّق موارد بشرية (أبريل 2024) ثم مدير طاقم (نوفمبر 2024)، مع توظيف وجدولة الطواقم لمشاريع داخل السعودية وخارجها."
           }
         },
         {
@@ -368,8 +363,8 @@
             "all"
           ],
           "text": {
-            "en": "Built my own course platform after hitting the same gaps on other tools as an instructor. Full stack: Next.js 15, Convex, Moyasar payments, Bunny.net video, in Arabic and English. Live and in use.",
-            "ar": "بنيت منصّة الدورات الخاصة بي بعد أن واجهت النواقص نفسها في الأدوات الأخرى بصفتي معلّمًا. حزمة متكاملة: Next.js 15 وConvex ومدفوعات Moyasar وفيديو Bunny.net، بالعربية والإنجليزية. تعمل الآن وقيد الاستخدام."
+            "en": "Built my own course platform after hitting the same walls on every platform I taught on: bilingual (Arabic/English), payments, video delivery, live and in use today. Next.js 15, Convex, Moyasar, Bunny.net.",
+            "ar": "بنيت منصة الدورات الخاصة بي بعد أن واجهت العوائق نفسها في كل منصة درّست عليها: ثنائية اللغة (عربي/إنجليزي)، ومدفوعات، وبث فيديو، وهي تعمل وقيد الاستخدام اليوم. Next.js 15 وConvex وMoyasar وBunny.net."
           }
         }
       ]
@@ -397,8 +392,8 @@
             "fullstack"
           ],
           "text": {
-            "en": "Designed and shipped my portfolio as a product: Next.js and GSAP on the front, a streaming AI chat that answers as me behind it, with rate limits, input validation, and prompt guardrails on the API.",
-            "ar": "صمّمت وأطلقت موقعي الشخصي كمنتج: Next.js وGSAP في الواجهة، ومحادثة ذكاء اصطناعي متدفقة تجيب بصفتي خلفها، مع حدود للمعدّل وتحقق من المدخلات وضوابط حماية على الواجهة البرمجية."
+            "en": "Built as a product: a streaming AI chat that answers as me, with rate limits, input validation, and prompt guardrails behind the API. Next.js, GSAP, Vercel.",
+            "ar": "بُني كمنتج: محادثة ذكاء اصطناعي متدفقة تجيب بصفتي، مع حدود للمعدّل وتحقق من المدخلات وضوابط حماية خلف الواجهة البرمجية. Next.js وGSAP وVercel."
           }
         }
       ]
@@ -428,8 +423,8 @@
             "ml"
           ],
           "text": {
-            "en": "A simple assistant that helps people make better day-to-day financial decisions, built in Apple's AI program (selected 1 of 66).",
-            "ar": "مساعد بسيط يعين الناس على اتخاذ قرارات مالية يومية أفضل، بُني في برنامج Apple للذكاء الاصطناعي (اختير 1 من 66)."
+            "en": "An assistant for day-to-day financial decisions, built in Apple's AI program (selected 1 of 66).",
+            "ar": "مساعد للقرارات المالية اليومية، بُني في برنامج Apple للذكاء الاصطناعي (اختير 1 من 66)."
           }
         }
       ]
@@ -532,7 +527,7 @@
   "education": [
     {
       "primary": {
-        "en": "B.Sc. Computer Science",
+        "en": "BSc Computer Science",
         "ar": "بكالوريوس علوم الحاسب"
       },
       "secondary": {
@@ -583,8 +578,8 @@
       },
       "year": "2026",
       "note": {
-        "en": "Seven weeks, selective admission.",
-        "ar": "سبعة أسابيع، قبول انتقائي."
+        "en": "Selective admission.",
+        "ar": "قبول انتقائي."
       }
     },
     {
@@ -613,13 +608,13 @@
       },
       "year": "2025",
       "note": {
-        "en": "1 of 66 selected.",
-        "ar": "1 من 66 مختارًا."
+        "en": "Selected 1 of 66.",
+        "ar": "اختير 1 من 66."
       }
     },
     {
       "name": {
-        "en": "Introduction to Artificial Intelligence",
+        "en": "Introduction to AI",
         "ar": "مقدمة في الذكاء الاصطناعي"
       },
       "org": {
@@ -634,7 +629,7 @@
     },
     {
       "name": {
-        "en": "Data Science and Machine Learning scholarship",
+        "en": "Data Science & ML scholarship",
         "ar": "منحة علم البيانات وتعلّم الآلة"
       },
       "org": {
@@ -649,23 +644,8 @@
     },
     {
       "name": {
-        "en": "Data Collection and Processing with Python",
-        "ar": "جمع البيانات ومعالجتها باستخدام Python"
-      },
-      "org": {
-        "en": "University of Michigan",
-        "ar": "جامعة ميشيغان"
-      },
-      "year": "2025",
-      "note": {
-        "en": "",
-        "ar": ""
-      }
-    },
-    {
-      "name": {
-        "en": "Introduction to Data Science",
-        "ar": "مقدمة في علم البيانات"
+        "en": "Data courses",
+        "ar": "دورات بيانات"
       },
       "org": {
         "en": "University of Michigan",

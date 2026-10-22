@@ -6,8 +6,8 @@
     "ar": "مهندس ذكاء اصطناعي"
   },
   "summary": {
-    "en": "AI Systems Engineer at Noon Academy in Riyadh, building internal tools and AI learning platforms that reach production and are handed over to the teams that run them: a training portal, a daily HR integration and a student generative AI platform with its Arabic content. As an independent consultant I designed an auditable document intake and risk-triage system for an education platform, deciding where models add value and where fixed rules keep decisions reviewable.",
-    "ar": "مهندس أنظمة ذكاء اصطناعي في نون أكاديمي بالرياض، يبني أدوات داخلية ومنصات تعلّم بالذكاء الاصطناعي تصل إلى الإنتاج وتُسلَّم إلى الفرق التي تشغّلها: بوابة تدريب، وتكامل يومي مع الموارد البشرية، ومنصة ذكاء اصطناعي توليدي للطلاب بمحتواها العربي. وبصفتي مستشارًا مستقلًا صمّمت نظامًا قابلًا للمراجعة لاستقبال المستندات وترتيب الحالات حسب الخطورة لمنصة تعليمية، محدِّدًا أين يضيف النموذج قيمة وأين تُبقي القواعد الثابتة القرارات قابلة للمراجعة."
+    "en": "AI Systems Engineer at Noon Academy, Riyadh. I work forward deployed: I embed with the team that owns the problem, turn ambiguity into a product, ship it fast, and hand it over so it runs without me. At Noon that includes a training portal the team can run themselves, a daily HR data integration, a student AI platform with its learning content, and an early internal placement tool for the school-staffing team.",
+    "ar": "مهندس أنظمة ذكاء اصطناعي في نون أكاديمي بالرياض. أعمل في قلب الميدان مع الفريق: أندمج مع الفريق الذي يملك المشكلة، وأحوّل الغموض إلى منتج، وأطلقه بسرعة، ثم أسلّمه ليعمل من دوني. ويشمل ذلك في نون بوابة تدريب يديرها الفريق بنفسه، وتكاملًا يوميًا لبيانات الموارد البشرية، ومنصة ذكاء اصطناعي للطلاب بمحتواها التعليمي، وأداة داخلية أولية لتعيين كوادر المدارس لفريق توظيف المدارس."
   },
   "sectionOrder": [
     "summary",
@@ -24,6 +24,7 @@
     "agentic"
   ],
   "leadBullets": [
+    "ghrs",
     "op_design",
     "op_integrity"
   ],

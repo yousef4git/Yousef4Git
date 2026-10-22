@@ -23,8 +23,7 @@
   ],
   "leadBullets": [
     "op_design",
-    "op_judge",
-    "op_cache"
+    "op_judge_cache"
   ],
   "skillOrder": [
     "ai",
