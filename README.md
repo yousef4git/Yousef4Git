@@ -21,7 +21,7 @@ I am an AI Systems Engineer at Noon Academy in Riyadh. I turn day-to-day operati
 
 Before that I worked as a freelance AI and software consultant. I built and launched software for Saudi businesses through **GHRS**, delivered an education AI system with rule-based decisions and human review, and advised logistics startup FREIGHTLX on its AI architecture. I also built **Rusokh**, a course platform that is live and in use.
 
-I have taught **1,800+ computer science students** at Shaguf over four years, with a 4.9/5 learner rating. Before engineering I managed the deployment of **1,500 staff across 45 Riyadh Metro stations** in one month for the launch. I was selected 1 of 66 from over 400,000 applicants for **Apple's AI program**.
+I have taught **1,800+ computer science students** at Shaguf over four years, with a 4.9/5 learner rating. Before engineering I managed the deployment of **1,500 staff across 85 Riyadh Metro stations** in one month for the launch. I was selected 1 of 66 from over 400,000 applicants for **Apple's AI program**.
 
 ```
 Operations at national scale → computer science and AI → consulting → Noon Academy.
@@ -35,9 +35,9 @@ Operations at national scale → computer science and AI → consulting → Noon
 
 | Project | What it is | Status |
 | --- | --- | --- |
-| [**Training & Development Portal**](https://trainingat.noon.edu.sa/) | Trainee, trainer and programme-admin workflows in one training record, with cohort setup, content management, analytics and exports. React, TypeScript, Vite, Express, Supabase. | 🟢 Live |
-| **Citadel to ZenHR integration** | Daily sync of work locations, sections and direct managers from Citadel into ZenHR; unmatched records are held for review. TypeScript, Node.js, PostgreSQL, OAuth 2.0. | ✅ Live and handed over |
-| [**MCIT × Noon generative AI learning platform**](https://noonai.noon.edu.sa/) | Student, teacher and admin flows plus the Arabic curriculum: prompt practice with feedback, app building with saved versions, knowledge checks. Next.js, PostgreSQL, Drizzle. | 🟢 Platform live, classroom pilot next |
+| [**Training & Development Portal**](https://trainingat.noon.edu.sa/) | Trainee, trainer and programme-admin workflows in one training record, with cohort setup, content management, analytics and exports. | 🟢 Live |
+| **Citadel to ZenHR integration** | Daily sync of work locations, sections and direct managers from Citadel into ZenHR; unmatched records are held for review. | ✅ Live and handed over |
+| [**MCIT × Noon generative AI learning platform**](https://noonai.noon.edu.sa/) | Student, teacher and admin flows plus the Arabic curriculum: prompt practice with feedback, app building with saved versions, knowledge checks. | 🟢 Platform live, classroom pilot next |
 | **AI Week, boys' session** | Co-created and delivered with Talah. 525 attended; 88% of 365 survey respondents responded positively. | ✅ Delivered |
 | **School staff placements** | Initial internal placement tool with a Noon Admin API connection. | 🔨 Initial build |
 

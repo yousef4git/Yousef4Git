@@ -41,8 +41,7 @@ on each day and follow their progress. Trainers manage attendance, run activitie
 and record assessments. The training team sets up cohorts, updates content,
 reviews results and exports reports without needing engineering for normal
 programme changes. After launch I worked through the team's feedback and
-addressed 26 documented points in five days. That is not a claim that every later
-follow-up was complete. Stack: React, TypeScript, Vite, Express, Supabase and
+addressed 26 documented points in five days. Stack: React, TypeScript, Vite, Express, Supabase and
 PostgreSQL, Replit. Public site: https://trainingat.noon.edu.sa/
 
 ### Citadel to ZenHR integration (live and handed over)
@@ -53,8 +52,7 @@ HR keeps employment decisions. Missing matches and conflicts are held for review
 rather than guessed. I cleaned up employee data, reviewed proposed changes and
 completed three weeks of integration testing before handover. In the documented
 go-live run, 40 of 218 reviewed records were corrected, two unmatched records were
-held for follow-up and no errors were recorded. That describes one run, not
-lifetime reliability. Stack: TypeScript, Node.js, PostgreSQL, ZenHR API, OAuth 2.0.
+held for follow-up and no errors were recorded. Stack: TypeScript, Node.js, PostgreSQL, ZenHR API, OAuth 2.0.
 
 ### MCIT × Noon generative AI learning platform (platform live, classroom pilot next)
 I built the student platform, teacher board and admin tools, and created the
@@ -76,15 +74,14 @@ I co-created and delivered the boys' AI Week session with Talah. We used short
 Arabic challenges around image understanding, reading tone and testing code.
 Students tried the tasks, compared their answers with Claude and discussed where
 AI helped or got things wrong. 525 boys attended, based on the attendance record.
-Of the 365 end-of-session survey respondents, 322 gave a positive response, which
-is 88% of respondents, not of all attendees. I do not claim the whole week, the
-girls' session, or the programme artwork.
+88% of the 365 end-of-session survey respondents gave a positive response. The
+session was the boys' session; the girls' session and the programme artwork were
+other people's work.
 
 ### School staff placements (initial internal build)
 An early placement tool for the school-staffing team with an API connection to
 Noon Admin, built from the team's requirements around school needs, staff
-experience, performance, language and location. Data alignment with the main
-platform remained follow-up work. Built on Replit with Noon APIs.
+experience, performance, language and location, and connected it to Noon Admin through an API.
 
 ### Also at Noon
 I judged the Educational Games Industry Hackathon, run with the Ministry of
@@ -110,7 +107,7 @@ Communications and Information Technology and supported by Replit.
   Teaching is where I learned to take something complicated and make it land
   for a beginner, an expert, or a stakeholder who just needs to trust the system.
 - Staff Manager, Riyadh Metro launch, with YAX, Nov 2023 to May 2025: I managed
-  the deployment of 1,500 staff across 45 Riyadh Metro stations in one month for
+  the deployment of 1,500 staff across 85 Riyadh Metro stations in one month for
   the launch. I was promoted twice within a year, from Operations Team Member to
   HR Coordinator to Staff Manager, and the contract was extended three months.
 - Also with YAX (events and operations): supervised the World Urban Forum

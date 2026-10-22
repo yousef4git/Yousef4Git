@@ -1,7 +1,8 @@
 // Every word the site renders lives here. Facts about the Noon work come from
 // the October 2026 handoff pack; the freelance, Shaguf and YAX descriptions are
 // the ones Yousef supplied verbatim. Keep the voice plain: no em dashes, no
-// comparisons with other people, numbers next to their context.
+// comparisons with other people, one sentence per claim and no sentence whose
+// only job is to qualify the one before it.
 
 const CV = "/cv/Yousef-Alshuwayi-AI-Engineer.pdf";
 const EMAIL = "yousefalshuwayi@gmail.com";
@@ -14,13 +15,11 @@ export type Media = {
   height: number;
 };
 
-export type Metric = { value: string; label: string; context: string };
+export type Metric = { value: string; label: string };
 
 export type Flow = {
   from: { name: string; items: readonly string[] };
   to: { name: string; items: readonly string[] };
-  run: string;
-  held: string;
 };
 
 export type NoonProject = {
@@ -28,19 +27,20 @@ export type NoonProject = {
   title: string;
   role: string;
   status: string;
-  statusDetail: string;
+  statusDetail: string | null;
   summary: string;
   description: string;
   work: readonly string[];
   outcomes: readonly string[];
   metrics: readonly Metric[];
-  technologies: readonly string[];
   media: readonly Media[];
   // Public sites, where one exists. Internal tools stay unlinked.
   links: readonly { label: string; href: string }[];
-  // How the block lays its media out. "flow" draws a figure from `flow`;
-  // "none" renders text only, never an empty frame.
-  treatment: "wide" | "flow" | "strip" | "slides" | "none";
+  // How the block lays its media out. "wide" runs the first image across the
+  // row and any others in a grid below; "flow" draws a figure from `flow`;
+  // "poster" sets the metrics beside one tall image; "none" renders text
+  // only, never an empty frame.
+  treatment: "wide" | "flow" | "strip" | "poster" | "none";
   flow: Flow | null;
 };
 
@@ -74,8 +74,7 @@ const noonProjects: readonly NoonProject[] = [
     title: "Training & Development Portal",
     role: "Built the platform and improved it with the training team.",
     status: "Live",
-    statusDetail:
-      "Live since July 2026. The training team can run standard cohorts and manage programme content.",
+    statusDetail: "Live since July 2026.",
     summary: "Built Noon's training portal so the team can run facilitator training from one place.",
     description:
       "I built a portal in Arabic covering the trainee journey, trainers' daily work and programme administration. Trainees can see their agenda, complete exercises, reflect on each day and follow their progress. Trainers can manage attendance, run activities and record assessments. The training team can set up cohorts, update content, review results and export reports without needing engineering for normal programme changes.",
@@ -87,17 +86,8 @@ const noonProjects: readonly NoonProject[] = [
     ],
     outcomes: [
       "The Training & Development team can launch and run standard cohorts without routine engineering support.",
-      "Addressed 26 documented feedback points within five days.",
     ],
-    metrics: [
-      {
-        value: "26",
-        label: "feedback points addressed in five days",
-        context:
-          "All 26 documented points in the training team's improvement cycle were addressed within five days. Not a claim that every later follow-up was complete.",
-      },
-    ],
-    technologies: ["React", "TypeScript", "Vite", "Express", "Supabase / PostgreSQL", "Replit"],
+    metrics: [],
     links: [{ label: "Visit trainingat.noon.edu.sa", href: "https://trainingat.noon.edu.sa/" }],
     media: [
       {
@@ -106,6 +96,27 @@ const noonProjects: readonly NoonProject[] = [
         caption: "Daily agenda and self-assessment in Noon's training portal.",
         width: 2000,
         height: 843,
+      },
+      {
+        src: "/media/photo-portal-trainer.jpg",
+        alt: "A trainer marking attendance for a workshop batch in the Training and Development Portal",
+        caption: "A trainer taking attendance",
+        width: 1600,
+        height: 1535,
+      },
+      {
+        src: "/media/photo-portal-trainee.jpg",
+        alt: "A trainee answering a competency scenario question in the portal on a phone",
+        caption: "A trainee answering a competency question",
+        width: 1600,
+        height: 1182,
+      },
+      {
+        src: "/media/photo-portal-hr.jpg",
+        alt: "The portal's daily absence report arriving as a phone notification",
+        caption: "The daily absence report arriving by email",
+        width: 696,
+        height: 700,
       },
     ],
     treatment: "wide",
@@ -120,7 +131,7 @@ const noonProjects: readonly NoonProject[] = [
     summary:
       "Connected Noon's staffing system to ZenHR so school placements and reporting lines do not have to be entered twice.",
     description:
-      "I built a daily integration that keeps employees' work locations, sections and direct managers aligned with their placements in Citadel. I also cleaned up employee data, checked the proposed changes and tested the connection before handing it over. Job titles and employment decisions stay with HR; missing matches and conflicts are held for review rather than guessed.",
+      "I built a daily integration that keeps employees' work locations, sections and direct managers aligned with their placements in Citadel. I also cleaned up employee data, checked the proposed changes and tested the connection before handing it over. Job titles and employment decisions stay with HR, and missing matches are held for review.",
     work: [
       "Connected Citadel placement data to the ZenHR API.",
       "Set clear ownership: Citadel provides placement and reporting data; ZenHR retains job titles and employment records.",
@@ -128,27 +139,16 @@ const noonProjects: readonly NoonProject[] = [
       "Completed three weeks of integration testing before handover.",
     ],
     outcomes: [
-      "In the documented go-live run, 40 employee records were corrected out of 218 reviewed.",
-      "Two unmatched records were held for follow-up; the completed run recorded no errors.",
-      "Routine placement changes can flow into HR records without being entered again by hand.",
+      "The go-live run corrected 40 employee records out of 218 reviewed, with no errors.",
+      "Routine placement changes flow into HR records without being entered again by hand.",
     ],
-    metrics: [
-      {
-        value: "40 of 218",
-        label: "records corrected in the go-live run",
-        context:
-          "One documented go-live run. Two unmatched records were held; zero errors were recorded for that completed run. Not a lifetime accuracy or reliability claim.",
-      },
-    ],
-    technologies: ["TypeScript", "Node.js", "PostgreSQL", "ZenHR API", "OAuth 2.0"],
+    metrics: [],
     links: [],
     media: [],
     treatment: "flow",
     flow: {
       from: { name: "Citadel", items: ["Work locations", "Sections", "Direct managers"] },
       to: { name: "ZenHR", items: ["Job titles", "Employment records", "Employment decisions"] },
-      run: "One run a day. Proposed changes are checked before they are written.",
-      held: "Missing matches and unavailable manager information are held for review, not guessed.",
     },
   },
   {
@@ -156,8 +156,7 @@ const noonProjects: readonly NoonProject[] = [
     title: "MCIT × Noon: generative AI learning platform",
     role: "Built the full platform and created the learning content.",
     status: "Platform live, classroom pilot next",
-    statusDetail:
-      "Student, teacher and admin flows are live and tested end to end. Classroom pilot, final content review and wider rollout are next.",
+    statusDetail: "Student, teacher and admin flows are live and tested end to end; the classroom pilot is next.",
     summary:
       "Built the MCIT × Noon student AI platform and its learning content, from the first activity to a working app.",
     description:
@@ -171,11 +170,10 @@ const noonProjects: readonly NoonProject[] = [
     ],
     outcomes: [
       "A live platform with student, teacher and admin workflows.",
-      "Learning content and classroom materials prepared, with final review and the classroom pilot still pending.",
+      "Learning content and classroom materials ready for the pilot.",
       "Student-linked answers, prompt attempts and app versions available for programme reporting.",
     ],
     metrics: [],
-    technologies: ["Next.js", "React", "TypeScript", "PostgreSQL", "Drizzle", "Replit"],
     links: [{ label: "Visit noonai.noon.edu.sa", href: "https://noonai.noon.edu.sa/" }],
     media: [
       {
@@ -188,63 +186,63 @@ const noonProjects: readonly NoonProject[] = [
       {
         src: "/media/noon/mcit-prompt-elements.jpg",
         alt: "Arabic learning activity breaking a prompt into goal, context, constraints and output format.",
-        caption: "A learning activity explaining the four parts of a useful prompt. Product test screenshot.",
+        caption: "A learning activity explaining the four parts of a useful prompt.",
         width: 938,
         height: 708,
       },
       {
         src: "/media/noon/mcit-prompt-feedback.jpg",
-        alt: "Arabic prompt-practice screen showing Sanad feedback and two saved attempts from a platform test.",
-        caption: "Prompt feedback and retry history from a platform test. The scores shown are demonstration data.",
+        alt: "Arabic prompt-practice screen showing Sanad feedback and two saved attempts.",
+        caption: "Prompt feedback and retry history.",
         width: 938,
         height: 708,
       },
       {
         src: "/media/noon/mcit-project-prompt.jpg",
         alt: "Arabic project-idea form that turns a student's goal and two requested features into an app-building prompt.",
-        caption: "Turning a project idea into an app-building prompt. Product test screenshot.",
+        caption: "Turning a project idea into an app-building prompt.",
         width: 938,
         height: 708,
       },
       {
         src: "/media/noon/mcit-app-builder.jpg",
         alt: "Arabic student app builder with a generated planets quiz and controls for requesting improvements.",
-        caption: "Building, testing and improving a small app. Product test screenshot.",
+        caption: "Building, testing and improving a small app.",
         width: 1048,
         height: 708,
       },
       {
         src: "/media/noon/mcit-version-history.jpg",
         alt: "Student app-version history with controls to open or restore saved versions.",
-        caption: "Saved app versions with open and restore controls. Product test screenshot.",
+        caption: "Saved app versions with open and restore controls.",
         width: 1048,
         height: 708,
       },
       {
         src: "/media/noon/mcit-knowledge-check.jpg",
         alt: "Arabic post-activity knowledge question with an answer explanation.",
-        caption: "A knowledge check with an answer explanation. Product test screenshot, not a measured learning gain.",
+        caption: "A knowledge check with an answer explanation.",
         width: 938,
         height: 708,
       },
       {
         src: "/media/noon/mcit-completion.jpg",
         alt: "Arabic completion screen with access to a sample project, certificate downloads and the completed learning steps.",
-        caption: "Product-test completion screen with project access and certificate downloads.",
+        caption: "Completion screen with project access and certificate downloads.",
         width: 1484,
         height: 761,
       },
       {
         src: "/media/noon/mcit-curriculum-prompt-parts.jpg",
         alt: "Arabic curriculum slide explaining goal, context, constraints and output format.",
-        caption: "Draft curriculum: goal, context, constraints and output format.",
+        caption: "Curriculum: goal, context, constraints and output format.",
         width: 1456,
         height: 819,
       },
       {
         src: "/media/noon/mcit-curriculum-test-improve.jpg",
         alt: "Arabic curriculum slide asking students to test the main function, record one observation and describe how to reproduce a bug.",
-        caption: "Draft curriculum: test an app and describe what needs fixing.",
+        caption: "Curriculum: test an app and describe what needs fixing.",
         width: 1456,
         height: 819,
       },
@@ -257,7 +255,7 @@ const noonProjects: readonly NoonProject[] = [
     title: "AI Week, the boys' session",
     role: "Co-created and delivered the session with Talah.",
     status: "Delivered",
-    statusDetail: "Co-created and delivered with Talah for the boys' session on 15 October 2026.",
+    statusDetail: "Delivered with Talah on 15 October 2026.",
     summary:
       "Worked with Talah on a hands-on Arabic AI session for boys, focused on trying AI and questioning its answers.",
     description:
@@ -267,40 +265,13 @@ const noonProjects: readonly NoonProject[] = [
       "Co-delivered the boys' session using hands-on challenges and live student participation.",
       "Used examples that encouraged students to test AI outputs instead of accepting them at face value.",
     ],
-    outcomes: [
-      "525 boys attended the session, based on the session attendance record.",
-      "88% of the 365 end-of-session survey respondents gave a positive response (322 respondents).",
-    ],
+    outcomes: [],
     metrics: [
-      {
-        value: "525",
-        label: "boys attended",
-        context:
-          "Boys' session only, 15 October 2026. Attendance record, not enrolment or whole-programme reach.",
-      },
-      {
-        value: "88%",
-        label: "positive end-of-session survey responses",
-        context: "365 boys' session survey respondents; 322 positive responses. Not 88% of all attendees.",
-      },
+      { value: "525", label: "boys attended the session" },
+      { value: "88%", label: "positive responses in the end-of-session survey" },
     ],
-    technologies: ["Claude", "Noon live classroom"],
     links: [],
     media: [
-      {
-        src: "/media/noon/ai-week-three-challenges.png",
-        alt: "AI Week session slide introducing detective, film-review and coding challenges.",
-        caption: "AI Week: three challenges from the boys' session, co-created and delivered with Talah.",
-        width: 2016,
-        height: 1134,
-      },
-      {
-        src: "/media/noon/ai-week-how-ai-writes-code.png",
-        alt: "Arabic AI Week slide explaining that language models predict the next word or code token.",
-        caption: "AI Week: how a language model writes code, from the boys' session co-delivered with Talah.",
-        width: 2016,
-        height: 1134,
-      },
       {
         src: "/media/noon/ai-week-programme-artwork.png",
         alt: "Arabic AI Week programme banner with illustrated learning, coding and creative-AI symbols.",
@@ -309,7 +280,7 @@ const noonProjects: readonly NoonProject[] = [
         height: 1800,
       },
     ],
-    treatment: "slides",
+    treatment: "poster",
     flow: null,
   },
   {
@@ -317,18 +288,17 @@ const noonProjects: readonly NoonProject[] = [
     title: "School staff placements",
     role: "Built the initial internal tool and API connection.",
     status: "Initial internal build",
-    statusDetail: "An initial internal tool; further data alignment with Noon Admin remained open.",
+    statusDetail: null,
     summary: "Built an early school-staff placement tool and connected it to Noon Admin through an API.",
     description:
-      "I built an early placement tool for the school-staffing team and connected it to Noon Admin through an API. I worked from the team's requirements around school needs, staff experience, performance, language and location. Data alignment with the main platform remained follow-up work.",
+      "I built an early placement tool for the school-staffing team and connected it to Noon Admin through an API. I worked from the team's requirements around school needs, staff experience, performance, language and location.",
     work: [
       "Built the initial internal placement platform.",
       "Added an API connection from the placement tool to Noon Admin.",
       "Worked from the school team's placement requirements and improved the tool's workflow.",
     ],
-    outcomes: ["An initial internal placement tool with a Noon Admin API connection."],
+    outcomes: [],
     metrics: [],
-    technologies: ["Replit", "Noon APIs"],
     links: [],
     media: [],
     treatment: "none",
@@ -373,7 +343,7 @@ const credentials: readonly Credential[] = [
     designation: "Early Adopter",
     issuer: "Amazon Web Services Training and Certification",
     year: null,
-    href: null,
+    href: "https://www.credly.com/badges/2d8a0251-c153-4109-9181-cce562481783",
     note: null,
     description:
       "Business-focused certification covering AI investment decisions, business cases, responsible governance and adoption from pilot to production.",
@@ -384,7 +354,7 @@ const credentials: readonly Credential[] = [
     designation: null,
     issuer: "McKinsey & Company",
     year: "2026",
-    href: null,
+    href: "https://www.credly.com/badges/f8b63388-6689-450b-a8e3-a55681465472",
     note: null,
     description: null,
   },
@@ -418,7 +388,7 @@ const work: readonly WorkRow[] = [
   {
     id: "site",
     kicker: "This site",
-    meta: "Next.js, GSAP and a streaming chat",
+    meta: null,
     title: "A portfolio that answers back",
     logo: null,
     logoAlt: null,
@@ -451,6 +421,7 @@ export const siteContent = {
     badges: [
       "Apple AI Program, 1 of 66",
       "SDA Agentic AI Bootcamp",
+      "AWS Certified AI Business Strategist",
       "Certified Data Management Professional (CDMP)",
     ],
     cta: { cv: CV, cvLabel: "Download CV", email: EMAIL, emailLabel: "Email me" },
@@ -519,11 +490,11 @@ export const siteContent = {
     title: "Before AI",
     lead: "Staff Manager at YAX for the Riyadh Metro launch, November 2023 to May 2025.",
     lines: [
-      "I managed the deployment of 1,500 staff across 45 Riyadh Metro stations in one month for the launch. I was promoted twice within a year.",
+      "I managed the deployment of 1,500 staff across 85 Riyadh Metro stations in one month for the launch. I was promoted twice within a year.",
     ],
     figure: [
       { value: "1,500", label: "staff deployed" },
-      { value: "45", label: "stations" },
+      { value: "85", label: "stations" },
       { value: "1", unit: "month", label: "to the launch" },
     ],
     bridge:

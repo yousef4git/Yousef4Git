@@ -17,11 +17,10 @@ function Side({ name, verb, items }: { name: string; verb: string; items: readon
 }
 
 // The integration has no screenshot, so the figure shows the one thing a
-// screenshot could not: who owns which fields, and where the daily run stops
-// and asks a person.
+// screenshot could not: which system owns which fields.
 export default function FlowFigure({ flow }: { flow: Flow }) {
   return (
-    <figure data-flow>
+    <figure data-flow aria-label={`${flow.from.name} provides placement data; ${flow.to.name} keeps HR records`}>
       <div className="grid grid-cols-1 items-center gap-4 md:grid-cols-[1fr_auto_1fr] md:gap-6">
         <Side name={flow.from.name} verb="provides" items={flow.from.items} />
         <div className="flex justify-center text-noon" aria-hidden>
@@ -38,9 +37,6 @@ export default function FlowFigure({ flow }: { flow: Flow }) {
         </div>
         <Side name={flow.to.name} verb="keeps" items={flow.to.items} />
       </div>
-      <figcaption className="mt-5 max-w-2xl text-sm leading-relaxed text-stone">
-        <span className="text-bone/90">{flow.run}</span> {flow.held}
-      </figcaption>
     </figure>
   );
 }

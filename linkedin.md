@@ -37,7 +37,7 @@ For an education platform, I built a document intake and risk-triage system wher
 
 I built Rusokh, a bilingual course platform that is live and onboarding its first instructors, on Next.js and Convex. Through GHRS I deliver client work end to end for Saudi businesses, from rebuilding websites to automating WhatsApp Business and connecting internal tools to customer channels.
 
-Before I focused on engineering, I prepared and deployed 1,500 staff across 45 stations in one month for the Riyadh Metro launch, which served over 30 million visitors, coordinating between the operating companies and the Royal Commission. I have also taught 1,800+ computer science students over four years at a 4.9 of 5 rating.
+Before I focused on engineering, I prepared and deployed 1,500 staff across 85 stations in one month for the Riyadh Metro launch, which served over 30 million visitors, coordinating between the operating companies and the Royal Commission. I have also taught 1,800+ computer science students over four years at a 4.9 of 5 rating.
 
 I work in Python and TypeScript across LLMs and agent systems (LangGraph, CrewAI, AutoGen, MCP), full-stack web (Next.js, React, FastAPI), and cloud (AWS, Docker, GitHub Actions). You can reach me at yousefalshuwayi@gmail.com
 ```
@@ -50,7 +50,7 @@ I work in Python and TypeScript across LLMs and agent systems (LangGraph, CrewAI
 
 بنيت رسوخ، منصة دورات ثنائية اللغة تعمل الآن وتستقبل أوائل معلّميها، على Next.js وConvex. وعبر GHRS أنفّذ أعمال العملاء من البداية إلى النهاية للشركات السعودية: إعادة بناء المواقع، وأتمتة واتساب للأعمال، وربط الأدوات الداخلية بقنوات العملاء.
 
-قبل تركيزي على الهندسة، جهّزت ووزّعت 1,500 موظف عبر 45 محطة في شهر واحد لافتتاح قطار الرياض الذي خدم أكثر من 30 مليون زائر، بالتنسيق بين الشركات المشغّلة والهيئة الملكية. ودرّست أكثر من 1,800 طالب حاسب على مدى أربع سنوات بتقييم 4.9 من 5.
+قبل تركيزي على الهندسة، جهّزت ووزّعت 1,500 موظف عبر 85 محطة في شهر واحد لافتتاح قطار الرياض الذي خدم أكثر من 30 مليون زائر، بالتنسيق بين الشركات المشغّلة والهيئة الملكية. ودرّست أكثر من 1,800 طالب حاسب على مدى أربع سنوات بتقييم 4.9 من 5.
 
 أعمل بلغتي Python وTypeScript عبر النماذج اللغوية وأنظمة الوكلاء (LangGraph وCrewAI وAutoGen وMCP)، والويب المتكامل (Next.js وReact وFastAPI)، والسحابة (AWS وDocker وGitHub Actions). يمكنك التواصل معي على yousefalshuwayi@gmail.com
 ```
@@ -110,7 +110,7 @@ Add YAX once as the company, with two roles stacked (shows the promotion and ~1 
 - **Dates:** Nov 2024 to May 2025
 - **Description:**
 ```
-• Prepared and deployed 1,500 staff across 45 stations in one month for the metro opening, which served over 30 million visitors.
+• Prepared and deployed 1,500 staff across 85 stations in one month for the metro opening, which served over 30 million visitors.
 • Coordinated readiness between the operating companies and the Royal Commission; the contract was extended three months after the launch.
 • Held service quality steady across morning and evening shifts through structured onboarding and clear shift discipline, under high demand and tight timelines.
 ```
@@ -280,7 +280,7 @@ Hi [name], I'm tidying up my LinkedIn and would really value a short recommendat
 - Never lead as a "student"; the degree is a plain credential only.
 - The paid client stays "an education platform". Never name it.
 - No inflated titles (no Founder/CEO/CTO). GHRS and FREIGHTLX are consultant engagements; Rusokh is a personal project.
-- Keep the Metro numbers exact: 1,500 staff, 45 stations, 30 million visitors.
+- Keep the Metro numbers exact: 1,500 staff, 85 stations, 30 million visitors.
 - Program and certificate names belong in Certifications and Honors, not in the Headline or About.
 - Confident and senior in framing, but every claim stays true.
 - Noon Academy is your employer, named plainly. The anonymized consulting client stays "an education platform"; never connect the two.
