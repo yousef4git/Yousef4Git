@@ -63,6 +63,21 @@ p {
   display: none;
 }
 
+/* Folded content: one native control, two labels. The closed label shows
+   while the fold is shut, the open label once it is open. */
+[data-disclosure] > summary {
+  list-style: none;
+}
+[data-disclosure] > summary::-webkit-details-marker {
+  display: none;
+}
+[data-disclosure][open] > summary [data-disclosure-open] {
+  display: none;
+}
+[data-disclosure]:not([open]) > summary [data-disclosure-close] {
+  display: none;
+}
+
 /* A horizontal strip of screens: snaps per frame, scrolls with the thumb,
    and never captures the page's vertical scroll. */
 .strip {
@@ -96,7 +111,7 @@ body::after {
   [data-hero-clip-x] { clip-path: inset(0 100% 0 0); }
   [data-hero-frame] { transform: translateY(32px); }
   [data-hero-meta] { transform: translateY(12px); }
-  [data-scroll-cue] { transform: scaleY(0); transform-origin: top; }
+  [data-hero-proof] { opacity: 0; transform: translateY(12px); }
 }
 
 @media (prefers-reduced-motion: reduce) {

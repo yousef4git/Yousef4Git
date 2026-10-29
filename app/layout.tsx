@@ -17,26 +17,27 @@ const jetbrains = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteContent.url),
-  // The middot stands in for the addendum's dash: em and en dashes fail the
-  // voice lint that guards this file.
-  title: "Yousef Alshuwayi · AI Systems Engineer",
+  // The middot stands in for a dash: em and en dashes fail the voice lint
+  // that guards this file. The broader identity lives here; the formal job
+  // title stays in the Person record below, as a fact.
+  title: "Yousef Alshuwayi · AI Systems Engineer & Founder",
   description:
-    "AI Systems Engineer at Noon Academy. I embed with the team that owns the problem, ship internal tools and AI learning platforms, and hand them over so they run without an engineer.",
+    "AI systems engineer and founder of Rusokh. Explore my AI platforms, operational software, teaching and work at Noon Academy.",
   alternates: { canonical: "/" },
   openGraph: {
     type: "profile",
     siteName: "Yousef Alshuwayi",
-    title: "Yousef Alshuwayi · AI Systems Engineer",
+    title: "Yousef Alshuwayi · AI Systems Engineer & Founder",
     description:
-      "AI Systems Engineer at Noon Academy. I embed with the team that owns the problem, ship internal tools and AI learning platforms, and hand them over so they run without an engineer.",
+      "AI systems engineer and founder of Rusokh. Explore my AI platforms, operational software, teaching and work at Noon Academy.",
     url: `${siteContent.url}/`,
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Yousef Alshuwayi · AI Systems Engineer",
+    title: "Yousef Alshuwayi · AI Systems Engineer & Founder",
     description:
-      "AI Systems Engineer at Noon Academy. I embed with the team that owns the problem, ship internal tools and AI learning platforms, and hand them over so they run without an engineer.",
+      "AI systems engineer and founder of Rusokh. Explore my AI platforms, operational software, teaching and work at Noon Academy.",
   },
 };
 

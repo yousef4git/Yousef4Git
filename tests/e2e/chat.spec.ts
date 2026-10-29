@@ -6,7 +6,8 @@ test("chat bubble opens a panel with starters and an input", async ({ page }) =>
   await expect(panel).toBeHidden();
   await page.locator("[data-chat-bubble]").click();
   await expect(panel).toBeVisible();
-  await expect(panel.getByRole("button", { name: /Noon Academy/i })).toBeVisible();
+  await expect(panel.getByRole("button", { name: /Rusokh/i })).toBeVisible();
+  await expect(panel).toContainText("AI-generated answers about my work.");
   await expect(panel.getByPlaceholder(/ask/i)).toBeVisible();
 });
 
@@ -39,12 +40,12 @@ test("conversation survives closing the bubble and reloading the tab", async ({ 
   await expect(page.locator("[data-chat-panel]")).toContainText("Tell me about the Metro project");
 });
 
-test("the site card opens the chat", async ({ page }) => {
+test("the site row in the footer opens the chat", async ({ page }) => {
   await page.goto("/");
-  await page.locator('section[data-chapter="work"]').scrollIntoViewIfNeeded();
+  await page.locator('footer[data-chapter="footer"]').scrollIntoViewIfNeeded();
   await page
-    .locator('section[data-chapter="work"]')
-    .getByRole("button", { name: /ask it something/i })
+    .locator('footer[data-chapter="footer"]')
+    .getByRole("button", { name: /ask about my work/i })
     .click();
   await expect(page.locator("[data-chat-panel]")).toBeVisible();
 });

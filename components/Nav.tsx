@@ -3,27 +3,25 @@ import { useEffect, useRef } from "react";
 import { gsap, useGSAP } from "@/lib/gsap";
 import Mark from "@/components/Mark";
 
-// Labels match each section's own heading, in sentence case, so the nav
-// reads as a table of contents rather than as a row of badges.
+// Five stops, each named after its chapter in sentence case, so the nav reads
+// as a table of contents rather than as a row of badges. The logo returns to
+// the hero; How I work keeps its anchor but no longer takes a stop.
 const LINKS = [
-  { href: "#hero", label: "Intro" },
-  { href: "#method", label: "How I work" },
-  { href: "#noon", label: "Noon" },
+  { href: "#work", label: "Work" },
+  { href: "#experience", label: "Experience" },
   { href: "#teaching", label: "Teaching" },
-  { href: "#work", label: "Projects" },
-  { href: "#yax", label: "Before AI" },
   { href: "#credentials", label: "Credentials" },
+  { href: "#contact", label: "Contact" },
 ];
 
-// Every section owns its own nav stop, so the spy map is one to one.
+// Which chapter lights which stop. Chapters without a stop keep the previous
+// one lit until the next stop's chapter arrives.
 const SPY: Record<string, string> = {
-  hero: "#hero",
-  method: "#method",
-  noon: "#noon",
-  teaching: "#teaching",
   work: "#work",
-  yax: "#yax",
+  experience: "#experience",
+  teaching: "#teaching",
   credentials: "#credentials",
+  contact: "#contact",
 };
 
 export default function Nav() {
@@ -52,9 +50,9 @@ export default function Nav() {
 
   // Active-section highlight. IntersectionObserver reads live layout, so it
   // stays correct however tall a chapter becomes: whichever section crosses
-  // the viewport's centre band wins.
+  // the viewport's centre band wins. The hero lights nothing.
   useEffect(() => {
-    const setActive = (href: string) => {
+    const setActive = (href: string | null) => {
       wrap.current
         ?.querySelectorAll<HTMLAnchorElement>("[data-nav-link]")
         .forEach((a) => {
@@ -72,13 +70,13 @@ export default function Nav() {
       (entries) => {
         for (const e of entries) {
           if (!e.isIntersecting) continue;
-          const href = SPY[e.target.id];
-          if (href) setActive(href);
+          const id = e.target.id;
+          setActive(id === "hero" ? null : (SPY[id] ?? null));
         }
       },
       { rootMargin: "-45% 0px -45% 0px" }
     );
-    Object.keys(SPY).forEach((id) => {
+    ["hero", ...Object.keys(SPY)].forEach((id) => {
       const el = document.getElementById(id);
       if (el) io.observe(el);
     });
@@ -88,10 +86,10 @@ export default function Nav() {
   return (
     <div ref={wrap}>
       <a
-        href="#noon"
+        href="#work"
         className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[80] focus:rounded-full focus:bg-gold focus:px-4 focus:py-2 focus:text-sm focus:text-night"
       >
-        Skip to the work
+        Skip to selected work
       </a>
       <div
         data-progress

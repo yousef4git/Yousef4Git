@@ -14,14 +14,18 @@ export default function ChapterHead({ title, lead }: { title: string; lead?: str
       const mm = gsap.matchMedia();
       mm.add("(prefers-reduced-motion: no-preference)", () => {
         const split = SplitText.create("[data-head-title]", { type: "words" });
-        gsap
+        const tl = gsap
           .timeline({
             defaults: { ease: EASE.cinematic },
             scrollTrigger: { trigger: head.current, start: "top 85%" },
           })
           .from(split.words, { yPercent: 110, autoAlpha: 0, stagger: 0.08, duration: 0.9 })
-          .from("[data-head-rule]", { scaleX: 0, transformOrigin: "left", duration: 0.7 }, "-=0.5")
-          .from("[data-head-lead]", { autoAlpha: 0, y: 12, duration: 0.6 }, "-=0.4");
+          .from("[data-head-rule]", { scaleX: 0, transformOrigin: "left", duration: 0.7 }, "-=0.5");
+        // Chapters without a lead sentence (How I work, Experience) skip the
+        // third beat instead of tweening a target that is not there.
+        if (head.current?.querySelector("[data-head-lead]")) {
+          tl.from("[data-head-lead]", { autoAlpha: 0, y: 12, duration: 0.6 }, "-=0.4");
+        }
         return () => split.revert();
       });
     },

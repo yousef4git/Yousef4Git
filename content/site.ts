@@ -1,8 +1,9 @@
 // Every word the site renders lives here. Facts about the Noon work come from
-// the October 2026 handoff pack; the freelance, Shaguf and YAX descriptions are
-// the ones Yousef supplied verbatim. Keep the voice plain: no em dashes, no
-// comparisons with other people, one sentence per claim and no sentence whose
-// only job is to qualify the one before it.
+// the October 2026 handoff pack; the Rusokh, GHRS, Shaguf and YAX descriptions
+// are the ones Yousef supplied and approved in the October 2026 copy review.
+// Keep the voice plain: no em dashes, no comparisons with other people, one
+// sentence per claim and no sentence whose only job is to qualify the one
+// before it.
 
 const CV = "/cv/Yousef-Alshuwayi-AI-Engineer.pdf";
 const EMAIL = "yousefalshuwayi@gmail.com";
@@ -29,6 +30,7 @@ export type NoonProject = {
   role: string;
   status: string;
   statusDetail: string | null;
+  // The one-paragraph version a visitor reads before opening the full case.
   summary: string;
   description: string;
   work: readonly string[];
@@ -37,7 +39,7 @@ export type NoonProject = {
   media: readonly Media[];
   // Public sites, where one exists. Internal tools stay unlinked.
   links: readonly { label: string; href: string }[];
-  // How the block lays its media out. "wide" runs the first image across the
+  // How the case lays its media out. "wide" runs the first image across the
   // row and any others in a grid below; "flow" draws a figure from `flow`;
   // "poster" sets the metrics beside one tall image; "none" renders text
   // only, never an empty frame.
@@ -45,7 +47,13 @@ export type NoonProject = {
   flow: Flow | null;
 };
 
+export type CredentialId = "aws" | "cdmp" | "apple" | "sda" | "mckinsey";
+
 export type Credential = {
+  id: CredentialId;
+  // A professional certification leads the hero and the Credentials chapter.
+  // A programme or bootcamp is listed after them and never dressed as one.
+  category: "certification" | "programme";
   img: string;
   name: string;
   designation: string | null;
@@ -64,6 +72,8 @@ export type WorkRow = {
   logo: string | null;
   logoAlt: string | null;
   line: string;
+  // One real screen of the product, where there is one to show.
+  preview: Media | null;
   href: string | null;
   cta: string;
   action: "open-chat" | null;
@@ -76,7 +86,8 @@ const noonProjects: readonly NoonProject[] = [
     role: "Built the platform and improved it with the training team.",
     status: "Live",
     statusDetail: null,
-    summary: "Built Noon's training portal so the team can run facilitator training from one place.",
+    summary:
+      "Built an Arabic training portal covering trainee, trainer and administration workflows. The team can run standard cohorts without routine engineering support.",
     description:
       "I built a portal in Arabic covering the trainee journey, trainers' daily work and programme administration. Trainees can see their agenda, complete exercises, reflect on each day and follow their progress. Trainers can manage attendance, run activities and record assessments. The training team can set up cohorts, update content, review results and export reports without needing engineering for normal programme changes.",
     work: [
@@ -130,7 +141,7 @@ const noonProjects: readonly NoonProject[] = [
     status: "Live and handed over",
     statusDetail: "Daily placement updates are live and the integration has been handed over.",
     summary:
-      "Connected the ops system to the HR platform so school placements and reporting lines do not have to be entered twice.",
+      "Built and handed over a daily placement-data integration, keeping operational updates aligned with HR records.",
     description:
       "I built a daily integration that keeps employees' work locations, sections and direct managers in the HR platform aligned with their operational placements. I cleaned the source data, reviewed the proposed changes and ran three weeks of integration testing before handing it over. Job titles and employment decisions stay with HR; unmatched records are held for review.",
     work: [
@@ -159,7 +170,7 @@ const noonProjects: readonly NoonProject[] = [
     status: "Live",
     statusDetail: "Student, teacher and admin flows are live and tested end to end.",
     summary:
-      "Built the MCIT × Noon student AI platform and its learning content, from the first activity to a working app.",
+      "Built the live student, teacher and admin platform and created its Arabic learning content, connecting prompt practice, feedback and app building.",
     description:
       "I built the student platform, teacher board and admin tools, and created the Arabic learning content. Students learn how generative AI works, practise writing better prompts, and build a small app they can test, improve and share. I also wrote the activities, knowledge checks, prompt-feedback rubric and teacher guidance. The platform links each student's answers, prompt attempts and app versions, so the programme can follow the learning process rather than collect final project links alone.",
     work: [
@@ -258,7 +269,7 @@ const noonProjects: readonly NoonProject[] = [
     status: "Delivered",
     statusDetail: "Delivered on 15 October 2026.",
     summary:
-      "A hands-on Arabic AI session for boys, focused on trying AI and questioning its answers.",
+      "Co-created and delivered the boys' AI Week session, with 525 attendees and 88% positive responses in the end-of-session survey.",
     description:
       "I co-created and delivered the boys' AI Week session. We used short Arabic challenges around image understanding, reading tone and testing code. Students tried the tasks themselves, compared their answers with Claude and discussed where AI helped or got things wrong. The aim was simple: use AI, but check its work and make your own judgement.",
     work: [
@@ -286,38 +297,12 @@ const noonProjects: readonly NoonProject[] = [
   },
 ];
 
+// Professional certifications first, in the order the hero shows them, then
+// the programmes. Components pick credentials by id, never by position.
 const credentials: readonly Credential[] = [
   {
-    img: "/media/cert-apple.jpg",
-    name: "Apple AI Program",
-    designation: null,
-    issuer: "Apple Developer Academy & Tuwaiq",
-    year: "2025",
-    href: null,
-    note: "Selected 1 of 66",
-    description: null,
-  },
-  {
-    img: "/media/cert-sda.png",
-    name: "Agentic AI Bootcamp",
-    designation: null,
-    issuer: "SDA Academy",
-    year: "2026",
-    href: null,
-    note: "Selective admission",
-    description: null,
-  },
-  {
-    img: "/media/cert-cdmp-badge.png",
-    name: "Certified Data Management Professional (CDMP)",
-    designation: "Associate",
-    issuer: "DAMA",
-    year: "2026",
-    href: "https://eu.credential.net/1c13a3e1-5f2d-4840-a944-afc2a1c5f720",
-    note: null,
-    description: null,
-  },
-  {
+    id: "aws",
+    category: "certification",
     img: "/media/cert-aws-ai-business-strategist.png",
     name: "AWS Certified AI Business Strategist",
     designation: "Early Adopter",
@@ -329,6 +314,44 @@ const credentials: readonly Credential[] = [
       "Business-focused certification covering AI investment decisions, business cases, responsible governance and adoption from pilot to production.",
   },
   {
+    id: "cdmp",
+    category: "certification",
+    img: "/media/cert-cdmp-badge.png",
+    name: "Certified Data Management Professional (CDMP)",
+    designation: "Associate",
+    issuer: "DAMA",
+    year: "2026",
+    href: "https://eu.credential.net/1c13a3e1-5f2d-4840-a944-afc2a1c5f720",
+    note: null,
+    description: null,
+  },
+  {
+    id: "apple",
+    category: "programme",
+    img: "/media/cert-apple.jpg",
+    name: "Apple AI Program",
+    designation: null,
+    issuer: "Apple Developer Academy & Tuwaiq",
+    year: "2025",
+    href: null,
+    note: "Selected 1 of 66",
+    description: null,
+  },
+  {
+    id: "sda",
+    category: "programme",
+    img: "/media/cert-sda.png",
+    name: "Agentic AI Bootcamp",
+    designation: null,
+    issuer: "SDA Academy",
+    year: "2026",
+    href: null,
+    note: "Selective admission",
+    description: null,
+  },
+  {
+    id: "mckinsey",
+    category: "programme",
     img: "/media/cert-mckinsey-badge.png",
     name: "McKinsey Forward",
     designation: null,
@@ -340,15 +363,36 @@ const credentials: readonly Credential[] = [
   },
 ];
 
+export function credentialById(id: CredentialId): Credential {
+  const c = credentials.find((x) => x.id === id);
+  if (!c) throw new Error(`Unknown credential: ${id}`);
+  return c;
+}
+
+export function noonProjectById(id: string): NoonProject {
+  const p = noonProjects.find((x) => x.id === id);
+  if (!p) throw new Error(`Unknown Noon project: ${id}`);
+  return p;
+}
+
+// Rusokh leads Selected work, GHRS is an Experience row, and the site itself
+// is the small demonstration beside the contact block.
 const work: readonly WorkRow[] = [
   {
     id: "rusokh",
-    kicker: "Course platform, a personal product",
-    meta: "Live at rusokh.com",
+    kicker: "Founder and product builder",
+    meta: "University learning platform · Live",
     title: "Rusokh",
     logo: "/media/rusokh-logo.png",
     logoAlt: "Rusokh",
-    line: "I hit the same walls on every course platform I taught on, so I built my own. Bilingual (Arabic/English), payments, video delivery, live and in use today.",
+    line: "Founded and built Rusokh, a university learning platform with Arabic and English interfaces, course publishing, payments and video delivery.",
+    preview: {
+      src: "/media/rusokh-home.jpg",
+      alt: "The Rusokh homepage in Arabic: the course catalogue headline beside a Digital Logic Design course card.",
+      caption: "rusokh.com, the Arabic homepage with a course card.",
+      width: 1440,
+      height: 521,
+    },
     href: "https://rusokh.com",
     cta: "Visit rusokh.com",
     action: null,
@@ -361,20 +405,22 @@ const work: readonly WorkRow[] = [
     logo: "/media/ghrs-logo.png",
     logoAlt: "GHRS",
     line: "I built and launched software for Saudi businesses through GHRS. I also delivered an education AI system with rule-based decisions and human review, and advised a freight company on its AI architecture.",
+    preview: null,
     href: "https://ghrs.sa",
     cta: "Visit ghrs.sa",
     action: null,
   },
   {
     id: "site",
-    kicker: "This site",
+    kicker: "AI-powered portfolio",
     meta: null,
-    title: "A portfolio that answers back",
+    title: "This portfolio, built as a product",
     logo: null,
     logoAlt: null,
-    line: "Built as a product: a streaming AI chat that answers as me, with rate limits, input validation, and prompt guardrails behind the API. Try it: ask it anything on this page.",
+    line: "Streaming AI chat, input validation, rate limits and prompt guardrails. An interactive example of the systems I build.",
+    preview: null,
     href: null,
-    cta: "Ask it something",
+    cta: "Ask about my work",
     action: "open-chat",
   },
 ];
@@ -385,12 +431,10 @@ export const siteContent = {
   // card all read it from here, so a move only ever edits these two lines.
   host: "youusef.com",
   url: "https://youusef.com",
-  role: "AI Systems Engineer at Noon Academy",
-  // The title is the fact; the second clause is the way of working. They stay
-  // separate so the site never reads as a claim to a job title Noon did not give.
-  roleAside: "I work forward deployed",
-  tagline:
-    "I embed with the team that owns the problem, turn ambiguity into a product, ship it fast, and hand it over so it runs without me.",
+  // The broad professional scope. The formal job title stays in hero.currentRole,
+  // the Experience row, the metadata and the structured data, as a fact.
+  role: "AI Systems Engineer · Founder · Educator",
+  tagline: "I build AI systems and digital products, from the first requirement to launch and handover.",
   hero: {
     location: "Riyadh, Saudi Arabia",
     video: "/media/apple-presenting.mp4",
@@ -398,13 +442,20 @@ export const siteContent = {
     poster: "/media/apple-presenting-poster.jpg",
     videoAlt: "Yousef presenting at the Apple Developer Academy",
     videoCaption: "Apple Developer Academy",
-    badges: [
-      "Apple AI Program, 1 of 66",
-      "SDA Agentic AI Bootcamp",
-      "AWS Certified AI Business Strategist",
-      "Certified Data Management Professional (CDMP)",
+    // The two professional certifications, by id, in reading order. The
+    // programmes are listed in the Credentials chapter only.
+    credentials: ["aws", "cdmp"] as const,
+    currentRole: "Currently AI Systems Engineer at Noon Academy.",
+    // Three facts with their context attached: the product, then two Shaguf
+    // teaching figures that must never read as product or employer numbers.
+    proof: [
+      { text: "Founder of Rusokh", href: "https://rusokh.com" },
+      { text: "1,800+ computer science students taught at Shaguf", href: null },
+      { text: "4.9/5 learner rating at Shaguf", href: null },
     ],
     cta: {
+      work: "#work",
+      workLabel: "View selected work",
       cv: CV,
       cvLabel: "Download CV",
       email: EMAIL,
@@ -413,46 +464,47 @@ export const siteContent = {
       linkedinLabel: "LinkedIn",
     },
   },
-  method: {
-    title: "How I work",
-    // No subtitle here on purpose. The addendum caps this section at the lead,
-    // the four steps and the closer.
-    lead: "I work closest to the problem: with the team that owns it, inside their day-to-day, until the solution is theirs.",
-    // Verbatim from addendum v2. Every line stands on its own evidence, with
-    // no comparison to how anyone else works.
-    steps: [
-      {
-        name: "Embed",
-        line: "I sit with the people who own the problem and learn how their day actually runs.",
-      },
-      {
-        name: "Scope",
-        line: "I turn what I heard into a product with clear success criteria we agree on.",
-      },
-      {
-        name: "Ship",
-        line: "I get it into production early, then shape it around real usage.",
-      },
-      {
-        name: "Hand over",
-        line: "I track adoption until the team runs it on their own, then I step back.",
-      },
+  workSection: {
+    title: "Selected work",
+    lead: "Products I founded and systems I built, with a clear role in each.",
+    // The two Noon cases that lead the chapter, by id. The other two live in
+    // the Experience chapter behind the "More work at Noon Academy" fold.
+    noonCases: ["noon-training-development", "noon-mcit-genai"] as const,
+    noonContext: "Built at Noon Academy",
+    details: { open: "View project details", close: "Hide project details" },
+  },
+  work,
+  experience: {
+    title: "Experience and delivery",
+    noonMore: {
+      open: "More work at Noon Academy",
+      close: "Hide additional work",
+      projects: ["noon-ops-hr-integration", "noon-ai-week"] as const,
+    },
+    // Two lines from the GHRS work, scoped exactly: one workflow, approximate
+    // counts, no derived saving, no client named.
+    ghrsHighlights: [
+      "Reduced one workflow from about 71 model calls to about 5 through caching.",
+      "Kept student-risk scoring rule based, with AI used for Arabic text and messages approved by a person.",
     ],
-    closer: "This way of working has a name now: forward deployed engineering.",
+    toolkit: {
+      label: "Core tools",
+      items: "Python · TypeScript · React · Next.js · FastAPI · PostgreSQL · AWS",
+    },
   },
   noon: {
     logo: "/media/noon-logo.png",
+    logoAlt: "Noon Academy",
     url: "https://www.noon.edu.sa/en/",
+    linkLabel: "Noon Academy website",
     title: "Noon Academy",
     meta: "AI Systems Engineer, Central Operations, since July 2026",
-    framing:
-      "I sit with the team that owns each problem.",
     intro:
-      "I turn day-to-day operational problems into working tools. At Noon Academy, that includes a training portal the team can run themselves, a daily HR data integration, a student AI platform with its learning content, and an early internal placement tool for the school-staffing team.",
+      "At Noon Academy, I build training platforms, AI learning experiences and operational integrations, working with the teams that use them.",
     projects: noonProjects,
     hackathon: {
       label: "Also at Noon",
-      line: "I judged the Educational Games Industry Hackathon, run with the Ministry of Communications and Information Technology and supported by Replit. The AI-based solutions in those evaluation sessions proved again that young Saudi talent can ship educational products that compete.",
+      line: "I judged the Educational Games Industry Hackathon, run with the Ministry of Communications and Information Technology and supported by Replit.",
       photos: [
         {
           src: "/media/photo-hackathon-judging.jpg",
@@ -470,11 +522,12 @@ export const siteContent = {
         },
       ] satisfies readonly Media[],
     },
-    closer: "I work with the people using each system, then build, test, improve and hand it over.",
   },
   yax: {
     logo: "/media/yax-logo.jpg",
-    title: "Before AI",
+    logoAlt: "YAX",
+    org: "YAX, Your Amazing Xperience",
+    title: "Operational leadership",
     lead: "Staff Manager at YAX for the Riyadh Metro launch, November 2023 to May 2025.",
     lines: [
       "I managed the deployment of 1,500 staff across 85 Riyadh Metro stations in one month for the launch. I was promoted twice within a year.",
@@ -485,24 +538,20 @@ export const siteContent = {
       { value: "1", unit: "month", label: "to the launch" },
     ],
     bridge:
-      "That was my first forward deployment, before I knew the term existed. Systems have to survive contact with real people, real deadlines, and real chaos.",
-  },
-  work,
-  workSection: {
-    title: "Projects",
-    lead: "Client and personal work, alongside the day job.",
+      "That experience shaped how I build: clear ownership, reliable execution and systems that work under real operational pressure.",
   },
   teaching: {
     title: "Teaching",
     lead: "Instructor at Shaguf Educational Platform since January 2022.",
     lines: [
-      "I've taught 1,800+ computer science students at Shaguf over four years, with a 4.9/5 learner rating.",
-      "Teaching is where I learned the skill I use most as an engineer: taking something complicated and making it land, for a beginner, for an expert, or for a stakeholder who just needs to trust the system.",
+      "Taught 1,800+ computer science students at Shaguf, with a 4.9/5 learner rating.",
+      "Explaining complex ideas clearly is part of how I build. It helps me align technical teams, support users and make systems easier to understand.",
     ],
     stats: [
       { value: "1,800", unit: "+", label: "Students taught" },
       { value: "4.9", unit: "/5", label: "Learner rating" },
-      { value: "4", unit: "years", label: "And counting" },
+      // A start year, not a duration: it never goes stale and is never counted up.
+      { value: "2022", label: "Teaching since" },
     ],
     gallery: [
       {
@@ -528,13 +577,31 @@ export const siteContent = {
       },
     ] satisfies readonly Media[],
   },
+  method: {
+    title: "How I work",
+    // No subtitle here on purpose: the lead, the four steps and the closer.
+    lead: "I work directly with the people using the system, then build around the workflow they need.",
+    steps: [
+      { name: "Embed", line: "Understand the workflow with the people responsible for it." },
+      { name: "Scope", line: "Define the product, constraints and success criteria." },
+      { name: "Ship", line: "Build, test and improve the product through real use." },
+      { name: "Hand over", line: "Give the team the tools and guidance to operate it." },
+    ],
+    // The one place the phrase appears on the page: a way of working, never
+    // a job title.
+    closer: "I work forward deployed, staying close to the problem from scoping to handover.",
+  },
   credentials: {
     title: "Credentials",
-    lead: "Education, programmes and certifications, with a verification link where one exists.",
+    lead: "Credentials supporting my work in AI, data and product delivery.",
+    primaryHeading: "Professional certifications",
+    programmesHeading: "Selected programmes",
+    educationHeading: "Education",
     // The degree is a plain credential: no graduation date anywhere on the site.
     education: "BSc Computer Science, Imam Muhammad ibn Saud Islamic University (IMSIU)",
-    featured: credentials,
-    alsoLead: "Also completed:",
+    verifyLabel: "View credential",
+    list: credentials,
+    alsoLead: "Additional learning:",
     also: [
       "Introduction to AI, KAUST Academy, 2026",
       "Data Science & ML scholarship, KAUST Academy, 2025",
@@ -544,7 +611,7 @@ export const siteContent = {
   },
   footer: {
     title: "Let's talk.",
-    line: "Questions about the work? The chat in the corner answers from my CV, or reach me directly.",
+    line: "For AI engineering, product work or a conversation about what I've built, reach me directly.",
   },
   contact: {
     email: EMAIL,
@@ -552,7 +619,30 @@ export const siteContent = {
     github: "https://github.com/Yousef4Git",
     cv: CV,
   },
-  chapters: ["hero", "method", "noon", "teaching", "work", "yax", "credentials"] as const,
+  // The chat is an AI assistant answering from Yousef's public facts. Every
+  // label says so; none of them suggests he is typing.
+  chat: {
+    openLabel: "Ask my AI assistant",
+    closeLabel: "Close the chat",
+    panelLabel: "AI portfolio assistant",
+    title: "Ask about my work",
+    subtitle: "AI-generated answers about my work.",
+    closeButton: "Close chat",
+    starters: [
+      "What have you built?",
+      "What is Rusokh?",
+      "How do you take a project from idea to handover?",
+    ],
+    you: "You",
+    assistant: "AI assistant",
+    thinking: "thinking…",
+    inputLabel: "Ask about my work",
+    placeholder: "Ask about my work…",
+    send: "Send",
+    errorLine: "The AI assistant is unavailable right now. You can reach me directly:",
+    errorLinks: { email: "Email", linkedin: "LinkedIn", github: "GitHub" },
+  },
+  chapters: ["hero", "work", "experience", "teaching", "method", "credentials"] as const,
 } as const;
 
 export type SiteContent = typeof siteContent;

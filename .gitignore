@@ -39,6 +39,10 @@ docs/*-Standalone.md
 docs/portfolio-experience-and-aws-prompt.md
 docs/aws-certified-*.png
 Untitled
+# The October 2026 editorial handoff pack and the content export it was built
+# from: private review material, never published. The copy lives in content/site.ts.
+portfolio-claude-handoff/
+portfolio-content-export.md
 
 # Next.js
 node_modules/

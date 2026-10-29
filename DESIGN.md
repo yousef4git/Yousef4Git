@@ -32,19 +32,21 @@ Chapter head cadence: a display title followed by one plain-language sentence in
 
 ## Layout
 
-- Container `max-w-6xl` with a 24px gutter. Chapters alternate `night` and `coal`.
+- Container `max-w-6xl` with a 24px gutter. Chapters alternate `night` and `coal`, in the order hero, Selected work, Experience, Teaching, How I work, Credentials, contact.
 - Two-column editorial grid on desktop (`md:grid-cols-12`): a sticky left column for the chapter head or a project's title and status, a right column for the copy, media below spanning the row. Single column under 768px.
 - Rhythm: `py-24` to `py-32` between chapters, `py-16` between projects inside a chapter, hairline rules (`border-t border-bone/10`) between list items.
 - Images sit in `rounded-lg` frames with a `bone/10` border and a deep soft shadow. Screens of different ratios use fixed-height, natural-width frames in a horizontal scroll-snap strip.
 
 ## Components
 
-- **Nav**: a fixed liquid-glass pill, mark on the left, seven text links, active state `bg-gold/15 text-gold-bright`, a 1px gold progress line at the top of the viewport.
+- **Nav**: a fixed liquid-glass pill, mark on the left, five text links (Work, Experience, Teaching, Credentials, Contact), active state `bg-gold/15 text-gold-bright`, a 1px gold progress line at the top of the viewport.
 - **ChapterHead**: title plus one-sentence subtitle plus a 64px gold hairline.
 - **StatBand**: a `dl` of coal cells separated by a 1px tinted gap; display numerals, Inter labels.
-- **Project block (Noon)**: title, status label, role line, tech list on the left; description, "What I did", outcomes on the right; media below.
+- **Work row (Noon case)**: Noon wordmark, status label, title, "Built at Noon Academy", role on the left; the summary and one preview frame on the right; the full case (status detail, description, "What I did", "Where it stands", media) behind a Disclosure below.
+- **Disclosure**: a native `details`/`summary` styled as a pill button (gold, or Noon green inside Noon material); two labels swapped by CSS; `ScrollTrigger.refresh()` on toggle; `data-hash-open` marks the fold a hash link to the enclosing card opens.
+- **Experience row**: a mark (wordmark or logo chip) above a display title and one meta line on the left; one paragraph on the right, plus highlights (GHRS), figures and a closing display sentence (YAX), or the Noon fold with the two remaining cases.
 - **Work row**: logo, kicker line, one paragraph, one text link. Hairline between rows.
-- **Credential card**: image, name, designation (gold), issuer and year, one-line note.
+- **Credentials**: two groups in DOM order. Professional certifications (AWS, CDMP) as two equal wide rows: badge in a bone frame, display name, designation in gold, issuer and year, description, "View credential". Selected programmes (Apple, SDA, McKinsey) as a three-up list of framed scans with name, issuer and year, note in gold. Then the Education row and the "Additional learning:" line.
 - **Chat bubble**: liquid-glass round button bottom right, panel with starters, degrades to contact links.
 - **Buttons**: primary `bg-gold text-night rounded-full`; secondary is a gold text link with an underline on hover.
 
@@ -52,7 +54,7 @@ Chapter head cadence: a display title followed by one plain-language sentence in
 
 GSAP with `gsap.matchMedia()`. Every tween lives under `(prefers-reduced-motion: no-preference)`; with reduced motion, content is simply visible.
 
-- Hero: one orchestrated entrance (frame, name characters, meta, role, tagline, badges, CTAs).
+- Hero: one orchestrated entrance (frame, name characters, meta, role, tagline, the two credentials, CTAs, current role, proof band).
 - How I work: a hairline that draws through four stations on scroll, then runs past the last one and fades.
 - Images: reveal by fading in with a slight scale-down inside their frame; teaching photos drift gently on scroll.
 - Leads and closers: a single fade-up. Lists stagger once. No bounce or elastic eases. No pinned sections.

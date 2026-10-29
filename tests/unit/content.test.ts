@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
-import { siteContent } from "../../content/site";
+import { siteContent, credentialById } from "../../content/site";
 
 const RETRACTED = ["100%", "16 days", "Sixteen days", "30M", "30 million", "Arabic-first", "520 code", "21 database", "45 Riyadh Metro", "45 stations"];
 
@@ -39,7 +39,7 @@ const CONFIDENTIAL = [
 const read = (rel: string) => readFileSync(path.join(process.cwd(), rel), "utf8");
 
 describe("noon content", () => {
-  const { noon } = siteContent;
+  const { noon, workSection, experience } = siteContent;
 
   it("carries the four public projects in order", () => {
     expect(noon.projects.map((p) => p.id)).toEqual([
@@ -50,9 +50,24 @@ describe("noon content", () => {
     ]);
   });
 
+  it("splits the four cases between Selected work and the Experience fold without losing one", () => {
+    const shown = [...workSection.noonCases, ...experience.noonMore.projects].sort();
+    expect(shown).toEqual([...noon.projects.map((p) => p.id)].sort());
+    expect(workSection.noonCases).toEqual(["noon-training-development", "noon-mcit-genai"]);
+  });
+
+  it("gives every case a one-paragraph summary for its card", () => {
+    for (const p of noon.projects) {
+      expect(p.summary.length, p.id).toBeGreaterThan(60);
+      expect(p.summary, p.id).not.toMatch(/\b(we|our)\b/i);
+    }
+  });
+
   it("names the employer as Noon Academy", () => {
     expect(noon.title).toBe("Noon Academy");
     expect(noon.meta).toContain("AI Systems Engineer");
+    expect(noon.logoAlt).toBe("Noon Academy");
+    expect(workSection.noonContext).toBe("Built at Noon Academy");
   });
 
   it("points every media entry at a shipped file with alt text and a caption", () => {
@@ -103,6 +118,9 @@ describe("noon content", () => {
     expect(week.media.map((m) => m.src)).toEqual(["/media/noon/ai-week-programme-artwork.png"]);
     expect(week.treatment).toBe("poster");
     expect(JSON.stringify(week)).not.toMatch(/Talah/);
+    // Attendance and survey responses stay two different numbers.
+    expect(week.summary).toMatch(/525 attendees/);
+    expect(week.summary).toMatch(/88% positive responses in the end-of-session survey/);
   });
 
   it("links the two public Noon sites and nothing internal", () => {
@@ -112,9 +130,13 @@ describe("noon content", () => {
     expect(hrefs["noon-ops-hr-integration"]).toEqual([]);
   });
 
-  it("mentions the placement tool in the intro only, without a card or system names", () => {
-    expect(noon.intro).toContain("and an early internal placement tool for the school-staffing team");
+  // The early placement tool was dropped from the Noon intro in the October
+  // 2026 copy review. It never gets a card or a system name.
+  it("gives the early placement tool no card and no system names", () => {
     expect(noon.projects.some((p) => /placement/i.test(p.id))).toBe(false);
+    expect(noon.intro).toBe(
+      "At Noon Academy, I build training platforms, AI learning experiences and operational integrations, working with the teams that use them."
+    );
   });
 
   it("carries no technology lists", () => {
@@ -141,11 +163,22 @@ describe("voice", () => {
     // "Forward Deployed Engineer" as a title is not.
     expect(text).not.toMatch(/Forward Deployed Engineer(?!ing)/i);
   });
-  it("uses the forward deployed phrase three times: hero, method closer, YAX bridge", () => {
-    expect(text.match(/forward deploy/gi)).toHaveLength(3);
-    expect(siteContent.roleAside).toMatch(/forward deployed/);
+  // Since the October 2026 copy review the phrase appears once on the page,
+  // in the How I work closer, as a way of working. The hero aside, the Noon
+  // framing and closer and the YAX bridge no longer carry it.
+  it("uses the forward deployed phrase once, in the How I work closer", () => {
+    expect(text.match(/forward deploy/gi)).toHaveLength(1);
     expect(siteContent.method.closer).toMatch(/forward deployed/);
-    expect(siteContent.yax.bridge).toMatch(/forward deployment/);
+    expect(siteContent).not.toHaveProperty("roleAside");
+    expect(siteContent.yax.bridge).not.toMatch(/forward deploy/i);
+  });
+  it("leads with the broader identity and keeps the formal title as a fact", () => {
+    expect(siteContent.role).toBe("AI Systems Engineer · Founder · Educator");
+    expect(siteContent.hero.currentRole).toBe("Currently AI Systems Engineer at Noon Academy.");
+    expect(siteContent.noon.meta).toMatch(/^AI Systems Engineer, Central Operations/);
+  });
+  it("orders the chapters work first, method after the evidence", () => {
+    expect(siteContent.chapters).toEqual(["hero", "work", "experience", "teaching", "method", "credentials"]);
   });
 });
 
@@ -174,49 +207,85 @@ describe("chat grounding", () => {
     const route = read("app/api/chat/route.ts");
     expect(route).toMatch(/Never name internal systems, vendors, employee counts or unreleased project status at Noon/);
   });
+
+  it("presents the chat as an AI assistant, never as Yousef typing", () => {
+    const persona = read("content/persona.md");
+    expect(persona).toMatch(/AI assistant/);
+    expect(persona).toContain("/cv/Yousef-Alshuwayi-AI-Engineer.pdf");
+    const { chat } = siteContent;
+    expect(chat.assistant).toBe("AI assistant");
+    expect(chat.subtitle).toBe("AI-generated answers about my work.");
+    expect(JSON.stringify(chat)).not.toMatch(/Chat with Yousef|answers from my CV/i);
+    expect(chat.starters).toHaveLength(3);
+  });
 });
 
 describe("credentials and contact", () => {
+  const { credentials, hero } = siteContent;
+
   it("adds the AWS credential with its designation, its badge page and no invented date", () => {
-    const aws = siteContent.credentials.featured.find((c) => c.name === "AWS Certified AI Business Strategist");
+    const aws = credentials.list.find((c) => c.id === "aws");
     expect(aws).toBeDefined();
+    expect(aws!.name).toBe("AWS Certified AI Business Strategist");
     expect(aws!.designation).toBe("Early Adopter");
     expect(aws!.issuer).toBe("Amazon Web Services Training and Certification");
     expect(aws!.year).toBeNull();
     expect(aws!.href).toBe("https://www.credly.com/badges/2d8a0251-c153-4109-9181-cce562481783");
     expect(aws!.description).toMatch(/pilot to production/);
     expect(existsSync(path.join(process.cwd(), "public", aws!.img))).toBe(true);
-    const mck = siteContent.credentials.featured.find((c) => c.name === "McKinsey Forward")!;
+    const mck = credentials.list.find((c) => c.id === "mckinsey")!;
     expect(mck.href).toBe("https://www.credly.com/badges/f8b63388-6689-450b-a8e3-a55681465472");
   });
 
-  it("keeps the Apple selection without the applicant count", () => {
-    const apple = siteContent.credentials.featured[0];
+  it("keeps CDMP spelled out with its Associate designation and its link", () => {
+    const cdmp = credentialById("cdmp");
+    expect(cdmp.name).toBe("Certified Data Management Professional (CDMP)");
+    expect(cdmp.designation).toBe("Associate");
+    expect(cdmp.issuer).toBe("DAMA");
+    expect(cdmp.year).toBe("2026");
+    expect(cdmp.href).toBe("https://eu.credential.net/1c13a3e1-5f2d-4840-a944-afc2a1c5f720");
+  });
+
+  it("keeps the Apple selection without the applicant count, as a programme", () => {
+    const apple = credentialById("apple");
     expect(apple.name).toBe("Apple AI Program");
     expect(apple.note).toBe("Selected 1 of 66");
+    expect(apple.category).toBe("programme");
   });
 
-  it("lists the degree first, without a graduation date", () => {
-    expect(siteContent.credentials.education).toBe(
+  it("lists the degree without a graduation date", () => {
+    expect(credentials.education).toBe(
       "BSc Computer Science, Imam Muhammad ibn Saud Islamic University (IMSIU)"
     );
-    expect(siteContent.credentials.education).not.toMatch(/\d{4}|expected/i);
+    expect(credentials.education).not.toMatch(/\d{4}|expected/i);
   });
 
-  it("puts the four credentials in the hero", () => {
-    expect(siteContent.hero.badges).toEqual([
-      "Apple AI Program, 1 of 66",
-      "SDA Agentic AI Bootcamp",
-      "AWS Certified AI Business Strategist",
-      "Certified Data Management Professional (CDMP)",
+  it("puts AWS then CDMP in the hero, by id, each with its designation and link", () => {
+    expect(hero.credentials).toEqual(["aws", "cdmp"]);
+    for (const id of hero.credentials) {
+      const c = credentialById(id);
+      expect(c.category).toBe("certification");
+      expect(c.designation).toBeTruthy();
+      expect(c.href).toMatch(/^https:/);
+    }
+  });
+
+  it("orders the professional certifications before the programmes", () => {
+    expect(credentials.list.map((c) => [c.id, c.category])).toEqual([
+      ["aws", "certification"],
+      ["cdmp", "certification"],
+      ["apple", "programme"],
+      ["sda", "programme"],
+      ["mckinsey", "programme"],
     ]);
   });
 
   it("serves the AI Engineer CV from the hero and the footer", () => {
     expect(siteContent.contact.cv).toMatch(/AI-Engineer\.pdf$/);
-    expect(siteContent.hero.cta.cv).toBe(siteContent.contact.cv);
-    expect(siteContent.hero.cta.linkedin).toBe(siteContent.contact.linkedin);
-    expect(siteContent.hero.cta.linkedinLabel).toBe("LinkedIn");
+    expect(hero.cta.cv).toBe(siteContent.contact.cv);
+    expect(hero.cta.linkedin).toBe(siteContent.contact.linkedin);
+    expect(hero.cta.linkedinLabel).toBe("LinkedIn");
+    expect(hero.cta.work).toBe("#work");
   });
 
   it("frames GHRS as the venture, with the supplied descriptions and 85 Metro stations", () => {
@@ -229,5 +298,29 @@ describe("credentials and contact", () => {
     expect(siteContent.teaching.lines[0]).toContain("1,800+ computer science students at Shaguf");
     expect(siteContent.yax.lines[0]).toContain("1,500 staff across 85 Riyadh Metro stations");
     expect(siteContent.yax.figure[1]).toEqual({ value: "85", label: "stations" });
+  });
+
+  it("scopes the GHRS highlights to one workflow with approximate counts", () => {
+    const [calls, scoring] = siteContent.experience.ghrsHighlights;
+    expect(calls).toBe("Reduced one workflow from about 71 model calls to about 5 through caching.");
+    expect(scoring).toMatch(/rule based/);
+    expect(JSON.stringify(siteContent.experience)).not.toMatch(/\d+%|saved|saving/i);
+  });
+
+  it("frames Rusokh as founder work and keeps the teaching figures with Shaguf", () => {
+    const rusokh = siteContent.work.find((w) => w.id === "rusokh")!;
+    expect(rusokh.kicker).toBe("Founder and product builder");
+    expect(rusokh.line).toMatch(/^Founded and built Rusokh/);
+    expect(JSON.stringify(siteContent)).not.toMatch(/personal project|personal product/i);
+    expect(hero.proof.map((p) => p.text)).toEqual([
+      "Founder of Rusokh",
+      "1,800+ computer science students taught at Shaguf",
+      "4.9/5 learner rating at Shaguf",
+    ]);
+  });
+
+  it("shows the teaching start year as a static stat, not a duration", () => {
+    expect(siteContent.teaching.stats[2]).toEqual({ value: "2022", label: "Teaching since" });
+    expect(JSON.stringify(siteContent.teaching)).not.toMatch(/four years|And counting/);
   });
 });

@@ -3,32 +3,58 @@ import { useRef } from "react";
 import Image from "next/image";
 import { gsap, useGSAP } from "@/lib/gsap";
 import { EASE } from "@/lib/motion";
-import { siteContent } from "@/content/site";
+import { siteContent, noonProjectById } from "@/content/site";
 import ChapterHead from "@/components/ChapterHead";
-import Mark from "@/components/Mark";
+import Disclosure from "@/components/Disclosure";
+import Frame from "@/components/noon/Frame";
+import { CaseDetail, StatusPill } from "@/components/noon/ProjectBlock";
 
 const LINK =
   "mt-4 inline-block text-sm font-medium text-gold underline-offset-4 transition-colors hover:text-gold-bright hover:underline";
+const NOON_LINK =
+  "mt-4 inline-block text-sm font-medium text-noon underline-offset-4 transition-colors hover:text-bone hover:underline";
+const ROW = "grid grid-cols-1 gap-y-5 border-t border-bone/10 py-10 md:grid-cols-12 md:gap-x-8 md:py-14";
 
-// Three pieces of work as three ruled rows: a logo, a name, one paragraph and
-// one link. Rows, not cards, because the three are not peers of the same kind
-// and should not be dressed as if they were.
+// Three pieces of work as three ruled rows: the product Yousef founded, then
+// the two Noon cases that show the same kind of delivery for an employer.
+// Rows rather than cards, because the three are not peers of the same kind.
+// Each Noon row keeps its full case behind one fold, so the chapter reads in
+// a minute and still holds every bullet and screen for whoever wants them.
 export default function Work() {
   const container = useRef<HTMLElement>(null);
-  const { work, workSection } = siteContent;
+  const { work, workSection, noon } = siteContent;
+  const rusokh = work.find((w) => w.id === "rusokh")!;
+  const cases = workSection.noonCases.map(noonProjectById);
 
   useGSAP(
     () => {
       const mm = gsap.matchMedia();
       mm.add("(prefers-reduced-motion: no-preference)", () => {
+        // Opacity rather than autoAlpha: the rows hold links and the fold
+        // controls, which must stay reachable by keyboard before the reveal
+        // fires. Focusing one scrolls it into view, which plays the reveal.
         gsap.from("[data-work-row]", {
-          autoAlpha: 0,
+          opacity: 0,
           y: 24,
           stagger: 0.12,
           duration: 0.8,
           ease: EASE.cinematic,
           scrollTrigger: { trigger: "[data-work-list]", start: "top 82%" },
         });
+        // Preview frames settle into place. Frames inside a closed fold are
+        // left alone: they are simply there when the fold opens.
+        gsap.utils
+          .toArray<HTMLElement>("[data-frame]")
+          .filter((frame) => !frame.closest("details"))
+          .forEach((frame) => {
+            gsap.from(frame, {
+              autoAlpha: 0,
+              scale: 1.03,
+              duration: 0.9,
+              ease: EASE.cinematic,
+              scrollTrigger: { trigger: frame, start: "top 90%" },
+            });
+          });
       });
     },
     { scope: container }
@@ -39,54 +65,76 @@ export default function Work() {
       <div className="mx-auto max-w-6xl">
         <ChapterHead title={workSection.title} lead={workSection.lead} />
         <ul data-work-list className="mt-12 px-6">
-          {work.map((w) => (
-            <li
-              key={w.id}
-              data-work-row
-              className="grid grid-cols-[3.5rem_1fr] gap-x-5 gap-y-4 border-t border-bone/10 py-8 md:grid-cols-12 md:gap-x-8 md:py-10"
-            >
-              <div className="md:col-span-1">
-                {w.logo ? (
-                  <span className="flex h-14 w-14 items-center justify-center overflow-hidden rounded-xl bg-bone p-1.5">
-                    <Image
-                      src={w.logo}
-                      alt={w.logoAlt ?? ""}
-                      width={112}
-                      height={112}
-                      className="h-full w-full object-contain"
-                    />
-                  </span>
-                ) : (
-                  <span className="flex h-14 w-14 items-center justify-center rounded-xl border border-gold/25 bg-night">
-                    <Mark className="h-8 w-8" />
-                  </span>
-                )}
-              </div>
-              <div className="md:col-span-4">
-                <h3 className="font-display text-2xl leading-tight text-bone md:text-3xl">{w.title}</h3>
-                <p className="mt-1.5 text-sm text-bone/80">{w.kicker}</p>
-                {w.meta && <p className="mt-0.5 text-sm text-stone">{w.meta}</p>}
-              </div>
-              <div className="col-span-2 md:col-span-7">
-                <p className="max-w-prose leading-relaxed text-stone">{w.line}</p>
-                {w.href ? (
-                  <a href={w.href} target="_blank" rel="noopener noreferrer" className={LINK}>
-                    {w.cta}
-                  </a>
-                ) : w.action === "open-chat" ? (
-                  // The chat lives in a sibling component, so the row asks for
-                  // it by event rather than lifting the panel's state to the page.
-                  <button
-                    type="button"
-                    onClick={() => window.dispatchEvent(new CustomEvent("ya:open-chat"))}
-                    className={LINK}
+          <li data-work-row className={ROW}>
+            <div className="md:col-span-4">
+              <span className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-xl bg-bone p-1.5">
+                <Image
+                  src={rusokh.logo!}
+                  alt={rusokh.logoAlt ?? ""}
+                  width={96}
+                  height={96}
+                  className="h-full w-full object-contain"
+                />
+              </span>
+              <h3 className="mt-5 font-display text-3xl leading-tight text-bone md:text-4xl">{rusokh.title}</h3>
+              <p className="mt-2 text-sm text-bone/80">{rusokh.kicker}</p>
+              {rusokh.meta && <p className="mt-0.5 text-sm text-stone">{rusokh.meta}</p>}
+            </div>
+            <div className="md:col-span-8">
+              <p className="max-w-prose text-lg leading-relaxed text-bone/90">{rusokh.line}</p>
+              {rusokh.href && (
+                <a href={rusokh.href} target="_blank" rel="noopener noreferrer" className={LINK}>
+                  {rusokh.cta}
+                </a>
+              )}
+              {rusokh.preview && (
+                <Frame media={rusokh.preview} sizes="(max-width: 768px) 100vw, 740px" className="mt-8" />
+              )}
+            </div>
+          </li>
+          {cases.map((p) => {
+            const [preview] = p.media;
+            return (
+              <li key={p.id} data-work-row className="border-t border-bone/10 py-10 md:py-14">
+                <article id={p.id} className="scroll-mt-24">
+                  <div className="grid grid-cols-1 gap-y-6 md:grid-cols-12 md:gap-x-8">
+                    <div className="md:col-span-4">
+                      <Image src={noon.logo} alt={noon.logoAlt} width={1176} height={254} className="h-6 w-auto" />
+                      <div className="mt-5">
+                        <StatusPill status={p.status} />
+                      </div>
+                      <h3 className="mt-4 font-display text-3xl leading-tight text-bone md:text-4xl">{p.title}</h3>
+                      <p className="mt-2 text-sm text-noon">{workSection.noonContext}</p>
+                      <p className="mt-0.5 text-sm text-bone/80">{p.role}</p>
+                      {p.links.map((l) => (
+                        <a key={l.href} href={l.href} target="_blank" rel="noopener noreferrer" className={NOON_LINK}>
+                          {l.label}
+                        </a>
+                      ))}
+                    </div>
+                    <div className="md:col-span-8">
+                      <p className="max-w-prose text-lg leading-relaxed text-bone/90">{p.summary}</p>
+                      {preview && (
+                        <Frame
+                          media={preview}
+                          sizes="(max-width: 768px) 100vw, 740px"
+                          className="mt-8"
+                        />
+                      )}
+                    </div>
+                  </div>
+                  <Disclosure
+                    open={workSection.details.open}
+                    close={workSection.details.close}
+                    tone="noon"
+                    hashOpen
                   >
-                    {w.cta}
-                  </button>
-                ) : null}
-              </div>
-            </li>
-          ))}
+                    <CaseDetail project={p} />
+                  </Disclosure>
+                </article>
+              </li>
+            );
+          })}
         </ul>
       </div>
     </section>

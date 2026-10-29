@@ -8,12 +8,6 @@ import { siteContent } from "@/content/site";
 const STORAGE_KEY = "ya-chat-session-v1";
 const MAX_INPUT = 500;
 
-const STARTERS = [
-  "How do you work with a team?",
-  "What did you build at Noon Academy?",
-  "Why did you go from managing 1,500 people to building AI systems?",
-];
-
 function loadSession(): UIMessage[] | null {
   try {
     const raw = sessionStorage.getItem(STORAGE_KEY);
@@ -113,7 +107,7 @@ export default function ChatBubble() {
     setInput("");
   };
 
-  const { contact } = siteContent;
+  const { contact, chat } = siteContent;
 
   return (
     <div ref={wrap}>
@@ -122,19 +116,19 @@ export default function ChatBubble() {
         id="chat-panel"
         data-chat-panel
         role="dialog"
-        aria-label="Chat with Yousef"
+        aria-label={chat.panelLabel}
         className="invisible fixed bottom-[5.5rem] right-4 z-[70] flex w-[min(24rem,calc(100vw-2rem))] flex-col overflow-hidden rounded-2xl border border-bone/10 bg-night/80 opacity-0 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_24px_60px_-24px_rgba(0,0,0,0.9)] backdrop-blur-2xl backdrop-saturate-150"
       >
         <header className="flex items-start justify-between border-b border-bone/10 px-5 py-4">
           <div>
-            <p className="font-display text-xl text-bone">Ask me anything</p>
+            <p className="font-display text-xl text-bone">{chat.title}</p>
             <p className="mt-0.5 font-mono text-[10px] uppercase tracking-widest text-stone">
-              Answers come from my CV
+              {chat.subtitle}
             </p>
           </div>
           <button
             onClick={() => setOpen(false)}
-            aria-label="Close chat"
+            aria-label={chat.closeButton}
             className="flex h-8 w-8 items-center justify-center rounded-full text-stone transition-colors hover:bg-bone/10 hover:text-bone"
           >
             <svg aria-hidden width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -144,12 +138,10 @@ export default function ChatBubble() {
         </header>
         {error ? (
           <div data-chat-fallback className="p-5">
-            <p className="text-sm text-stone">
-              The chat is resting right now. Reach me directly instead:
-            </p>
+            <p className="text-sm text-stone">{chat.errorLine}</p>
             <div className="mt-4 flex flex-wrap gap-5 font-mono text-sm">
               <a className="text-gold hover:text-gold-bright" href={`mailto:${contact.email}`}>
-                Email
+                {chat.errorLinks.email}
               </a>
               <a
                 className="text-gold hover:text-gold-bright"
@@ -157,7 +149,7 @@ export default function ChatBubble() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                LinkedIn
+                {chat.errorLinks.linkedin}
               </a>
               <a
                 className="text-gold hover:text-gold-bright"
@@ -165,7 +157,7 @@ export default function ChatBubble() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                GitHub
+                {chat.errorLinks.github}
               </a>
             </div>
           </div>
@@ -178,7 +170,7 @@ export default function ChatBubble() {
             >
               {messages.length === 0 && (
                 <div className="flex flex-wrap gap-2">
-                  {STARTERS.map((q) => (
+                  {chat.starters.map((q) => (
                     <button
                       key={q}
                       onClick={() => send(q)}
@@ -192,7 +184,7 @@ export default function ChatBubble() {
               {messages.map((m) => (
                 <div key={m.id} className={m.role === "user" ? "text-gold-bright" : "text-bone"}>
                   <span className="font-mono text-[10px] uppercase text-stone">
-                    {m.role === "user" ? "You" : "Yousef"}
+                    {m.role === "user" ? chat.you : chat.assistant}
                   </span>
                   {m.parts.map((part, i) =>
                     part.type === "text" ? (
@@ -203,7 +195,7 @@ export default function ChatBubble() {
                   )}
                 </div>
               ))}
-              {busy && <p className="animate-pulse font-mono text-xs text-stone">thinking…</p>}
+              {busy && <p className="animate-pulse font-mono text-xs text-stone">{chat.thinking}</p>}
             </div>
             <form
               className="flex gap-2 border-t border-bone/10 p-3"
@@ -217,8 +209,8 @@ export default function ChatBubble() {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 maxLength={MAX_INPUT}
-                aria-label="Ask about my work"
-                placeholder="Ask about my work…"
+                aria-label={chat.inputLabel}
+                placeholder={chat.placeholder}
                 className="min-w-0 flex-1 rounded-full border border-gold/20 bg-coal/80 px-4 py-2 text-sm text-bone placeholder:text-stone focus:border-gold focus:outline-none"
               />
               <button
@@ -226,7 +218,7 @@ export default function ChatBubble() {
                 disabled={busy}
                 className="rounded-full bg-gold px-4 py-2 font-mono text-sm text-night transition-colors hover:bg-gold-bright disabled:opacity-50"
               >
-                Send
+                {chat.send}
               </button>
             </form>
           </>
@@ -237,7 +229,7 @@ export default function ChatBubble() {
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
         aria-controls="chat-panel"
-        aria-label={open ? "Close the chat" : "Chat with Yousef"}
+        aria-label={open ? chat.closeLabel : chat.openLabel}
         className="liquid-glass fixed bottom-4 right-4 z-[70] flex h-14 w-14 items-center justify-center rounded-full text-gold transition-transform hover:scale-105 active:scale-95"
       >
         {open ? (
