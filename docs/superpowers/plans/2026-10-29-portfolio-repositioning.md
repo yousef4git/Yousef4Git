@@ -34,56 +34,56 @@
 
 **Files:** Modify `content/site.ts`; Test `tests/unit/content.test.ts`.
 
-- [ ] Credentials gain `id` (`apple`, `sda`, `cdmp`, `aws`, `mckinsey`) and `category` (`"certification" | "programme"`); array order AWS, CDMP, Apple, SDA, McKinsey.
-- [ ] Hero: `role`, `tagline`, `currentRole`, `credentials: ["aws", "cdmp"]`, `cta.work`, `proof[]`; `roleAside` and `badges` removed.
-- [ ] Method copy; Noon `intro`, `hackathon.line`, project `summary` strings; `framing` and `closer` removed.
-- [ ] `workSection`, `work` rows (rusokh, site), `selectedWork`, `experience`, `yax` (title, bridge), `teaching`, `credentials` headings, `footer.line`, `chat`.
-- [ ] `chapters`: hero, work, experience, teaching, method, credentials.
-- [ ] Update `tests/unit/content.test.ts`: one "forward deploy" mention; hero credential ids; Apple by id; no placement card; categories; teaching start year; chat labels. Run `npx vitest run`.
+- [x] Credentials gain `id` (`apple`, `sda`, `cdmp`, `aws`, `mckinsey`) and `category` (`"certification" | "programme"`); array order AWS, CDMP, Apple, SDA, McKinsey.
+- [x] Hero: `role`, `tagline`, `currentRole`, `credentials: ["aws", "cdmp"]`, `cta.work`, `proof[]`; `roleAside` and `badges` removed.
+- [x] Method copy; Noon `intro`, `hackathon.line`, project `summary` strings; `framing` and `closer` removed.
+- [x] `workSection`, `work` rows (rusokh, site), `selectedWork`, `experience`, `yax` (title, bridge), `teaching`, `credentials` headings, `footer.line`, `chat`.
+- [x] `chapters`: hero, work, experience, teaching, method, credentials.
+- [x] Update `tests/unit/content.test.ts`: one "forward deploy" mention; hero credential ids; Apple by id; no placement card; categories; teaching start year; chat labels. Run `npx vitest run`.
 
 ### Task 2: Hero (`components/chapters/Hero.tsx`)
 
-- [ ] Role line in sentence case, wrapping; no aside, no separator.
-- [ ] Two credential links (badge artwork, name, designation) under the tagline, before the CTAs; `data-hero-cred`.
-- [ ] CTAs: View selected work (primary), Email me, Download CV, LinkedIn; then the current-role line; proof band at the section's foot.
-- [ ] Timeline and noscript fallback updated for the new attributes.
+- [x] Role line in sentence case, wrapping; no aside, no separator.
+- [x] Two credential links (badge artwork, name, designation) under the tagline, before the CTAs; `data-hero-cred`.
+- [x] CTAs: View selected work (primary), Email me, Download CV, LinkedIn; then the current-role line; proof band at the section's foot.
+- [x] Timeline and noscript fallback updated for the new attributes.
 
 ### Task 3: Selected work (`components/chapters/Work.tsx`, `components/Disclosure.tsx`, `components/noon/ProjectBlock.tsx`)
 
-- [ ] Rusokh row first (founder framing, logo, link). Two Noon rows: status, title, "Built at Noon Academy", summary, one preview image, site link, `<details>` with the full case (description, lists, media).
-- [ ] `ProjectBlock` loses its own article wrapper so it can sit inside the disclosure; the card owns `article#<id>`.
-- [ ] Disclosure labels swap open/closed via CSS; toggle calls `ScrollTrigger.refresh()`.
+- [x] Rusokh row first (founder framing, logo, link). Two Noon rows: status, title, "Built at Noon Academy", summary, one preview image, site link, `<details>` with the full case (description, lists, media).
+- [x] `ProjectBlock` loses its own article wrapper so it can sit inside the disclosure; the card owns `article#<id>`.
+- [x] Disclosure labels swap open/closed via CSS; toggle calls `ScrollTrigger.refresh()`.
 
 ### Task 4: Experience (`components/chapters/Experience.tsx`)
 
-- [ ] Noon row (`#noon`): logo, title, meta, intro, site link, disclosure "More work at Noon Academy" with the HR integration and AI Week cases (`article#noon-ops-hr-integration`, `article#noon-ai-week`) and the hackathon paragraph with its two photos.
-- [ ] GHRS row: logo, title, kicker, meta, line, two highlight lines, link.
-- [ ] YAX row (`#yax`): logo, title "Operational leadership", lead, line, three figures, bridge.
+- [x] Noon row (`#noon`): logo, title, meta, intro, site link, disclosure "More work at Noon Academy" with the HR integration and AI Week cases (`article#noon-ops-hr-integration`, `article#noon-ai-week`) and the hackathon paragraph with its two photos.
+- [x] GHRS row: logo, title, kicker, meta, line, two highlight lines, link.
+- [x] YAX row (`#yax`): logo, title "Operational leadership", lead, line, three figures, bridge.
 
 ### Task 5: Credentials (`components/chapters/Credentials.tsx`)
 
-- [ ] "Professional certifications": AWS then CDMP as two equal wide rows (badge, name, designation, issuer, description, "View credential").
-- [ ] "Selected programmes": Apple (scan plus "Selected 1 of 66"), SDA, McKinsey.
-- [ ] Education row, then "Additional learning:" line.
+- [x] "Professional certifications": AWS then CDMP as two equal wide rows (badge, name, designation, issuer, description, "View credential").
+- [x] "Selected programmes": Apple (scan plus "Selected 1 of 66"), SDA, McKinsey.
+- [x] Education row, then "Additional learning:" line.
 
 ### Task 6: Shell, nav, footer, chat, metadata
 
-- [ ] `app/page.tsx` order: Nav, Hero, Work, Experience, Teaching, Method, Credentials, Footer, ChatBubble, HashOpener.
-- [ ] `components/Nav.tsx`: Work, Experience, Teaching, Credentials, Contact; skip link to `#work`.
-- [ ] `components/Footer.tsx`: compact "This portfolio, built as a product" row with the chat button, then the contact block with the new line.
-- [ ] `components/ChatBubble.tsx`: labels and starters from `siteContent.chat`; "AI assistant" role label.
-- [ ] `app/layout.tsx`, `app/opengraph-image.tsx`: new title, descriptions, OG lines; JSON-LD unchanged.
-- [ ] `components/HashOpener.tsx`: opens closed `<details>` ancestors or a card's own disclosure for the current hash, then scrolls.
-- [ ] `content/persona.md`: AI-assistant framing, Rusokh founder line, CV download link, teaching since 2022; confidentiality rules untouched.
-- [ ] `PRODUCT.md`, `DESIGN.md`: positioning, nav and component notes.
+- [x] `app/page.tsx` order: Nav, Hero, Work, Experience, Teaching, Method, Credentials, Footer, ChatBubble, HashOpener.
+- [x] `components/Nav.tsx`: Work, Experience, Teaching, Credentials, Contact; skip link to `#work`.
+- [x] `components/Footer.tsx`: compact "This portfolio, built as a product" row with the chat button, then the contact block with the new line.
+- [x] `components/ChatBubble.tsx`: labels and starters from `siteContent.chat`; "AI assistant" role label.
+- [x] `app/layout.tsx`, `app/opengraph-image.tsx`: new title, descriptions, OG lines; JSON-LD unchanged.
+- [x] `components/HashOpener.tsx`: opens closed `<details>` ancestors or a card's own disclosure for the current hash, then scrolls.
+- [x] `content/persona.md`: AI-assistant framing, Rusokh founder line, CV download link, teaching since 2022; confidentiality rules untouched.
+- [x] `PRODUCT.md`, `DESIGN.md`: positioning, nav and component notes.
 
 ### Task 7: Tests and verification
 
-- [ ] `tests/e2e/site.spec.ts`: chapter order, nav labels, hero credentials visible at 1440 and 390, disclosures open by hash and by keyboard, four case anchors, reduced motion.
-- [ ] `npx tsc --noEmit`, `npx vitest run`, `npx playwright test`, `cd cv && node --test test/*.test.mjs`, `npm run build`.
-- [ ] Production build served locally; screenshots at 1440x900 and 390x844 (hero, work closed and open, experience, credentials, full page).
+- [x] `tests/e2e/site.spec.ts`: chapter order, nav labels, hero credentials visible at 1440 and 390, disclosures open by hash and by keyboard, four case anchors, reduced motion.
+- [x] `npx tsc --noEmit`, `npx vitest run`, `npx playwright test`, `cd cv && node --test test/*.test.mjs`, `npm run build`.
+- [x] Production build served locally; screenshots at 1440x900 and 390x844 (hero, work closed and open, experience, credentials, full page).
 
 ### Task 8: CV source and served PDF
 
-- [ ] `cv/roles/ai_engineer.json` summary (EN); `cv/data/master.json`: tutor_scale, Rusokh title and bullet (EN), AWS before CDMP in certs.
-- [ ] `node cv/build.mjs --role=ai_engineer`; confirm one page; copy to `public/cv/` in a separate commit; render page 1 to PNG for review.
+- [x] `cv/roles/ai_engineer.json` summary (EN); `cv/data/master.json`: tutor_scale, Rusokh title and bullet (EN), AWS before CDMP in certs.
+- [x] `node cv/build.mjs --role=ai_engineer`; confirm one page; copy to `public/cv/` in a separate commit; render page 1 to PNG for review.

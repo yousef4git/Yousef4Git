@@ -191,7 +191,7 @@ export default function Hero() {
         {/* Three facts with their context, as the hero's foot. */}
         <ul
           data-hero-proof
-          className="relative z-10 mt-12 flex flex-wrap justify-center gap-x-8 gap-y-2 border-t border-bone/10 pt-5 text-sm text-stone md:mt-16 md:justify-start"
+          className="relative z-10 mt-12 flex flex-wrap justify-center gap-x-8 gap-y-2 border-t border-bone/10 pt-5 text-center text-sm text-stone md:mt-12 md:justify-start md:text-left"
         >
           {hero.proof.map((p) => (
             <li key={p.text}>
