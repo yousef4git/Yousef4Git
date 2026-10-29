@@ -210,7 +210,7 @@
             "all"
           ],
           "text": {
-            "en": "Taught 1,800+ computer science students at Shaguf over four years, with a 4.9/5 learner rating.",
+            "en": "Taught 1,800+ computer science students at Shaguf, with a 4.9/5 learner rating.",
             "ar": "درّست أكثر من 1,800 طالب في علوم الحاسب في شغوف على مدى أربع سنوات، بتقييم 4.9 من 5 من المتعلّمين."
           }
         },
@@ -340,7 +340,7 @@
     {
       "id": "rusokh",
       "title": {
-        "en": "Rusokh, course platform (personal project)",
+        "en": "Rusokh, founder and product builder",
         "ar": "رسوخ، منصة دورات (مشروع شخصي)"
       },
       "org": {
@@ -363,7 +363,7 @@
             "all"
           ],
           "text": {
-            "en": "Built my own course platform after hitting the same walls on every platform I taught on: bilingual (Arabic/English), payments, video delivery, live and in use today. Next.js 15, Convex, Moyasar, Bunny.net.",
+            "en": "Founded and built Rusokh, a live university learning platform with Arabic and English interfaces, course publishing, payments and video delivery. Next.js 15, Convex, Moyasar, Bunny.net.",
             "ar": "بنيت منصة الدورات الخاصة بي بعد أن واجهت العوائق نفسها في كل منصة درّست عليها: ثنائية اللغة (عربي/إنجليزي)، ومدفوعات، وبث فيديو، وهي تعمل وقيد الاستخدام اليوم. Next.js 15 وConvex وMoyasar وBunny.net."
           }
         }
@@ -539,21 +539,6 @@
   "certs": [
     {
       "name": {
-        "en": "Certified Data Management Professional (CDMP), Associate",
-        "ar": "محترف إدارة البيانات المعتمد (CDMP)، مستوى مشارك"
-      },
-      "org": {
-        "en": "DAMA",
-        "ar": "DAMA"
-      },
-      "year": "2026",
-      "note": {
-        "en": "",
-        "ar": ""
-      }
-    },
-    {
-      "name": {
         "en": "AWS Certified AI Business Strategist (Early Adopter)",
         "ar": "AWS Certified AI Business Strategist (Early Adopter)"
       },
@@ -562,6 +547,21 @@
         "ar": "Amazon Web Services Training and Certification"
       },
       "year": "",
+      "note": {
+        "en": "",
+        "ar": ""
+      }
+    },
+    {
+      "name": {
+        "en": "Certified Data Management Professional (CDMP), Associate",
+        "ar": "محترف إدارة البيانات المعتمد (CDMP)، مستوى مشارك"
+      },
+      "org": {
+        "en": "DAMA",
+        "ar": "DAMA"
+      },
+      "year": "2026",
       "note": {
         "en": "",
         "ar": ""
