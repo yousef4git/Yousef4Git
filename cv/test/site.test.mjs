@@ -13,12 +13,14 @@ const read = (rel) => {
 };
 
 // Public copy of the Next.js site (the old static index.html lives in
-// legacy/ and is no longer served). These must follow the voice rules.
+// legacy/ and is no longer served). These must follow the voice rules. The
+// page metadata lives in content/site.ts since the Arabic edition, so the
+// layouts carry no copy of their own.
 const CONTENT = [
   'README.md',
   'content/site.ts',
+  'content/site.ar.ts',
   'content/persona.md',
-  'app/layout.tsx',
 ];
 
 for (const rel of CONTENT) {

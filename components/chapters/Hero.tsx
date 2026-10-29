@@ -4,7 +4,8 @@ import Image from "next/image";
 import { preload } from "react-dom";
 import { gsap, SplitText, useGSAP } from "@/lib/gsap";
 import { EASE, DUR } from "@/lib/motion";
-import { siteContent, credentialById } from "@/content/site";
+import { pickCredential } from "@/content/locale";
+import { useContent } from "@/components/LocaleProvider";
 
 const TEXT_LINK =
   "text-sm font-medium text-gold underline-offset-4 transition-colors hover:text-gold-bright hover:underline";
@@ -16,8 +17,12 @@ const TEXT_LINK =
 // JavaScript off, the noscript block below undoes the clips.
 export default function Hero() {
   const container = useRef<HTMLElement>(null);
-  const { hero } = siteContent;
-  const credentials = hero.credentials.map(credentialById);
+  const content = useContent();
+  const { hero } = content;
+  const credentials = hero.credentials.map((id) => pickCredential(content, id));
+  // Arabic letters join, so the Arabic name cascades by word; the English
+  // name cascades by character.
+  const byChars = content.locale !== "ar";
 
   preload(hero.poster, { as: "image", fetchPriority: "high" });
 
@@ -25,17 +30,18 @@ export default function Hero() {
     () => {
       const mm = gsap.matchMedia();
       mm.add("(prefers-reduced-motion: no-preference)", () => {
-        const split = SplitText.create("[data-hero-name]", { type: "words,chars" });
-        // Characters hide before the heading's clip opens, in the same frame,
+        const split = SplitText.create("[data-hero-name]", { type: byChars ? "words,chars" : "words" });
+        const pieces = byChars ? split.chars : split.words;
+        // Pieces hide before the heading's clip opens, in the same frame,
         // so the name never flashes whole.
-        gsap.set(split.chars, { yPercent: 110, autoAlpha: 0 });
+        gsap.set(pieces, { yPercent: 110, autoAlpha: 0 });
         gsap.set("[data-hero-name]", { clipPath: "none" });
         const open = { clipPath: "inset(0 0 0% 0)", y: 0, duration: DUR.base };
         const openX = { clipPath: "inset(0 0% 0 0)", y: 0, duration: DUR.base };
         gsap
           .timeline({ defaults: { ease: EASE.cinematic } })
           .fromTo("[data-hero-frame]", { y: 32 }, { y: 0, duration: DUR.slow })
-          .to(split.chars, { yPercent: 0, autoAlpha: 1, stagger: 0.03, duration: DUR.slow }, "-=0.7")
+          .to(pieces, { yPercent: 0, autoAlpha: 1, stagger: byChars ? 0.03 : 0.12, duration: DUR.slow }, "-=0.7")
           .fromTo("[data-hero-meta]", { y: 12 }, { y: 0, duration: DUR.base }, "-=0.8")
           .fromTo("[data-hero-role]", { clipPath: "inset(0 0 100% 0)", y: 16 }, open, "-=0.5")
           .fromTo("[data-hero-tagline]", { clipPath: "inset(0 0 100% 0)", y: 12 }, open, "-=0.5")
@@ -71,11 +77,11 @@ export default function Hero() {
       </noscript>
       <div
         aria-hidden
-        className="pointer-events-none absolute right-[-12%] top-1/2 hidden h-[40rem] w-[40rem] -translate-y-1/2 rounded-full bg-gold/10 blur-3xl md:block"
+        className="pointer-events-none absolute end-[-12%] top-1/2 hidden h-[40rem] w-[40rem] -translate-y-1/2 rounded-full bg-gold/10 blur-3xl md:block"
       />
       <div className="mx-auto w-full max-w-6xl px-6 pb-14 pt-28 md:py-24">
         <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-[1fr_auto] md:gap-16">
-          <div className="relative z-10 text-center md:text-left">
+          <div className="relative z-10 text-center md:text-start">
             <p data-hero-meta className="text-sm text-stone">
               {hero.location}
             </p>
@@ -84,19 +90,19 @@ export default function Hero() {
               data-hero-clip
               className="mt-4 font-display text-5xl leading-none text-gold md:text-6xl lg:text-7xl"
             >
-              {siteContent.name}
+              {content.name}
             </h1>
             {/* Three roles in one line that wraps where it needs to. The
                 employer is named lower down, as a fact, not as the identity. */}
             <p data-hero-role data-hero-clip className="mt-5 text-base font-medium text-gold md:text-lg">
-              {siteContent.role}
+              {content.role}
             </p>
             <p
               data-hero-tagline
               data-hero-clip
               className="mx-auto mt-4 max-w-xl text-lg text-stone md:mx-0"
             >
-              {siteContent.tagline}
+              {content.tagline}
             </p>
             {/* The two professional certifications, each a link to its own
                 record. Programmes are listed in the Credentials chapter. */}
@@ -107,15 +113,15 @@ export default function Hero() {
                     href={c.href ?? "#credentials"}
                     target={c.href ? "_blank" : undefined}
                     rel={c.href ? "noopener noreferrer" : undefined}
-                    className="flex w-full items-center gap-3 rounded-xl border border-gold/25 bg-coal/70 py-2.5 pl-2.5 pr-4 text-left transition-colors hover:border-gold/60"
+                    className="flex w-full items-center gap-3 rounded-xl border border-gold/25 bg-coal/70 py-2.5 ps-2.5 pe-4 text-start transition-colors hover:border-gold/60"
                   >
                     <span className="flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-bone p-1">
                       <Image src={c.img} alt="" width={88} height={88} className="h-full w-full object-contain" />
                     </span>
                     <span>
-                      <span className="block text-sm leading-snug text-bone">{c.name}</span>
+                      <bdi className="block text-sm leading-snug text-bone">{c.name}</bdi>
                       {c.designation && (
-                        <span className="mt-0.5 block text-xs text-gold">{c.designation}</span>
+                        <bdi className="mt-0.5 block text-xs text-gold">{c.designation}</bdi>
                       )}
                     </span>
                   </a>
@@ -191,7 +197,7 @@ export default function Hero() {
         {/* Three facts with their context, as the hero's foot. */}
         <ul
           data-hero-proof
-          className="relative z-10 mt-12 flex flex-wrap justify-center gap-x-8 gap-y-2 border-t border-bone/10 pt-5 text-center text-sm text-stone md:mt-12 md:justify-start md:text-left"
+          className="relative z-10 mt-12 flex flex-wrap justify-center gap-x-8 gap-y-2 border-t border-bone/10 pt-5 text-center text-sm text-stone md:mt-12 md:justify-start md:text-start"
         >
           {hero.proof.map((p) => (
             <li key={p.text}>

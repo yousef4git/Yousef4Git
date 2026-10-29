@@ -1,4 +1,6 @@
 import dynamic from "next/dynamic";
+import type { Locale } from "@/content/locale";
+import LocaleProvider from "@/components/LocaleProvider";
 import Nav from "@/components/Nav";
 import Hero from "@/components/chapters/Hero";
 import Work from "@/components/chapters/Work";
@@ -11,9 +13,10 @@ import HashOpener from "@/components/HashOpener";
 
 const ChatBubble = dynamic(() => import("@/components/ChatBubble"));
 
-export default function Home() {
+// The one page, in one language. / and /ar both render this.
+export default function HomePage({ locale }: { locale: Locale }) {
   return (
-    <>
+    <LocaleProvider locale={locale}>
       <main>
         <Nav />
         <Hero />
@@ -23,9 +26,9 @@ export default function Home() {
         <Method />
         <Credentials />
       </main>
-      <Footer />
+      <Footer locale={locale} />
       <ChatBubble />
       <HashOpener />
-    </>
+    </LocaleProvider>
   );
 }

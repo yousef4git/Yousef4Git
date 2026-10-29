@@ -8,9 +8,10 @@
   --color-bone: #efe9de;
   --color-stone: #a39b8b;
   --color-noon: #17d9a3;
-  --font-display: var(--font-cormorant);
-  --font-body: var(--font-inter);
-  --font-mono: var(--font-jetbrains);
+  /* Each language's root layout binds its own faces to these slots. */
+  --font-display: var(--font-display-face);
+  --font-body: var(--font-body-face);
+  --font-mono: var(--font-mono-face);
 }
 
 html {
@@ -29,6 +30,13 @@ h3 {
 
 p {
   text-wrap: pretty;
+}
+
+/* Arabic letters join; any tracking breaks the joins, so the Arabic page
+   drops every letter-spacing utility. Digits and the mono tech lists lose a
+   little air and nothing else. */
+html[dir="rtl"] [class*="tracking-"] {
+  letter-spacing: 0;
 }
 
 /* Keyboard focus is gold, the same colour the page uses for every action. */

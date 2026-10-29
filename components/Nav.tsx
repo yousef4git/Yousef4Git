@@ -2,30 +2,14 @@
 import { useEffect, useRef } from "react";
 import { gsap, useGSAP } from "@/lib/gsap";
 import Mark from "@/components/Mark";
+import { useContent } from "@/components/LocaleProvider";
 
-// Five stops, each named after its chapter in sentence case, so the nav reads
-// as a table of contents rather than as a row of badges. The logo returns to
-// the hero; How I work keeps its anchor but no longer takes a stop.
-const LINKS = [
-  { href: "#work", label: "Work" },
-  { href: "#experience", label: "Experience" },
-  { href: "#teaching", label: "Teaching" },
-  { href: "#credentials", label: "Credentials" },
-  { href: "#contact", label: "Contact" },
-];
-
-// Which chapter lights which stop. Chapters without a stop keep the previous
-// one lit until the next stop's chapter arrives.
-const SPY: Record<string, string> = {
-  work: "#work",
-  experience: "#experience",
-  teaching: "#teaching",
-  credentials: "#credentials",
-  contact: "#contact",
-};
-
+// Five stops named after their chapters, then the other language. The logo
+// returns to the hero; How I work keeps its anchor but no longer takes a stop.
 export default function Nav() {
   const wrap = useRef<HTMLDivElement>(null);
+  const { ui } = useContent();
+  const links = ui.nav.links;
 
   useGSAP(
     () => {
@@ -50,8 +34,10 @@ export default function Nav() {
 
   // Active-section highlight. IntersectionObserver reads live layout, so it
   // stays correct however tall a chapter becomes: whichever section crosses
-  // the viewport's centre band wins. The hero lights nothing.
+  // the viewport's centre band wins. The hero lights nothing; chapters
+  // without a stop keep the previous one lit.
   useEffect(() => {
+    const spy = Object.fromEntries(links.map((l) => [l.href.slice(1), l.href]));
     const setActive = (href: string | null) => {
       wrap.current
         ?.querySelectorAll<HTMLAnchorElement>("[data-nav-link]")
@@ -71,45 +57,45 @@ export default function Nav() {
         for (const e of entries) {
           if (!e.isIntersecting) continue;
           const id = e.target.id;
-          setActive(id === "hero" ? null : (SPY[id] ?? null));
+          setActive(id === "hero" ? null : (spy[id] ?? null));
         }
       },
       { rootMargin: "-45% 0px -45% 0px" }
     );
-    ["hero", ...Object.keys(SPY)].forEach((id) => {
+    ["hero", ...Object.keys(spy)].forEach((id) => {
       const el = document.getElementById(id);
       if (el) io.observe(el);
     });
     return () => io.disconnect();
-  }, []);
+  }, [links]);
 
   return (
     <div ref={wrap}>
       <a
-        href="#work"
-        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[80] focus:rounded-full focus:bg-gold focus:px-4 focus:py-2 focus:text-sm focus:text-night"
+        href={links[0].href}
+        className="sr-only focus:not-sr-only focus:fixed focus:start-4 focus:top-4 focus:z-[80] focus:rounded-full focus:bg-gold focus:px-4 focus:py-2 focus:text-sm focus:text-night"
       >
-        Skip to selected work
+        {ui.nav.skip}
       </a>
       <div
         data-progress
         aria-hidden
-        className="fixed left-0 top-0 z-[65] h-px w-full origin-left scale-x-0 bg-gold/70"
+        className="fixed start-0 top-0 z-[65] h-px w-full origin-left scale-x-0 bg-gold/70 rtl:origin-right"
       />
       <div className="pointer-events-none fixed inset-x-0 top-4 z-50 flex justify-center px-3">
         <div
           data-nav-pill
-          className="liquid-glass pointer-events-auto flex max-w-full items-center rounded-full py-1.5 pl-4 pr-1.5"
+          className="liquid-glass pointer-events-auto flex max-w-full items-center rounded-full py-1.5 ps-4 pe-1.5"
         >
           <a href="#hero" className="me-1.5 flex items-center">
             <Mark className="h-7 w-7" />
-            <span className="sr-only">Yousef Alshuwayi, back to top</span>
+            <span className="sr-only">{ui.nav.backToTop}</span>
           </a>
           <nav
-            aria-label="Sections"
-            className="no-scrollbar flex items-center gap-0.5 overflow-x-auto scroll-smooth max-md:[mask-image:linear-gradient(to_right,black_88%,transparent)]"
+            aria-label={ui.nav.sections}
+            className="no-scrollbar flex items-center gap-0.5 overflow-x-auto scroll-smooth max-md:[mask-image:linear-gradient(to_right,black_88%,transparent)] max-md:rtl:[mask-image:linear-gradient(to_left,black_88%,transparent)]"
           >
-            {LINKS.map((l) => (
+            {links.map((l) => (
               <a
                 key={l.href}
                 data-nav-link
@@ -119,6 +105,15 @@ export default function Nav() {
                 {l.label}
               </a>
             ))}
+            <a
+              data-lang-switch
+              href={ui.nav.switch.href}
+              lang={ui.nav.switch.lang}
+              hrefLang={ui.nav.switch.lang}
+              className="ms-1 whitespace-nowrap rounded-full border border-bone/15 px-3 py-1.5 text-xs font-medium text-stone transition-colors hover:border-gold/40 hover:text-bone"
+            >
+              {ui.nav.switch.label}
+            </a>
           </nav>
         </div>
       </div>

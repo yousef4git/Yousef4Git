@@ -20,7 +20,7 @@ export default function ChapterHead({ title, lead }: { title: string; lead?: str
             scrollTrigger: { trigger: head.current, start: "top 85%" },
           })
           .from(split.words, { yPercent: 110, autoAlpha: 0, stagger: 0.08, duration: 0.9 })
-          .from("[data-head-rule]", { scaleX: 0, transformOrigin: "left", duration: 0.7 }, "-=0.5");
+          .from("[data-head-rule]", { scaleX: 0, duration: 0.7 }, "-=0.5");
         // Chapters without a lead sentence (How I work, Experience) skip the
         // third beat instead of tweening a target that is not there.
         if (head.current?.querySelector("[data-head-lead]")) {
@@ -40,7 +40,7 @@ export default function ChapterHead({ title, lead }: { title: string; lead?: str
       >
         {title}
       </h2>
-      <div aria-hidden data-head-rule className="mt-6 h-px w-16 bg-gold/40" />
+      <div aria-hidden data-head-rule className="mt-6 h-px w-16 origin-left bg-gold/40 rtl:origin-right" />
       {lead && (
         <p data-head-lead className="mt-5 max-w-xl text-base text-stone md:text-lg">
           {lead}

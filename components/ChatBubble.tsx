@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { useChat } from "@ai-sdk/react";
 import type { UIMessage } from "ai";
 import { gsap, useGSAP } from "@/lib/gsap";
-import { siteContent } from "@/content/site";
+import { useContent } from "@/components/LocaleProvider";
 
 const STORAGE_KEY = "ya-chat-session-v1";
 const MAX_INPUT = 500;
@@ -18,6 +18,7 @@ function loadSession(): UIMessage[] | null {
 }
 
 export default function ChatBubble() {
+  const { contact, chat } = useContent();
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState("");
   const wrap = useRef<HTMLDivElement>(null);
@@ -49,6 +50,8 @@ export default function ChatBubble() {
       const panel = panelRef.current;
       if (!panel) return;
       const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      // The panel grows from the corner it lives in: bottom end, either side.
+      const origin = document.documentElement.dir === "rtl" ? "bottom left" : "bottom right";
       if (reduce) {
         gsap.set(panel, { autoAlpha: open ? 1 : 0, scale: 1, y: 0 });
         return;
@@ -60,7 +63,7 @@ export default function ChatBubble() {
           y: 0,
           duration: 0.35,
           ease: "back.out(1.4)",
-          transformOrigin: "bottom right",
+          transformOrigin: origin,
         });
       } else {
         gsap.to(panel, {
@@ -69,7 +72,7 @@ export default function ChatBubble() {
           y: 12,
           duration: 0.22,
           ease: "power2.in",
-          transformOrigin: "bottom right",
+          transformOrigin: origin,
         });
       }
     },
@@ -107,8 +110,6 @@ export default function ChatBubble() {
     setInput("");
   };
 
-  const { contact, chat } = siteContent;
-
   return (
     <div ref={wrap}>
       <div
@@ -117,12 +118,12 @@ export default function ChatBubble() {
         data-chat-panel
         role="dialog"
         aria-label={chat.panelLabel}
-        className="invisible fixed bottom-[5.5rem] right-4 z-[70] flex w-[min(24rem,calc(100vw-2rem))] flex-col overflow-hidden rounded-2xl border border-bone/10 bg-night/80 opacity-0 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_24px_60px_-24px_rgba(0,0,0,0.9)] backdrop-blur-2xl backdrop-saturate-150"
+        className="invisible fixed bottom-[5.5rem] end-4 z-[70] flex w-[min(24rem,calc(100vw-2rem))] flex-col overflow-hidden rounded-2xl border border-bone/10 bg-night/80 opacity-0 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_24px_60px_-24px_rgba(0,0,0,0.9)] backdrop-blur-2xl backdrop-saturate-150"
       >
         <header className="flex items-start justify-between border-b border-bone/10 px-5 py-4">
           <div>
             <p className="font-display text-xl text-bone">{chat.title}</p>
-            <p className="mt-0.5 font-mono text-[10px] uppercase tracking-widest text-stone">
+            <p className="mt-0.5 font-mono text-[10px] uppercase tracking-widest text-stone rtl:font-body rtl:text-xs">
               {chat.subtitle}
             </p>
           </div>
@@ -139,7 +140,7 @@ export default function ChatBubble() {
         {error ? (
           <div data-chat-fallback className="p-5">
             <p className="text-sm text-stone">{chat.errorLine}</p>
-            <div className="mt-4 flex flex-wrap gap-5 font-mono text-sm">
+            <div className="mt-4 flex flex-wrap gap-5 font-mono text-sm rtl:font-body">
               <a className="text-gold hover:text-gold-bright" href={`mailto:${contact.email}`}>
                 {chat.errorLinks.email}
               </a>
@@ -174,7 +175,7 @@ export default function ChatBubble() {
                     <button
                       key={q}
                       onClick={() => send(q)}
-                      className="rounded-full border border-gold/30 px-4 py-1.5 text-left font-mono text-xs text-gold transition-colors hover:bg-gold/10"
+                      className="rounded-full border border-gold/30 px-4 py-1.5 text-start font-mono text-xs text-gold transition-colors hover:bg-gold/10 rtl:font-body"
                     >
                       {q}
                     </button>
@@ -183,7 +184,7 @@ export default function ChatBubble() {
               )}
               {messages.map((m) => (
                 <div key={m.id} className={m.role === "user" ? "text-gold-bright" : "text-bone"}>
-                  <span className="font-mono text-[10px] uppercase text-stone">
+                  <span className="font-mono text-[10px] uppercase text-stone rtl:font-body rtl:text-xs">
                     {m.role === "user" ? chat.you : chat.assistant}
                   </span>
                   {m.parts.map((part, i) =>
@@ -195,7 +196,7 @@ export default function ChatBubble() {
                   )}
                 </div>
               ))}
-              {busy && <p className="animate-pulse font-mono text-xs text-stone">{chat.thinking}</p>}
+              {busy && <p className="animate-pulse font-mono text-xs text-stone rtl:font-body">{chat.thinking}</p>}
             </div>
             <form
               className="flex gap-2 border-t border-bone/10 p-3"
@@ -216,7 +217,7 @@ export default function ChatBubble() {
               <button
                 type="submit"
                 disabled={busy}
-                className="rounded-full bg-gold px-4 py-2 font-mono text-sm text-night transition-colors hover:bg-gold-bright disabled:opacity-50"
+                className="rounded-full bg-gold px-4 py-2 font-mono text-sm text-night transition-colors hover:bg-gold-bright disabled:opacity-50 rtl:font-body"
               >
                 {chat.send}
               </button>
@@ -230,7 +231,7 @@ export default function ChatBubble() {
         aria-expanded={open}
         aria-controls="chat-panel"
         aria-label={open ? chat.closeLabel : chat.openLabel}
-        className="liquid-glass fixed bottom-4 right-4 z-[70] flex h-14 w-14 items-center justify-center rounded-full text-gold transition-transform hover:scale-105 active:scale-95"
+        className="liquid-glass fixed bottom-4 end-4 z-[70] flex h-14 w-14 items-center justify-center rounded-full text-gold transition-transform hover:scale-105 active:scale-95"
       >
         {open ? (
           <svg aria-hidden width="18" height="18" viewBox="0 0 18 18" fill="none">

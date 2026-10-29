@@ -3,7 +3,7 @@ import { useRef } from "react";
 import Image from "next/image";
 import { gsap, useGSAP } from "@/lib/gsap";
 import { EASE } from "@/lib/motion";
-import { siteContent } from "@/content/site";
+import { useContent } from "@/components/LocaleProvider";
 import ChapterHead from "@/components/ChapterHead";
 import StatBand from "@/components/StatBand";
 
@@ -15,7 +15,7 @@ const SIZES = [
 
 export default function Teaching() {
   const container = useRef<HTMLElement>(null);
-  const { teaching } = siteContent;
+  const { teaching } = useContent();
   const [stage, ...rest] = teaching.gallery;
 
   useGSAP(

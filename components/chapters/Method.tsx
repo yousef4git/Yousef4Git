@@ -2,7 +2,7 @@
 import { useRef } from "react";
 import { gsap, useGSAP } from "@/lib/gsap";
 import { EASE } from "@/lib/motion";
-import { siteContent } from "@/content/site";
+import { useContent } from "@/components/LocaleProvider";
 import ChapterHead from "@/components/ChapterHead";
 
 // The deployment line: a hairline rule (the closer mark used by the Noon and
@@ -14,12 +14,13 @@ import ChapterHead from "@/components/ChapterHead";
 // The fade starts past the fourth station (which sits at 75%), never before it:
 // the line has to reach "Hand over" and then keep going, or the last station
 // reads as a rendering fault rather than as the point.
-const TRACK_FADE_X = "[mask-image:linear-gradient(to_right,black_80%,transparent)]";
+const TRACK_FADE_X =
+  "[mask-image:linear-gradient(to_right,black_80%,transparent)] rtl:[mask-image:linear-gradient(to_left,black_80%,transparent)]";
 const TRACK_FADE_Y = "[mask-image:linear-gradient(to_bottom,black_80%,transparent)]";
 
 export default function Method() {
   const container = useRef<HTMLElement>(null);
-  const { method } = siteContent;
+  const { method } = useContent();
 
   useGSAP(
     () => {
@@ -103,18 +104,18 @@ export default function Method() {
             {/* Horizontal spine, md and up. Sits on the dot row's centre. */}
             <div
               aria-hidden
-              className={`pointer-events-none absolute left-0 top-1 hidden h-px w-full md:block ${TRACK_FADE_X}`}
+              className={`pointer-events-none absolute start-0 top-1 hidden h-px w-full md:block ${TRACK_FADE_X}`}
             >
               <div className="h-full w-full bg-bone/10" />
               <div
                 data-method-line-x
-                className="absolute inset-0 origin-left bg-gold/60"
+                className="absolute inset-0 origin-left bg-gold/60 rtl:origin-right"
               />
             </div>
             {/* Vertical spine, below md. Runs down the left gutter. */}
             <div
               aria-hidden
-              className={`pointer-events-none absolute bottom-0 left-1 top-1 w-px md:hidden ${TRACK_FADE_Y}`}
+              className={`pointer-events-none absolute bottom-0 start-1 top-1 w-px md:hidden ${TRACK_FADE_Y}`}
             >
               <div className="h-full w-full bg-bone/10" />
               <div
@@ -125,11 +126,11 @@ export default function Method() {
 
             <ol className="grid grid-cols-1 gap-y-10 md:grid-cols-4 md:gap-x-8">
               {method.steps.map((s, i) => (
-                <li key={s.name} className="relative pl-8 md:pl-0">
+                <li key={s.name} className="relative ps-8 md:ps-0">
                   <span
                     data-method-dot
                     aria-hidden
-                    className="absolute left-0 top-0 block h-2 w-2 -translate-y-1/2 rounded-full bg-gold md:relative md:translate-y-0"
+                    className="absolute start-0 top-0 block h-2 w-2 -translate-y-1/2 rounded-full bg-gold md:relative md:translate-y-0"
                   />
                   <p
                     data-method-ordinal

@@ -16,6 +16,10 @@ youusef.com is Yousef Alshuwayi's portfolio. It exists to turn a cold open into 
 
 The site leads with Yousef as an AI systems engineer, founder and educator, with the two professional certifications (AWS Certified AI Business Strategist, Early Adopter; CDMP, Associate) in the hero. The job title stays exact (AI Systems Engineer at Noon Academy) as a fact on the page; forward deployed is named once, in How I work, as the way of working, and is never claimed as a title.
 
+## Languages
+
+English is the default at `/`; Arabic is the same single page at `/ar`, right to left, with the copy the October 2026 editorial review approved (`content/site.ar.ts`). Official credential names, tool names and URLs stay in English inside the Arabic. Each page links to the other from the nav and through `hreflang`; the chat answers in the visitor's language. The CV stays the English PDF on both pages.
+
 ## Brand Personality
 
 Plain, humble, exact. Three words: grounded, warm, precise.

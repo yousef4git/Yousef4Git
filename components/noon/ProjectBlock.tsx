@@ -1,4 +1,6 @@
-import type { NoonProject } from "@/content/site";
+"use client";
+import type { NoonProject, SiteContent } from "@/content/site";
+import { useContent } from "@/components/LocaleProvider";
 import Figure from "@/components/noon/Figure";
 import FlowFigure from "@/components/noon/FlowFigure";
 import Frame from "@/components/noon/Frame";
@@ -11,8 +13,8 @@ function BulletList({ items }: { items: readonly string[] }) {
   return (
     <ul className="mt-3 space-y-2.5">
       {items.map((text) => (
-        <li key={text} className="relative pl-4 text-sm leading-relaxed text-stone">
-          <span aria-hidden className="absolute left-0 top-[0.6em] h-1 w-1 rounded-full bg-noon" />
+        <li key={text} className="relative ps-4 text-sm leading-relaxed text-stone">
+          <span aria-hidden className="absolute start-0 top-[0.6em] h-1 w-1 rounded-full bg-noon" />
           {text}
         </li>
       ))}
@@ -20,7 +22,10 @@ function BulletList({ items }: { items: readonly string[] }) {
   );
 }
 
-export function MediaRow({ project }: { project: NoonProject }) {
+type Project = SiteContent["noon"]["projects"][number] | NoonProject;
+
+export function MediaRow({ project }: { project: Project }) {
+  const { ui } = useContent();
   switch (project.treatment) {
     case "wide": {
       const [first, ...rest] = project.media;
@@ -52,7 +57,7 @@ export function MediaRow({ project }: { project: NoonProject }) {
     case "strip":
       return project.media.length ? (
         <div className="mt-12">
-          <ScreenStrip media={project.media} label={`${project.title} screens`} />
+          <ScreenStrip media={project.media} label={ui.strip.label.replace("{title}", project.title)} />
         </div>
       ) : null;
     case "poster": {
@@ -97,21 +102,22 @@ export function StatusPill({ status }: { status: string }) {
 // The written case: description, what was done, where it stands. Nothing
 // here animates; it usually sits inside a fold and is simply there once the
 // fold opens.
-export function CaseText({ project }: { project: NoonProject }) {
+export function CaseText({ project }: { project: Project }) {
+  const { ui } = useContent();
   const inlineMetrics = project.treatment !== "poster" && project.metrics.length > 0;
   return (
     <div>
       <p className="max-w-prose text-lg leading-relaxed text-bone/90">{project.description}</p>
       <div className="mt-8 grid gap-8 sm:grid-cols-2">
         <div>
-          <h4 className="text-sm font-medium text-bone">What I did</h4>
+          <h4 className="text-sm font-medium text-bone">{ui.caseLabels.work}</h4>
           <BulletList items={project.work} />
         </div>
         {(project.outcomes.length > 0 || inlineMetrics) && (
           <div>
             {project.outcomes.length > 0 && (
               <>
-                <h4 className="text-sm font-medium text-bone">Where it stands</h4>
+                <h4 className="text-sm font-medium text-bone">{ui.caseLabels.outcomes}</h4>
                 <BulletList items={project.outcomes} />
               </>
             )}
@@ -132,7 +138,7 @@ export function CaseText({ project }: { project: NoonProject }) {
 // The full case for a Selected work card: the status detail, the written
 // case, then every screen. The card above it already carries the status,
 // title, role and summary.
-export function CaseDetail({ project }: { project: NoonProject }) {
+export function CaseDetail({ project }: { project: Project }) {
   return (
     <div>
       {project.statusDetail && (
@@ -147,7 +153,7 @@ export function CaseDetail({ project }: { project: NoonProject }) {
 // One case in full with its own anchor: a title column, the written case,
 // then the media across the row. Used for the cases that live in the
 // Experience chapter's fold.
-export default function ProjectBlock({ project }: { project: NoonProject }) {
+export default function ProjectBlock({ project }: { project: Project }) {
   return (
     <article id={project.id} className="scroll-mt-24 border-t border-bone/10 py-12 md:py-16">
       <div className="grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-x-8">

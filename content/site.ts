@@ -643,6 +643,73 @@ export const siteContent = {
     errorLinks: { email: "Email", linkedin: "LinkedIn", github: "GitHub" },
   },
   chapters: ["hero", "work", "experience", "teaching", "method", "credentials"] as const,
+  locale: "en",
+  dir: "ltr",
+  // Page metadata and the social card's lines. The broader identity lives
+  // here; the formal job title stays in the Person record (lib/jsonld.ts).
+  meta: {
+    title: "Yousef Alshuwayi · AI Systems Engineer & Founder",
+    description:
+      "AI systems engineer and founder of Rusokh. Explore my AI platforms, operational software, teaching and work at Noon Academy.",
+    ogLocale: "en_US",
+    og: {
+      alt: "Yousef Alshuwayi · AI Systems Engineer & Founder",
+      line2: "AI SYSTEMS ENGINEER · FOUNDER",
+      line3: "AI systems. Digital products. Hands-on delivery.",
+      line4: "youusef.com · Riyadh, Saudi Arabia",
+    },
+  },
+  // Interface strings that used to live in the components. Templates carry
+  // their slots in braces.
+  ui: {
+    nav: {
+      links: [
+        { href: "#work", label: "Work" },
+        { href: "#experience", label: "Experience" },
+        { href: "#teaching", label: "Teaching" },
+        { href: "#credentials", label: "Credentials" },
+        { href: "#contact", label: "Contact" },
+      ],
+      skip: "Skip to selected work",
+      backToTop: "Yousef Alshuwayi, back to top",
+      sections: "Sections",
+      // The other language, named in itself, as a plain link to its page.
+      switch: { label: "العربية", href: "/ar", lang: "ar" },
+    },
+    caseLabels: { work: "What I did", outcomes: "Where it stands" },
+    flow: {
+      provides: "provides",
+      keeps: "keeps",
+      aria: "{from} provides placement data; {to} keeps HR records",
+    },
+    strip: {
+      label: "{title} screens",
+      prev: "Previous screens",
+      next: "Next screens",
+      note: "{n} screens, from the entry page to the draft curriculum.",
+    },
+    footerLinks: {
+      linkedin: "LinkedIn",
+      github: "GitHub",
+      cv: "Download CV",
+      signoff: "Yousef Alshuwayi, Riyadh, Saudi Arabia",
+    },
+    join: { comma: ", ", semicolon: "; " },
+  },
 } as const;
 
-export type SiteContent = typeof siteContent;
+// The Arabic object (content/site.ar.ts) carries the same shape with its own
+// strings, so the shared type widens every literal to string while keeping
+// credential ids exact. Components read one locale's object through
+// components/LocaleProvider.tsx and never import siteContent directly.
+type Widen<T> = T extends string
+  ? T extends CredentialId
+    ? T
+    : string
+  : T extends readonly (infer U)[]
+    ? readonly Widen<U>[]
+    : T extends object
+      ? { readonly [K in keyof T]: Widen<T[K]> }
+      : T;
+
+export type SiteContent = Widen<typeof siteContent>;

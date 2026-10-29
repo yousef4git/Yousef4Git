@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import type { Media } from "@/content/site";
+import { useContent } from "@/components/LocaleProvider";
 
 // Ten screens of different ratios share one height and keep their natural
 // widths, so nothing is cropped and the strip reads like a contact sheet. It
@@ -9,6 +10,7 @@ import type { Media } from "@/content/site";
 // work for a mouse, and the page's vertical scroll is never captured.
 export default function ScreenStrip({ media, label }: { media: readonly Media[]; label: string }) {
   const list = useRef<HTMLUListElement>(null);
+  const { ui } = useContent();
   // Frames past the right edge are lazy by default and would only load as
   // they are scrolled into view, with a blank flash each time. Once the strip
   // is near the viewport, every frame loads so the sideways scroll is smooth.
@@ -38,8 +40,11 @@ export default function ScreenStrip({ media, label }: { media: readonly Media[];
 
   return (
     <div data-strip>
+      {/* A gallery scrolls the same way in both languages; only the words
+          around it change direction. */}
       <ul
         ref={list}
+        dir="ltr"
         aria-label={label}
         className="strip no-scrollbar -mx-6 flex gap-5 overflow-x-auto px-6 pb-2 md:gap-6"
       >
@@ -57,18 +62,18 @@ export default function ScreenStrip({ media, label }: { media: readonly Media[];
                   loading={near || i < 2 ? "eager" : "lazy"}
                 />
               </div>
-              <figcaption className="mt-3 w-min min-w-full text-xs leading-relaxed text-stone">
+              <figcaption dir="auto" className="mt-3 w-min min-w-full text-xs leading-relaxed text-stone">
                 {m.caption}
               </figcaption>
             </figure>
           </li>
         ))}
       </ul>
-      <div className="mt-4 flex items-center gap-3">
+      <div dir="ltr" className="mt-4 flex items-center gap-3">
         <button
           type="button"
           onClick={() => step(-1)}
-          aria-label="Previous screens"
+          aria-label={ui.strip.prev}
           className="flex h-9 w-9 items-center justify-center rounded-full border border-bone/15 text-stone transition-colors hover:border-noon/50 hover:text-noon"
         >
           <svg aria-hidden width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -78,15 +83,15 @@ export default function ScreenStrip({ media, label }: { media: readonly Media[];
         <button
           type="button"
           onClick={() => step(1)}
-          aria-label="Next screens"
+          aria-label={ui.strip.next}
           className="flex h-9 w-9 items-center justify-center rounded-full border border-bone/15 text-stone transition-colors hover:border-noon/50 hover:text-noon"
         >
           <svg aria-hidden width="14" height="14" viewBox="0 0 14 14" fill="none">
             <path d="M5 2l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </button>
-        <p className="text-xs text-stone">
-          {media.length} screens, from the entry page to the draft curriculum.
+        <p dir="auto" className="text-xs text-stone">
+          {ui.strip.note.replace("{n}", String(media.length))}
         </p>
       </div>
     </div>

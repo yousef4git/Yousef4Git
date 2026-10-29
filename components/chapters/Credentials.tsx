@@ -3,7 +3,7 @@ import { useRef } from "react";
 import Image from "next/image";
 import { gsap, useGSAP } from "@/lib/gsap";
 import { EASE } from "@/lib/motion";
-import { siteContent } from "@/content/site";
+import { useContent } from "@/components/LocaleProvider";
 import ChapterHead from "@/components/ChapterHead";
 
 const VERIFY =
@@ -14,7 +14,7 @@ const VERIFY =
 // close the chapter. Nothing is reordered by CSS.
 export default function Credentials() {
   const container = useRef<HTMLElement>(null);
-  const c = siteContent.credentials;
+  const { credentials: c, ui } = useContent();
   const certifications = c.list.filter((x) => x.category === "certification");
   const programmes = c.list.filter((x) => x.category === "programme");
 
@@ -69,11 +69,17 @@ export default function Credentials() {
                   <Image src={x.img} alt="" width={176} height={176} className="h-full w-full object-contain" />
                 </div>
                 <div>
-                  <h4 className="font-display text-2xl leading-tight text-bone md:text-3xl">{x.name}</h4>
-                  {x.designation && <p className="mt-1.5 text-sm text-gold">{x.designation}</p>}
+                  <h4 className="font-display text-2xl leading-tight text-bone md:text-3xl">
+                    <bdi>{x.name}</bdi>
+                  </h4>
+                  {x.designation && (
+                    <p className="mt-1.5 text-sm text-gold">
+                      <bdi>{x.designation}</bdi>
+                    </p>
+                  )}
                   <p className="mt-1 text-xs text-stone">
-                    {x.issuer}
-                    {x.year && `, ${x.year}`}
+                    <bdi>{x.issuer}</bdi>
+                    {x.year && `${ui.join.comma}${x.year}`}
                   </p>
                   {x.description && (
                     <p className="mt-3 max-w-md text-sm leading-relaxed text-stone">{x.description}</p>
@@ -104,10 +110,12 @@ export default function Credentials() {
                     className="max-h-full w-auto object-contain"
                   />
                 </div>
-                <h4 className="mt-5 text-base leading-snug text-bone">{x.name}</h4>
+                <h4 className="mt-5 text-base leading-snug text-bone">
+                  <bdi>{x.name}</bdi>
+                </h4>
                 <p className="mt-1 text-xs text-stone">
-                  {x.issuer}
-                  {x.year && `, ${x.year}`}
+                  <bdi>{x.issuer}</bdi>
+                  {x.year && `${ui.join.comma}${x.year}`}
                 </p>
                 {x.note && <p className="mt-2 text-sm text-gold">{x.note}</p>}
                 {x.href && (
@@ -127,7 +135,7 @@ export default function Credentials() {
             <p className="text-base leading-snug text-bone md:col-span-9">{c.education}</p>
           </div>
           <p data-cred-also className="mt-8 max-w-3xl border-t border-bone/10 pt-6 text-sm leading-relaxed text-stone">
-            {c.alsoLead} {c.also.join("; ")}.
+            {c.alsoLead} {c.also.join(ui.join.semicolon)}.
           </p>
         </div>
       </div>

@@ -1,13 +1,13 @@
 import Mark from "@/components/Mark";
 import OpenChatButton from "@/components/OpenChatButton";
-import { siteContent } from "@/content/site";
+import { contentFor, type Locale } from "@/content/locale";
 
 const LINK = "text-sm font-medium text-gold underline-offset-4 transition-colors hover:text-gold-bright hover:underline";
 
 // Contact, with the site's own small demonstration above it: the chat is an
 // example of the work, not the way to reach Yousef. Email comes first.
-export default function Footer() {
-  const { contact, footer, work } = siteContent;
+export default function Footer({ locale }: { locale: Locale }) {
+  const { contact, footer, work, ui } = contentFor(locale);
   const site = work.find((w) => w.id === "site")!;
   return (
     <footer id="contact" data-chapter="footer" className="scroll-mt-24 border-t border-gold/10 bg-night">
@@ -33,7 +33,7 @@ export default function Footer() {
             <p className="font-display text-5xl leading-none text-bone md:text-7xl">{footer.title}</p>
             <p className="mt-6 max-w-md text-stone">{footer.line}</p>
           </div>
-          <div className="flex flex-col items-start gap-5 md:col-span-5 md:items-end md:text-right">
+          <div className="flex flex-col items-start gap-5 md:col-span-5 md:items-end md:text-end">
             <a
               href={`mailto:${contact.email}`}
               className="rounded-full bg-gold px-5 py-2.5 text-sm font-medium text-night transition-colors hover:bg-gold-bright"
@@ -42,16 +42,16 @@ export default function Footer() {
             </a>
             <div className="flex flex-wrap gap-x-6 gap-y-2 md:justify-end">
               <a className={LINK} href={contact.linkedin} target="_blank" rel="noopener noreferrer">
-                LinkedIn
+                {ui.footerLinks.linkedin}
               </a>
               <a className={LINK} href={contact.github} target="_blank" rel="noopener noreferrer">
-                GitHub
+                {ui.footerLinks.github}
               </a>
               <a className={LINK} href={contact.cv} download>
-                Download CV
+                {ui.footerLinks.cv}
               </a>
             </div>
-            <p className="mt-4 text-xs text-stone">Yousef Alshuwayi, Riyadh, Saudi Arabia</p>
+            <p className="mt-4 text-xs text-stone">{ui.footerLinks.signoff}</p>
           </div>
         </div>
       </div>

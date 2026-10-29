@@ -25,6 +25,7 @@ Rules: gold never carries body copy. Stone is the body colour; bone is for headi
 - **Display**: Cormorant Garamond (300 to 600). Chapter titles, leads, closers, the name. `text-wrap: balance` on headings. Lining, tabular numerals when numbers sit in a row.
 - **Body**: Inter. Paragraphs, meta lines, nav, captions, buttons.
 - **Mono**: JetBrains Mono. Only for technology lists and the four-step ordinals, never as a decorative label font.
+- **Arabic (`/ar`)**: Noto Naskh Arabic takes the display role, IBM Plex Sans Arabic the body role, bound to the same theme slots (`--font-display-face`, `--font-body-face`) by `app/(ar)/fonts.ts`. Every letter-spacing utility is zeroed under `[dir="rtl"]` because tracking breaks the joins; mono labels in the chat fall back to the body face (`rtl:font-body`).
 
 Scale (desktop): title 60px, lead 30px, closer 30px, body 17px, meta 13px, caption 12px. Mobile: title 36px, lead 24px.
 
@@ -33,13 +34,14 @@ Chapter head cadence: a display title followed by one plain-language sentence in
 ## Layout
 
 - Container `max-w-6xl` with a 24px gutter. Chapters alternate `night` and `coal`, in the order hero, Selected work, Experience, Teaching, How I work, Credentials, contact.
+- Direction: layout uses logical utilities (`ps`/`pe`, `start`/`end`, `text-start`, `origin-left rtl:origin-right`) so `/ar` mirrors without a second stylesheet. The screen strip keeps left-to-right mechanics in both languages; the flow arrow flips at `md` under RTL.
 - Two-column editorial grid on desktop (`md:grid-cols-12`): a sticky left column for the chapter head or a project's title and status, a right column for the copy, media below spanning the row. Single column under 768px.
 - Rhythm: `py-24` to `py-32` between chapters, `py-16` between projects inside a chapter, hairline rules (`border-t border-bone/10`) between list items.
 - Images sit in `rounded-lg` frames with a `bone/10` border and a deep soft shadow. Screens of different ratios use fixed-height, natural-width frames in a horizontal scroll-snap strip.
 
 ## Components
 
-- **Nav**: a fixed liquid-glass pill, mark on the left, five text links (Work, Experience, Teaching, Credentials, Contact), active state `bg-gold/15 text-gold-bright`, a 1px gold progress line at the top of the viewport.
+- **Nav**: a fixed liquid-glass pill, mark at the start, five text links (Work, Experience, Teaching, Credentials, Contact) and the other language as an outlined pill at the end, active state `bg-gold/15 text-gold-bright`, a 1px gold progress line at the top of the viewport.
 - **ChapterHead**: title plus one-sentence subtitle plus a 64px gold hairline.
 - **StatBand**: a `dl` of coal cells separated by a 1px tinted gap; display numerals, Inter labels.
 - **Work row (Noon case)**: Noon wordmark, status label, title, "Built at Noon Academy", role on the left; the summary and one preview frame on the right; the full case (status detail, description, "What I did", "Where it stands", media) behind a Disclosure below.

@@ -3,7 +3,8 @@ import { useRef } from "react";
 import Image from "next/image";
 import { gsap, useGSAP } from "@/lib/gsap";
 import { EASE } from "@/lib/motion";
-import { siteContent, noonProjectById } from "@/content/site";
+import { pickProject } from "@/content/locale";
+import { useContent } from "@/components/LocaleProvider";
 import ChapterHead from "@/components/ChapterHead";
 import Disclosure from "@/components/Disclosure";
 import Frame from "@/components/noon/Frame";
@@ -22,9 +23,10 @@ const ROW = "grid grid-cols-1 gap-y-5 border-t border-bone/10 py-10 md:grid-cols
 // a minute and still holds every bullet and screen for whoever wants them.
 export default function Work() {
   const container = useRef<HTMLElement>(null);
-  const { work, workSection, noon } = siteContent;
+  const content = useContent();
+  const { work, workSection, noon } = content;
   const rusokh = work.find((w) => w.id === "rusokh")!;
-  const cases = workSection.noonCases.map(noonProjectById);
+  const cases = workSection.noonCases.map((id) => pickProject(content, id));
 
   useGSAP(
     () => {

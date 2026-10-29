@@ -1,4 +1,6 @@
+"use client";
 import type { Flow } from "@/content/site";
+import { useContent } from "@/components/LocaleProvider";
 
 function Side({ name, verb, items }: { name: string; verb: string; items: readonly string[] }) {
   return (
@@ -19,23 +21,25 @@ function Side({ name, verb, items }: { name: string; verb: string; items: readon
 // The integration has no screenshot, so the figure shows the one thing a
 // screenshot could not: which system owns which fields.
 export default function FlowFigure({ flow }: { flow: Flow }) {
+  const { ui } = useContent();
+  const label = ui.flow.aria.replace("{from}", flow.from.name).replace("{to}", flow.to.name);
   return (
-    <figure data-flow aria-label={`${flow.from.name} provides placement data; ${flow.to.name} keeps HR records`}>
+    <figure data-flow aria-label={label}>
       <div className="grid grid-cols-1 items-center gap-4 md:grid-cols-[1fr_auto_1fr] md:gap-6">
-        <Side name={flow.from.name} verb="provides" items={flow.from.items} />
+        <Side name={flow.from.name} verb={ui.flow.provides} items={flow.from.items} />
         <div className="flex justify-center text-noon" aria-hidden>
           <svg
             width="72"
             height="24"
             viewBox="0 0 72 24"
             fill="none"
-            className="rotate-90 md:rotate-0"
+            className="rotate-90 md:rotate-0 md:rtl:-scale-x-100"
           >
             <path d="M2 12h60" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
             <path d="M54 5l8 7-8 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </div>
-        <Side name={flow.to.name} verb="keeps" items={flow.to.items} />
+        <Side name={flow.to.name} verb={ui.flow.keeps} items={flow.to.items} />
       </div>
     </figure>
   );

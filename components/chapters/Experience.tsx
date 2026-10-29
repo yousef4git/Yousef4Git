@@ -3,7 +3,8 @@ import { useRef } from "react";
 import Image from "next/image";
 import { gsap, useGSAP } from "@/lib/gsap";
 import { EASE } from "@/lib/motion";
-import { siteContent, noonProjectById } from "@/content/site";
+import { pickProject } from "@/content/locale";
+import { useContent } from "@/components/LocaleProvider";
 import ChapterHead from "@/components/ChapterHead";
 import Disclosure from "@/components/Disclosure";
 import ProjectBlock from "@/components/noon/ProjectBlock";
@@ -18,9 +19,10 @@ const GRID = "grid grid-cols-1 gap-y-5 md:grid-cols-12 md:gap-x-8";
 // Noon row keeps its two remaining cases and the hackathon behind one fold.
 export default function Experience() {
   const container = useRef<HTMLElement>(null);
-  const { experience, noon, work, yax } = siteContent;
+  const content = useContent();
+  const { experience, noon, work, yax } = content;
   const ghrs = work.find((w) => w.id === "consulting")!;
-  const more = experience.noonMore.projects.map(noonProjectById);
+  const more = experience.noonMore.projects.map((id) => pickProject(content, id));
 
   useGSAP(
     () => {
@@ -122,8 +124,8 @@ export default function Experience() {
                 <p className="max-w-prose text-lg leading-relaxed text-bone/90">{ghrs.line}</p>
                 <ul className="mt-5 max-w-prose space-y-2.5">
                   {experience.ghrsHighlights.map((h) => (
-                    <li key={h} className="relative pl-4 text-sm leading-relaxed text-stone">
-                      <span aria-hidden className="absolute left-0 top-[0.6em] h-1 w-1 rounded-full bg-gold" />
+                    <li key={h} className="relative ps-4 text-sm leading-relaxed text-stone">
+                      <span aria-hidden className="absolute start-0 top-[0.6em] h-1 w-1 rounded-full bg-gold" />
                       {h}
                     </li>
                   ))}
@@ -172,7 +174,7 @@ export default function Experience() {
 
           <p className="mt-2 border-t border-bone/10 pt-6 text-sm text-stone">
             <span className="text-bone">{experience.toolkit.label}:</span>{" "}
-            <span className="font-mono text-xs">{experience.toolkit.items}</span>
+            <bdi className="font-mono text-xs">{experience.toolkit.items}</bdi>
           </p>
         </div>
       </div>

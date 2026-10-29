@@ -20,7 +20,7 @@ test("chapters follow the narrative order", async ({ page }) => {
 
 test("glass navbar links the five stops and the skip link goes to the work", async ({ page }) => {
   await page.goto("/");
-  const links = page.locator('nav[aria-label="Sections"] a');
+  const links = page.locator('nav[aria-label="Sections"] a[data-nav-link]');
   await expect(links).toHaveText(["Work", "Experience", "Teaching", "Credentials", "Contact"]);
   await expect(links.nth(0)).toHaveAttribute("href", "#work");
   await expect(links.nth(1)).toHaveAttribute("href", "#experience");
