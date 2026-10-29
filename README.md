@@ -2,7 +2,7 @@
 <div align="center">
 
 <a href="https://git.io/typing-svg">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=24&pause=1200&color=00B4D8&center=true&vCenter=true&random=false&width=800&lines=Hey%2C+I'm+Yousef+Alshuwayi+%F0%9F%87%B8%F0%9F%87%A6;AI+Systems+Engineer+at+Noon+Academy;I+build+internal+tools+and+AI+learning+platforms;1%2C800%2B+students+taught%2C+still+teaching;Riyadh%2C+Saudi+Arabia" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=24&pause=1200&color=00B4D8&center=true&vCenter=true&random=false&width=800&lines=Hey%2C+I'm+Yousef+Alshuwayi+%F0%9F%87%B8%F0%9F%87%A6;AI+Systems+Engineer+at+Noon+Academy;I+build+internal+tools+and+AI+learning+platforms;2%2C000%2B+students+taught%2C+still+teaching;Riyadh%2C+Saudi+Arabia" alt="Typing SVG" />
 </a>
 
 <br/><br/>
@@ -21,7 +21,7 @@ I am an AI Systems Engineer at Noon Academy in Riyadh. I turn day-to-day operati
 
 Before that I co-founded **GHRS Ventures**, an AI and software consulting venture. I built and launched software for Saudi businesses through GHRS, delivered an education AI system with rule-based decisions and human review, and advised a freight company on its AI architecture. I also built **Rusokh**, a course platform that is live and in use.
 
-I have taught **1,800+ computer science students** at Shaguf over four years, with a 4.9/5 learner rating. Before engineering I managed the deployment of **1,500 staff across 85 Riyadh Metro stations** in one month for the launch. I was selected 1 of 66 for **Apple's AI program**.
+I have taught computer science courses to **2,000+ students**, with a 4.9/5 learner rating. Before engineering I managed the deployment of **1,500 staff across 85 Riyadh Metro stations** in one month for the launch. I was selected 1 of 66 for **Apple's AI program**.
 
 ```
 Operations at national scale → computer science and AI → consulting → Noon Academy.

@@ -94,15 +94,18 @@ Communications and Information Technology and supported by Replit.
   never the scoring, and an LLM-as-judge check runs before anything reaches a
   person. Caching cut a full run from about 71 model calls to about 5. I advised
   a freight company on its AI architecture; I did not build its whole product.
-- Founder of Rusokh (rusokh.com), a university learning platform with Arabic and
-  English interfaces, course publishing, payments and video delivery. I founded
-  and built it on Next.js and Convex; it is live and in use. Founder and product
-  builder, not a claim of sole ownership.
+- Built Rusokh (rusokh.com), my own course platform, after hitting the same
+  walls on every platform I taught on. It started as a small project and kept
+  improving, release after release, until it became a full platform that serves
+  the need: bilingual (Arabic/English), course publishing, payments and video
+  delivery, built on Next.js and Convex, live and in use today. Describe it as a
+  project I built and keep improving; never call me its founder.
 - Built Trayath in Apple's AI program (selected 1 of 66), an assistant for
   day-to-day financial decisions.
-- Instructor at Shaguf Educational Platform since January 2022: I've taught
-  1,800+ computer science students at Shaguf, with a 4.9/5 learner rating, and
-  was honored as best instructor on stage at a Shaguf event.
+- Computer science instructor since January 2022: I've taught computer science
+  courses to 2,000+ students, with a 4.9/5 learner rating, and was honored as
+  best instructor on stage at a teaching event. Do not name the teaching
+  platform; if asked, say I teach through an online learning platform.
   Teaching is where I learned to take something complicated and make it land
   for a beginner, an expert, or a stakeholder who just needs to trust the system.
 - Staff Manager, Riyadh Metro launch, with YAX, Nov 2023 to May 2025: I managed

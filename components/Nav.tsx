@@ -4,8 +4,9 @@ import { gsap, useGSAP } from "@/lib/gsap";
 import Mark from "@/components/Mark";
 import { useContent } from "@/components/LocaleProvider";
 
-// Five stops named after their chapters, then the other language. The logo
-// returns to the hero; How I work keeps its anchor but no longer takes a stop.
+// The other language first, then five stops named after their chapters. The
+// logo returns to the hero; How I work keeps its anchor but no longer takes
+// a stop.
 export default function Nav() {
   const wrap = useRef<HTMLDivElement>(null);
   const { ui } = useContent();
@@ -95,6 +96,15 @@ export default function Nav() {
             aria-label={ui.nav.sections}
             className="no-scrollbar flex items-center gap-0.5 overflow-x-auto scroll-smooth max-md:[mask-image:linear-gradient(to_right,black_88%,transparent)] max-md:rtl:[mask-image:linear-gradient(to_left,black_88%,transparent)]"
           >
+            <a
+              data-lang-switch
+              href={ui.nav.switch.href}
+              lang={ui.nav.switch.lang}
+              hrefLang={ui.nav.switch.lang}
+              className="me-1 whitespace-nowrap rounded-full border border-bone/15 px-3 py-1.5 text-xs font-medium text-stone transition-colors hover:border-gold/40 hover:text-bone"
+            >
+              {ui.nav.switch.label}
+            </a>
             {links.map((l) => (
               <a
                 key={l.href}
@@ -105,15 +115,6 @@ export default function Nav() {
                 {l.label}
               </a>
             ))}
-            <a
-              data-lang-switch
-              href={ui.nav.switch.href}
-              lang={ui.nav.switch.lang}
-              hrefLang={ui.nav.switch.lang}
-              className="ms-1 whitespace-nowrap rounded-full border border-bone/15 px-3 py-1.5 text-xs font-medium text-stone transition-colors hover:border-gold/40 hover:text-bone"
-            >
-              {ui.nav.switch.label}
-            </a>
           </nav>
         </div>
       </div>

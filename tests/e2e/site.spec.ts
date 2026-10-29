@@ -152,7 +152,7 @@ test("Selected work shows Rusokh and two attributed Noon cases, each case folded
   await page.goto("/");
   const work = page.locator('section[data-chapter="work"]');
   await expect(work.locator("h3").first()).toHaveText("Rusokh");
-  await expect(work).toContainText("Founder and product builder");
+  await expect(work).toContainText("A project that grew into a full platform");
   for (const id of siteContent.workSection.noonCases) {
     const p = siteContent.noon.projects.find((x) => x.id === id)!;
     const article = work.locator(`article#${id}`);

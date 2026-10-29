@@ -173,7 +173,7 @@ describe("voice", () => {
     expect(siteContent.yax.bridge).not.toMatch(/forward deploy/i);
   });
   it("leads with the broader identity and keeps the formal title as a fact", () => {
-    expect(siteContent.role).toBe("AI Systems Engineer · Founder · Educator");
+    expect(siteContent.role).toBe("AI Systems Engineer · Educator");
     expect(siteContent.hero.currentRole).toBe("Currently AI Systems Engineer at Noon Academy.");
     expect(siteContent.noon.meta).toMatch(/^AI Systems Engineer, Central Operations/);
   });
@@ -212,6 +212,8 @@ describe("chat grounding", () => {
     const persona = read("content/persona.md");
     expect(persona).toMatch(/AI assistant/);
     expect(persona).toContain("/cv/Yousef-Alshuwayi-AI-Engineer.pdf");
+    expect(persona).not.toMatch(/Shaguf/i);
+    expect(persona).not.toMatch(/founder of rusokh/i);
     const { chat } = siteContent;
     expect(chat.assistant).toBe("AI assistant");
     expect(chat.subtitle).toBe("AI-generated answers about my work.");
@@ -295,7 +297,7 @@ describe("credentials and contact", () => {
     expect(ghrs.meta).toBe("Jan 2025 to Jul 2026");
     expect(ghrs.line).toContain("I built and launched software for Saudi businesses through GHRS.");
     expect(ghrs.line).toContain("advised a freight company on its AI architecture");
-    expect(siteContent.teaching.lines[0]).toContain("1,800+ computer science students at Shaguf");
+    expect(siteContent.teaching.lines[0]).toContain("2,000+ students");
     expect(siteContent.yax.lines[0]).toContain("1,500 staff across 85 Riyadh Metro stations");
     expect(siteContent.yax.figure[1]).toEqual({ value: "85", label: "stations" });
   });
@@ -307,16 +309,25 @@ describe("credentials and contact", () => {
     expect(JSON.stringify(siteContent.experience)).not.toMatch(/\d+%|saved|saving/i);
   });
 
-  it("frames Rusokh as founder work and keeps the teaching figures with Shaguf", () => {
+  // Yousef's own framing (2026-10-29): Rusokh is a project that kept
+  // improving until it became a full platform, told through the walls he hit
+  // as an instructor; never a founder title. The teaching platform is not
+  // named anywhere public.
+  it("tells Rusokh as a project that grew into a platform, with no founder title", () => {
     const rusokh = siteContent.work.find((w) => w.id === "rusokh")!;
-    expect(rusokh.kicker).toBe("Founder and product builder");
-    expect(rusokh.line).toMatch(/^Founded and built Rusokh/);
-    expect(JSON.stringify(siteContent)).not.toMatch(/personal project|personal product/i);
+    expect(rusokh.kicker).toBe("A project that grew into a full platform");
+    expect(rusokh.line).toMatch(/^I hit the same walls on every course platform I taught on, so I built my own\./);
+    expect(rusokh.line).toMatch(/full platform that serves the need/);
     expect(hero.proof.map((p) => p.text)).toEqual([
-      "Founder of Rusokh",
-      "1,800+ computer science students taught at Shaguf",
-      "4.9/5 learner rating at Shaguf",
+      "Built Rusokh, a live course platform",
+      "2,000+ computer science students taught",
+      "4.9/5 learner rating",
     ]);
+    const text = JSON.stringify(siteContent);
+    expect(text).not.toMatch(/founder of|founded/i);
+    expect(siteContent.role).not.toMatch(/founder/i);
+    expect(text).not.toMatch(/Shaguf/i);
+    expect(siteContent.teaching.stats[0]).toEqual({ value: "2,000", unit: "+", label: "Students taught" });
   });
 
   it("shows the teaching start year as a static stat, not a duration", () => {

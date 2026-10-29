@@ -25,9 +25,9 @@ sips -Z 1600 "$SRC/SDA Agentic AI Bootcamp/me presinging.jpeg" \
 # The Shaguf source is a composite: two photos on a gray matte. Crop bands
 # (pixel coords measured from the 900x1600 composite) instead of shipping it.
 ffmpeg -y -i "$SRC/Shaguf/honoring me and me talking as the speaker on a shaguf event as the best instructor.jpeg" \
-  -vf "crop=892:490:4:304" -q:v 3 "$OUT/photo-shaguf-stage.jpg"
+  -vf "crop=892:490:4:304" -q:v 3 "$OUT/photo-teaching-stage.jpg"
 ffmpeg -y -i "$SRC/Shaguf/honoring me and me talking as the speaker on a shaguf event as the best instructor.jpeg" \
-  -vf "crop=892:477:4:820" -q:v 3 "$OUT/photo-shaguf-audience.jpg"
+  -vf "crop=892:477:4:820" -q:v 3 "$OUT/photo-teaching-audience.jpg"
 
 # Certificate PDFs -> PNG (first page, 200dpi). pdftoppm appends -1 to the prefix.
 render() { pdftoppm -png -r 200 -f 1 -l 1 "$1" "$OUT/tmp" && mv "$OUT"/tmp*.png "$2"; }

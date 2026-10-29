@@ -95,7 +95,7 @@ describe("arabic content", () => {
 
   it("keeps the same facts: figures, statuses in both languages, one working-style mention", () => {
     const ar = siteContentAr;
-    expect(ar.teaching.stats.map((s) => s.value)).toEqual(["1,800", "4.9", "2022"]);
+    expect(ar.teaching.stats.map((s) => s.value)).toEqual(["2,000", "4.9", "2022"]);
     expect(ar.yax.figure.map((f) => f.value)).toEqual(["1,500", "85", "1"]);
     expect(pickProject(ar, "noon-ai-week").metrics.map((m) => m.value)).toEqual(["525", "88%"]);
     expect(pickProject(ar, "noon-ai-week").summary).toMatch(/525/);

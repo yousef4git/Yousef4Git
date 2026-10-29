@@ -1,5 +1,5 @@
 // Every word the site renders lives here. Facts about the Noon work come from
-// the October 2026 handoff pack; the Rusokh, GHRS, Shaguf and YAX descriptions
+// the October 2026 handoff pack; the Rusokh, GHRS, teaching and YAX descriptions
 // are the ones Yousef supplied and approved in the October 2026 copy review.
 // Keep the voice plain: no em dashes, no comparisons with other people, one
 // sentence per claim and no sentence whose only job is to qualify the one
@@ -380,12 +380,14 @@ export function noonProjectById(id: string): NoonProject {
 const work: readonly WorkRow[] = [
   {
     id: "rusokh",
-    kicker: "Founder and product builder",
-    meta: "University learning platform · Live",
+    // Rusokh is a project that kept improving until it became a full
+    // platform, in Yousef's own words. Never a founder title.
+    kicker: "A project that grew into a full platform",
+    meta: "Live at rusokh.com",
     title: "Rusokh",
     logo: "/media/rusokh-logo.png",
     logoAlt: "Rusokh",
-    line: "Founded and built Rusokh, a university learning platform with Arabic and English interfaces, course publishing, payments and video delivery.",
+    line: "I hit the same walls on every course platform I taught on, so I built my own. It started as a small project and kept improving, release after release, until it became a full platform that serves the need: bilingual (Arabic/English), payments, video delivery, live and in use today.",
     preview: {
       src: "/media/rusokh-home.jpg",
       alt: "The Rusokh homepage in Arabic: the course catalogue headline beside a Digital Logic Design course card.",
@@ -433,7 +435,7 @@ export const siteContent = {
   url: "https://youusef.com",
   // The broad professional scope. The formal job title stays in hero.currentRole,
   // the Experience row, the metadata and the structured data, as a fact.
-  role: "AI Systems Engineer · Founder · Educator",
+  role: "AI Systems Engineer · Educator",
   tagline: "I build AI systems and digital products, from the first requirement to launch and handover.",
   hero: {
     location: "Riyadh, Saudi Arabia",
@@ -446,12 +448,12 @@ export const siteContent = {
     // programmes are listed in the Credentials chapter only.
     credentials: ["aws", "cdmp"] as const,
     currentRole: "Currently AI Systems Engineer at Noon Academy.",
-    // Three facts with their context attached: the product, then two Shaguf
-    // teaching figures that must never read as product or employer numbers.
+    // Three facts: the product Yousef built, then two teaching figures. The
+    // teaching platform is not named anywhere on the site, by his choice.
     proof: [
-      { text: "Founder of Rusokh", href: "https://rusokh.com" },
-      { text: "1,800+ computer science students taught at Shaguf", href: null },
-      { text: "4.9/5 learner rating at Shaguf", href: null },
+      { text: "Built Rusokh, a live course platform", href: "https://rusokh.com" },
+      { text: "2,000+ computer science students taught", href: null },
+      { text: "4.9/5 learner rating", href: null },
     ],
     cta: {
       work: "#work",
@@ -466,7 +468,7 @@ export const siteContent = {
   },
   workSection: {
     title: "Selected work",
-    lead: "Products I founded and systems I built, with a clear role in each.",
+    lead: "Products and systems I built, with a clear role in each.",
     // The two Noon cases that lead the chapter, by id. The other two live in
     // the Experience chapter behind the "More work at Noon Academy" fold.
     noonCases: ["noon-training-development", "noon-mcit-genai"] as const,
@@ -542,13 +544,13 @@ export const siteContent = {
   },
   teaching: {
     title: "Teaching",
-    lead: "Instructor at Shaguf Educational Platform since January 2022.",
+    lead: "Computer science instructor since January 2022.",
     lines: [
-      "Taught 1,800+ computer science students at Shaguf, with a 4.9/5 learner rating.",
+      "Taught computer science courses to 2,000+ students, with a 4.9/5 learner rating.",
       "Explaining complex ideas clearly is part of how I build. It helps me align technical teams, support users and make systems easier to understand.",
     ],
     stats: [
-      { value: "1,800", unit: "+", label: "Students taught" },
+      { value: "2,000", unit: "+", label: "Students taught" },
       { value: "4.9", unit: "/5", label: "Learner rating" },
       // A start year, not a duration: it never goes stale and is never counted up.
       { value: "2022", label: "Teaching since" },
@@ -562,16 +564,16 @@ export const siteContent = {
         height: 1200,
       },
       {
-        src: "/media/photo-shaguf-stage.jpg",
-        alt: "Yousef speaking on stage as the honored best instructor at a Shaguf event",
-        caption: "Honored as best instructor at a Shaguf event",
+        src: "/media/photo-teaching-stage.jpg",
+        alt: "Yousef speaking on stage after being honored as best instructor",
+        caption: "Honored as best instructor on stage",
         width: 892,
         height: 490,
       },
       {
-        src: "/media/photo-shaguf-audience.jpg",
-        alt: "The audience at the Shaguf session",
-        caption: "The room at the Shaguf session",
+        src: "/media/photo-teaching-audience.jpg",
+        alt: "The audience at one of my sessions",
+        caption: "The room at one of my sessions",
         width: 892,
         height: 477,
       },
@@ -601,7 +603,7 @@ export const siteContent = {
     education: "BSc Computer Science, Imam Muhammad ibn Saud Islamic University (IMSIU)",
     verifyLabel: "View credential",
     list: credentials,
-    alsoLead: "Additional learning:",
+    alsoLead: "Other certificates:",
     also: [
       "Introduction to AI, KAUST Academy, 2026",
       "Data Science & ML scholarship, KAUST Academy, 2025",
@@ -648,13 +650,13 @@ export const siteContent = {
   // Page metadata and the social card's lines. The broader identity lives
   // here; the formal job title stays in the Person record (lib/jsonld.ts).
   meta: {
-    title: "Yousef Alshuwayi · AI Systems Engineer & Founder",
+    title: "Yousef Alshuwayi · AI Systems Engineer & Educator",
     description:
-      "AI systems engineer and founder of Rusokh. Explore my AI platforms, operational software, teaching and work at Noon Academy.",
+      "AI systems engineer and educator. Explore my AI platforms, operational software, Rusokh, teaching and work at Noon Academy.",
     ogLocale: "en_US",
     og: {
-      alt: "Yousef Alshuwayi · AI Systems Engineer & Founder",
-      line2: "AI SYSTEMS ENGINEER · FOUNDER",
+      alt: "Yousef Alshuwayi · AI Systems Engineer & Educator",
+      line2: "AI SYSTEMS ENGINEER · EDUCATOR",
       line3: "AI systems. Digital products. Hands-on delivery.",
       line4: "youusef.com · Riyadh, Saudi Arabia",
     },

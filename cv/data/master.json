@@ -210,8 +210,8 @@
             "all"
           ],
           "text": {
-            "en": "Taught 1,800+ computer science students at Shaguf, with a 4.9/5 learner rating.",
-            "ar": "درّست أكثر من 1,800 طالب في علوم الحاسب في شغوف على مدى أربع سنوات، بتقييم 4.9 من 5 من المتعلّمين."
+            "en": "Taught computer science courses to 2,000+ students, with a 4.9/5 learner rating.",
+            "ar": "قدمت شرحًا لمواد الحاسب لأكثر من 2,000 طالب وطالبة، بتقييم 4.9 من 5."
           }
         },
         {
@@ -340,8 +340,8 @@
     {
       "id": "rusokh",
       "title": {
-        "en": "Rusokh, founder and product builder",
-        "ar": "رسوخ، منصة دورات (مشروع شخصي)"
+        "en": "Rusokh, course platform",
+        "ar": "رسوخ، منصة دورات"
       },
       "org": {
         "en": "",
@@ -363,8 +363,8 @@
             "all"
           ],
           "text": {
-            "en": "Founded and built Rusokh, a live university learning platform with Arabic and English interfaces, course publishing, payments and video delivery. Next.js 15, Convex, Moyasar, Bunny.net.",
-            "ar": "بنيت منصة الدورات الخاصة بي بعد أن واجهت العوائق نفسها في كل منصة درّست عليها: ثنائية اللغة (عربي/إنجليزي)، ومدفوعات، وبث فيديو، وهي تعمل وقيد الاستخدام اليوم. Next.js 15 وConvex وMoyasar وBunny.net."
+            "en": "Built my own course platform after hitting the same walls on every platform I taught on, and kept improving it until it became a full platform: bilingual (Arabic/English), payments, video delivery, live and in use today. Next.js 15, Convex, Moyasar, Bunny.net.",
+            "ar": "بنيت منصة الدورات الخاصة بي بعد أن واجهت العوائق نفسها في كل منصة درّست عليها، وظللت أطورها حتى صارت منصة متكاملة: ثنائية اللغة (عربي/إنجليزي)، ومدفوعات، وبث فيديو، وهي تعمل وقيد الاستخدام اليوم. Next.js 15 وConvex وMoyasar وBunny.net."
           }
         }
       ]
