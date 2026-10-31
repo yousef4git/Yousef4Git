@@ -88,8 +88,8 @@ export default function Nav() {
           data-nav-pill
           className="liquid-glass pointer-events-auto flex max-w-full items-center rounded-full py-1.5 ps-4 pe-1.5"
         >
-          <a href="#hero" className="me-1.5 flex items-center">
-            <Mark className="h-7 w-7" />
+          <a href="#hero" className="me-1.5 flex shrink-0 items-center">
+            <Mark className="h-7" />
             <span className="sr-only">{ui.nav.backToTop}</span>
           </a>
           <nav

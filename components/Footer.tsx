@@ -17,8 +17,8 @@ export default function Footer({ locale }: { locale: Locale }) {
           className="grid grid-cols-1 gap-y-4 border-b border-bone/10 pb-12 md:grid-cols-12 md:gap-x-8"
         >
           <div className="md:col-span-4">
-            <span className="flex h-12 w-12 items-center justify-center rounded-xl border border-gold/25 bg-night">
-              <Mark className="h-7 w-7" />
+            <span className="inline-flex h-12 items-center justify-center rounded-xl border border-gold/25 bg-night px-3">
+              <Mark className="h-7" />
             </span>
             <h2 className="mt-5 font-display text-2xl leading-tight text-bone md:text-3xl">{site.title}</h2>
             <p className="mt-2 text-sm text-bone/80">{site.kicker}</p>
